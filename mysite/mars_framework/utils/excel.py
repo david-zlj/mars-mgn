@@ -1,0 +1,90 @@
+from urllib.parse import quote
+from django.http import HttpResponse
+from openpyxl import Workbook
+from openpyxl.utils import get_column_letter
+
+# 定义导出Excel文件时，需要转义的字段
+# TODO 优化，与db.enums.py 合并
+FIELD_CHOICES = {
+    "status": {0: "开启", 1: "关闭"},
+    "sex": {1: "男", 2: "女"},
+    "data_scope": {
+        1: "全部数据",
+        2: "自定义数据",
+        3: "本部门数据",
+        4: "本部门及以下数据",
+        5: "仅本人数据",
+    },
+    "job_status": {0: "初始化中", 1: "开启", 2: "暂停"},
+    "job_log_status": {0: "运行中", 1: "成功", 2: "失败"},
+}
+
+
+def process_item(item, fields):
+    """处理单个数据项并返回处理后的行数据"""
+    row = []
+    for field in fields:
+        value = item.get(field)
+        # 检查字段是否需要特殊处理
+        if field in FIELD_CHOICES:
+            value = FIELD_CHOICES[field].get(value, None)
+        # 特殊字段处理
+        elif field == "id" or field == "job_id":
+            value = str(value)
+        # 默认情况下直接返回值
+        row.append(value)
+    return row
+
+
+def create_excel_workbook(data, labels, fields, sheet_title="Sheet1"):
+    """
+    导出数据到 Excel 文件。
+
+    参数:
+    - data: 数据列表，每个元素是一个包含数据信息的字典。
+    - labels: 表头列表，用于显示在表格的顶部。
+    - fields: 字段列表，用于从数据中提取对应的值。
+    - sheet_title: 工作表的标题，默认为 "Sheet1"。
+
+    返回:
+    - workbook: 一个 Excel 工作簿对象，包含数据。
+    """
+    # print(data)
+    # 检查 headers 和 fields 的长度是否一致
+    if len(labels) != len(fields):
+        raise ValueError("headers 和 fields 的长度必须一致")
+    # 创建一个 Excel 工作簿
+    workbook = Workbook()
+    sheet = workbook.active
+    sheet.title = sheet_title
+    # 设置表头
+    sheet.append(labels)
+    # 添加数据
+    for item in data:
+        row = process_item(item, fields)
+        sheet.append(row)
+    # 设置列宽
+    for col_num in range(1, len(labels) + 1):
+        col_letter = get_column_letter(col_num)
+        sheet.column_dimensions[col_letter].width = 15
+
+    return workbook
+
+
+def generate_excel_response(workbook, file_name="export.xlsx"):
+    """
+    生成 Excel 文件并返回 HTTP 响应。
+
+    参数:
+    - workbook: Excel 工作簿对象。
+    - file_name: 生成的文件名。
+
+    返回:
+    - HttpResponse: 包含 Excel 文件的 HTTP 响应。
+    """
+    response = HttpResponse(
+        content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+    response["Content-Disposition"] = f"attachment; filename={quote(file_name)}"
+    workbook.save(response)
+    return response
