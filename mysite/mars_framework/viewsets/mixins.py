@@ -271,7 +271,7 @@ class ListSimpleModelMixin(BaseList):
         return self._list_simple(request, *args, **kwargs)
 
 
-class ExportModelMixin():
+class ExportModelMixin:
     """导出数据"""
 
     # TODO 接口文档不正确
@@ -285,16 +285,34 @@ class ExportModelMixin():
         url_path="export",
     )
     def export(self, request, *args, **kwargs):
-        pass
-        # queryset = self.filter_queryset(self.get_queryset())
+        # 获取数据
+        data = self.get_export_data(request, *args, **kwargs)
+        # 生成 Excel 工作簿
+        workbook = create_excel_workbook(
+            data, self.export_fields_labels, self.export_data_map
+        )
+        # 生成文件名
+        if not self.export_name:
+            self.export_name = "export"
+        file_name = (
+            f'{self.export_name}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.xlsx'
+        )
+        # 返回 Excel 工作簿
+        return generate_excel_response(workbook, file_name)
 
-        # page = self.paginate_queryset(queryset)
-        # if page is not None:
-        #     serializer = self.get_serializer(page, many=True)
-        #     return self.get_paginated_response(serializer.data)
-
-        # serializer = self.get_serializer(queryset, many=True)
-        # return CommonResponse.success(data=serializer.data)
+    def get_export_data(self, request, create_time_filter=None, *args, **kwargs):
+        # 获取经过分页与过滤后的数据
+        queryset = self.filter_queryset(self.get_queryset())
+        if create_time_filter:
+            queryset = create_time_filter(request, queryset)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            data = serializer.data
+        else:
+            serializer = self.get_serializer(queryset, many=True)
+            data = serializer.data
+        return data
 
 
 class CustomExportModelMixin:

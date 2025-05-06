@@ -27,3 +27,13 @@ class DictDataViewSet(CustomModelViewSet):
         "list": [has_perm("system:dict:query")],
         "export": [has_perm("system:dict:export")],
     }
+    export_name = "字典数据"
+    export_fields_labels = {
+        "id": "字典编码",
+        "sort": "字典排序",
+        "label": "字典标签",
+        "value": "字典键值",
+        "dict_type": "字典类型",
+        "status": "状态",
+    }
+    export_data_map = {"status": {0: "开启", 1: "关闭"}}

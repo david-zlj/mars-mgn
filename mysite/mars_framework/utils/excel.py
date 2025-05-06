@@ -20,38 +20,36 @@ FIELD_CHOICES = {
 }
 
 
-def process_item(item, fields):
-    """处理单个数据项并返回处理后的行数据"""
+def process_item(item, fields, data_map={}):
+    """将单个数据项转换为行数据"""
     row = []
     for field in fields:
         value = item.get(field)
-        # 检查字段是否需要特殊处理
-        if field in FIELD_CHOICES:
-            value = FIELD_CHOICES[field].get(value, None)
-        # 特殊字段处理
+        # 友好显示转换
+        if field in data_map:
+            value = data_map[field].get(value, None)
+        # 特殊字段类型转换
         elif field == "id" or field == "job_id":
             value = str(value)
-        # 默认情况下直接返回值
         row.append(value)
     return row
 
 
-def create_excel_workbook(data, labels, fields, sheet_title="Sheet1"):
+def create_excel_workbook(data, fields_labels, data_map={}, sheet_name="Sheet1"):
     """
     将数据写入Excel文件
     """
-    # 检查 headers 和 fields 的长度是否一致
-    if len(labels) != len(fields):
-        raise ValueError("headers 和 fields 的长度必须一致")
+    fields = list(fields_labels.keys())
+    labels = list(fields_labels.values())
     # 创建一个 Excel 工作簿
     workbook = Workbook()
     sheet = workbook.active
-    sheet.title = sheet_title
+    sheet.title = sheet_name
     # 设置表头
     sheet.append(labels)
     # 添加数据
     for item in data:
-        row = process_item(item, fields)
+        row = process_item(item, fields, data_map)
         sheet.append(row)
     # 设置列宽
     for col_num in range(1, len(labels) + 1):

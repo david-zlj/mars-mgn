@@ -83,7 +83,7 @@ class CustomGenericViewSet2(viewsets.GenericViewSet):
     action_serializers = {}  # 可以为每个action指定序列化器
     action_permissions = {}  # 可以为每个action指定权限
     export_name = ""  # 导出文件名
-    export_fields = {}  # 导出数据时，指定导出字段
+    export_fields_labels = {}  # 导出数据时，指定导出字段
     export_data_map = {}  # 导出数据时，指定数据字段映射
 
     def get_serializer_class(self):

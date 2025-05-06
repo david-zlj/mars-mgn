@@ -13,7 +13,8 @@ from .dict_data.views import DictDataViewSet
 
 
 # 创建（不带后缀/）路由器实例
-router = SimpleRouter(trailing_slash=False)
+router = SimpleRouter()
+# router = SimpleRouter(trailing_slash=False)
 
 # 管理后台 - 认证
 router.register(r"auth", AuthViewSet, basename="auth")

@@ -276,8 +276,8 @@ SIMPLE_JWT = {
 ### OpenAPI 文档配置
 # TODO 自动生成的接口未能正确显示请求参数和响应，待优化
 SPECTACULAR_SETTINGS = {
-    "TITLE": "MarsMgn 火星信息管理平台API接口平台",
-    "DESCRIPTION": "MarsMgn 火星信息管理平台",
+    "TITLE": "MarsMgn",
+    "DESCRIPTION": "火星信息管理平台API接口文档",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
