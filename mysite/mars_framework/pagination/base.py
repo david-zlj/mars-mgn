@@ -49,5 +49,5 @@ class CustomPageNumberPagination(PageNumberPagination):
         - 包含当前页数据列表和数据总数量的响应。
         """
         return CommonResponse.success(
-            {"list": data, "total": self.page.paginator.count}
+            data={"list": data, "total": self.page.paginator.count}
         )

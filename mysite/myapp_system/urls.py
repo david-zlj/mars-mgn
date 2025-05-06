@@ -9,6 +9,7 @@ from .post.views import PostViewSet
 from .role.views import RoleViewSet
 from .menu.views import MenuViewSet
 from .permission.views import PermissionViewSet
+from .dict_data.views import DictDataViewSet
 
 
 # 创建（不带后缀/）路由器实例
@@ -30,6 +31,8 @@ router.register(r"role", RoleViewSet, basename="role")
 router.register(r"menu", MenuViewSet, basename="menu")
 # 管理后台 - 权限
 router.register(r"permission", PermissionViewSet, basename="permission")
+# 管理后台 - 字典数据
+router.register(r"dict-data", DictDataViewSet, basename="dict_data")
 
 
 urlpatterns = []

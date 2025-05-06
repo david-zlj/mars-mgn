@@ -17,8 +17,8 @@ COMMON_STATUS_CHOICES = [
 class CommonStatusEnum(Enum):
     """通用状态枚举"""
 
-    ENABLE = 0
-    DISABLE = 1
+    ENABLE = 0  # 开启
+    DISABLE = 1  # 关闭
 
 
 # 菜单类型

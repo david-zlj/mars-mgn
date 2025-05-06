@@ -8,3 +8,4 @@ from .dept.models import SystemDept
 from .post.models import SystemPost
 from .menu.models import SystemMenu
 from .role.models import SystemRole, SystemRoleMenu
+from .dict_data.models import SystemDictData

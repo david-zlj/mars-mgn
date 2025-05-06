@@ -6,7 +6,6 @@ from rest_framework import viewsets, permissions
 from rest_framework.generics import get_object_or_404
 from rest_framework.exceptions import ValidationError
 
-
 from .mixins import (
     CustomCreateModelMixin,
     CustomListModelMixin,
@@ -14,6 +13,15 @@ from .mixins import (
     CustomDestroyModelMixin,
     CustomUpdateModelMixin,
     CustomExportModelMixin,
+)
+from .mixins import (
+    CustomCreateModelMixin2,
+    CustomListModelMixin2,
+    CustomRetrieveModelMixin2,
+    CustomDestroyModelMixin2,
+    CustomUpdateModelMixin2,
+    ListSimpleModelMixin,
+    ExportModelMixin,
 )
 
 
@@ -52,7 +60,7 @@ class CustomGenericViewSet(viewsets.GenericViewSet):
             obj = get_object_or_404(queryset, id=self.request.data["id"])
             self.check_object_permissions(self.request, obj)
             return obj
-        
+
         return super().get_object()
 
 
@@ -65,6 +73,44 @@ class CustomViewSet(
     CustomUpdateModelMixin,
     CustomExportModelMixin,
 ):
-    """
-    自定义ViewSet
-    """
+    """自定义ViewSet"""
+
+    pass
+
+
+class CustomGenericViewSet2(viewsets.GenericViewSet):
+    http_method_names = ["get", "post", "put", "delete"]  # 排除 'patch' 方法
+    action_serializers = {}  # 可以为每个action指定序列化器
+    action_permissions = {}  # 可以为每个action指定权限
+    export_name = ""  # 导出文件名
+    export_fields = {}  # 导出数据时，指定导出字段
+    export_data_map = {}  # 导出数据时，指定数据字段映射
+
+    def get_serializer_class(self):
+        """
+        动态获取序列化器类。
+        根据当前的 action 动态加载对应的序列化器类，如果没有定义则使用默认的序列化器。
+        """
+        return self.action_serializers.get(self.action, super().get_serializer_class())
+
+    def get_permissions(self):
+        """
+        动态获取权限。
+        根据当前的 action 动态加载对应的权限，如果没有定义则使用默认的权限。
+        """
+        return self.action_permissions.get(self.action, super().get_permissions())
+
+
+class CustomModelViewSet(
+    CustomCreateModelMixin2,
+    CustomListModelMixin2,
+    CustomRetrieveModelMixin2,
+    CustomDestroyModelMixin2,
+    CustomUpdateModelMixin2,
+    ListSimpleModelMixin,
+    ExportModelMixin,
+    CustomGenericViewSet2,
+):
+    """自定义ModelViewSet"""
+
+    pass

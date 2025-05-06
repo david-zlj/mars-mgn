@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-lm*vvf-ds3(q20dft_%i4%nrkcl3)tja@*z2(&^sdhrfrty=rw"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -86,8 +86,8 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-DATABASE_HOST = "mars-mysql"  # Docker部署时填写mars-mysql
-# DATABASE_HOST = "127.0.0.1"  # 数据库地址
+# DATABASE_HOST = "mars-mysql"  # Docker部署时填写mars-mysql
+DATABASE_HOST = "127.0.0.1"  # 数据库地址
 DATABASE_PORT = "3306"  # 数据库端口
 DATABASES = {
     "default": {
@@ -191,7 +191,7 @@ LOGGING = {
             "backupCount": 10,  # 保留 10 个备份文件
             "delay": True,  # 延迟打开文件，减少占用冲突
             "formatter": "verbose",
-            "level": "ERROR", # 只记录错误及以上级别的日志
+            "level": "ERROR",  # 只记录错误及以上级别的日志
             "encoding": "utf-8",
         },
     },
@@ -222,12 +222,16 @@ LOGGING = {
 ### DRF 配置
 REST_FRAMEWORK = {
     # 全局渲染器配置
-    # "DEFAULT_RENDERER_CLASSES": [
-    #     "mars_framework.renderers.base.CustomJSONRenderer",  # 自定义渲染器，实现自定义JSON响应格式
-    #     # "rest_framework.renderers.BrowsableAPIRenderer",  # 提供开发调试界面
-    # ],
-    # 全局解释器配置：只接受前端发来的JSON请求
-    "DEFAULT_PARSER_CLASSES": ["rest_framework.parsers.JSONParser"],
+    "DEFAULT_RENDERER_CLASSES": [
+        "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
+        # "mars_framework.renderers.base.CustomJSONRenderer",  # 自定义渲染器，实现自定义JSON响应格式
+        # "rest_framework.renderers.BrowsableAPIRenderer",  # 提供开发调试界面
+    ],
+    # 全局解释器配置
+    "DEFAULT_PARSER_CLASSES": [
+        "djangorestframework_camel_case.parser.CamelCaseJSONParser",
+        # "rest_framework.parsers.JSONParser",
+    ],
     # 全局异常处理
     "EXCEPTION_HANDLER": "mars_framework.exceptions.base.custom_exception_handler",
     # JWT 认证配置
@@ -272,15 +276,15 @@ SIMPLE_JWT = {
 ### OpenAPI 文档配置
 # TODO 自动生成的接口未能正确显示请求参数和响应，待优化
 SPECTACULAR_SETTINGS = {
-    "TITLE": "MarsMgn API接口文档",
-    "DESCRIPTION": "MarsMgn 火星后台管理平台",
+    "TITLE": "MarsMgn 火星信息管理平台API接口平台",
+    "DESCRIPTION": "MarsMgn 火星信息管理平台",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
 
 ### Redis 缓存配置
-REDIS_HOST = "mars-redis"  # Docker部署时填写mars-redis
-# REDIS_HOST = "127.0.0.1"
+# REDIS_HOST = "mars-redis"  # Docker部署时填写mars-redis
+REDIS_HOST = "127.0.0.1"
 REDIS_PORT = 6379
 REDIS_DB = 3
 REDIS_PASSWORD = ""

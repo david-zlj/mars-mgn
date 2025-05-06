@@ -4,6 +4,7 @@ TODO
 """
 
 from rest_framework import serializers
+from drf_spectacular.utils import inline_serializer
 
 
 class CustomDateTimeField(serializers.DateTimeField):
@@ -21,3 +22,24 @@ class CustomPrimaryKeyRelatedField(serializers.PrimaryKeyRelatedField):
         if data == 0:
             return None  # 将0转换为None
         return super().to_internal_value(data)  # 其他值正常处理
+
+
+# 定义通用响应结构序列化器：用于接口文档
+SuccessResponseSerializer = inline_serializer(
+    name="SuccessResponse",
+    fields={
+        "code": serializers.IntegerField(default=0),
+        "data": serializers.BooleanField(),
+        "msg": serializers.CharField(default=""),
+    },
+)
+
+# 定义通用响应结构序列化器：用于接口文档
+ErrorResponseSerializer = inline_serializer(
+    name="ErrorResponse",
+    fields={
+        "code": serializers.IntegerField(default=500),
+        "data": serializers.JSONField(allow_null=True),
+        "msg": serializers.CharField(default="Error"),
+    },
+)

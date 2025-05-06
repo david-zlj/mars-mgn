@@ -8,31 +8,24 @@ class CommonResponse:
     """
 
     @staticmethod
-    def success(data=None, msg=""):
+    def success(code=0, data=True, msg="", status_code=status.HTTP_200_OK):
         """
         成功响应
-        :param data: 响应数据
-        :param msg: 响应消息
-        :return: Response 对象
         """
         return Response(
             {
-                "code": 0,  # 成功状态码统一为 0
+                "code": code,  # 0 表示成功
                 "data": data,
                 "msg": msg,
             },
-            status=status.HTTP_200_OK,
+            status=status_code,
         )
 
     @staticmethod
-    def error(code=500, msg="Error", data=None, status_code=status.HTTP_200_OK):
+    def error(code=500, data=None, msg="Error", status_code=status.HTTP_200_OK):
         """
-        错误响应
-        用于发生业务错误，业务错误码范围定义参考mars_framework.exceptions.enums.py
-        :param code: 错误码
-        :param msg: 错误消息
-        :param status_code: HTTP 状态码
-        :return: Response 对象
+        错误响应，用于发生业务错误
+        业务错误码参考 mars_framework.exceptions.enums.py
         """
         return Response(
             {

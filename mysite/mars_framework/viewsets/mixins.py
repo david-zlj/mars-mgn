@@ -4,35 +4,187 @@ TODO
 """
 
 from datetime import datetime
+from rest_framework import mixins, serializers
+from rest_framework.decorators import action
+from drf_spectacular.utils import (
+    extend_schema,
+    OpenApiResponse,
+    OpenApiExample,
+    inline_serializer,
+)
+from drf_spectacular.types import OpenApiTypes
 
 from ..response.base import CommonResponse
 from ..utils.excel import create_excel_workbook, generate_excel_response
+from ..serializers.base import SuccessResponseSerializer, ErrorResponseSerializer
 
 
 class CustomCreateModelMixin:
-    """
-    增
-    """
+    """新增"""
 
     def custom_create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        # 数据校验失败时，返回第1个错误信息
-        # try:
-        #     serializer.is_valid(raise_exception=True)
-        # except ValidationError as e:
-        #     print(e.detail)
-        #     if isinstance(e.detail, dict):
-        #         field, errors = next(iter(e.detail.items()))
-        #     return CommonResponse.error(code=400, msg=errors[0])
         instance = serializer.save(creator=request.user.id, updater=request.user.id)
         return CommonResponse.success(data=instance.id)
 
 
+class CustomCreateModelMixin2(mixins.CreateModelMixin):
+    """新增"""
+
+    @extend_schema(
+        summary="新增",
+        description="新增",
+        responses={
+            200: OpenApiResponse(
+                response=inline_serializer(
+                    name="CreateSuccess",
+                    fields={
+                        "code": serializers.IntegerField(),
+                        "data": serializers.IntegerField(),
+                        "msg": serializers.CharField(),
+                    },
+                ),
+                examples=[
+                    OpenApiExample(
+                        "成功示例", value={"code": 0, "data": 123, "msg": ""}
+                    )
+                ],
+            ),
+        },
+    )
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = self.perform_create(serializer)
+        return CommonResponse.success(data=instance.id)
+
+    def perform_create(self, serializer):
+        return serializer.save(
+            creator=self.request.user.id, updater=self.request.user.id
+        )  # 补充创建者、更新者字段
+
+
+class CustomDestroyModelMixin:
+    """删"""
+
+    def custom_destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return CommonResponse.success(data=True)
+
+    def perform_destroy(self, instance):
+        instance.delete()
+
+
+class CustomDestroyModelMixin2(mixins.DestroyModelMixin):
+    """删除"""
+
+    @extend_schema(
+        summary="删除",
+        description="删除",
+        responses={
+            200: OpenApiResponse(
+                description="删除成功",
+                response=inline_serializer(
+                    name="DestroySuccess",
+                    fields={
+                        "code": serializers.IntegerField(),
+                        "data": serializers.BooleanField(),
+                        "msg": serializers.CharField(),
+                    },
+                ),
+                examples=[
+                    OpenApiExample(
+                        "成功示例", value={"code": 0, "data": True, "msg": ""}
+                    )
+                ],
+            ),
+        },
+    )
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+        return CommonResponse.success()
+
+
+class CustomUpdateModelMixin:
+    """改"""
+
+    def custom_update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(updater=request.user.id)
+        return CommonResponse.success(data=True)
+
+
+class CustomUpdateModelMixin2(mixins.UpdateModelMixin):
+    """修改"""
+
+    @extend_schema(
+        summary="修改",
+        description="修改",
+        responses={
+            200: OpenApiResponse(
+                response=inline_serializer(
+                    name="UpdateSuccess",
+                    fields={
+                        "code": serializers.IntegerField(),
+                        "data": serializers.BooleanField(),
+                        "msg": serializers.CharField(),
+                    },
+                ),
+                examples=[
+                    OpenApiExample(
+                        "成功示例", value={"code": 0, "data": True, "msg": ""}
+                    )
+                ],
+            ),
+        },
+    )
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop("partial", False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        if getattr(instance, "_prefetched_objects_cache", None):
+            # If 'prefetch_related' has been applied to a queryset, we need to
+            # forcibly invalidate the prefetch cache on the instance.
+            instance._prefetched_objects_cache = {}
+
+        return CommonResponse.success()
+
+    def perform_update(self, serializer):
+        serializer.save(updater=self.request.user.id)  # 补充更新者字段
+
+
+class CustomRetrieveModelMixin:
+    """查：详情"""
+
+    def custom_retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return CommonResponse.success(data=serializer.data)
+
+
+class CustomRetrieveModelMixin2(mixins.RetrieveModelMixin):
+    """查询详情"""
+
+    @extend_schema(
+        summary="查询详情",
+        description="查询详情",
+    )
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return CommonResponse.success(data=serializer.data)
+
+
 class CustomListModelMixin:
-    """
-    查   列表
-    """
+    """查：列表"""
 
     def custom_list(self, request, create_time_filter=None, *args, **kwargs):
         """
@@ -60,7 +212,89 @@ class CustomListModelMixin:
 
         # 如果没有分页，对整个查询集进行序列化并返回成功响应
         serializer = self.get_serializer(queryset, many=True)
-        return CommonResponse.success(serializer.data)
+        return CommonResponse.success(data=serializer.data)
+
+
+class BaseList:
+    def _list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return CommonResponse.success(data=serializer.data)
+
+
+class CustomListModelMixin2(BaseList):
+    """查询列表"""
+
+    # TODO 接口文档不正确
+
+    @extend_schema(
+        summary="查询列表",
+        description="查询列表。TODO 接口文档不正确",
+    )
+    def list(self, request, *args, **kwargs):
+        return self._list(request, *args, **kwargs)
+
+
+class ListSimpleModelMixin(BaseList):
+    """查询列表简要信息"""
+
+    # TODO 接口文档不正确
+
+    @extend_schema(
+        summary="查询列表简要信息",
+        description="查询列表简要信息。TODO 接口文档不正确",
+    )
+    @action(
+        methods=["get"],
+        detail=False,
+        url_path="simple-list",
+    )
+    def list_simple(self, request, *args, **kwargs):
+        return self._list_simple(request, *args, **kwargs)
+
+    @extend_schema(
+        summary="查询列表简要信息",
+        description="查询列表简要信息。TODO 接口文档不正确",
+    )
+    @action(
+        methods=["get"],
+        detail=False,
+        url_path="list-all-simple",
+    )
+    def list_simple_2(self, request, *args, **kwargs):
+        return self._list_simple(request, *args, **kwargs)
+
+
+class ExportModelMixin():
+    """导出数据"""
+
+    # TODO 接口文档不正确
+    @extend_schema(
+        summary="导出数据",
+        description="导出数据。TODO 接口文档不正确",
+    )
+    @action(
+        methods=["get"],
+        detail=False,
+        url_path="export",
+    )
+    def export(self, request, *args, **kwargs):
+        pass
+        # queryset = self.filter_queryset(self.get_queryset())
+
+        # page = self.paginate_queryset(queryset)
+        # if page is not None:
+        #     serializer = self.get_serializer(page, many=True)
+        #     return self.get_paginated_response(serializer.data)
+
+        # serializer = self.get_serializer(queryset, many=True)
+        # return CommonResponse.success(data=serializer.data)
 
 
 class CustomExportModelMixin:
@@ -96,48 +330,3 @@ class CustomExportModelMixin:
             serializer = self.get_serializer(queryset, many=True)
             data = serializer.data
         return data
-
-
-class CustomRetrieveModelMixin:
-    """
-    查    详情
-    """
-
-    def custom_retrieve(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance)
-        return CommonResponse.success(serializer.data)
-
-
-class CustomUpdateModelMixin:
-    """
-    改
-    """
-
-    def custom_update(self, request, *args, **kwargs):
-        instance = self.get_object()
-        serializer = self.get_serializer(instance, data=request.data)
-        serializer.is_valid(raise_exception=True)
-        # 数据校验失败时，返回第1个错误信息
-        # try:
-        #     serializer.is_valid(raise_exception=True)
-        # except ValidationError as e:
-        #     if isinstance(e.detail, dict):
-        #         field, errors = next(iter(e.detail.items()))
-        #     return CommonResponse.error(code=400, msg=errors[0])
-        serializer.save(updater=request.user.id)
-        return CommonResponse.success(data=True)
-
-
-class CustomDestroyModelMixin:
-    """
-    删
-    """
-
-    def custom_destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        return CommonResponse.success(data=True)
-
-    def perform_destroy(self, instance):
-        instance.delete()

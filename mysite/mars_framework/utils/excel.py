@@ -38,18 +38,8 @@ def process_item(item, fields):
 
 def create_excel_workbook(data, labels, fields, sheet_title="Sheet1"):
     """
-    导出数据到 Excel 文件。
-
-    参数:
-    - data: 数据列表，每个元素是一个包含数据信息的字典。
-    - labels: 表头列表，用于显示在表格的顶部。
-    - fields: 字段列表，用于从数据中提取对应的值。
-    - sheet_title: 工作表的标题，默认为 "Sheet1"。
-
-    返回:
-    - workbook: 一个 Excel 工作簿对象，包含数据。
+    将数据写入Excel文件
     """
-    # print(data)
     # 检查 headers 和 fields 的长度是否一致
     if len(labels) != len(fields):
         raise ValueError("headers 和 fields 的长度必须一致")
@@ -74,13 +64,6 @@ def create_excel_workbook(data, labels, fields, sheet_title="Sheet1"):
 def generate_excel_response(workbook, file_name="export.xlsx"):
     """
     生成 Excel 文件并返回 HTTP 响应。
-
-    参数:
-    - workbook: Excel 工作簿对象。
-    - file_name: 生成的文件名。
-
-    返回:
-    - HttpResponse: 包含 Excel 文件的 HTTP 响应。
     """
     response = HttpResponse(
         content_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
