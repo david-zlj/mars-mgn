@@ -256,7 +256,7 @@ class ListSimpleModelMixin(BaseList):
         url_path="simple-list",
     )
     def list_simple(self, request, *args, **kwargs):
-        return self._list_simple(request, *args, **kwargs)
+        return self._list(request, *args, **kwargs)
 
     @extend_schema(
         summary="查询列表简要信息",
@@ -268,7 +268,7 @@ class ListSimpleModelMixin(BaseList):
         url_path="list-all-simple",
     )
     def list_simple_2(self, request, *args, **kwargs):
-        return self._list_simple(request, *args, **kwargs)
+        return self._list(request, *args, **kwargs)
 
 
 class ExportModelMixin:

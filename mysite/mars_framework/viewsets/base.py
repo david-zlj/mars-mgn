@@ -81,7 +81,8 @@ class CustomViewSet(
 class CustomGenericViewSet2(viewsets.GenericViewSet):
     http_method_names = ["get", "post", "put", "delete"]  # 排除 'patch' 方法
     action_serializers = {}  # 可以为每个action指定序列化器
-    action_permissions = {}  # 可以为每个action指定权限
+    # 可以为每个action指定权限。注意：key是action名称，value是权限类实例列表，而不是权限类列表。
+    action_permissions = {}
     export_name = ""  # 导出文件名
     export_fields_labels = {}  # 导出数据时，指定导出字段
     export_data_map = {}  # 导出数据时，指定数据字段映射

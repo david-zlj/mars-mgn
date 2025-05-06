@@ -17,7 +17,7 @@ class HasPermission(permissions.BasePermission):
         """
         视图的权限检查逻辑
         """
-
+        # return False
         # 检查用户是否已登录
         if not bool(request.user and request.user.is_authenticated):
             logger.error(f"用户 {request.user.id} 未登录。")
@@ -35,7 +35,7 @@ class HasPermission(permissions.BasePermission):
         对象（数据）权限检查逻辑
         """
         # TODO
-        # return True
+        return True
         return False
 
 

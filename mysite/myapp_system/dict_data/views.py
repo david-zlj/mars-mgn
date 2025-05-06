@@ -1,7 +1,8 @@
 from drf_spectacular.utils import extend_schema
+from rest_framework.permissions import AllowAny
 
 from mars_framework.viewsets.base import CustomModelViewSet
-from mars_framework.permissions.base import has_perm
+from mars_framework.permissions.base import HasPermission
 from .models import SystemDictData
 from .serializers import (
     DictDataSerializer,
@@ -20,12 +21,14 @@ class DictDataViewSet(CustomModelViewSet):
         "list_simple_2": DictDataSimpleListSerializer,
     }
     action_permissions = {
-        "create": [has_perm("system:dict:create")],
-        "destroy": [has_perm("system:dict:delete")],
-        "update": [has_perm("system:dict:update")],
-        "retrieve": [has_perm("system:dict:query")],
-        "list": [has_perm("system:dict:query")],
-        "export": [has_perm("system:dict:export")],
+        "create": [HasPermission("system:dict:create")],
+        "destroy": [HasPermission("system:dict:delete")],
+        "update": [HasPermission("system:dict:update")],
+        "retrieve": [HasPermission("system:dict:query")],
+        "list": [HasPermission("system:dict:query")],
+        "export": [HasPermission("system:dict:export")],
+        "list_simple": [AllowAny()],  # 无需添加权限认证，因为前端全局都需要
+        "list_simple_2": [AllowAny()],
     }
     export_name = "字典数据"
     export_fields_labels = {
@@ -37,3 +40,4 @@ class DictDataViewSet(CustomModelViewSet):
         "status": "状态",
     }
     export_data_map = {"status": {0: "开启", 1: "关闭"}}
+    # TODO list_simple放进Redis?
