@@ -9,3 +9,5 @@ from .post.models import SystemPost
 from .menu.models import SystemMenu
 from .role.models import SystemRole, SystemRoleMenu
 from .dict_data.models import SystemDictData
+from .notify_message.models import SystemNotifyMessage
+from .notify_template.models import SystemNotifyTemplate

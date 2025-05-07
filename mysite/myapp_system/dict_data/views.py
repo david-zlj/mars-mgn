@@ -1,3 +1,7 @@
+"""
+TODO 设置list_simple和list_simple_2不进行认证
+"""
+
 from drf_spectacular.utils import extend_schema
 from rest_framework.permissions import AllowAny
 

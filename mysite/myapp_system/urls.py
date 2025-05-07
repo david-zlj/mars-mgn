@@ -10,11 +10,12 @@ from .role.views import RoleViewSet
 from .menu.views import MenuViewSet
 from .permission.views import PermissionViewSet
 from .dict_data.views import DictDataViewSet
+from .notify_message.views import NotifyMessageViewSet
 
 
 # 创建（不带后缀/）路由器实例
-router = SimpleRouter()
-# router = SimpleRouter(trailing_slash=False)
+# router = SimpleRouter()
+router = SimpleRouter(trailing_slash=False)
 
 # 管理后台 - 认证
 router.register(r"auth", AuthViewSet, basename="auth")
@@ -34,6 +35,8 @@ router.register(r"menu", MenuViewSet, basename="menu")
 router.register(r"permission", PermissionViewSet, basename="permission")
 # 管理后台 - 字典数据
 router.register(r"dict-data", DictDataViewSet, basename="dict_data")
+# 管理后台 - 消息通知
+router.register(r"notify-message", NotifyMessageViewSet, basename="notify_message")
 
 
 urlpatterns = []

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     "django_celery_results",  # # Celery 定时任务扩展
     "drf_api_logger",  # DRF API请求日志记录
     "channels",  # Channels WebSocket
+    "corsheaders",  # CORS跨域支持
     "myapp_system",
     "myapp_infra",
     # 请将新的自定义应用添加到下面的MY_APPS列表
@@ -53,6 +55,7 @@ MY_APPS = []  # 请将新的自定义应用添加到这里
 INSTALLED_APPS += MY_APPS
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",  # CORS跨域支持
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -325,6 +328,16 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+### CORS 配置
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True  #  允许所有源
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    # 添加自定义请求头
+    "Cache-Control",
+    "Pragma",
+    "tenant-id",
+]
 
 ### 个性化配置
 DEFAULT_USER_PASSWORD = "admin123"

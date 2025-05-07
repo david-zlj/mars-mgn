@@ -1,0 +1,60 @@
+from django.db import models
+from mars_framework.db.base import BaseModel
+from mars_framework.db.enums import UserTypeEnum
+
+
+class SystemNotifyMessage(BaseModel):
+    id = models.BigAutoField(primary_key=True, db_comment="消息ID", help_text="消息ID")
+    # user_id = models.BigIntegerField(db_comment="用户ID", help_text="用户ID")
+    user_id = models.ForeignKey(
+        "SystemUsers",
+        on_delete=models.CASCADE,  # TODO
+        db_constraint=False,
+        related_name="notify_messages",  # TODO
+        db_column="user_id",
+        db_comment="用户ID",
+        help_text="用户ID",
+    )
+    user_type = models.SmallIntegerField(
+        choices=[(item.value, item.name) for item in UserTypeEnum],
+        db_comment="用户类型",
+        help_text="用户类型",
+    )
+    # template_id = models.BigIntegerField(db_comment="模板编号", help_text="模板编号")
+    template_id = models.ForeignKey(
+        "SystemNotifyTemplate",
+        on_delete=models.CASCADE,  # TODO
+        db_constraint=False,
+        related_name="notify_messages",  # TODO
+        db_column="template_id",
+        db_comment="模板编号",
+        help_text="模板编号",
+    )
+    template_code = models.CharField(
+        max_length=64, db_comment="模板编码", help_text="模板编码"
+    )
+    template_nickname = models.CharField(
+        max_length=63, db_comment="模板发送人名称", help_text="模板发送人名称"
+    )
+    template_content = models.CharField(
+        max_length=1024, db_comment="模板内容", help_text="模板内容"
+    )
+    template_type = models.IntegerField(db_comment="模板类型", help_text="模板类型")
+    template_params = models.CharField(
+        max_length=255, db_comment="模板参数", help_text="模板参数"
+    )
+    # TODO 数据库修正
+    read_status = models.BooleanField(
+        db_comment="是否已读",
+        help_text="是否已读",
+    )
+    read_time = models.DateTimeField(
+        blank=True, null=True, db_comment="阅读时间", help_text="阅读时间"
+    )
+    tenant_id = models.BigIntegerField(db_comment="租户编号", help_text="租户编号")
+
+    class Meta:
+        managed = False
+        db_table = "system_notify_message"
+        db_table_comment = "站内信消息表"
+        ordering = ["-id"]

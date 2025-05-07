@@ -19,7 +19,7 @@ from ..utils.excel import create_excel_workbook, generate_excel_response
 from ..serializers.base import SuccessResponseSerializer, ErrorResponseSerializer
 
 
-class CustomCreateModelMixin:
+class CustomCreateModelMixin1:
     """新增"""
 
     def custom_create(self, request, *args, **kwargs):
@@ -29,7 +29,7 @@ class CustomCreateModelMixin:
         return CommonResponse.success(data=instance.id)
 
 
-class CustomCreateModelMixin2(mixins.CreateModelMixin):
+class CustomCreateModelMixin(mixins.CreateModelMixin):
     """新增"""
 
     @extend_schema(
@@ -65,7 +65,7 @@ class CustomCreateModelMixin2(mixins.CreateModelMixin):
         )  # 补充创建者、更新者字段
 
 
-class CustomDestroyModelMixin:
+class CustomDestroyModelMixin1:
     """删"""
 
     def custom_destroy(self, request, *args, **kwargs):
@@ -77,7 +77,7 @@ class CustomDestroyModelMixin:
         instance.delete()
 
 
-class CustomDestroyModelMixin2(mixins.DestroyModelMixin):
+class CustomDestroyModelMixin(mixins.DestroyModelMixin):
     """删除"""
 
     @extend_schema(
@@ -108,7 +108,7 @@ class CustomDestroyModelMixin2(mixins.DestroyModelMixin):
         return CommonResponse.success()
 
 
-class CustomUpdateModelMixin:
+class CustomUpdateModelMixin1:
     """改"""
 
     def custom_update(self, request, *args, **kwargs):
@@ -119,7 +119,7 @@ class CustomUpdateModelMixin:
         return CommonResponse.success(data=True)
 
 
-class CustomUpdateModelMixin2(mixins.UpdateModelMixin):
+class CustomUpdateModelMixin(mixins.UpdateModelMixin):
     """修改"""
 
     @extend_schema(
@@ -161,7 +161,7 @@ class CustomUpdateModelMixin2(mixins.UpdateModelMixin):
         serializer.save(updater=self.request.user.id)  # 补充更新者字段
 
 
-class CustomRetrieveModelMixin:
+class CustomRetrieveModelMixin1:
     """查：详情"""
 
     def custom_retrieve(self, request, *args, **kwargs):
@@ -170,7 +170,7 @@ class CustomRetrieveModelMixin:
         return CommonResponse.success(data=serializer.data)
 
 
-class CustomRetrieveModelMixin2(mixins.RetrieveModelMixin):
+class CustomRetrieveModelMixin(mixins.RetrieveModelMixin):
     """查询详情"""
 
     @extend_schema(
@@ -183,7 +183,7 @@ class CustomRetrieveModelMixin2(mixins.RetrieveModelMixin):
         return CommonResponse.success(data=serializer.data)
 
 
-class CustomListModelMixin:
+class CustomListModelMixin1:
     """查：列表"""
 
     def custom_list(self, request, create_time_filter=None, *args, **kwargs):
@@ -228,7 +228,7 @@ class BaseList:
         return CommonResponse.success(data=serializer.data)
 
 
-class CustomListModelMixin2(BaseList):
+class CustomListModelMixin(BaseList):
     """查询列表"""
 
     # TODO 接口文档不正确

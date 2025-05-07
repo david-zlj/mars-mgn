@@ -7,25 +7,25 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.exceptions import ValidationError
 
 from .mixins import (
+    CustomCreateModelMixin1,
+    CustomListModelMixin1,
+    CustomRetrieveModelMixin1,
+    CustomDestroyModelMixin1,
+    CustomUpdateModelMixin1,
+    CustomExportModelMixin,
+)
+from .mixins import (
     CustomCreateModelMixin,
     CustomListModelMixin,
     CustomRetrieveModelMixin,
     CustomDestroyModelMixin,
     CustomUpdateModelMixin,
-    CustomExportModelMixin,
-)
-from .mixins import (
-    CustomCreateModelMixin2,
-    CustomListModelMixin2,
-    CustomRetrieveModelMixin2,
-    CustomDestroyModelMixin2,
-    CustomUpdateModelMixin2,
     ListSimpleModelMixin,
     ExportModelMixin,
 )
 
 
-class CustomGenericViewSet(viewsets.GenericViewSet):
+class CustomGenericViewSet1(viewsets.GenericViewSet):
 
     # 导出excel功能，两者需同时设置，否则会报错
     export_labels = []  # 导出数据时，用于定义excel表头
@@ -65,12 +65,12 @@ class CustomGenericViewSet(viewsets.GenericViewSet):
 
 
 class CustomViewSet(
-    CustomGenericViewSet,
-    CustomCreateModelMixin,
-    CustomListModelMixin,
-    CustomRetrieveModelMixin,
-    CustomDestroyModelMixin,
-    CustomUpdateModelMixin,
+    CustomGenericViewSet1,
+    CustomCreateModelMixin1,
+    CustomListModelMixin1,
+    CustomRetrieveModelMixin1,
+    CustomDestroyModelMixin1,
+    CustomUpdateModelMixin1,
     CustomExportModelMixin,
 ):
     """自定义ViewSet"""
@@ -78,7 +78,7 @@ class CustomViewSet(
     pass
 
 
-class CustomGenericViewSet2(viewsets.GenericViewSet):
+class CustomGenericViewSet(viewsets.GenericViewSet):
     http_method_names = ["get", "post", "put", "delete"]  # 排除 'patch' 方法
     action_serializers = {}  # 可以为每个action指定序列化器
     # 可以为每个action指定权限。注意：key是action名称，value是权限类实例列表，而不是权限类列表。
@@ -86,6 +86,7 @@ class CustomGenericViewSet2(viewsets.GenericViewSet):
     export_name = ""  # 导出文件名
     export_fields_labels = {}  # 导出数据时，指定导出字段
     export_data_map = {}  # 导出数据时，指定数据字段映射
+    # TODO 接口白名单
 
     def get_serializer_class(self):
         """
@@ -103,14 +104,14 @@ class CustomGenericViewSet2(viewsets.GenericViewSet):
 
 
 class CustomModelViewSet(
-    CustomCreateModelMixin2,
-    CustomListModelMixin2,
-    CustomRetrieveModelMixin2,
-    CustomDestroyModelMixin2,
-    CustomUpdateModelMixin2,
+    CustomCreateModelMixin,
+    CustomListModelMixin,
+    CustomRetrieveModelMixin,
+    CustomDestroyModelMixin,
+    CustomUpdateModelMixin,
     ListSimpleModelMixin,
     ExportModelMixin,
-    CustomGenericViewSet2,
+    CustomGenericViewSet,
 ):
     """自定义ModelViewSet"""
 

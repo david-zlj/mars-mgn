@@ -1,16 +1,3 @@
-# from django_filters import rest_framework as filters
-# from .models import SystemDictData
-
-
-# class DictDataFilter(filters.FilterSet):
-#     class Meta:
-#         model = SystemDictData
-#         fields = {
-#             "label": ["exact"],
-#             "dict_type": ["icontains"],
-#             "status": ["exact"],
-#         }
-
 from django_filters import rest_framework as filters
 from .models import SystemDictData
 
