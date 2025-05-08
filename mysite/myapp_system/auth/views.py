@@ -1,6 +1,7 @@
 from django.core.cache import cache
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
+from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.decorators import action
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -8,20 +9,21 @@ from drf_spectacular.utils import extend_schema
 
 from mars_framework.viewsets.base import CustomViewSet
 from mars_framework.response.base import CommonResponse
-from mars_framework.viewsets.base import CustomViewSet
-from mars_framework.db.enums import CommonStatusEnum
+from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
 from ..user.models import SystemUsers
 from ..menu.models import SystemMenu
 from .serializers import (
     AuthLoginSerializer,
     AuthRegisterSerializer,
     AuthPermissionInfoSerializer,
+    MenuMixinSerializer,
 )
 from .services import extract_jwt_info
 
 
 @extend_schema(tags=["管理后台-system-认证"])
-class AuthViewSet(CustomViewSet):
+class AuthViewSet(viewsets.GenericViewSet):
+    # class AuthViewSet(CustomViewSet):
     # 为了兼容GenericAPIView，需要指定序列化器
     serializer_class = AuthLoginSerializer
 
@@ -81,7 +83,8 @@ class AuthViewSet(CustomViewSet):
             id=request.user.id
         )
         serializer = AuthPermissionInfoSerializer(user)
-        # 写入Redis TODO timeout设置为不过期是否合适
+        # 写入Redis缓存
+        # TODO 设置为不过期是否合适
         cache.set(f"system_users_{request.user.id}", serializer.data, timeout=None)
         return CommonResponse.success(data=serializer.data)
 

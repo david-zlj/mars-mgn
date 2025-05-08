@@ -2,9 +2,8 @@
 TODO 性能优化
 """
 
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
 from rest_framework.generics import get_object_or_404
-from rest_framework.exceptions import ValidationError
 
 from .mixins import (
     CustomCreateModelMixin1,
@@ -23,6 +22,8 @@ from .mixins import (
     ListSimpleModelMixin,
     ExportModelMixin,
 )
+
+### V1 版本视图集（弃用） 
 
 
 class CustomGenericViewSet1(viewsets.GenericViewSet):
@@ -76,6 +77,9 @@ class CustomViewSet(
     """自定义ViewSet"""
 
     pass
+
+
+### V2 版本视图集
 
 
 class CustomGenericViewSet(viewsets.GenericViewSet):

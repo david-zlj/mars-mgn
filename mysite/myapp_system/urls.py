@@ -11,6 +11,8 @@ from .menu.views import MenuViewSet
 from .permission.views import PermissionViewSet
 from .dict_data.views import DictDataViewSet
 from .notify_message.views import NotifyMessageViewSet
+from .tenant.views import TenantViewSet
+from .captcha.views import CaptchaViewSet
 
 
 # 创建（不带后缀/）路由器实例
@@ -37,6 +39,10 @@ router.register(r"permission", PermissionViewSet, basename="permission")
 router.register(r"dict-data", DictDataViewSet, basename="dict_data")
 # 管理后台 - 消息通知
 router.register(r"notify-message", NotifyMessageViewSet, basename="notify_message")
+# 管理后台 - 租户
+router.register(r"tenant", TenantViewSet, basename="tenant")
+# 管理后台 - 验证码
+router.register(r"captcha", CaptchaViewSet, basename="captcha")
 
 
 urlpatterns = []

@@ -23,8 +23,8 @@ class NotifyMessageViewSet(
     serializer_class = NotifyMessageSerializer
     filterset_class = NotifyMessageFilter
     action_permissions = {
-        # "retrieve": [HasPermission("system:notify-message:query")],
-        # "list": [HasPermission("system:notify-message:query")],
+        "retrieve": [HasPermission("system:notify-message:query")],
+        "list": [HasPermission("system:notify-message:query")],
     }
 
     @extend_schema(summary="获得我的站内信分页", filters=MyNotifyMessageFilter)

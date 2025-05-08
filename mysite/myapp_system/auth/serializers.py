@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.validators import UniqueValidator
 import re
 
 from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
@@ -132,14 +131,15 @@ class MenuMixinSerializer(serializers.ModelSerializer):
     children = serializers.SerializerMethodField()
 
     def get_children(self, obj):
-        # 递归序列化子菜单（需要配合视图中的预取优化）
+        """
+        递归获取子菜单
+        """
         children = obj.children.filter(
             status=CommonStatusEnum.ENABLE.value,
             type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
         ).order_by("sort")
-        if not children.exists():
-            return None
-        return MenuMixinSerializer(children, many=True).data
+        serializer = MenuMixinSerializer(children, many=True)
+        return serializer.data
 
     class Meta:
         model = SystemMenu
@@ -167,11 +167,13 @@ class AuthPermissionInfoSerializer(serializers.ModelSerializer):
     menus = serializers.SerializerMethodField()
 
     def get_roles(self, obj):
+        # 获取角色的code
         if not obj.roles.exists():
             return []
         return [role.code for role in obj.roles.all()]  # TODO 是否会重复
 
     def get_permissions(self, obj):
+        # 获取角色的权限
         if not obj.roles.exists():
             return []
         permissions = set()
@@ -183,44 +185,27 @@ class AuthPermissionInfoSerializer(serializers.ModelSerializer):
         return list(permissions)
 
     def get_menus(self, obj):
+        #  获取角色的菜单
         if not obj.roles.exists():
             return []
-        # # 获取用户所有菜单（去重、排序、过滤）
-        # menus = (
-        #     SystemMenu.objects.filter(
-        #         roles__users=obj,  # 通过角色关联获取
+        # TODO 只显示有权限的菜单
+        # menus = set()
+        # for role in obj.roles.all():
+        #     menus_queryset = role.menus.filter(
         #         status=CommonStatusEnum.ENABLE.value,
         #         type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
         #     )
-        #     .distinct()
-        #     .order_by("sort")
-        # )
-        # # 构建树形结构
-        # root_menus = menus.filter(parent_id__isnull=True)
-        # return MenuMixinSerializer(root_menus, many=True).data
+        #     menus.update(menus_queryset)
 
-        menus = set()
-        for role in obj.roles.all():
-            menus_queryset = role.menus.filter(
-                status=CommonStatusEnum.ENABLE.value,
-                type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
-            )
-            menus.update(menus_queryset)
-        # 将集合转换为列表并按 sort 字段排序
-        # print(menus)
-        sorted_menus = sorted(menus, key=lambda menu: menu.sort)
-        print(len(sorted_menus))
-        # TODO
-        return []
-        # print(sorted_menus)
-        # root_menus = []
-        # for menu in sorted_menus:
-        #     print(menu.parent_id)
-        #     if menu.parent_id is None:
-        #         root_menus.append(menu)
-        # print(root_menus)
-        # serializer = MenuMixinSerializer(sorted_menus, many=True)
-        # return serializer.data
+        queryset = SystemMenu.objects.filter(
+            status=CommonStatusEnum.ENABLE.value,
+            type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
+            parent_id__isnull=True,
+        ).order_by("sort")
+        print(queryset)
+        serializer = MenuMixinSerializer(queryset, many=True)
+
+        return serializer.data
 
     class Meta:
         model = SystemUsers

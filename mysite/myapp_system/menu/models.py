@@ -1,6 +1,6 @@
 from django.db import models
 from mars_framework.db.base import BaseModel
-from mars_framework.db.enums import COMMON_STATUS_CHOICES, MENU_TYPE_CHOICES
+from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
 
 
 class SystemMenu(BaseModel):
@@ -14,7 +14,7 @@ class SystemMenu(BaseModel):
         blank=True,
     )
     type = models.SmallIntegerField(
-        choices=MENU_TYPE_CHOICES,
+        choices=[(item.value, item.name) for item in MenuTypeEnum],
         db_comment="菜单类型",
         help_text="菜单类型",
     )
@@ -56,7 +56,7 @@ class SystemMenu(BaseModel):
         max_length=255, blank=True, null=True, db_comment="组件名", help_text="组件名"
     )
     status = models.SmallIntegerField(
-        choices=COMMON_STATUS_CHOICES,
+        choices=[(item.value, item.name) for item in CommonStatusEnum],
         default=0,
         db_comment="菜单状态",
         help_text="菜单状态",
@@ -84,7 +84,7 @@ class SystemMenu(BaseModel):
         managed = False
         db_table = "system_menu"
         db_table_comment = "菜单权限表"
-        ordering = ["-id"]
+        ordering = ["sort"]
 
     def __str__(self):
         return self.name

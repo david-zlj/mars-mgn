@@ -3,7 +3,6 @@ TODO 注意parent_id字段0与null之间，前端的定义
 """
 
 from django.db.models.deletion import ProtectedError
-from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import action
 from drf_spectacular.utils import extend_schema
 

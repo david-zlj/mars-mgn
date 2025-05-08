@@ -4,6 +4,7 @@ TODO 设置list_simple和list_simple_2不进行认证
 
 from drf_spectacular.utils import extend_schema
 from rest_framework.permissions import AllowAny
+from rest_framework.decorators import action
 
 from mars_framework.viewsets.base import CustomModelViewSet
 from mars_framework.permissions.base import HasPermission
@@ -45,3 +46,29 @@ class DictDataViewSet(CustomModelViewSet):
     }
     export_data_map = {"status": {0: "开启", 1: "关闭"}}
     # TODO list_simple放进Redis?
+
+    @extend_schema(
+        summary="查询列表简要信息",
+        description="查询列表简要信息。TODO 接口文档不正确",
+    )
+    @action(
+        methods=["get"],
+        detail=False,
+        url_path="simple-list",
+        authentication_classes=[],  # 该接口不需要认证，目前通过覆盖父类方法来实现，待优化 TODO
+    )
+    def list_simple(self, request, *args, **kwargs):
+        return super().list_simple(request, *args, **kwargs)
+
+    @extend_schema(
+        summary="查询列表简要信息",
+        description="查询列表简要信息。TODO 接口文档不正确",
+    )
+    @action(
+        methods=["get"],
+        detail=False,
+        url_path="list-all-simple",
+        authentication_classes=[],  # 该接口不需要认证，目前通过覆盖父类方法来实现，待优化 TODO
+    )
+    def list_simple_2(self, request, *args, **kwargs):
+        return super().list_simple_2(request, *args, **kwargs)
