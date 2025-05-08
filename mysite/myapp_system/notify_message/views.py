@@ -111,4 +111,5 @@ class NotifyMessageViewSet(
         count = SystemNotifyMessage.objects.filter(
             user_id=request.user.id, read_status=False
         ).count()
+        print(count)
         return CommonResponse.success(data=count)

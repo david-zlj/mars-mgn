@@ -3,11 +3,12 @@ from .models import SystemDictData
 
 
 class DictDataFilter(filters.FilterSet):
+    """字典数据过滤器"""
+
     label = filters.CharFilter(
         field_name="label", lookup_expr="exact", label="字典标签"
     )
-    # TODO 命名方式是否会自动转换
-    dict_type = filters.CharFilter(
+    dictType = filters.CharFilter(
         field_name="dict_type", lookup_expr="icontains", label="字典类型（模糊查询）"
     )
     status = filters.NumberFilter(
@@ -16,4 +17,4 @@ class DictDataFilter(filters.FilterSet):
 
     class Meta:
         model = SystemDictData
-        fields = ["label", "dict_type", "status"]
+        fields = ["label", "dictType", "status"]

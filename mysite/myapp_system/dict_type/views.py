@@ -4,22 +4,19 @@ from rest_framework.decorators import action
 
 from mars_framework.viewsets.base import CustomModelViewSet
 from mars_framework.permissions.base import HasPermission
-from .models import SystemDictData
-from .serializers import (
-    DictDataSerializer,
-    DictDataSimpleListSerializer,
-)
-from .filters import DictDataFilter
+from .models import SystemDictType
+from .serializers import DictTypeSerializer, DictTypeSimpleSerializer
+from .filters import DictTypeFilter
 
 
-@extend_schema(tags=["管理后台-system-字典数据"])
-class DictDataViewSet(CustomModelViewSet):
-    queryset = SystemDictData.objects.all()
-    serializer_class = DictDataSerializer
-    filterset_class = DictDataFilter
+@extend_schema(tags=["管理后台-system-字典类型"])
+class DictTypeViewSet(CustomModelViewSet):
+    queryset = SystemDictType.objects.all()
+    serializer_class = DictTypeSerializer
+    filterset_class = DictTypeFilter
     action_serializers = {
-        "list_simple": DictDataSimpleListSerializer,
-        "list_simple_2": DictDataSimpleListSerializer,
+        "list_simple": DictTypeSimpleSerializer,
+        "list_simple_2": DictTypeSimpleSerializer,
     }
     action_permissions = {
         "create": [HasPermission("system:dict:create")],
@@ -27,17 +24,15 @@ class DictDataViewSet(CustomModelViewSet):
         "update": [HasPermission("system:dict:update")],
         "retrieve": [HasPermission("system:dict:query")],
         "list": [HasPermission("system:dict:query")],
-        "export": [HasPermission("system:dict:export")],
+        "export": [HasPermission("system:dict:query")],
         "list_simple": [AllowAny()],  # 无需添加权限认证，因为前端全局都需要
         "list_simple_2": [AllowAny()],
     }
-    export_name = "字典数据"
+    export_name = "字典类型"
     export_fields_labels = {
-        "id": "字典编码",
-        "sort": "字典排序",
-        "label": "字典标签",
-        "value": "字典键值",
-        "dict_type": "字典类型",
+        "id": "字典主键",
+        "name": "字典名称",
+        "type": "字典类型",
         "status": "状态",
     }
     export_data_map = {"status": {0: "开启", 1: "关闭"}}
@@ -53,6 +48,7 @@ class DictDataViewSet(CustomModelViewSet):
         authentication_classes=[],  # 该接口不需要认证，目前通过覆盖父类方法来实现，待优化 TODO
     )
     def list_simple(self, request, *args, **kwargs):
+        """包括开启 + 禁用的字典类型，主要用于前端的下拉选项"""
         return super().list_simple(request, *args, **kwargs)
 
     @extend_schema(
@@ -63,7 +59,8 @@ class DictDataViewSet(CustomModelViewSet):
         methods=["get"],
         detail=False,
         url_path="list-all-simple",
-        authentication_classes=[],  
+        authentication_classes=[],
     )
     def list_simple_2(self, request, *args, **kwargs):
+        """包括开启 + 禁用的字典类型，主要用于前端的下拉选项"""
         return super().list_simple_2(request, *args, **kwargs)

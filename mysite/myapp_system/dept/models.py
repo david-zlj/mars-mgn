@@ -56,4 +56,4 @@ class SystemDept(BaseModel):
         managed = False
         db_table = "system_dept"
         db_table_comment = "部门表"
-        # ordering = ["-id"]
+        ordering = ["sort"]

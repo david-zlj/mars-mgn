@@ -10,6 +10,7 @@ from .role.views import RoleViewSet
 from .menu.views import MenuViewSet
 from .permission.views import PermissionViewSet
 from .dict_data.views import DictDataViewSet
+from .dict_type.views import DictTypeViewSet
 from .notify_message.views import NotifyMessageViewSet
 from .tenant.views import TenantViewSet
 from .captcha.views import CaptchaViewSet
@@ -37,6 +38,8 @@ router.register(r"menu", MenuViewSet, basename="menu")
 router.register(r"permission", PermissionViewSet, basename="permission")
 # 管理后台 - 字典数据
 router.register(r"dict-data", DictDataViewSet, basename="dict_data")
+# 管理后台 - 字典类型
+router.register(r"dict-type", DictTypeViewSet, basename="dict_type")
 # 管理后台 - 消息通知
 router.register(r"notify-message", NotifyMessageViewSet, basename="notify_message")
 # 管理后台 - 租户
