@@ -58,6 +58,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",  # CORS跨域支持
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # I18N多语言支持，注意放置顺序
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -130,9 +131,15 @@ LANGUAGE_CODE = "zh-hans"  # 简体中文
 
 TIME_ZONE = "Asia/Shanghai"  # 中国上海时区
 
-USE_I18N = True
-
 USE_TZ = True
+
+### I18N 配置
+USE_I18N = True  # 是否启用国际化
+LOCALE_PATHS = [BASE_DIR / "locale"]
+LANGUAGES = (
+    ("zh-hans", "简体中文"),
+    ("en", "English"),
+)
 
 
 # Static files (CSS, JavaScript, Images)
@@ -338,6 +345,7 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     "Pragma",
     "tenant-id",
 ]
+
 
 ### 个性化配置
 DEFAULT_USER_PASSWORD = "admin123"

@@ -1,5 +1,6 @@
 from rest_framework import serializers
 import re
+from django.utils.translation import gettext_lazy as _
 
 from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
 from ..user.models import SystemUsers
@@ -7,6 +8,8 @@ from ..menu.models import SystemMenu
 
 
 class AuthLoginSerializer(serializers.Serializer):
+    """用户登录序列化器"""
+
     username = serializers.CharField(
         min_length=4,
         max_length=16,
@@ -21,7 +24,8 @@ class AuthLoginSerializer(serializers.Serializer):
         max_length=16,
         error_messages={
             "required": "密码不能为空",
-            "min_length": "密码长度至少为8位",
+            "min_length": _("密码长度至少为8位"),
+            # "min_length": "密码长度至少为8位",
             "max_length": "密码长度不能超过16位",
         },
     )

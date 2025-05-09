@@ -1,6 +1,7 @@
 from django.core.cache import cache
 from django.utils import timezone
 from django.contrib.auth import authenticate, login, logout
+from django.utils.translation import gettext_lazy as _
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.decorators import action
@@ -36,6 +37,7 @@ class AuthViewSet(viewsets.GenericViewSet):
     )
     def login(self, request, *args, **kwargs):
         """使用账号密码登录"""
+        print(f"当前语言: {request.LANGUAGE_CODE}") 
         serializer = AuthLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         username = serializer.validated_data.get("username")
@@ -45,7 +47,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         user = authenticate(request, username=username, password=password)
         # 检查用户名与密码是否正确
         if not user:
-            return CommonResponse.error(code=111201, msg="账号或密码错误")
+            return CommonResponse.error(code=111201, msg=_("账号或密码错误"))
         # 检查用户是否已被停用
         if user.status == CommonStatusEnum.DISABLE.value:
             return CommonResponse.error(code=111202, msg="用户被停用")
