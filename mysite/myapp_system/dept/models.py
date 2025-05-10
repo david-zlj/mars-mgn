@@ -1,7 +1,7 @@
 from django.db import models
 
 from mars_framework.db.base import BaseModel
-from mars_framework.db.enums import COMMON_STATUS_CHOICES
+from mars_framework.db.enums import CommonStatusEnum
 
 
 class SystemDept(BaseModel):
@@ -44,7 +44,7 @@ class SystemDept(BaseModel):
         max_length=50, blank=True, null=True, db_comment="邮箱", help_text="邮箱"
     )
     status = models.SmallIntegerField(
-        choices=COMMON_STATUS_CHOICES,
+        choices=[(item.value, item.name) for item in CommonStatusEnum],
         db_comment="部门状态（0正常 1停用）",
         help_text="部门状态（0正常 1停用）",
     )

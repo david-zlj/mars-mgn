@@ -17,7 +17,6 @@ from .captcha.views import CaptchaViewSet
 
 
 # 创建（不带后缀/）路由器实例
-# router = SimpleRouter()
 router = SimpleRouter(trailing_slash=False)
 
 # 管理后台 - 认证

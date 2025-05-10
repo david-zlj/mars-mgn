@@ -12,4 +12,3 @@ from .dict_data.models import SystemDictData
 from .dict_type.models import SystemDictType
 from .notify_message.models import SystemNotifyMessage
 from .notify_template.models import SystemNotifyTemplate
-

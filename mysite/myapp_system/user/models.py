@@ -157,7 +157,7 @@ class SystemUsers(BaseModel, AbstractBaseUser):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_users"
         db_table_comment = "用户信息表"
         ordering = ["-id"]
