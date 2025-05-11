@@ -1,3 +1,4 @@
+from datetime import datetime
 from openpyxl import Workbook, load_workbook
 
 from mars_framework.utils.excel import create_excel_workbook
@@ -95,3 +96,11 @@ def get_user_import_data(file):
         data.append(user_data)
 
     return data
+
+
+def avatar_upload_rename(instance, filename):
+    """头像文件重命名，并指定存储路径"""
+    ext = filename.split(".")[-1]  # 获取文件扩展名
+    year = datetime.now().strftime("%Y")
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S%f")[:-3]
+    return f"avatars/{year}/{timestamp}.{ext}"  # 按年份分目录存储

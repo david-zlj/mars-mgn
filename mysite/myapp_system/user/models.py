@@ -3,12 +3,12 @@ TODO
 - 一对多关系，是否禁用db_index
 """
 
-from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 from mars_framework.db.enums import SEX_CHOICES, COMMON_STATUS_CHOICES
 from mars_framework.db.base import BaseModel
+from .services import avatar_upload_rename
 
 
 class SystemUsersManager(BaseUserManager):
@@ -25,14 +25,6 @@ class SystemUsersManager(BaseUserManager):
         # TODO 是否需要is_admin 字段
         # user.save(using=self._db)
         return user
-
-
-def avatar_upload_rename(instance, filename):
-    """头像文件重命名，并指定存储路径"""
-    ext = filename.split(".")[-1]  # 获取文件扩展名
-    year = datetime.now().strftime("%Y")
-    timestamp = datetime.now().strftime("%Y%m%d%H%M%S%f")[:-3]
-    return f"avatars/{year}/{timestamp}.{ext}"  # 按年份分目录存储
 
 
 class SystemUsers(BaseModel, AbstractBaseUser):
@@ -79,7 +71,7 @@ class SystemUsers(BaseModel, AbstractBaseUser):
         help_text="用户邮箱",
     )
     mobile = models.CharField(
-        max_length=11,
+        max_length=15,
         blank=True,
         null=True,
         default="",
