@@ -23,7 +23,7 @@ from .mixins import (
     ExportModelMixin,
 )
 
-### V1 版本视图集（弃用） 
+###### V1 版本视图集（弃用）
 
 
 class CustomGenericViewSet1(viewsets.GenericViewSet):
@@ -38,12 +38,6 @@ class CustomGenericViewSet1(viewsets.GenericViewSet):
 
         本方法主要用于根据请求中的id参数获取对应的对象实例。为了防止混淆，
         当id参数同时出现在URL和表单中时，将抛出ValueError异常。
-
-        Raises:
-            ValueError: 如果id参数同时存在于URL和表单中，则抛出此异常。
-
-        Returns:
-            根据id参数获取的对象实例，如果未找到对应id的对象，则返回404错误。
         """
         # 检查id参数是否同时存在于URL查询参数和表单数据中
         if "id" in self.request.query_params and "id" in self.request.data:
@@ -79,7 +73,7 @@ class CustomViewSet(
     pass
 
 
-### V2 版本视图集
+###### V2 版本视图集
 
 
 class CustomGenericViewSet(viewsets.GenericViewSet):
@@ -90,7 +84,6 @@ class CustomGenericViewSet(viewsets.GenericViewSet):
     export_name = ""  # 导出文件名
     export_fields_labels = {}  # 导出数据时，指定导出字段
     export_data_map = {}  # 导出数据时，指定数据字段映射
-    # TODO 接口白名单
 
     def get_serializer_class(self):
         """

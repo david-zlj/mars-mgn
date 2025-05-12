@@ -152,7 +152,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# 用户上传文件配置
+### 用户上传文件配置
 MEDIA_ROOT = BASE_DIR / "media"  # 文件存储的物理路径
 MEDIA_URL = "/media/"  # 访问媒体文件的URL前缀
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB内存缓冲
@@ -349,6 +349,8 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 
 ### 个性化配置
 DEFAULT_USER_PASSWORD = "admin123"
+PASSWORD_MIN_LENGTH = 8  # 密码长度8-20
+PASSWORD_MAX_LENGTH = 20
 
 ### 全局策略 TODO
 # 是否实现软删除：不实现

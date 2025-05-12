@@ -20,8 +20,8 @@ msgstr ""
 
 #: .\myapp_system\auth\serializers.py:27
 msgid "密码长度至少为8位"
-msgstr "密码长度至少为8位（示例）"
+msgstr "密码长度至少为8位"
 
 #: .\myapp_system\auth\views.py:50
 msgid "账号或密码错误"
-msgstr "账号或密码错误（示例）"
+msgstr "账号或密码错误"

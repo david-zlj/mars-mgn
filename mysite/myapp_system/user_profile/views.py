@@ -1,12 +1,16 @@
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
-from rest_framework.parsers import MultiPartParser
+from rest_framework.parsers import MultiPartParser, FormParser
 from drf_spectacular.utils import extend_schema
 
-from mars_framework.viewsets.base import CustomViewSet
+from mars_framework.viewsets.base import (
+    CustomGenericViewSet,
+)
+from mars_framework.viewsets.mixins import (
+    CustomRetrieveModelMixin,
+    CustomUpdateModelMixin,
+)
 from mars_framework.response.base import CommonResponse
-from mars_framework.exceptions.base import handle_drf_validation_error
 from ..user.models import SystemUsers
 from .serializers import (
     UserProfileDetailSerializer,
@@ -17,37 +21,21 @@ from .serializers import (
 
 
 @extend_schema(tags=["管理后台-system-用户个人中心"])
-class UserProfileViewSet(CustomViewSet):
+class UserProfileViewSet(
+    CustomGenericViewSet, CustomRetrieveModelMixin, CustomUpdateModelMixin
+):
     queryset = SystemUsers.objects.all()
+    serializer_class = UserProfileDetailSerializer
+    action_serializers = {
+        "retrieve": UserProfileDetailSerializer,
+        "update": UserProfileSaveSerializer,
+        "update_user_profile_password": UserProfileUpdatePasswordSerializer,
+        "update_user_avatar": UserProfileAvatarSerializer,
+    }
 
     def get_object(self):
-        # 返回当前登录用户
+        # 强制返回当前登录用户
         return self.request.user
-
-    def get_serializer_class(self):
-        serializer_classes = {
-            "get_user_profile": UserProfileDetailSerializer,
-            "update_user_profile": UserProfileSaveSerializer,
-            "update_user_profile_password": UserProfileUpdatePasswordSerializer,
-            "update_user_avatar": UserProfileAvatarSerializer,
-        }
-        return serializer_classes.get(self.action, UserProfileDetailSerializer)
-
-    @extend_schema(summary="获得登录用户信息")
-    @action(methods=["get"], detail=False, url_path="get")
-    def get_user_profile(self, request, *args, **kwargs):
-        """
-        获得登录用户信息
-        """
-        return self.custom_retrieve(request, *args, **kwargs)
-
-    @extend_schema(summary="修改用户个人信息")
-    @action(methods=["put"], detail=False, url_path="update")
-    def update_user_profile(self, request, *args, **kwargs):
-        """
-        修改用户个人信息
-        """
-        return self.custom_update(request, *args, **kwargs)
 
     @extend_schema(summary="修改用户个人密码")
     @action(methods=["put"], detail=False, url_path="update-password")
@@ -56,16 +44,13 @@ class UserProfileViewSet(CustomViewSet):
         修改用户个人密码
         """
         serializer = self.get_serializer(data=request.data)
-        try:
-            serializer.is_valid(raise_exception=True)
-        except ValidationError as e:
-            return handle_drf_validation_error(e)
+        serializer.is_valid(raise_exception=True)
         user = self.get_object()
         # 校验旧密码
-        if not user.check_password(serializer.data.get("oldPassword")):
+        if not user.check_password(serializer.data.get("old_password")):
             return CommonResponse.error(code=111700, msg="旧密码错误")
         # 修改密码
-        user.set_password(serializer.validated_data["newPassword"])
+        user.set_password(serializer.validated_data["new_password"])
         user.save()
         return CommonResponse.success(data=True)
 
@@ -74,20 +59,17 @@ class UserProfileViewSet(CustomViewSet):
         methods=["post", "put"],
         detail=False,
         url_path="update-avatar",
-        parser_classes=[MultiPartParser],
+        parser_classes=[MultiPartParser, FormParser],
     )
     def update_user_avatar(self, request):
         """
-        上传用户个人头像 TODO 是否实现PUT方法
+        上传用户个人头像
         """
         avatar_file = request.FILES.get("avatarFile")
         if not avatar_file:
             return CommonResponse.error(code=111701, msg="没有接收到上传文件")
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data)
-        try:
-            serializer.is_valid(raise_exception=True)
-        except ValidationError as e:
-            return handle_drf_validation_error(e)
+        serializer.is_valid(raise_exception=True)
         serializer.save()
         return CommonResponse.success(data=instance.avatar.url)

@@ -1,15 +1,11 @@
-from django.conf import settings
 from rest_framework import serializers
-from mars_framework.serializers.base import CustomDateTimeField
+from django.conf import settings
 
+from mars_framework.serializers.base import CustomDateTimeField
 from ..user.models import SystemUsers
-from ..dept.models import SystemDept
-from ..post.models import SystemPost
 from ..dept.serializers import DeptSimpleSerializer
 from ..role.serializers import RoleSimpleSerializer
 from ..post.serializers import PostSimpleSerializer
-
-# from myapp_system.user_profile.serializers import UserProfileAvatarSerializer
 
 
 class UserProfileDetailSerializer(serializers.ModelSerializer):
@@ -58,22 +54,22 @@ class UserProfileSaveSerializer(serializers.ModelSerializer):
 class UserProfileUpdatePasswordSerializer(serializers.Serializer):
     """用户个人密码"""
 
-    oldPassword = serializers.CharField(
-        max_length=16,
-        # min_length=8,
+    old_password = serializers.CharField(
+        max_length=settings.PASSWORD_MAX_LENGTH,
+        min_length=settings.PASSWORD_MIN_LENGTH,
         error_messages={
-            # "min_length": "密码长度至少为8位",
-            "max_length": "密码长度不能超过16位",
+            "min_length": "密码长度至少为8位",
+            "max_length": "密码长度不能超过20位",
             "blank": "密码不能为空",
             "null": "密码不能为空",
         },
     )
-    newPassword = serializers.CharField(
-        max_length=16,
-        min_length=8,
+    new_password = serializers.CharField(
+        max_length=settings.PASSWORD_MAX_LENGTH,
+        min_length=settings.PASSWORD_MIN_LENGTH,
         error_messages={
             "min_length": "密码长度至少为8位",
-            "max_length": "密码长度不能超过16位",
+            "max_length": "密码长度不能超过20位",
             "blank": "密码不能为空",
             "null": "密码不能为空",
         },

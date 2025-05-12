@@ -2,14 +2,16 @@
 TODO
 - 日志记录
 """
-from django.contrib import admin
+
+from django.conf import settings
 from django.urls import path, include
+from django.conf.urls.static import static
+
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
     SpectacularSwaggerView,
 )
-# from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 ### Django 全局异常处理
@@ -20,12 +22,8 @@ handler500 = "mars_framework.exceptions.base.custom_500_view"
 urlpatterns = [
     path("admin-api/system/", include("myapp_system.urls")),
     path("admin-api/infra/", include("myapp_infra.urls")),
-    # path("admin-api/infra/", include("myapp_infra.urls")),
-    # Django REST framework 界面
+    ### Django REST framework 界面
     # path("api-auth", include("rest_framework.urls")),
-    # Django admin 界面
-    # path("admin/", admin.site.urls),
-
     ### OpenAPI 文档界面 TODO 生产环境关闭
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
@@ -39,3 +37,7 @@ urlpatterns = [
         name="redoc",
     ),
 ]
+
+### 静态文件 TODO 注意：生产环境请关闭，并使用Nginx
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
