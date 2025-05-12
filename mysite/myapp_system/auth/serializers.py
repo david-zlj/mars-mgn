@@ -25,7 +25,6 @@ class AuthLoginSerializer(serializers.Serializer):
         error_messages={
             "required": "密码不能为空",
             "min_length": _("密码长度至少为8位"),
-            # "min_length": "密码长度至少为8位",
             "max_length": "密码长度不能超过16位",
         },
     )

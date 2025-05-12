@@ -91,13 +91,3 @@ class UserProfileViewSet(CustomViewSet):
             return handle_drf_validation_error(e)
         serializer.save()
         return CommonResponse.success(data=instance.avatar.url)
-
-        # # 保存文件，返回文件本地路径或OSS的URL
-        # avatar_address = upload_user_avatar(request.user.id, avatar_file)
-        # if not avatar_address:
-        #     return CommonResponse.error(code=111702, msg="上传失败")
-        # # 保存到数据库
-        # user = self.get_object()
-        # user.avatar = avatar_address
-        # user.save()
-        # return CommonResponse.success(data=str(avatar_address))

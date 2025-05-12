@@ -1,6 +1,6 @@
 from django.core.cache import cache
 from django.utils import timezone
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate
 from django.utils.translation import gettext_lazy as _
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
@@ -8,23 +8,19 @@ from rest_framework.decorators import action
 from rest_framework_simplejwt.tokens import RefreshToken
 from drf_spectacular.utils import extend_schema
 
-from mars_framework.viewsets.base import CustomViewSet
 from mars_framework.response.base import CommonResponse
-from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
+from mars_framework.db.enums import CommonStatusEnum
 from ..user.models import SystemUsers
-from ..menu.models import SystemMenu
 from .serializers import (
     AuthLoginSerializer,
     AuthRegisterSerializer,
     AuthPermissionInfoSerializer,
-    MenuMixinSerializer,
 )
 from .services import extract_jwt_info
 
 
 @extend_schema(tags=["管理后台-system-认证"])
 class AuthViewSet(viewsets.GenericViewSet):
-    # class AuthViewSet(CustomViewSet):
     # 为了兼容GenericAPIView，需要指定序列化器
     serializer_class = AuthLoginSerializer
 
@@ -33,11 +29,12 @@ class AuthViewSet(viewsets.GenericViewSet):
         methods=["post"],
         detail=False,
         url_path="login",
+        authentication_classes=[],
         permission_classes=[AllowAny],
     )
     def login(self, request, *args, **kwargs):
         """使用账号密码登录"""
-        print(f"当前语言: {request.LANGUAGE_CODE}") 
+        print(f"当前语言: {request.LANGUAGE_CODE}")
         serializer = AuthLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         username = serializer.validated_data.get("username")
@@ -59,7 +56,13 @@ class AuthViewSet(viewsets.GenericViewSet):
         return CommonResponse.success(data=extract_jwt_info(refresh))
 
     @extend_schema(summary="登出系统")
-    @action(methods=["post"], detail=False, url_path="logout")
+    @action(
+        methods=["post"],
+        detail=False,
+        url_path="logout",
+        authentication_classes=[],  # 不需要认证
+        permission_classes=[AllowAny],  # 不需要权限
+    )
     def logout(self, request, *args, **kwargs):
         """登出系统"""
         # TODO 是否需要将 token 加入黑名单，防止继续使用
@@ -68,7 +71,13 @@ class AuthViewSet(viewsets.GenericViewSet):
         return CommonResponse.success(data=True)
 
     @extend_schema(summary="刷新令牌")
-    @action(methods=["post"], detail=False, url_path="refresh-token")
+    @action(
+        methods=["post"],
+        detail=False,
+        url_path="refresh-token",
+        authentication_classes=[],
+        permission_classes=[AllowAny],
+    )
     def refresh_token(self, request, *args, **kwargs):
         """刷新令牌"""
         refresh_token = request.query_params.get("refreshToken")
@@ -95,6 +104,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         methods=["post"],
         detail=False,
         url_path="register",
+        authentication_classes=[],
         permission_classes=[AllowAny],
     )
     def register(self, request, *args, **kwargs):
