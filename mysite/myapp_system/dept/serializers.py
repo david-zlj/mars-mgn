@@ -1,91 +1,61 @@
 from rest_framework import serializers
 
-from mars_framework.serializers.base import CustomDateTimeField
 from .models import SystemDept
-from ..user.models import SystemUsers
+
+
+class DeptSerializer(serializers.ModelSerializer):
+    """部门信息序列化器"""
+
+    class Meta:
+        model = SystemDept
+        fields = [
+            "id",
+            "name",
+            "parent_id",
+            "sort",
+            "leader_user_id",
+            "phone",
+            "email",
+            "status",
+            "create_time",
+        ]
+        read_only_fields = ["id", "create_time"]
 
 
 class DeptSaveSerializer(serializers.ModelSerializer):
     """部门创建/修改请求序列化器"""
 
-    parentId = serializers.PrimaryKeyRelatedField(
-        source="parent_id", required=False, queryset=SystemDept.objects.all()
-    )
-    leaderUserId = serializers.PrimaryKeyRelatedField(
-        source="leader_user_id", required=False, queryset=SystemUsers.objects.all()
-    )
+    def to_internal_value(self, data):
+        """
+        如果 parent_id 存在且等于 0，则将其设置为 None 。
+        因为前端用传递 0，表示无顶级部门，但数据库中 0 表示有父部门，所以需要特殊处理。
+        """
+
+        if data.get("parent_id") == 0:
+            data["parent_id"] = None
+        return super().to_internal_value(data)
 
     class Meta:
         model = SystemDept
         fields = [
             "id",
             "name",
-            "parentId",
+            "parent_id",
             "sort",
-            "leaderUserId",
+            "leader_user_id",
             "phone",
             "email",
             "status",
-        ]
-
-
-class DeptDetailSerializer(serializers.ModelSerializer):
-    """部门详情序列化器"""
-
-    parentId = serializers.PrimaryKeyRelatedField(
-        source="parent_id", required=False, read_only=True
-    )
-    leaderUserId = serializers.PrimaryKeyRelatedField(
-        source="leader_user_id", required=False, read_only=True
-    )
-    createTime = CustomDateTimeField(source="create_time", read_only=True)
-
-    class Meta:
-        model = SystemDept
-        fields = [
-            "id",
-            "name",
-            "parentId",
-            "sort",
-            "leaderUserId",
-            "phone",
-            "email",
-            "status",
-            "createTime",
-        ]
-
-
-class DeptListSerializer(serializers.ModelSerializer):
-    """部门列表序列化器"""
-
-    parentId = serializers.PrimaryKeyRelatedField(
-        source="parent_id", required=False, read_only=True
-    )
-    leaderUserId = serializers.PrimaryKeyRelatedField(
-        source="leader_user_id", required=False, read_only=True
-    )
-    createTime = CustomDateTimeField(source="create_time", read_only=True)
-
-    class Meta:
-        model = SystemDept
-        fields = [
-            "id",
-            "name",
-            "parentId",
-            "sort",
-            "leaderUserId",
-            "phone",
-            "email",
-            "status",
-            "createTime",
         ]
 
 
 class DeptSimpleSerializer(serializers.ModelSerializer):
-    """部门简单序列化器"""
-
-    parentId = serializers.PrimaryKeyRelatedField(source="parent_id", read_only=True)
+    """部门精简信息序列化器"""
 
     class Meta:
         model = SystemDept
-        fields = ["id", "name", "parentId"]
+        fields = [
+            "id",
+            "name",
+            "parent_id",
+        ]

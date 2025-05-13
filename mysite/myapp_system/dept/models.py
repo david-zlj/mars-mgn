@@ -9,7 +9,7 @@ class SystemDept(BaseModel):
     name = models.CharField(
         max_length=30, default="", db_comment="部门名称", help_text="部门名称"
     )
-    # TODO None表示顶级部门，而不是0
+    # null 表示顶级部门，而不是0
     parent_id = models.ForeignKey(
         "self",
         on_delete=models.PROTECT,  # 删除父时，若有子，则不允许删除

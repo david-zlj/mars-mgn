@@ -81,6 +81,8 @@ class CustomGenericViewSet(viewsets.GenericViewSet):
     action_serializers = {}  # 可以为每个action指定序列化器
     # 可以为每个action指定权限。注意：key是action名称，value是权限类实例列表，而不是权限类列表。
     action_permissions = {}
+    # 可以为每个action指定查询集
+    action_querysets = {}
     export_name = ""  # 导出文件名
     export_fields_labels = {}  # 导出数据时，指定导出字段
     export_data_map = {}  # 导出数据时，指定数据字段映射
@@ -99,6 +101,13 @@ class CustomGenericViewSet(viewsets.GenericViewSet):
         """
         return self.action_permissions.get(self.action, super().get_permissions())
 
+    def get_queryset(self):
+        """
+        动态获取查询集。
+        根据当前的 action 动态加载对应的查询集，如果没有定义则使用默认的查询集。
+        """
+        return self.action_querysets.get(self.action, super().get_queryset())
+
 
 class CustomModelViewSet(
     CustomCreateModelMixin,
@@ -111,5 +120,19 @@ class CustomModelViewSet(
     CustomGenericViewSet,
 ):
     """自定义ModelViewSet"""
+
+    pass
+
+
+class CustomModelViewSetNoExport(
+    CustomCreateModelMixin,
+    CustomListModelMixin,
+    CustomRetrieveModelMixin,
+    CustomDestroyModelMixin,
+    CustomUpdateModelMixin,
+    ListSimpleModelMixin,
+    CustomGenericViewSet,
+):
+    """自定义ModelViewSet，不带导出功能"""
 
     pass
