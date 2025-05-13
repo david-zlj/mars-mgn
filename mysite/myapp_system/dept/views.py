@@ -30,7 +30,7 @@ class DeptViewSet(CustomModelViewSetNoExport):
         "list_simple_2": [AllowAny()],
     }
     action_querysets = {
-        # # 只包含被开启的部门，主要用于前端的下拉选项
+        # 只包含被开启的部门，主要用于前端的下拉选项
         "list_simple": SystemDept.objects.filter(status=CommonStatusEnum.ENABLE.value),
         "list_simple_2": SystemDept.objects.filter(
             status=CommonStatusEnum.ENABLE.value

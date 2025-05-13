@@ -1,202 +1,106 @@
-"""
-TODO
-- 权限
-"""
-
-from django.core.exceptions import ValidationError as DjangoValidationError
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import AllowAny
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
 from rest_framework.parsers import MultiPartParser
 from drf_spectacular.utils import extend_schema
 
-from mars_framework.viewsets.base import CustomViewSet
+from mars_framework.viewsets.base import CustomModelViewSet
 from mars_framework.response.base import CommonResponse
 from mars_framework.utils.excel import generate_excel_response
-from mars_framework.exceptions.base import handle_drf_validation_error
-from mars_framework.filters.base import apply_time_range_filter
-from mars_framework.permissions.base import has_perm
+from mars_framework.permissions.base import HasPermission
+from mars_framework.db.enums import CommonStatusEnum
 from .models import SystemUsers
 from .serializers import (
     UserSaveSerializer,
-    UserDetailSerializer,
-    UserListSerializer,
+    UserSerializer,
     UserSimpleSerializer,
     UserUpdatePasswordSerializer,
     UserStatusUpdateSerializer,
     UserExportSerializer,
     UserImportSerializer,
 )
+from .filters import UsersFilter
 from .services import get_user_import_template_workbook, get_user_import_data
-from .filters import SystemUsersFilter
-
-# from .permissions import HasSystemPermission
 
 
 @extend_schema(tags=["管理后台-system-用户"])
-class UserViewSet(CustomViewSet):
+class UserViewSet(CustomModelViewSet):
     queryset = SystemUsers.objects.all()
-    filterset_class = SystemUsersFilter
-    export_labels = [
-        "用户编号",
-        "用户名称",
-        "用户昵称",
-        "部门名称",
-        "用户邮箱",
-        "手机号码",
-        "用户性别",
-        "帐号状态",
-        "最后登录IP",
-        "最后登录时间",
-    ]
-    export_fields = [
-        "id",
-        "username",
-        "nickname",
-        "deptName",
-        "email",
-        "mobile",
-        "sex",
-        "status",
-        "loginIp",
-        "loginDate",
-    ]
-
-    def get_serializer_class(self):
-        serializer_classes = {
-            "create_user": UserSaveSerializer,
-            "update_user": UserSaveSerializer,
-            "get_user": UserDetailSerializer,
-            "get_simple_user_list": UserSimpleSerializer,
-            "get_simple_user_list_2": UserSimpleSerializer,
-            "get_user_page": UserListSerializer,
-            "export_user": UserExportSerializer,
-            "update_user_password": UserUpdatePasswordSerializer,
-            "update_user_status": UserStatusUpdateSerializer,
-            "import_user": UserImportSerializer,
-        }
-        return serializer_classes.get(self.action, UserListSerializer)
-
-    @extend_schema(summary="新增用户")
-    @action(
-        methods=["post"],
-        detail=False,
-        url_path="create",
-        # permission_classes=[HasPermission("system:user:create")],
-    )
-    def create_user(self, request, *args, **kwargs):
-        """新增用户"""
-        return self.custom_create(request, *args, **kwargs)
-
-    @extend_schema(summary="修改用户")
-    @action(
-        methods=["put"],
-        detail=False,
-        url_path="update",
-        # permission_classes=[HasPermission("system:user:update")],
-    )
-    def update_user(self, request, *args, **kwargs):
-        """修改用户"""
-        return self.custom_update(request, *args, **kwargs)
-
-    @extend_schema(summary="删除用户")
-    @action(
-        methods=["delete"],
-        detail=False,
-        url_path="delete",
-        # permission_classes=[HasPermission("system:user:delete")],
-    )
-    def delete_user(self, request, *args, **kwargs):
-        """删除用户"""
-        return self.custom_destroy(request, *args, **kwargs)
+    serializer_class = UserSerializer
+    filterset_class = UsersFilter
+    action_serializers = {
+        "create": UserSaveSerializer,
+        "update": UserSaveSerializer,
+        "update_status": UserStatusUpdateSerializer,
+        "update_password": UserUpdatePasswordSerializer,
+        "list_simple": UserSimpleSerializer,
+        "list_simple_2": UserSimpleSerializer,
+        "export": UserExportSerializer,
+        "import_user": UserImportSerializer,
+    }
+    action_permissions = {
+        "create": [HasPermission("system:user:create")],
+        "destroy": [HasPermission("system:user:delete")],
+        "update": [HasPermission("system:user:update")],
+        "retrieve": [HasPermission("system:user:query")],
+        "list": [HasPermission("system:user:query")],
+        "update_password": [HasPermission("system:user:update-password")],
+        "update_status": [HasPermission("system:user:update")],
+        "export": [HasPermission("system:user:export")],
+        "import_user": [HasPermission("system:user:import")],
+        "list_simple": [AllowAny()],  # 无需添加权限认证，因为前端全局都需要
+        "list_simple_2": [AllowAny()],  # 无需添加权限认证，因为前端全局都需要
+        "get_import_template": [AllowAny()],
+    }
+    action_querysets = {
+        # 只包含被开启的部门，主要用于前端的下拉选项
+        "list_simple": SystemUsers.objects.filter(status=CommonStatusEnum.ENABLE.value),
+        "list_simple_2": SystemUsers.objects.filter(
+            status=CommonStatusEnum.ENABLE.value
+        ),
+    }
+    export_name = "用户数据"
+    export_fields_labels = {
+        "id": "用户编号",
+        "username": "用户账号",
+        "nickname": "用户昵称",
+        "deptName": "部门名称",
+        "email": "用户邮箱",
+        "mobile": "手机号码",
+        "sex": "用户性别",
+        "status": "账号状态",
+        "loginIp": "最后登录IP",
+        "loginDate": "最后登录时间",
+    }
+    export_data_map = {
+        "sex": {0: "", 1: "男", 2: "女"},
+        "status": {0: "开启", 1: "关闭"},
+    }
 
     @extend_schema(summary="重置用户密码")
     @action(
         methods=["put"],
-        detail=False,
+        detail=True,
         url_path="update-password",
-        # permission_classes=[HasPermission("system:user:update-password")],
     )
-    def update_user_password(self, request, *args, **kwargs):
+    def update_password(self, request, *args, **kwargs):
         """重置用户密码"""
-        return self.custom_update(request, *args, **kwargs)
+        return super().update(request, *args, **kwargs)
 
     @extend_schema(summary="修改用户状态")
     @action(
         methods=["put"],
-        detail=False,
+        detail=True,
         url_path="update-status",
-        # permission_classes=[HasPermission("system:user:update")],
     )
-    def update_user_status(self, request, *args, **kwargs):
+    def update_status(self, request, *args, **kwargs):
         """修改用户状态"""
-        return self.custom_update(request, *args, **kwargs)
-
-    @extend_schema(summary="获得用户分页列表", filters=SystemUsersFilter)
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="page",
-        permission_classes=[has_perm("system:user:query")],
-    )
-    def get_user_page(self, request, *args, **kwargs):
-        """获得用户分页列表"""
-        return self.custom_list(
-            request, create_time_filter=apply_time_range_filter, *args, **kwargs
-        )
-
-    @extend_schema(summary="获取用户精简信息列表")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="list-all-simple",
-        # permission_classes=[IsAuthenticated],
-    )
-    def get_simple_user_list(self, request, *args, **kwargs):
-        """获取用户精简信息列表，只包含被开启的用户，主要用于前端的下拉选项"""
-        return self.custom_list(request, *args, **kwargs)
-
-    @extend_schema(summary="获取用户精简信息列表")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="simple-list",
-        # permission_classes=[IsAuthenticated],
-    )
-    def get_simple_user_list_2(self, request, *args, **kwargs):
-        """获取用户精简信息列表，只包含被开启的用户，主要用于前端的下拉选项"""
-        return self.custom_list(request, *args, **kwargs)
-
-    @extend_schema(summary="获得用户详情")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="get",
-        permission_classes=[has_perm("system:user:query")],
-    )
-    def get_user(self, request, *args, **kwargs):
-        """获得用户详情"""
-        return self.custom_retrieve(request, *args, **kwargs)
-
-    @extend_schema(summary="导出用户")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="export",
-        # permission_classes=[HasPermission("system:user:export")],
-        permission_classes=[AllowAny],
-    )
-    def export_user(self, request, *args, **kwargs):
-        """导出用户"""
-        return self.custom_export(request, *args, **kwargs)
+        return super().update(request, *args, **kwargs)
 
     @extend_schema(summary="获得导入用户模板")
     @action(
         methods=["get"],
         detail=False,
         url_path="get-import-template",
-        # permission_classes=[HasPermission("system:user:import")],
-        permission_classes=[AllowAny],
     )
     def get_import_template(self, request, *args, **kwargs):
         """获得导入用户模板"""
@@ -208,16 +112,12 @@ class UserViewSet(CustomViewSet):
         methods=["post"],
         detail=False,
         url_path="import",
-        # permission_classes=[HasPermission("system:user:import")],
-        permission_classes=[AllowAny],
         parser_classes=[MultiPartParser],
     )
     def import_user(self, request, *args, **kwargs):
         """导入用户"""
         # TODO update_support 支持用户更新
-        # TODO 用户账号已存在时，要能正确提示具体哪个 用户账号已在
         update_support = request.query_params.get("updateSupport", False)
-
         # 获取上传的文件
         file = request.FILES.get("file")
         if not file:
@@ -229,9 +129,6 @@ class UserViewSet(CustomViewSet):
             return CommonResponse.error(code=111101, msg="文件读取失败")
 
         serializer = self.get_serializer(data=data, many=True)
-        try:
-            serializer.is_valid(raise_exception=True)
-        except ValidationError as e:
-            return handle_drf_validation_error(e)
+        serializer.is_valid(raise_exception=True)
         serializer.save()
         return CommonResponse.success(data=True)

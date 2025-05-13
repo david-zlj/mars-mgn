@@ -14,6 +14,14 @@ COMMON_STATUS_CHOICES = [
 ]
 
 
+class SexEnum(Enum):
+    """性别的枚举值"""
+
+    MALE = 1  # 男
+    FEMALE = 2  # 女
+    UNKNOWN = 0  # 未知
+
+
 class CommonStatusEnum(Enum):
     """通用状态枚举"""
 

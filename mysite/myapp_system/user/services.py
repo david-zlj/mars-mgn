@@ -1,5 +1,5 @@
 from datetime import datetime
-from openpyxl import Workbook, load_workbook
+from openpyxl import load_workbook
 
 from mars_framework.utils.excel import create_excel_workbook
 
@@ -7,13 +7,6 @@ from mars_framework.utils.excel import create_excel_workbook
 def get_user_import_template_workbook():
     """
     生成用户导入模板的 Excel 文件。
-
-    本函数创建一个包含用户数据的 Excel 文件，用户数据包括登录名称、用户名称、部门编号、
-    用户邮箱、手机号码、用户性别和帐号状态等字段。这些数据被组织成一个工作簿，其中包含一个
-    名为“数据”的工作表。
-
-    Returns:
-        openpyxl.Workbook: 包含用户导入模板的工作簿对象。
     """
 
     # 定义示例数据
@@ -24,8 +17,8 @@ def get_user_import_template_workbook():
             "deptId": "103",
             "email": "yunai@iocoder.cn",
             "mobile": "15601691300",
-            "sex": 1,
-            "status": 0,
+            "sex": "男",
+            "status": "开启",
         },
         {
             "username": "yuanma",
@@ -33,32 +26,23 @@ def get_user_import_template_workbook():
             "deptId": "104",
             "email": "yuanma@iocoder.cn",
             "mobile": "15601701300",
-            "sex": 2,
-            "status": 1,
+            "sex": "女",
+            "status": "关闭",
         },
     ]
 
-    headers = [
-        "登录名称",
-        "用户名称",
-        "部门编号",
-        "用户邮箱",
-        "手机号码",
-        "用户性别",
-        "帐号状态",
-    ]
-    fields = [
-        "username",
-        "nickname",
-        "deptId",
-        "email",
-        "mobile",
-        "sex",
-        "status",
-    ]
+    fields_labels = {
+        "username": "用户账号",
+        "nickname": "用户昵称",
+        "deptId": "部门编号",
+        "email": "用户邮箱",
+        "mobile": "手机号码",
+        "sex": "用户性别",
+        "status": "账号状态",
+    }
 
     # 返回工作簿
-    return create_excel_workbook(data, headers, fields)
+    return create_excel_workbook(data, fields_labels)
 
 
 def get_user_import_data(file):

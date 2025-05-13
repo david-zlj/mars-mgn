@@ -5,9 +5,6 @@ from ..user.models import SystemUsers
 from ..menu.models import SystemMenu
 from ..dept.models import SystemDept
 
-# from .models import DataScopeEnum  # 假设DataScopeEnum已经定义在models中
-# from myapp_system.permission.serializers import PermissionAssignRoleMenuSerializer
-
 
 class PermissionRoleMenuListSerializer(serializers.ModelSerializer):
     """
@@ -80,8 +77,8 @@ class PermissionAssignUserRoleSerializer(serializers.ModelSerializer):
     赋予用户角色请求序列化器
     """
 
-    userId = serializers.IntegerField(source="id")
-    roleIds = serializers.PrimaryKeyRelatedField(
+    user_id = serializers.IntegerField(source="id")
+    role_ids = serializers.PrimaryKeyRelatedField(
         queryset=SystemRole.objects.all(),
         source="roles",
         many=True,
@@ -89,4 +86,4 @@ class PermissionAssignUserRoleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SystemUsers
-        fields = ["userId", "roleIds"]
+        fields = ["user_id", "role_ids"]

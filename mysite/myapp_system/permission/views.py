@@ -38,7 +38,7 @@ class PermissionViewSet(CustomViewSet):
         role_id = request.query_params.get("roleId", None)
         instance = get_object_or_404(SystemRole, id=role_id)
         serializer = self.get_serializer(instance)
-        return CommonResponse.success(serializer.data.get("menus", []))
+        return CommonResponse.success(data=serializer.data.get("menus", []))
 
     @extend_schema(summary="赋予角色菜单")
     @action(methods=["post"], detail=False, url_path="assign-role-menu")
@@ -52,7 +52,7 @@ class PermissionViewSet(CustomViewSet):
         serializer.is_valid(raise_exception=True)
         # TODO 中间表的 creator updater time等的更新
         serializer.save(updater=request.user.id)
-        return CommonResponse.success(data=True)
+        return CommonResponse.success()
 
     @extend_schema(summary="赋予角色数据权限")
     @action(methods=["post"], detail=False, url_path="assign-role-data-scope")
@@ -65,7 +65,7 @@ class PermissionViewSet(CustomViewSet):
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(updater=request.user.id)
-        return CommonResponse.success(data=True)
+        return CommonResponse.success()
 
     @extend_schema(summary="获得管理员拥有的角色编号列表")
     @action(methods=["get"], detail=False, url_path="list-user-roles")
@@ -76,7 +76,7 @@ class PermissionViewSet(CustomViewSet):
         user_id = request.query_params.get("userId", None)
         instance = get_object_or_404(SystemUsers, id=user_id)
         serializer = self.get_serializer(instance)
-        return CommonResponse.success(serializer.data.get("roles", []))
+        return CommonResponse.success(data=serializer.data.get("roles", []))
 
     @extend_schema(summary="赋予用户角色")
     @action(methods=["post"], detail=False, url_path="assign-user-role")
@@ -84,11 +84,10 @@ class PermissionViewSet(CustomViewSet):
         """
         赋予用户角色
         """
-        user_id = request.data.get("userId", None)
+        user_id = request.data.get("user_id", None)
         instance = get_object_or_404(SystemUsers, id=user_id)
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
         # TODO 中间表的 creator updater time等的更新
         serializer.save(updater=request.user.id)
-        return CommonResponse.success(data=True)
-
+        return CommonResponse.success()

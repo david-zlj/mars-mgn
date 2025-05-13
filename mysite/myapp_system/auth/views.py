@@ -34,7 +34,6 @@ class AuthViewSet(viewsets.GenericViewSet):
     )
     def login(self, request, *args, **kwargs):
         """使用账号密码登录"""
-        print(f"当前语言: {request.LANGUAGE_CODE}")
         serializer = AuthLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         username = serializer.validated_data.get("username")

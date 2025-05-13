@@ -6,7 +6,7 @@ TODO
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-from mars_framework.db.enums import SEX_CHOICES, COMMON_STATUS_CHOICES
+from mars_framework.db.enums import CommonStatusEnum, SexEnum
 from mars_framework.db.base import BaseModel
 from .services import avatar_upload_rename
 
@@ -34,7 +34,7 @@ class SystemUsers(BaseModel, AbstractBaseUser):
     )
     # TODO 是否需要设置default
     password = models.CharField(
-        max_length=100, default="", db_comment="密码", help_text="密码"
+        max_length=128, default="", db_comment="密码", help_text="密码"
     )
     nickname = models.CharField(
         max_length=30, db_comment="用户昵称", help_text="用户昵称"
@@ -42,10 +42,10 @@ class SystemUsers(BaseModel, AbstractBaseUser):
     remark = models.CharField(
         max_length=500, blank=True, null=True, db_comment="备注", help_text="备注"
     )
-    # 即使部门下有用户，也可以删除
+    # TODO 部门下有用户，不可以删除。是否需要修改
     dept_id = models.ForeignKey(
         "SystemDept",
-        on_delete=models.SET_NULL,
+        on_delete=models.PROTECT,
         related_name="users",
         db_constraint=False,
         db_column="dept_id",
@@ -82,11 +82,10 @@ class SystemUsers(BaseModel, AbstractBaseUser):
         blank=True,
         null=True,
         default=0,
-        choices=SEX_CHOICES,
+        choices=[(item.value, item.name) for item in SexEnum],
         db_comment="用户性别",
         help_text="用户性别",
     )
-    # TODO 返回结果是否符合前端需求
     avatar = models.FileField(
         upload_to=avatar_upload_rename,
         max_length=512,
@@ -95,16 +94,8 @@ class SystemUsers(BaseModel, AbstractBaseUser):
         db_comment="头像地址",
         help_text="头像地址",
     )
-    # avatar = models.CharField(
-    #     max_length=512,
-    #     blank=True,
-    #     null=True,
-    #     default="",
-    #     db_comment="头像地址",
-    #     help_text="头像地址",
-    # )
     status = models.SmallIntegerField(
-        choices=COMMON_STATUS_CHOICES,
+        choices=[(item.value, item.name) for item in CommonStatusEnum],
         default=0,
         db_comment="帐号状态（0正常 1停用）",
         help_text="帐号状态（0正常 1停用）",

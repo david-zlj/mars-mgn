@@ -1,31 +1,16 @@
-"""
-管理后台 - 用户
-
-TODO 性能优化：n+1问题
-"""
-
 from django.conf import settings
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
-from mars_framework.serializers.base import CustomDateTimeField
 from .models import SystemUsers
 from ..dept.models import SystemDept
 from ..post.models import SystemPost
-
-# from ..dept.serializers import SystemDeptSimpleSerializer, SystemPostSimpleSerializer
-# from ..permission.serializers import SystemRoleSimpleSerializer
-# from myapp_system.user.serializers import UserCreateSerializer
-# from myapp_system.user.serializers import UserSaveSerializer
 
 
 class UserSaveSerializer(serializers.ModelSerializer):
     """用户创建/修改请求序列化器"""
 
-    deptId = serializers.PrimaryKeyRelatedField(
-        source="dept_id", required=False, queryset=SystemDept.objects.all()
-    )
-    postIds = serializers.PrimaryKeyRelatedField(
+    post_ids = serializers.PrimaryKeyRelatedField(
         many=True, queryset=SystemPost.objects.all(), source="posts", required=False
     )
 
@@ -36,8 +21,8 @@ class UserSaveSerializer(serializers.ModelSerializer):
             "username",
             "nickname",
             "remark",
-            "deptId",
-            "postIds",
+            "dept_id",
+            "post_ids",
             "email",
             "mobile",
             "sex",
@@ -48,15 +33,15 @@ class UserSaveSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "password": {
                 "write_only": True,
-                "min_length": 8,
+                "min_length": settings.PASSWORD_MIN_LENGTH,
                 "error_messages": {"min_length": "密码长度至少为8位"},
             },
             "username": {
-                "min_length": 4,
+                # "min_length": 4,
                 "max_length": 30,
                 "error_messages": {
-                    "min_length": "用户账号长度为4-30个字符",
-                    "max_length": "用户账号长度为4-30个字符",
+                    # "min_length": "用户账号长度为4-30个字符",
+                    "max_length": "用户账号长度不能超过30个字符",
                     "unique": "用户账号已经存在",
                 },
                 "validators": [
@@ -77,16 +62,16 @@ class UserSaveSerializer(serializers.ModelSerializer):
         return user
 
     def update(self, instance, validated_data):
-        # 更新用户时，如果有密码则更新密码
         password = validated_data.pop("password", None)
         user = super().update(instance, validated_data)
+        # 如果有提供新密码则更新密码
         if password:
             user.set_password(password)
             user.save()
         return user
 
 
-class UserDetailSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     """用户详情序列化器"""
 
     deptId = serializers.PrimaryKeyRelatedField(source="dept_id", read_only=True)
@@ -96,9 +81,6 @@ class UserDetailSerializer(serializers.ModelSerializer):
     postIds = serializers.PrimaryKeyRelatedField(
         many=True, source="posts", read_only=True
     )
-    loginIp = serializers.CharField(source="login_ip", read_only=True)
-    loginDate = CustomDateTimeField(source="login_date", read_only=True)
-    createTime = CustomDateTimeField(source="create_time", read_only=True)
 
     class Meta:
         model = SystemUsers
@@ -115,45 +97,11 @@ class UserDetailSerializer(serializers.ModelSerializer):
             "sex",
             "avatar",
             "status",
-            "loginIp",
-            "loginDate",
-            "createTime",
+            "login_ip",
+            "login_date",
+            "create_time",
         ]
-
-
-class UserListSerializer(serializers.ModelSerializer):
-    """用户列表序列化器"""
-
-    deptId = serializers.PrimaryKeyRelatedField(source="dept_id", read_only=True)
-    deptName = serializers.CharField(
-        source="dept_id.name", read_only=True, default=None
-    )
-    postIds = serializers.PrimaryKeyRelatedField(
-        many=True, source="posts", read_only=True
-    )
-    loginIp = serializers.CharField(source="login_ip", read_only=True)
-    loginDate = CustomDateTimeField(source="login_date", read_only=True)
-    createTime = CustomDateTimeField(source="create_time", read_only=True)
-
-    class Meta:
-        model = SystemUsers
-        fields = [
-            "id",
-            "username",
-            "nickname",
-            "remark",
-            "deptId",
-            "deptName",
-            "postIds",
-            "email",
-            "mobile",
-            "sex",
-            "avatar",
-            "status",
-            "loginIp",
-            "loginDate",
-            "createTime",
-        ]
+        read_only_fields = ["id", "create_time"]
 
 
 class UserSimpleSerializer(serializers.ModelSerializer):
@@ -197,7 +145,7 @@ class UserUpdatePasswordSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "password": {
                 "write_only": True,
-                "min_length": 8,
+                "min_length": settings.PASSWORD_MIN_LENGTH,
                 "error_messages": {"min_length": "密码长度至少为8位"},
             },
         }
@@ -237,6 +185,19 @@ class UserExportSerializer(serializers.ModelSerializer):
         ]
 
 
+class CustomUniqueValidator(UniqueValidator):
+    """自定义唯一校验器"""
+
+    def filter_queryset(self, value, queryset, field_name):
+        # 从父类继承的 field_name 参数对应字段名（此处为 username）
+        filtered = queryset.filter(**{field_name: value})
+        if filtered.exists():
+            raise serializers.ValidationError(
+                f"用户名 '{value}' 已存在（已占用ID：{filtered.first().id}）"
+            )
+        return queryset
+
+
 class UserImportSerializer(serializers.ModelSerializer):
     """导入用户"""
 
@@ -264,22 +225,19 @@ class UserImportSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             "password": {
                 "write_only": True,
-                "min_length": 8,
+                "min_length": settings.PASSWORD_MIN_LENGTH,
                 "error_messages": {"min_length": "密码长度至少为8位"},
             },
             "username": {
-                "min_length": 4,
+                # "min_length": 4,
                 "max_length": 30,
                 "error_messages": {
-                    "min_length": "用户账号长度为4-30个字符",
-                    "max_length": "用户账号长度为4-30个字符",
+                    # "min_length": "用户账号长度为4-30个字符",
+                    "max_length": "用户账号长度不能超过30个字符",
                     "unique": "用户账号已经存在",
                 },
                 "validators": [
-                    UniqueValidator(
-                        queryset=SystemUsers.objects.all(),
-                        message="用户账号已经存在",
-                    )
+                    CustomUniqueValidator(queryset=SystemUsers.objects.all())
                 ],
             },
         }
