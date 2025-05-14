@@ -2,7 +2,7 @@ from django_filters import rest_framework as filters
 from .models import SystemPost
 
 
-class SystemPostFilter(filters.FilterSet):
+class PostFilter(filters.FilterSet):
     code = filters.CharFilter(
         field_name="code", lookup_expr="icontains", label="岗位编码（模糊查询）"
     )
