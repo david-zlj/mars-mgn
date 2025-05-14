@@ -16,14 +16,11 @@ class DictTypeFilter(filters.FilterSet):
     status = filters.NumberFilter(
         field_name="status", lookup_expr="exact", label="展示状态"
     )
-    # TODO
-    createTimeStart = filters.DateTimeFilter(
-        field_name="create_time", lookup_expr="gte", label="创建时间开始"
+    createTimeBegin = filters.DateTimeFilter(
+        field_name="create_time", lookup_expr="gte"
     )
-    createTimeEnd = filters.DateTimeFilter(
-        field_name="create_time", lookup_expr="lte", label="创建时间结束"
-    )
+    createTimeEnd = filters.DateTimeFilter(field_name="create_time", lookup_expr="lte")
 
     class Meta:
         model = SystemDictType
-        fields = ["name", "type", "status", "createTimeStart", "createTimeEnd"]
+        fields = ["name", "type", "status", "createTimeBegin", "createTimeEnd"]
