@@ -57,6 +57,7 @@ system-menu 111600 - 111699
 system-user_profile 111700 - 111799
 system-notify-message 111800 - 111899
 system-permission 111900 - 111999
+system-dict-type 112000 - 112099
 
 
 system-infra-job 121100 - 121199

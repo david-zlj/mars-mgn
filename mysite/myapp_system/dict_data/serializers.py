@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from mars_framework.serializers.base import CustomDateTimeField
 from .models import SystemDictData
 
 

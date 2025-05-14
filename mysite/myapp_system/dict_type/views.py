@@ -3,7 +3,9 @@ from rest_framework.permissions import AllowAny
 
 from mars_framework.viewsets.base import CustomModelViewSet
 from mars_framework.permissions.base import HasPermission
+from mars_framework.response.base import CommonResponse
 from .models import SystemDictType
+from ..dict_data.models import SystemDictData
 from .serializers import DictTypeSerializer, DictTypeSimpleSerializer
 from .filters import DictTypeFilter
 
@@ -42,3 +44,11 @@ class DictTypeViewSet(CustomModelViewSet):
         if "simple-list" in path_info or "list-all-simple" in path_info:
             return []
         return super().get_authenticators()
+
+    def destroy(self, request, *args, **kwargs):
+        """删除字典类型，该字典类型还有字典数据，无法删除"""
+        if SystemDictData.objects.filter(dict_type=self.get_object().type).exists():
+            return CommonResponse.error(
+                code=112001, msg="该字典类型还有字典数据，无法删除"
+            )
+        return super().destroy(request, *args, **kwargs)
