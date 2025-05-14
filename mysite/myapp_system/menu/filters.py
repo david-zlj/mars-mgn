@@ -2,7 +2,7 @@ from django_filters import rest_framework as filters
 from .models import SystemMenu
 
 
-class SystemMenuFilter(filters.FilterSet):
+class MenuFilter(filters.FilterSet):
     name = filters.CharFilter(
         field_name="name",
         lookup_expr="icontains",

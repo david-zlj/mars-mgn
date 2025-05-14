@@ -1,123 +1,46 @@
-"""
-TODO 注意parent_id字段0与null之间，前端的定义
-"""
-
-from django.db.models.deletion import ProtectedError
-from rest_framework.decorators import action
 from drf_spectacular.utils import extend_schema
 
-from mars_framework.viewsets.base import CustomViewSet
+from rest_framework.permissions import AllowAny
+from mars_framework.viewsets.base import CustomModelViewSetNoExport
+from mars_framework.permissions.base import HasPermission
+from mars_framework.db.enums import CommonStatusEnum
 from mars_framework.response.base import CommonResponse
-from mars_framework.permissions.base import has_perm
 from .models import SystemMenu
 from .serializers import (
-    MenuSaveSerializer,
-    MenuDetailSerializer,
-    MenuListSerializer,
+    MenuSerializer,
     MenuSimpleSerializer,
 )
-from .filters import SystemMenuFilter
+from .filters import MenuFilter
 
 
 @extend_schema(tags=["管理后台-system-菜单"])
-class MenuViewSet(CustomViewSet):
+class MenuViewSet(CustomModelViewSetNoExport):
     queryset = SystemMenu.objects.all()
-    filterset_class = SystemMenuFilter
+    serializer_class = MenuSerializer
+    filterset_class = MenuFilter
+    action_permissions = {
+        "create": [HasPermission("system:menu:create")],
+        "destroy": [HasPermission("system:menu:delete")],
+        "update": [HasPermission("system:menu:update")],
+        "retrieve": [HasPermission("system:menu:query")],
+        "list": [HasPermission("system:menu:query")],
+        "list_simple": [AllowAny()],  # 无需添加权限认证，因为前端全局都需要
+        "list_simple_2": [AllowAny()],
+    }
+    action_serializers = {
+        "list_simple": MenuSimpleSerializer,
+        "list_simple_2": MenuSimpleSerializer,
+    }
+    action_querysets = {
+        # 只包含被开启的菜单，用于【角色分配菜单】功能的选项
+        "list_simple": SystemMenu.objects.filter(status=CommonStatusEnum.ENABLE.value),
+        "list_simple_2": SystemMenu.objects.filter(
+            status=CommonStatusEnum.ENABLE.value
+        ),
+    }
 
-    def get_queryset(self):
-        # 根据 action 动态调整查询集
-        if self.action in ["get_simple_menu_list", "get_simple_menu_list_2"]:
-            # 只包含被开启的菜单，用于角色分配菜单的选项
-            return SystemMenu.objects.filter(status=0)
-        return super().get_queryset()
-
-    def get_serializer_class(self):
-        serializer_classes = {
-            "create_menu": MenuSaveSerializer,
-            "update_menu": MenuSaveSerializer,
-            "get_menu": MenuDetailSerializer,
-            "get_menu_list": MenuListSerializer,
-            "get_simple_menu_list": MenuSimpleSerializer,
-            "get_simple_menu_list_2": MenuSimpleSerializer,
-        }
-        return serializer_classes.get(self.action, MenuListSerializer)
-
-    @extend_schema(summary="创建菜单")
-    @action(
-        methods=["post"],
-        detail=False,
-        url_path="create",
-        permission_classes=[has_perm("system:menu:create")],
-    )
-    def create_menu(self, request, *args, **kwargs):
-        """创建菜单"""
-        return self.custom_create(request, *args, **kwargs)
-
-    @extend_schema(summary="更新菜单")
-    @action(
-        methods=["put"],
-        detail=False,
-        url_path="update",
-        permission_classes=[has_perm("system:menu:update")],
-    )
-    def update_menu(self, request, *args, **kwargs):
-        """更新菜单"""
-        return self.custom_update(request, *args, **kwargs)
-
-    @extend_schema(summary="删除菜单")
-    @action(
-        methods=["delete"],
-        detail=False,
-        url_path="delete",
-        # permission_classes=[HasPermission("system:menu:delete")],
-    )
-    def delete_menu(self, request, *args, **kwargs):
-        """删除菜单"""
-        try:
-            return self.custom_destroy(request, *args, **kwargs)
-        except ProtectedError as e:
+    def destroy(self, request, *args, **kwargs):
+        """删除菜单，存在子菜单，不允许删除"""
+        if self.get_object().children.exists():
             return CommonResponse.error(code=111601, msg="存在子菜单，无法删除")
-
-    @extend_schema(summary="获取菜单信息")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="get",
-        # permission_classes=[HasPermission("system:menu:query")],
-    )
-    def get_menu(self, request, *args, **kwargs):
-        """获取菜单信息"""
-        return self.custom_retrieve(request, *args, **kwargs)
-
-    @extend_schema(summary="获取菜单列表", filters=SystemMenuFilter)
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="list",
-        # permission_classes=[HasPermission("system:menu:query")],
-    )
-    def get_menu_list(self, request, *args, **kwargs):
-        """获取菜单列表"""
-        return self.custom_list(request, *args, **kwargs)
-
-    @extend_schema(summary="获取菜单精简信息列表")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="list-all-simple",
-        # permission_classes=[IsAuthenticated],
-    )
-    def get_simple_menu_list(self, request, *args, **kwargs):
-        """只包含被开启的菜单，用于角色分配菜单的选项"""
-        return self.custom_list(request, *args, **kwargs)
-
-    @extend_schema(summary="获取菜单精简信息列表")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="simple-list",
-        # permission_classes=[IsAuthenticated],
-    )
-    def get_simple_menu_list_2(self, request, *args, **kwargs):
-        """只包含被开启的菜单，用于角色分配菜单的选项"""
-        return self.custom_list(request, *args, **kwargs)
+        return super().destroy(request, *args, **kwargs)

@@ -1,8 +1,3 @@
-"""
-TODO
-- 时间对不上，时区问题
-"""
-
 from rest_framework import serializers
 
 
