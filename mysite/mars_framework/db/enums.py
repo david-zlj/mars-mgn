@@ -52,6 +52,13 @@ ROLE_TYPE_CHOICES = [
 ]
 
 
+class RoleTypeEnum(Enum):
+    """角色类型枚举"""
+
+    SYSTEM = 1  # 内置角色
+    CUSTOM = 2  # 自定义角色
+
+
 # 数据范围
 DATA_SCOPE_CHOICES = [
     (1, "ALL"),  # 全部数据权限

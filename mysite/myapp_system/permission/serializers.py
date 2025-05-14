@@ -31,8 +31,8 @@ class PermissionAssignRoleMenuSerializer(serializers.ModelSerializer):
     赋予角色菜单请求序列化器
     """
 
-    roleId = serializers.IntegerField(source="id")
-    menuIds = serializers.PrimaryKeyRelatedField(
+    role_id = serializers.IntegerField(source="id")
+    menu_ids = serializers.PrimaryKeyRelatedField(
         queryset=SystemMenu.objects.all(),
         source="menus",
         many=True,
@@ -40,7 +40,7 @@ class PermissionAssignRoleMenuSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SystemRole
-        fields = ["roleId", "menuIds"]
+        fields = ["role_id", "menu_ids"]
 
 
 class PermissionAssignRoleDataScopeSerializer(serializers.ModelSerializer):
@@ -48,11 +48,11 @@ class PermissionAssignRoleDataScopeSerializer(serializers.ModelSerializer):
     赋予角色数据权限请求序列化器
     """
 
-    roleId = serializers.IntegerField(source="id")
-    dataScope = serializers.IntegerField(source="data_scope")
-    dataScopeDeptIds = serializers.PrimaryKeyRelatedField(
+    role_id = serializers.IntegerField(source="id")
+    # dataScope = serializers.IntegerField(source="data_scope")
+    data_scope_dept_ids = serializers.PrimaryKeyRelatedField(
         queryset=SystemDept.objects.all(),
-        source="data_scope_dept_ids",
+        # source="data_scope_dept_ids",
         many=True,
         required=False,
         allow_empty=True,
@@ -61,7 +61,7 @@ class PermissionAssignRoleDataScopeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SystemRole
-        fields = ["roleId", "dataScope", "dataScopeDeptIds"]
+        fields = ["role_id", "data_scope", "data_scope_dept_ids"]
 
     def to_internal_value(self, data):
         """将输入的ID列表(对象)转换为字符串"""

@@ -3,8 +3,8 @@ from django.db import models
 from mars_framework.db.base import BaseModel
 from mars_framework.db.enums import (
     DataScopeEnum,
-    COMMON_STATUS_CHOICES,
-    ROLE_TYPE_CHOICES,
+    CommonStatusEnum,
+    RoleTypeEnum,
 )
 
 
@@ -29,12 +29,12 @@ class SystemRole(BaseModel):
         help_text="数据范围(指定部门数组)",
     )
     status = models.SmallIntegerField(
-        choices=COMMON_STATUS_CHOICES,
+        choices=[(item.value, item.name) for item in CommonStatusEnum],
         db_comment="部门状态",
         help_text=" 部门状态",
     )
     type = models.SmallIntegerField(
-        choices=ROLE_TYPE_CHOICES,
+        choices=[(item.value, item.name) for item in RoleTypeEnum],
         default=2,
         db_comment="角色类型",
         help_text="角色类型",

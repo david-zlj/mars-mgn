@@ -4,6 +4,7 @@ from drf_spectacular.utils import extend_schema
 
 from mars_framework.viewsets.base import CustomViewSet
 from mars_framework.response.base import CommonResponse
+from mars_framework.db.enums import RoleTypeEnum
 from ..role.models import SystemRole
 from ..user.models import SystemUsers
 from .serializers import (
@@ -46,7 +47,7 @@ class PermissionViewSet(CustomViewSet):
         """
         赋予角色菜单
         """
-        role_id = request.data.get("roleId", None)
+        role_id = request.data.get("role_id", None)
         instance = get_object_or_404(SystemRole, id=role_id)
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -60,8 +61,10 @@ class PermissionViewSet(CustomViewSet):
         """
         赋予角色数据权限
         """
-        role_id = request.data.get("roleId", None)
+        role_id = request.data.get("role_id", None)
         instance = get_object_or_404(SystemRole, id=role_id)
+        if instance.type == RoleTypeEnum.SYSTEM.value:
+            return CommonResponse.error(code=111901, msg="内置角色不允许修改数据权限")
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(updater=request.user.id)
@@ -73,7 +76,7 @@ class PermissionViewSet(CustomViewSet):
         """
         获得管理员拥有的角色编号列表
         """
-        user_id = request.query_params.get("userId", None)
+        user_id = request.query_params.get("user_id", None)
         instance = get_object_or_404(SystemUsers, id=user_id)
         serializer = self.get_serializer(instance)
         return CommonResponse.success(data=serializer.data.get("roles", []))

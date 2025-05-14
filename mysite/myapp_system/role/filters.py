@@ -1,9 +1,8 @@
 from django_filters import rest_framework as filters
 from .models import SystemRole
-from django_filters.filters import DateTimeFromToRangeFilter
 
 
-class SystemRoleFilter(filters.FilterSet):
+class RoleFilter(filters.FilterSet):
     name = filters.CharFilter(
         field_name="name", lookup_expr="icontains", label="角色名称（模糊查询）"
     )
@@ -13,10 +12,17 @@ class SystemRoleFilter(filters.FilterSet):
     status = filters.NumberFilter(
         field_name="status", lookup_expr="exact", label="展示状态"
     )
-    # create_time = DateTimeFromToRangeFilter(
-    #     field_name="create_time", label="创建时间范围"
-    # )
+    createTimeBegin = filters.DateTimeFilter(
+        field_name="create_time", lookup_expr="gte"
+    )
+    createTimeEnd = filters.DateTimeFilter(field_name="create_time", lookup_expr="lte")
 
     class Meta:
         model = SystemRole
-        fields = ["name", "code", "status"]
+        fields = [
+            "name",
+            "code",
+            "status",
+            "createTimeBegin",
+            "createTimeEnd",
+        ]

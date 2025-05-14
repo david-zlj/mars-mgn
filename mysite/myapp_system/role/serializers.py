@@ -1,24 +1,28 @@
+import ast
 from rest_framework import serializers
-from mars_framework.serializers.base import CustomDateTimeField
 from .models import SystemRole
 
 
 class RoleSaveSerializer(serializers.ModelSerializer):
-    """岗位创建/修改请求序列化器"""
-
-    # TODO 更新时，会额外带上type remark dataScope dataScopeDeptIds createTime，确定是否需要
+    """角色创建/修改请求序列化器"""
 
     class Meta:
         model = SystemRole
         fields = ["id", "name", "code", "sort", "status", "remark"]
 
 
-class RoleDetailSerializer(serializers.ModelSerializer):
-    """岗位详情序列化器"""
+class RoleSerializer(serializers.ModelSerializer):
+    """角色详情序列化器"""
 
-    dataScope = serializers.IntegerField(source="data_scope")
-    dataScopeDeptIds = serializers.CharField(source="data_scope_dept_ids")
-    createTime = CustomDateTimeField(source="create_time", read_only=True)
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        # 将字符串字段转换为列表
+        dept_ids_str = representation.get("data_scope_dept_ids", "")
+        if dept_ids_str:
+            representation["data_scope_dept_ids"] = ast.literal_eval(dept_ids_str)
+        else:
+            representation["data_scope_dept_ids"] = []
+        return representation
 
     class Meta:
         model = SystemRole
@@ -28,26 +32,17 @@ class RoleDetailSerializer(serializers.ModelSerializer):
             "code",
             "sort",
             "status",
+            "type",
             "remark",
-            "dataScope",
-            "dataScopeDeptIds",
-            "createTime",
+            "data_scope",
+            "data_scope_dept_ids",
+            "create_time",
         ]
-
-
-class RoleListSerializer(serializers.ModelSerializer):
-    # TODO 是否与RoleDetailSerializer一样
-    """岗位列表序列化器"""
-
-    createTime = CustomDateTimeField(source="create_time", read_only=True)
-
-    class Meta:
-        model = SystemRole
-        fields = ["id", "name", "code", "sort", "status", "remark", "createTime"]
+        read_only_fields = ["id", "create_time"]
 
 
 class RoleSimpleSerializer(serializers.ModelSerializer):
-    """岗位简单序列化器"""
+    """角色简单序列化器"""
 
     class Meta:
         model = SystemRole
@@ -55,7 +50,7 @@ class RoleSimpleSerializer(serializers.ModelSerializer):
 
 
 class RoleExportSerializer(serializers.ModelSerializer):
-    """岗位导出序列化器"""
+    """角色导出序列化器"""
 
     class Meta:
         model = SystemRole
