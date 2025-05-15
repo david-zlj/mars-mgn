@@ -4,6 +4,8 @@ from mars_framework.db.enums import CommonStatusEnum
 
 
 class SystemNotifyTemplate(BaseModel):
+    """站内信模版"""
+
     id = models.BigAutoField(primary_key=True, db_comment="主键", help_text="主键")
     name = models.CharField(max_length=63, db_comment="模板名称", help_text="模板名称")
     code = models.CharField(max_length=64, db_comment="模板编码", help_text="模板编码")

@@ -26,7 +26,7 @@ class HasPermission(permissions.BasePermission):
         user_info = cache.get(f"system_users_{request.user.id}")
         if not user_info:
             logger.error(f"用户 {request.user.id} 缓存数据不存在，请重新登录。")
-            return False
+            return False  # TODO 是否强制退出
         # 检查用户是否具有指定权限
         return self.perm_code in user_info.get("permissions", [])
 
@@ -36,7 +36,7 @@ class HasPermission(permissions.BasePermission):
         """
         # TODO
         return True
-        return False
+        # return False
 
 
 def has_perm(perm_code):

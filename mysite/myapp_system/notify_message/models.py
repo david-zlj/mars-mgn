@@ -8,9 +8,9 @@ class SystemNotifyMessage(BaseModel):
     # user_id = models.BigIntegerField(db_comment="用户ID", help_text="用户ID")
     user_id = models.ForeignKey(
         "SystemUsers",
-        on_delete=models.CASCADE,  # TODO
+        on_delete=models.CASCADE,  # TODO 是否级联删除
         db_constraint=False,
-        related_name="notify_messages",  # TODO
+        related_name="notify_messages",
         db_column="user_id",
         db_comment="用户ID",
         help_text="用户ID",
@@ -23,10 +23,12 @@ class SystemNotifyMessage(BaseModel):
     # template_id = models.BigIntegerField(db_comment="模板编号", help_text="模板编号")
     template_id = models.ForeignKey(
         "SystemNotifyTemplate",
-        on_delete=models.CASCADE,  # TODO
+        on_delete=models.SET_NULL,  # TODO 是否级联删除
         db_constraint=False,
-        related_name="notify_messages",  # TODO
+        related_name="notify_messages",
         db_column="template_id",
+        blank=True,
+        null=True,
         db_comment="模板编号",
         help_text="模板编号",
     )
@@ -34,16 +36,17 @@ class SystemNotifyMessage(BaseModel):
         max_length=64, db_comment="模板编码", help_text="模板编码"
     )
     template_nickname = models.CharField(
-        max_length=63, db_comment="模板发送人名称", help_text="模板发送人名称"
+        max_length=63, db_comment="模板发送人名称", help_text="模板发送人名称，冗余"
     )
     template_content = models.CharField(
-        max_length=1024, db_comment="模板内容", help_text="模板内容"
+        max_length=1024, db_comment="模板内容", help_text="格式化后的内容"
     )
-    template_type = models.IntegerField(db_comment="模板类型", help_text="模板类型")
+    template_type = models.IntegerField(
+        db_comment="模板类型", help_text="模板类型，冗余"
+    )
     template_params = models.CharField(
-        max_length=255, db_comment="模板参数", help_text="模板参数"
+        max_length=255, db_comment="模板参数", help_text="输入后的参数"
     )
-    # TODO 数据库修正
     read_status = models.BooleanField(
         db_comment="是否已读",
         help_text="是否已读",
@@ -51,7 +54,9 @@ class SystemNotifyMessage(BaseModel):
     read_time = models.DateTimeField(
         blank=True, null=True, db_comment="阅读时间", help_text="阅读时间"
     )
-    tenant_id = models.BigIntegerField(db_comment="租户编号", help_text="租户编号")
+    # tenant_id = models.BigIntegerField(
+    #     default=0, db_comment="租户编号", help_text="租户编号"
+    # )
 
     class Meta:
         managed = False

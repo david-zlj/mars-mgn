@@ -336,7 +336,7 @@ CHANNEL_LAYERS = {
     },
 }
 
-### CORS 配置
+### CORS 跨域配置
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True  #  允许所有源
 CORS_ALLOW_HEADERS = list(default_headers) + [

@@ -1,5 +1,4 @@
 from django.utils import timezone
-from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import action
 from drf_spectacular.utils import extend_schema
 
@@ -8,7 +7,7 @@ from mars_framework.viewsets.mixins import (
     CustomListModelMixin,
     CustomRetrieveModelMixin,
 )
-from mars_framework.viewsets.base import CustomViewSet, CustomGenericViewSet
+from mars_framework.viewsets.base import CustomGenericViewSet
 from mars_framework.response.base import CommonResponse
 from .models import SystemNotifyMessage
 from .serializers import NotifyMessageSerializer
@@ -26,6 +25,8 @@ class NotifyMessageViewSet(
         "retrieve": [HasPermission("system:notify-message:query")],
         "list": [HasPermission("system:notify-message:query")],
     }
+
+    # ========== 查看自己的站内信 ==========
 
     @extend_schema(summary="获得我的站内信分页", filters=MyNotifyMessageFilter)
     @action(
@@ -73,8 +74,7 @@ class NotifyMessageViewSet(
         url_path="update-all-read",
     )
     def update_all_notify_message_read(self, request, *args, **kwargs):
-        """标记所有站内信为已读"""
-        # 当前用户的未读站内信，批量修改
+        """标记当前用户所有站内信为已读"""
         SystemNotifyMessage.objects.filter(
             user_id=request.user.id, read_status=False
         ).update(read_status=True, read_time=timezone.now())
@@ -89,7 +89,6 @@ class NotifyMessageViewSet(
     def get_unread_notify_message_list(self, request, *args, **kwargs):
         """获取当前用户的最新站内信列表，默认10条"""
         size = request.query_params.get("size", 10)
-        # TODO 是否未读
         queryset = SystemNotifyMessage.objects.filter(
             user_id=request.user.id, read_status=False
         ).order_by("-create_time")
@@ -107,9 +106,11 @@ class NotifyMessageViewSet(
     )
     def get_unread_notify_message_count(self, request, *args, **kwargs):
         """获得当前用户的未读站内信数量"""
-        # 当前用户的未读站内信数量
         count = SystemNotifyMessage.objects.filter(
             user_id=request.user.id, read_status=False
         ).count()
         print(count)
         return CommonResponse.success(data=count)
+
+    # ========== 管理所有的站内信 ==========
+    # 已通过继承实现

@@ -2,7 +2,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.decorators import action
 from drf_spectacular.utils import extend_schema
 
-from mars_framework.viewsets.base import CustomViewSet
+from mars_framework.viewsets.base import CustomViewSet, CustomGenericViewSet
 from mars_framework.response.base import CommonResponse
 from mars_framework.db.enums import RoleTypeEnum
 from ..role.models import SystemRole
@@ -17,18 +17,16 @@ from .serializers import (
 
 
 @extend_schema(tags=["管理后台-system-权限"])
-class PermissionViewSet(CustomViewSet):
+class PermissionViewSet(CustomGenericViewSet):
     queryset = SystemRole.objects.all()
-
-    def get_serializer_class(self):
-        serializer_classes = {
-            "get_role_menu_list": PermissionRoleMenuListSerializer,
-            "list_admin_roles": PermissionUserRoleListSerializer,
-            "assign_role_menu": PermissionAssignRoleMenuSerializer,
-            "assign_role_data_scope": PermissionAssignRoleDataScopeSerializer,
-            "assign_user_role": PermissionAssignUserRoleSerializer,
-        }
-        return serializer_classes.get(self.action, PermissionRoleMenuListSerializer)
+    serializer_class = PermissionRoleMenuListSerializer
+    action_serializers = {
+        "get_role_menu_list": PermissionRoleMenuListSerializer,
+        "list_admin_roles": PermissionUserRoleListSerializer,
+        "assign_role_menu": PermissionAssignRoleMenuSerializer,
+        "assign_role_data_scope": PermissionAssignRoleDataScopeSerializer,
+        "assign_user_role": PermissionAssignUserRoleSerializer,
+    }
 
     @extend_schema(summary="获得角色拥有的菜单编号")
     @action(methods=["get"], detail=False, url_path="list-role-menus")
@@ -51,7 +49,6 @@ class PermissionViewSet(CustomViewSet):
         instance = get_object_or_404(SystemRole, id=role_id)
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
-        # TODO 中间表的 creator updater time等的更新
         serializer.save(updater=request.user.id)
         return CommonResponse.success()
 
@@ -76,7 +73,7 @@ class PermissionViewSet(CustomViewSet):
         """
         获得管理员拥有的角色编号列表
         """
-        user_id = request.query_params.get("user_id", None)
+        user_id = request.query_params.get("userId", None)
         instance = get_object_or_404(SystemUsers, id=user_id)
         serializer = self.get_serializer(instance)
         return CommonResponse.success(data=serializer.data.get("roles", []))
@@ -91,6 +88,5 @@ class PermissionViewSet(CustomViewSet):
         instance = get_object_or_404(SystemUsers, id=user_id)
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
-        # TODO 中间表的 creator updater time等的更新
         serializer.save(updater=request.user.id)
         return CommonResponse.success()
