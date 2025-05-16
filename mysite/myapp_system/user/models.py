@@ -1,8 +1,3 @@
-"""
-TODO
-- 一对多关系，是否禁用db_index
-"""
-
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
@@ -42,7 +37,6 @@ class SystemUsers(BaseModel, AbstractBaseUser):
     remark = models.CharField(
         max_length=500, blank=True, null=True, db_comment="备注", help_text="备注"
     )
-    # TODO 部门下有用户，不可以删除。是否需要修改
     dept_id = models.ForeignKey(
         "SystemDept",
         on_delete=models.PROTECT,
@@ -54,7 +48,6 @@ class SystemUsers(BaseModel, AbstractBaseUser):
         db_comment="部门ID",
         help_text="部门ID",
     )
-    # TODO 作用；实现方法：通过在模型中添加自定义方法
     post_ids = models.CharField(
         max_length=255,
         blank=True,

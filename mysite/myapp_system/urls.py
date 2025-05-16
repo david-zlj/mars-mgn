@@ -12,6 +12,7 @@ from .permission.views import PermissionViewSet
 from .dict_data.views import DictDataViewSet
 from .dict_type.views import DictTypeViewSet
 from .notify_message.views import NotifyMessageViewSet
+from .notify_template.views import NotifyTemplateViewSet
 from .tenant.views import TenantViewSet
 from .captcha.views import CaptchaViewSet
 
@@ -41,6 +42,8 @@ router.register(r"dict-data", DictDataViewSet, basename="dict_data")
 router.register(r"dict-type", DictTypeViewSet, basename="dict_type")
 # 管理后台 - 消息通知
 router.register(r"notify-message", NotifyMessageViewSet, basename="notify_message")
+# 管理后台 - 模板消息
+router.register(r"notify-template", NotifyTemplateViewSet, basename="notify_template")
 # 管理后台 - 租户
 router.register(r"tenant", TenantViewSet, basename="tenant")
 # 管理后台 - 验证码

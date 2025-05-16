@@ -48,6 +48,7 @@ class SystemNotifyMessage(BaseModel):
         max_length=255, db_comment="模板参数", help_text="输入后的参数"
     )
     read_status = models.BooleanField(
+        default=False,
         db_comment="是否已读",
         help_text="是否已读",
     )

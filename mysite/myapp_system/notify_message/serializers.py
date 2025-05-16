@@ -3,7 +3,7 @@ from .models import SystemNotifyMessage
 
 
 class NotifyMessageSerializer(serializers.ModelSerializer):
-    """站内信消息序列化器"""
+    """站内信序列化器"""
 
     class Meta:
         model = SystemNotifyMessage
@@ -22,3 +22,20 @@ class NotifyMessageSerializer(serializers.ModelSerializer):
             "create_time",
         ]
         read_only_fields = ["id", "create_time"]
+
+
+class NotifyMessageCreateSerializer(serializers.ModelSerializer):
+    """站内信创建序列化器"""
+
+    class Meta:
+        model = SystemNotifyMessage
+        fields = [
+            "user_id",
+            "user_type",
+            "template_id",
+            "template_code",
+            "template_nickname",
+            "template_content",
+            "template_type",
+            "template_params",
+        ]

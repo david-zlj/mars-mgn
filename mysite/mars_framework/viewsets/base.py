@@ -136,3 +136,16 @@ class CustomModelViewSetNoExport(
     """自定义ModelViewSet，不带导出功能"""
 
     pass
+
+
+class CustomModelViewSetNoExportNoSimple(
+    CustomCreateModelMixin,
+    CustomListModelMixin,
+    CustomRetrieveModelMixin,
+    CustomDestroyModelMixin,
+    CustomUpdateModelMixin,
+    CustomGenericViewSet,
+):
+    """自定义ModelViewSet，不带导出功能，不带简要信息列表功能"""
+
+    pass

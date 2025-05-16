@@ -8,7 +8,13 @@ class SystemNotifyTemplate(BaseModel):
 
     id = models.BigAutoField(primary_key=True, db_comment="主键", help_text="主键")
     name = models.CharField(max_length=63, db_comment="模板名称", help_text="模板名称")
-    code = models.CharField(max_length=64, db_comment="模板编码", help_text="模板编码")
+    code = models.CharField(
+        max_length=64,
+        unique=True,
+        db_comment="模板编码",
+        help_text="模板编码",
+        error_messages={"unique": "模板编码不能重复"},
+    )
     nickname = models.CharField(
         max_length=255, db_comment="发送人名称", help_text="发送人名称"
     )
