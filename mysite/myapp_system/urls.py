@@ -13,6 +13,9 @@ from .dict_data.views import DictDataViewSet
 from .dict_type.views import DictTypeViewSet
 from .notify_message.views import NotifyMessageViewSet
 from .notify_template.views import NotifyTemplateViewSet
+from .mail_account.views import MailAccountViewSet
+from .mail_template.views import MailTemplateViewSet
+from .mail_log.views import MailLogViewSet
 from .tenant.views import TenantViewSet
 from .captcha.views import CaptchaViewSet
 
@@ -44,11 +47,16 @@ router.register(r"dict-type", DictTypeViewSet, basename="dict_type")
 router.register(r"notify-message", NotifyMessageViewSet, basename="notify_message")
 # 管理后台 - 模板消息
 router.register(r"notify-template", NotifyTemplateViewSet, basename="notify_template")
+# 管理后台 - 邮箱账号
+router.register(r"mail-account", MailAccountViewSet, basename="mail_account")
+# 管理后台 - 邮件模板
+router.register(r"mail-template", MailTemplateViewSet, basename="mail_template")
+# 管理后台 - 邮件发送日志
+router.register(r"mail-log", MailLogViewSet, basename="mail_log")
 # 管理后台 - 租户
 router.register(r"tenant", TenantViewSet, basename="tenant")
 # 管理后台 - 验证码
 router.register(r"captcha", CaptchaViewSet, basename="captcha")
-
 
 urlpatterns = []
 urlpatterns += router.urls

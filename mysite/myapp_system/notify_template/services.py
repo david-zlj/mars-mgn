@@ -14,7 +14,7 @@ class NotifiySendService:
     def get_params(self, req_params):
         """
         整理并补充发送站内信所需要的参数
-        req_params: NotifySendReqSerializer 前端请求参数
+        req_params: NotifySendSerializer 站内信模板发送请求序列化器的数据
         """
         params = {}
         params["user_id"] = req_params.get("user_id").id
@@ -40,7 +40,7 @@ class NotifiySendService:
     def send_notify(self, data, creator_id=None):
         """
         发送站内信
-        data: NotifyMessageCreateSerializer 数据
+        data: NotifyMessageCreateSerializer 序列化器的数据
         creator_id: int 创建人id
         """
         serializer = NotifyMessageCreateSerializer(data=data)

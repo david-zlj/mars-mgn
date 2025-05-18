@@ -1,14 +1,12 @@
 import re
 import ast
+
 from rest_framework import serializers
-
-from mars_framework.db.enums import UserTypeEnum
-from .models import SystemNotifyTemplate
-from ..user.models import SystemUsers
+from .models import SystemMailTemplate
 
 
-class NotifyTemplateSerializer(serializers.ModelSerializer):
-    """站内信模板序列化器"""
+class MailTemplateSerializer(serializers.ModelSerializer):
+    """邮件模板序列化器"""
 
     params = serializers.SerializerMethodField()
 
@@ -16,13 +14,14 @@ class NotifyTemplateSerializer(serializers.ModelSerializer):
         return ast.literal_eval(obj.params) if obj.params else []
 
     class Meta:
-        model = SystemNotifyTemplate
+        model = SystemMailTemplate
         fields = [
             "id",
             "name",
             "code",
-            "type",
+            "account_id",
             "nickname",
+            "title",
             "content",
             "params",
             "status",
@@ -48,23 +47,24 @@ class NotifyTemplateSerializer(serializers.ModelSerializer):
         return super().update(instance, validated_data)
 
 
-class NotifySendSerializer(serializers.Serializer):
-    """站内信模板发送请求序列化器"""
+class MailTemplateSimpleSerializer(serializers.ModelSerializer):
+    """邮件模板简单序列化器"""
 
-    user_id = serializers.PrimaryKeyRelatedField(
-        queryset=SystemUsers.objects.all(),
+    class Meta:
+        model = SystemMailTemplate
+        fields = [
+            "id",
+            "name",
+        ]
+
+
+class MailSendSerializer(serializers.Serializer):
+    """发送邮件请求序列化器"""
+
+    mail = serializers.EmailField(
         required=True,
-        help_text="用户id",
-        error_messages={
-            "required": "接收人ID不能为空",
-            "does_not_exist": "接收人ID不存在",
-        },
-    )
-    user_type = serializers.ChoiceField(
-        choices=[(item.value, item.name) for item in UserTypeEnum],
-        required=True,
-        help_text="用户类型",
-        error_messages={"required": "用户类型不能为空"},
+        help_text="接收邮箱",
+        error_messages={"required": "接收邮箱不能为空"},
     )
     template_code = serializers.CharField(
         required=True,
@@ -73,7 +73,8 @@ class NotifySendSerializer(serializers.Serializer):
     )
     template_params = serializers.DictField(
         child=serializers.JSONField(),
-        required=False,
         allow_null=True,
+        allow_empty=True,
+        required=False,
         help_text="模板参数",
     )

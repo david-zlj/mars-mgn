@@ -1,6 +1,4 @@
-"""
-定义 Celery 任务
-"""
+"""定义 Celery 任务"""
 
 from time import sleep
 from celery import shared_task

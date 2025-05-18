@@ -7,6 +7,7 @@ TODO
 import logging
 from django.http import JsonResponse
 from django.core.exceptions import ValidationError as DjangoValidationError
+from django.db.models import ProtectedError
 from rest_framework import status
 from rest_framework.views import exception_handler
 from rest_framework.response import Response
@@ -105,6 +106,8 @@ def custom_exception_handler(exc, context):
         return handle_drf_validation_error(exc)
     if isinstance(exc, DjangoValidationError):
         return handle_django_validation_error(exc)
+    if isinstance(exc, ProtectedError):  # 删除关联数据时，ProtectedError异常
+        return CommonResponse.error(code=101101, msg="该数据已被关联，请先删除关联数据")
 
     # 统一响应格式
     return Response(

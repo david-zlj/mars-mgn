@@ -1,5 +1,7 @@
 from enum import Enum
 
+###### CHOICES列表，舍弃
+
 # 通用性别
 SEX_CHOICES = [
     (0, "UNKNOWN"),  # 未知
@@ -13,22 +15,6 @@ COMMON_STATUS_CHOICES = [
     (1, "DISABLE"),  # 禁用
 ]
 
-
-class SexEnum(Enum):
-    """性别的枚举值"""
-
-    MALE = 1  # 男
-    FEMALE = 2  # 女
-    UNKNOWN = 0  # 未知
-
-
-class CommonStatusEnum(Enum):
-    """通用状态枚举"""
-
-    ENABLE = 0  # 开启
-    DISABLE = 1  # 关闭
-
-
 # 菜单类型
 MENU_TYPE_CHOICES = [
     (1, "DIR"),  # 目录
@@ -36,28 +22,11 @@ MENU_TYPE_CHOICES = [
     (3, "BUTTON"),  # 按钮
 ]
 
-
-class MenuTypeEnum(Enum):
-    """菜单类型枚举"""
-
-    DIR = 1  # 目录
-    MENU = 2  # 菜单
-    BUTTON = 3  # 按钮
-
-
 # 角色类型
 ROLE_TYPE_CHOICES = [
     (1, "SYSTEM"),  # 内置角色
     (2, "CUSTOM"),  # 自定义角色
 ]
-
-
-class RoleTypeEnum(Enum):
-    """角色类型枚举"""
-
-    SYSTEM = 1  # 内置角色
-    CUSTOM = 2  # 自定义角色
-
 
 # 数据范围
 DATA_SCOPE_CHOICES = [
@@ -67,17 +36,6 @@ DATA_SCOPE_CHOICES = [
     (4, "DEPT_AND_CHILD"),  # 部门及以下数据权限
     (5, "SELF"),  # 仅本人数据权限
 ]
-
-
-class DataScopeEnum(Enum):
-    """数据范围枚举"""
-
-    ALL = 1  # 全部数据权限
-    DEPT_CUSTOM = 2  # 指定部门数据权限
-    DEPT_ONLY = 3  # 部门数据权限
-    DEPT_AND_CHILD = 4  # 部门及以下数据权限
-    SELF = 5  # 仅本人数据权限
-
 
 # 任务状态
 JOB_STATUS_CHOICES = [
@@ -101,8 +59,60 @@ JOB_LOG_STATUS_CHOICES = [
 ]
 
 
+###### 枚举值
+
+
+class SexEnum(Enum):
+    """性别的枚举值"""
+
+    MALE = 1  # 男
+    FEMALE = 2  # 女
+    UNKNOWN = 0  # 未知
+
+
+class CommonStatusEnum(Enum):
+    """通用状态枚举"""
+
+    ENABLE = 0  # 开启
+    DISABLE = 1  # 关闭
+
+
+class MenuTypeEnum(Enum):
+    """菜单类型枚举"""
+
+    DIR = 1  # 目录
+    MENU = 2  # 菜单
+    BUTTON = 3  # 按钮
+
+
+class RoleTypeEnum(Enum):
+    """角色类型枚举"""
+
+    SYSTEM = 1  # 内置角色
+    CUSTOM = 2  # 自定义角色
+
+
+class DataScopeEnum(Enum):
+    """数据范围枚举"""
+
+    ALL = 1  # 全部数据权限
+    DEPT_CUSTOM = 2  # 指定部门数据权限
+    DEPT_ONLY = 3  # 部门数据权限
+    DEPT_AND_CHILD = 4  # 部门及以下数据权限
+    SELF = 5  # 仅本人数据权限
+
+
 class UserTypeEnum(Enum):
     """全局用户类型枚举"""
 
     MEMBER = 1  # 会员，面向 c 端，普通用户
     ADMIN = 2  # 管理员，面向 b 端，管理后台
+
+
+class MailSendStatusEnum(Enum):
+    """邮件的发送状态枚举"""
+
+    INIT = 0  # 初始化
+    SUCCESS = 10  # 发送成功
+    FAILURE = 20  # 发送失败
+    IGNORE = 30  # 忽略，即不发送

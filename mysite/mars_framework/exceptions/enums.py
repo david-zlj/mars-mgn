@@ -48,6 +48,8 @@ GLOBAL_ERROR_CODE = {
     一般建议，每个模块自增。
 
 错误码分配结果：
+framework-exception 101100 - 101199
+
 system-user 111100 - 111199
 system-auth 111200 - 111299
 system-dept 111300 - 111399
@@ -58,7 +60,6 @@ system-user_profile 111700 - 111799
 system-notify-message 111800 - 111899
 system-permission 111900 - 111999
 system-dict-type 112000 - 112099
-
 
 system-infra-job 121100 - 121199
 """

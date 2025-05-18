@@ -8,7 +8,7 @@ class SystemNotifyMessage(BaseModel):
     # user_id = models.BigIntegerField(db_comment="用户ID", help_text="用户ID")
     user_id = models.ForeignKey(
         "SystemUsers",
-        on_delete=models.CASCADE,  # TODO 是否级联删除
+        on_delete=models.DO_NOTHING,  # TODO 是否级联删除，是否报错
         db_constraint=False,
         related_name="notify_messages",
         db_column="user_id",

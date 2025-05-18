@@ -8,7 +8,7 @@ from mars_framework.response.base import CommonResponse
 from .models import SystemNotifyTemplate
 from .serializers import (
     NotifyTemplateSerializer,
-    NotifySendReqSerializer,
+    NotifySendSerializer,
 )
 from .filters import NotifyTemplateFilter
 from .services import notifiy_send_service
@@ -20,7 +20,7 @@ class NotifyTemplateViewSet(CustomModelViewSetNoExportNoSimple):
     serializer_class = NotifyTemplateSerializer
     filterset_class = NotifyTemplateFilter
     action_serializers = {
-        "send_notify": NotifySendReqSerializer,
+        "send_notify": NotifySendSerializer,
     }
     action_permissions = {
         "create": [HasPermission("system:notify-template:create")],

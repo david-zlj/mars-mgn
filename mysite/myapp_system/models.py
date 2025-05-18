@@ -12,3 +12,6 @@ from .dict_data.models import SystemDictData
 from .dict_type.models import SystemDictType
 from .notify_message.models import SystemNotifyMessage
 from .notify_template.models import SystemNotifyTemplate
+from .mail_account.models import SystemMailAccount
+from .mail_template.models import SystemMailTemplate
+from .mail_log.models import SystemMailLog
