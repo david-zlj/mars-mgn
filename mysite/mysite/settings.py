@@ -42,7 +42,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",  # DRF API请求日志记录
+    "myapp_system.operate_log.services.OperateLogMiddleware",  # 操作日志记录，如果数据库、磁盘IO性能一般，建议关闭
+    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",  # DRF API请求日志记录(放在最后)
 ]
 
 ROOT_URLCONF = "mysite.urls"
@@ -232,8 +233,8 @@ REST_FRAMEWORK = {
     ],
 }
 
-### DRF API 请求日志
-DRF_API_LOGGER_DATABASE = True  # 保存到数据库
+### API 日志
+DRF_API_LOGGER_DATABASE = True  # 是否保存到数据库
 # 隐藏日志中的敏感数据
 DRF_API_LOGGER_EXCLUDE_KEYS = [
     "password",

@@ -116,3 +116,44 @@ class MailSendStatusEnum(Enum):
     SUCCESS = 10  # 发送成功
     FAILURE = 20  # 发送失败
     IGNORE = 30  # 忽略，即不发送
+
+
+class LoginLogTypeEnum(Enum):
+    """登录日志的类型枚举"""
+
+    LOGIN_USERNAME = 100  # 使用账号登录
+    LOGIN_SOCIAL = 101  # 使用社交登录
+    LOGIN_MOBILE = 103  # 使用手机登录
+    LOGIN_SMS = 104  # 使用短信登录
+    LOGOUT_SELF = 200  # 自己主动登出
+    LOGOUT_DELETE = 202  # 强制退出
+
+
+class LoginResultEnum(Enum):
+    """登录结果的枚举类"""
+
+    SUCCESS = 0  # 成功
+    BAD_CREDENTIALS = 10  # 账号或密码不正确
+    USER_DISABLED = 20  # 用户被禁用
+    CAPTCHA_NOT_FOUND = 30  # 图片验证码不存在
+    CAPTCHA_CODE_ERROR = 31  # 图片验证码不正确
+
+
+class OperateTypeEnum(Enum):
+    """操作日志的操作类型枚举"""
+
+    GET = 1  # 查询
+    CREATE = 2  # 新增
+    UPDATE = 3  # 修改
+    DELETE = 4  # 删除
+    EXPORT = 5  # 导出
+    IMPORT = 6  # 导入
+    OTHER = 0  # 其它（无法归类时使用）
+
+
+class ApiErrorLogProcessStatusEnum(Enum):
+    """API 异常数据的处理状态枚举"""
+
+    INIT = 0  # 未处理
+    DONE = 1  # 已处理
+    IGNORE = 2  # 已忽略

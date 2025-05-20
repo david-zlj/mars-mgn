@@ -16,6 +16,7 @@ def send_single_email_task(
     attachments=None,  # 附件列表（可选）
 ):
     """发送邮件任务"""
+    # TODO 附件发送测试
     from django.core import mail
     from django.utils import timezone
     from mars_framework.db.enums import MailSendStatusEnum
@@ -52,3 +53,26 @@ def send_single_email_task(
         update_mail_log(
             mail_log_id, timezone.now(), MailSendStatusEnum.FAILURE.value, str(e)
         )
+
+
+@shared_task
+def operation_log_task(log_data):
+    """记录操作日志"""
+    from .operate_log.models import SystemOperateLog
+    from .user.models import SystemUsers
+
+    user_id = log_data.get("user_id")
+    if user_id:
+        user = SystemUsers.objects.filter(id=user_id).first()
+        if user:
+            log_data.update(
+                {
+                    "username": user.username,
+                    "nickname": user.nickname,
+                    # "user_type": user.user_type, # TODO
+                }
+            )
+    SystemOperateLog.objects.create(**log_data)
+
+
+# TODO 定期删除操作日志

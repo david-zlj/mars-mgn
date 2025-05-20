@@ -15,3 +15,5 @@ from .notify_template.models import SystemNotifyTemplate
 from .mail_account.models import SystemMailAccount
 from .mail_template.models import SystemMailTemplate
 from .mail_log.models import SystemMailLog
+from .operate_log.models import SystemOperateLog
+from .login_log.models import SystemLoginLog
