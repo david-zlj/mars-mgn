@@ -2,26 +2,24 @@ import os
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
-from myapp_infra.websocket.routing import websocket_urlpatterns
 
-
+# 先设置环境变量并初始化Django应用
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
+django_application = get_asgi_application()
+
+
+def get_websocket_application():
+    """延迟导入WebSocket路由配置"""
+    from myapp_infra.websocket.routing import websocket_urlpatterns
+
+    return AuthMiddlewareStack(URLRouter(websocket_urlpatterns))
+
 
 application = ProtocolTypeRouter(
     {
-        # HTTP请求处理
-        "http": get_asgi_application(),
-        # WebSocket请求处理
-        "websocket": AuthMiddlewareStack(
-            URLRouter(websocket_urlpatterns)  # WebSocket 路由配置
-        ),
+        # Django应用
+        "http": django_application,
+        # WebSocket路由配置
+        "websocket": get_websocket_application(),
     }
 )
-
-
-### 原生配置
-# import os
-# from django.core.asgi import get_asgi_application
-
-# os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myproject.settings")
-# application = get_asgi_application()

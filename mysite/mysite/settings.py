@@ -22,8 +22,7 @@ INSTALLED_APPS = [
     "drf_spectacular",  # OpenAPI 文档 TODO 生产环境请关闭
     "django_celery_beat",  # Celery 定时任务扩展
     "django_celery_results",  # # Celery 定时任务扩展
-    # "drf_api_logger",  # DRF API请求日志记录
-    "channels",  # Channels WebSocket
+    "channels",  # Channels WebSocket功能
     "corsheaders",  # CORS跨域支持
     "myapp_system",
     "myapp_infra",
@@ -43,7 +42,6 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # "myapp_system.operate_log.services.OperateLogMiddleware",  # 操作日志记录，如果数据库、磁盘IO性能一般，建议关闭
-    # "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",  # DRF API请求日志记录(放在最后)
 ]
 
 ROOT_URLCONF = "mysite.urls"
@@ -233,18 +231,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-### API 日志
-DRF_API_LOGGER_DATABASE = True  # 是否保存到数据库
-# 隐藏日志中的敏感数据
-DRF_API_LOGGER_EXCLUDE_KEYS = [
-    "password",
-    "token",
-    "access",
-    "refresh",
-    "accessToken",
-    "refreshToken",
-    "AUTHORIZATION",
-]
 
 ### Simpel JWT 配置 TODO 优化
 SIMPLE_JWT = {
@@ -291,7 +277,7 @@ CELERY_ENABLE_UTC = False  # 禁用 UTC 时间转换 TODO 待确认
 CELERY_RESULT_EXTENDED = True  # 启用后才会记录 task_name、date_started 等字段
 CELERY_TASK_TRACK_STARTED = True  # 记录任务开始时间
 
-### WebSocket功能：ASGI 和 Channel 配置
+### WebSocket功能：ASGI 和 Channels 配置
 # 参考资料：https://channels.readthedocs.io/en/latest/tutorial/part_2.html
 ASGI_APPLICATION = "mysite.asgi.application"
 # 配置channels_redis，用于通道层使用
@@ -299,12 +285,14 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [(REDIS_HOST, REDIS_PORT)],
-            "db": REDIS_DB,
-            "password": REDIS_PASSWORD,  # 添加密码配置
+            "hosts": [
+                f"redis://:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}"
+            ],
         },
     },
 }
+# 默认组名
+DEFAULT_GROUP_NAME = "marsmgn_group"
 
 ### CORS 跨域配置
 CORS_ALLOW_CREDENTIALS = True
