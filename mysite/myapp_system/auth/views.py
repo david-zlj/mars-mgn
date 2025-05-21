@@ -9,7 +9,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from drf_spectacular.utils import extend_schema
 
 from mars_framework.response.base import CommonResponse
-from mars_framework.db.enums import CommonStatusEnum
+from mars_framework.db.enums import CommonStatusEnum, LoginResultEnum, LoginLogTypeEnum
 from ..user.models import SystemUsers
 from .serializers import (
     AuthLoginSerializer,
@@ -17,6 +17,7 @@ from .serializers import (
     AuthPermissionInfoSerializer,
 )
 from .services import extract_jwt_info
+from ..tasks import login_log_task
 
 
 @extend_schema(tags=["管理后台-system-认证"])
@@ -40,17 +41,43 @@ class AuthViewSet(viewsets.GenericViewSet):
         password = serializer.validated_data.get("password")
         # TODO 检查验证码功能是否开启，检查验证码是否正确
         # TODO 检查重试次数是否超过限制
+        # 初始化日志记录参数
+        log_data = {
+            "log_type": LoginLogTypeEnum.LOGIN_USERNAME.value,
+            "username": username,
+            "user_ip": request.META.get("REMOTE_ADDR"),
+            "user_agent": request.META.get("HTTP_USER_AGENT", "")[:512],
+        }
         user = authenticate(request, username=username, password=password)
         # 检查用户名与密码是否正确
         if not user:
+            # 登录失败，记录登录日志
+            log_data["result"] = LoginResultEnum.BAD_CREDENTIALS.value
+            login_log_task.delay(log_data)
             return CommonResponse.error(code=111201, msg=_("账号或密码错误"))
         # 检查用户是否已被停用
         if user.status == CommonStatusEnum.DISABLE.value:
+            # 用户被停用，记录登录日志
+            log_data.update(
+                {
+                    "user_id": user.id,
+                    "result": LoginResultEnum.USER_DISABLED.value,
+                }
+            )
+            login_log_task.delay(log_data)
             return CommonResponse.error(code=111202, msg="用户被停用")
         # 更新用户登录IP和登录时间
         user.login_ip = request.META.get("REMOTE_ADDR")
         user.login_date = timezone.now()
         user.save()
+        # 登录成功，记录登录日志
+        log_data.update(
+            {
+                "user_id": user.id,
+                "result": LoginResultEnum.SUCCESS.value,
+            }
+        )
+        login_log_task.delay(log_data)
         refresh = RefreshToken.for_user(user)
         return CommonResponse.success(data=extract_jwt_info(refresh))
 
@@ -59,7 +86,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         methods=["post"],
         detail=False,
         url_path="logout",
-        authentication_classes=[],  # 不需要认证
+        # authentication_classes=[],  # 不需要认证 TODO 记录日志username失败
         permission_classes=[AllowAny],  # 不需要权限
     )
     def logout(self, request, *args, **kwargs):
@@ -67,6 +94,16 @@ class AuthViewSet(viewsets.GenericViewSet):
         # TODO 是否需要将 token 加入黑名单，防止继续使用
         # 清空用户Redis
         cache.delete(f"system_users_{request.user.id}")
+        # 登出成功，记录登出日志
+        log_data = {
+            "log_type": LoginLogTypeEnum.LOGOUT_SELF.value,
+            "user_ip": request.META.get("REMOTE_ADDR"),
+            "user_agent": request.META.get("HTTP_USER_AGENT", "")[:512],
+            "username": request.user.username,
+            "user_id": request.user.id,
+            "result": LoginResultEnum.SUCCESS.value,
+        }
+        login_log_task.delay(log_data)
         return CommonResponse.success(data=True)
 
     @extend_schema(summary="刷新令牌")
@@ -74,7 +111,7 @@ class AuthViewSet(viewsets.GenericViewSet):
         methods=["post"],
         detail=False,
         url_path="refresh-token",
-        authentication_classes=[],
+        # authentication_classes=[],  # TODO 记录日志username失败
         permission_classes=[AllowAny],
     )
     def refresh_token(self, request, *args, **kwargs):
@@ -83,6 +120,16 @@ class AuthViewSet(viewsets.GenericViewSet):
         if not refresh_token:
             return CommonResponse.error(code=111206, msg="刷新令牌不能为空")
         refresh = RefreshToken(refresh_token)
+        # 记录日志
+        log_data = {
+            "log_type": LoginLogTypeEnum.REFRESH_TOKEN.value,
+            "user_ip": request.META.get("REMOTE_ADDR"),
+            "user_agent": request.META.get("HTTP_USER_AGENT", "")[:512],
+            "username": request.user.username,
+            "user_id": request.user.id,
+            "result": LoginResultEnum.SUCCESS.value,
+        }
+        login_log_task.delay(log_data)
         return CommonResponse.success(data=extract_jwt_info(refresh))
 
     @extend_schema(summary="获取登录用户的权限信息")
@@ -112,6 +159,16 @@ class AuthViewSet(viewsets.GenericViewSet):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         refresh = RefreshToken.for_user(user)
+        # 记录日志
+        log_data = {
+            "log_type": LoginLogTypeEnum.REGISTER_USERNAME.value,
+            "user_ip": request.META.get("REMOTE_ADDR"),
+            "user_agent": request.META.get("HTTP_USER_AGENT", "")[:512],
+            "username": serializer.validated_data.get("username"),
+            "user_id": user.id,
+            "result": LoginResultEnum.SUCCESS.value,
+        }
+        login_log_task.delay(log_data)
         return CommonResponse.success(data=extract_jwt_info(refresh))
 
     ### 短信登录相关

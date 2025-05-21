@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     "drf_spectacular",  # OpenAPI 文档 TODO 生产环境请关闭
     "django_celery_beat",  # Celery 定时任务扩展
     "django_celery_results",  # # Celery 定时任务扩展
-    "drf_api_logger",  # DRF API请求日志记录
+    # "drf_api_logger",  # DRF API请求日志记录
     "channels",  # Channels WebSocket
     "corsheaders",  # CORS跨域支持
     "myapp_system",
@@ -42,8 +42,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "myapp_system.operate_log.services.OperateLogMiddleware",  # 操作日志记录，如果数据库、磁盘IO性能一般，建议关闭
-    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",  # DRF API请求日志记录(放在最后)
+    # "myapp_system.operate_log.services.OperateLogMiddleware",  # 操作日志记录，如果数据库、磁盘IO性能一般，建议关闭
+    # "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",  # DRF API请求日志记录(放在最后)
 ]
 
 ROOT_URLCONF = "mysite.urls"
@@ -321,6 +321,11 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 DEFAULT_USER_PASSWORD = "admin123"
 PASSWORD_MIN_LENGTH = 8  # 密码长度8-20
 PASSWORD_MAX_LENGTH = 20
+USERNAME_MIN_LENGTH = 4  # # 用户名长度
+USERNAME_MAX_LENGTH = 30
+NICKNAME_MIN_LENGTH = 1  # 用户昵称长度
+NICKNAME_MAX_LENGTH = 30
+
 
 ### 全局策略 TODO
 # 是否实现软删除：不实现

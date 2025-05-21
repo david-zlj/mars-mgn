@@ -5,19 +5,24 @@ from openpyxl.utils import get_column_letter
 
 # 定义导出Excel文件时，需要转义的字段
 # TODO 优化，与db.enums.py 合并
-FIELD_CHOICES = {
-    "status": {0: "开启", 1: "关闭"},
-    "sex": {1: "男", 2: "女"},
-    "data_scope": {
-        1: "全部数据",
-        2: "自定义数据",
-        3: "本部门数据",
-        4: "本部门及以下数据",
-        5: "仅本人数据",
-    },
-    "job_status": {0: "初始化中", 1: "开启", 2: "暂停"},
-    "job_log_status": {0: "运行中", 1: "成功", 2: "失败"},
-}
+# FIELD_CHOICES = {
+#     "status": {0: "开启", 1: "关闭"},
+#     "sex": {1: "男", 2: "女"},
+#     "data_scope": {
+#         1: "全部数据",
+#         2: "自定义数据",
+#         3: "本部门数据",
+#         4: "本部门及以下数据",
+#         5: "仅本人数据",
+#     },
+#     "job_status": {0: "初始化中", 1: "开启", 2: "暂停"},
+#     "job_log_status": {0: "运行中", 1: "成功", 2: "失败"},
+# }
+
+
+# 将2025-05-20T21:03:59+08:00 格式转换为2025-05-20 21:03:59
+def convert_datetime(datetime_str):
+    return datetime_str.replace("T", " ").replace("+08:00", "")
 
 
 def process_item(item, fields, data_map={}):
@@ -31,6 +36,8 @@ def process_item(item, fields, data_map={}):
         # 特殊字段类型转换
         elif field == "id" or field == "job_id":
             value = str(value)
+        elif field == "create_time":
+            value = convert_datetime(value)
         row.append(value)
     return row
 

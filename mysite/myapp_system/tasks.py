@@ -69,10 +69,17 @@ def operation_log_task(log_data):
                 {
                     "username": user.username,
                     "nickname": user.nickname,
-                    # "user_type": user.user_type, # TODO
                 }
             )
     SystemOperateLog.objects.create(**log_data)
 
 
 # TODO 定期删除操作日志
+
+
+@shared_task
+def login_log_task(log_data):
+    """记录登录日志"""
+    from .login_log.models import SystemLoginLog
+
+    SystemLoginLog.objects.create(**log_data)

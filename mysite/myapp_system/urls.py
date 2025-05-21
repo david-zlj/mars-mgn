@@ -17,6 +17,7 @@ from .mail_account.views import MailAccountViewSet
 from .mail_template.views import MailTemplateViewSet
 from .mail_log.views import MailLogViewSet
 from .operate_log.views import OperateLogViewSet
+from .login_log.views import LoginLogViewSet
 from .tenant.views import TenantViewSet
 from .captcha.views import CaptchaViewSet
 
@@ -56,6 +57,8 @@ router.register(r"mail-template", MailTemplateViewSet, basename="mail_template")
 router.register(r"mail-log", MailLogViewSet, basename="mail_log")
 # 管理后台 - 操作日志
 router.register(r"operate-log", OperateLogViewSet, basename="operate_log")
+# 管理后台 - 登录日志
+router.register(r"login-log", LoginLogViewSet, basename="login_log")
 # 管理后台 - 租户
 router.register(r"tenant", TenantViewSet, basename="tenant")
 # 管理后台 - 验证码

@@ -127,12 +127,15 @@ class LoginLogTypeEnum(Enum):
     LOGIN_SMS = 104  # 使用短信登录
     LOGOUT_SELF = 200  # 自己主动登出
     LOGOUT_DELETE = 202  # 强制退出
+    REGISTER_USERNAME = 300  # 用户注册
+    REFRESH_TOKEN = 400  # 刷新令牌
 
 
 class LoginResultEnum(Enum):
     """登录结果的枚举类"""
 
     SUCCESS = 0  # 成功
+    FAILURE = 1  # 失败
     BAD_CREDENTIALS = 10  # 账号或密码不正确
     USER_DISABLED = 20  # 用户被禁用
     CAPTCHA_NOT_FOUND = 30  # 图片验证码不存在

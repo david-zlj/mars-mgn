@@ -1,6 +1,6 @@
 from django.db import models
 from mars_framework.db.base import BaseModel
-from mars_framework.db.enums import LoginLogTypeEnum, UserTypeEnum, LoginResultEnum
+from mars_framework.db.enums import LoginLogTypeEnum, LoginResultEnum
 
 
 class SystemLoginLog(BaseModel):
@@ -10,19 +10,26 @@ class SystemLoginLog(BaseModel):
         db_comment="日志类型",
         help_text="日志类型",
     )
-    trace_id = models.CharField(
-        max_length=64, db_comment="链路追踪编号", help_text="链路追踪编号"
+    # trace_id = models.CharField(
+    #     null=True,
+    #     blank=True,
+    #     max_length=64,
+    #     db_comment="链路追踪编号",
+    #     help_text="链路追踪编号",
+    # )
+    user_id = models.BigIntegerField(
+        null=True, blank=True, db_comment="用户编号", help_text="用户编号"
     )
-    # TODO 外键
-    user_id = models.BigIntegerField(db_comment="用户编号", help_text="用户编号")
-    user_type = models.SmallIntegerField(
-        choices=[(item.value, item.name) for item in UserTypeEnum],
-        default=UserTypeEnum.ADMIN.value,
-        db_comment="用户类型",
-        help_text="用户类型",
-    )
+    # user_type = models.SmallIntegerField(
+    #     choices=[(item.value, item.name) for item in UserTypeEnum],
+    #     default=UserTypeEnum.ADMIN.value,
+    #     db_comment="用户类型",
+    #     help_text="用户类型",
+    # )
     username = models.CharField(
-        max_length=50, db_comment="用户账号", help_text="用户账号"
+        max_length=30,
+        db_comment="用户账号",
+        help_text="用户账号",
     )
     result = models.IntegerField(
         choices=[(item.value, item.name) for item in LoginResultEnum],

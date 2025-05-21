@@ -1,6 +1,6 @@
 from rest_framework import serializers
 import re
-from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 
 from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
 from ..user.models import SystemUsers
@@ -11,21 +11,21 @@ class AuthLoginSerializer(serializers.Serializer):
     """用户登录序列化器"""
 
     username = serializers.CharField(
-        min_length=4,
-        max_length=16,
+        min_length=settings.USERNAME_MIN_LENGTH,
+        max_length=settings.USERNAME_MAX_LENGTH,
         error_messages={
             "required": "登录账号不能为空",
-            "min_length": "账号长度至少为4位",
-            "max_length": "账号长度不能超过16位",
+            "min_length": f"账号长度至少为{settings.USERNAME_MIN_LENGTH}位",
+            "max_length": f"账号长度不能超过{settings.USERNAME_MAX_LENGTH}位",
         },
     )
     password = serializers.CharField(
-        min_length=8,
-        max_length=16,
+        min_length=settings.PASSWORD_MIN_LENGTH,
+        max_length=settings.PASSWORD_MAX_LENGTH,
         error_messages={
             "required": "密码不能为空",
-            "min_length": _("密码长度至少为8位"),
-            "max_length": "密码长度不能超过16位",
+            "min_length": f"密码长度至少为{settings.PASSWORD_MIN_LENGTH}位",
+            "max_length": f"密码长度不能超过{settings.PASSWORD_MAX_LENGTH}位",
         },
     )
 
@@ -39,45 +39,47 @@ class AuthRegisterSerializer(serializers.ModelSerializer):
     """用户注册序列化器"""
 
     username = serializers.RegexField(
-        r"^[a-zA-Z0-9]{4,30}$",
-        max_length=30,
-        min_length=4,
+        r"^[a-zA-Z0-9]+$",
+        min_length=settings.USERNAME_MIN_LENGTH,
+        max_length=settings.USERNAME_MAX_LENGTH,
         required=True,
         error_messages={
             "required": "用户账号不能为空",
-            "invalid": "用户账号由数字、字母组成，长度为4-30个字符",
-            "min_length": "用户账号长度不能少于4个字符",
-            "max_length": "用户账号长度不能超过30个字符",
+            "invalid": "用户账号由数字、字母组成",
+            "min_length": f"账号长度至少为{settings.USERNAME_MIN_LENGTH}位",
+            "max_length": f"账号长度不能超过{settings.USERNAME_MAX_LENGTH}位",
         },
     )
     nickname = serializers.CharField(
-        max_length=30,
+        min_length=settings.NICKNAME_MIN_LENGTH,
+        max_length=settings.NICKNAME_MAX_LENGTH,
         required=True,
         error_messages={
             "required": "用户昵称不能为空",
-            "max_length": "用户昵称长度不能超过30个字符",
+            "min_length": f"用户昵称长度至少为{settings.NICKNAME_MIN_LENGTH}位",
+            "max_length": f"用户昵称长度不能超过{settings.NICKNAME_MAX_LENGTH}位",
         },
     )
     password = serializers.CharField(
         write_only=True,
         required=True,
-        min_length=8,
-        max_length=16,
+        min_length=settings.PASSWORD_MIN_LENGTH,
+        max_length=settings.PASSWORD_MAX_LENGTH,
         error_messages={
             "required": "密码不能为空",
-            "min_length": "密码长度不能少于8位",
-            "max_length": "密码长度不能超过16位",
+            "min_length": f"密码长度至少为{settings.PASSWORD_MIN_LENGTH}位",
+            "max_length": f"密码长度不能超过{settings.PASSWORD_MAX_LENGTH}位",
         },
     )
-    confirmPassword = serializers.CharField(
+    confirm_password = serializers.CharField(
         write_only=True,
         required=True,
-        min_length=8,
-        max_length=16,
+        min_length=settings.PASSWORD_MIN_LENGTH,
+        max_length=settings.PASSWORD_MAX_LENGTH,
         error_messages={
             "required": "确认密码不能为空",
-            "min_length": "密码长度不能少于8位",
-            "max_length": "密码长度不能超过16位",
+            "min_length": f"密码长度至少为{settings.PASSWORD_MIN_LENGTH}位",
+            "max_length": f"密码长度不能超过{settings.PASSWORD_MAX_LENGTH}位",
         },
     )
 
@@ -87,13 +89,13 @@ class AuthRegisterSerializer(serializers.ModelSerializer):
             "nickname",
             "username",
             "password",
-            "confirmPassword",
+            "confirm_password",
         ]
 
     def validate(self, data):
-        if data["password"] != data["confirmPassword"]:
+        if data["password"] != data["confirm_password"]:
             raise serializers.ValidationError(
-                {"confirmPassword": "两次输入的密码不一致"}
+                {"confirm_password": "两次输入的密码不一致"}
             )
         # 检查用户名是否唯一
         if SystemUsers.objects.filter(username=data["username"]).exists():
@@ -101,7 +103,7 @@ class AuthRegisterSerializer(serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
-        validated_data.pop("confirmPassword")
+        validated_data.pop("confirm_password")
         password = validated_data.pop("password")
         user = super().create(validated_data)
         user.set_password(password)
