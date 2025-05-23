@@ -160,3 +160,13 @@ class ApiErrorLogProcessStatusEnum(Enum):
     INIT = 0  # 未处理
     DONE = 1  # 已处理
     IGNORE = 2  # 已忽略
+
+
+class FileStorageEnum(Enum):
+    """文件存储器枚举"""
+
+    DB = 1  # 数据库
+    LOCAL = 10  # 本地磁盘
+    FTP = 11  # FTP服务器
+    SFTP = 12  # SFTP服务器
+    S3 = 20  # S3对象存储

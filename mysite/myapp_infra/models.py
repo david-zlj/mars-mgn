@@ -5,3 +5,5 @@
 
 from .job.models import InfraJob
 from .job_log.models import InfraJobLog
+from .file_config.models import InfraFileConfig
+from .file.models import InfraFile

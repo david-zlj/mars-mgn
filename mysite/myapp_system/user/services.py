@@ -45,17 +45,9 @@ def get_user_import_template_workbook():
     return create_excel_workbook(data, fields_labels)
 
 
-def get_user_import_data(file):
+def get_user_import_data(file) -> list:
     """
-    导入用户数据
-
     读取Excel文件中的用户信息，并将其转换为系统所需的数据格式
-
-    参数:
-    file (str): 用户数据的Excel文件路径
-
-    返回:
-    list: 包含所有用户数据的列表，每个用户的数据为字典格式
     """
     # 加载Excel文件
     workbook = load_workbook(file)

@@ -13,7 +13,7 @@ from rest_framework.views import exception_handler
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError as DRFValidationError
 
-from .enums import GLOBAL_ERROR_CODE
+from .codes import GLOBAL_ERROR_CODE
 from ..response.base import CommonResponse
 
 logger = logging.getLogger(__name__)
