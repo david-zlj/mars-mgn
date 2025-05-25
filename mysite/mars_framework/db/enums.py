@@ -170,3 +170,11 @@ class FileStorageEnum(Enum):
     FTP = 11  # FTP服务器
     SFTP = 12  # SFTP服务器
     S3 = 20  # S3对象存储
+
+
+class JobStatusEnum(Enum):
+    """任务状态的枚举"""
+
+    INIT = 0  # 初始化中
+    NORMAL = 1  # 开启
+    STOP = 2  # 暂停

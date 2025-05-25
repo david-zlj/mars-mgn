@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     "django_celery_beat",  # Celery 定时任务扩展
     "django_celery_results",  # # Celery 定时任务扩展
     "channels",  # Channels WebSocket功能
-    "corsheaders",  # CORS跨域支持
+    "corsheaders",  # CORS 跨域支持
     "myapp_system",
     "myapp_infra",
     # 请将新的自定义应用添加到下面的MY_APPS列表
@@ -270,7 +270,7 @@ CACHES = {
 
 ### Celery 配置
 CELERY_BROKER_URL = f"{REDIS_URL}/{REDIS_DB}"  # 使用Redis作为消息代理
-CELERY_RESULT_BACKEND = "django-db"  # 使用Django数据库作为结果存储
+CELERY_RESULT_BACKEND = "django-db"  # 使用数据库作存储结果
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_TIMEZONE = "Asia/Shanghai"
 CELERY_ENABLE_UTC = False  # 禁用 UTC 时间转换 TODO 待确认

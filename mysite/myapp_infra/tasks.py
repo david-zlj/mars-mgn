@@ -8,14 +8,16 @@ from django.utils import timezone
 @shared_task
 def send_daily_report():
     # 示例：发送日报
-    print("Daily report sent at {}".format(timezone.now()))
+    print(f"开始发送日报，现在时间：{timezone.now()}")
     sleep(30)
-    print("Cleanup Completed")
-    return "Report Success"
+    print("发送成功")
+    return "发送成功"
 
 
 @shared_task
 def cleanup_expired_data():
     # 示例：清理过期数据
-    print("Cleanup Expired Data")
-    return "Cleanup Completed"
+    print("清理过期数据")
+    sleep(15)
+    print("清理完成")
+    return "清理完成"
