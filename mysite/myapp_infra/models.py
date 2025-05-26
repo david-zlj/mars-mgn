@@ -5,3 +5,4 @@
 
 from .file_config.models import InfraFileConfig
 from .file.models import InfraFile
+from .config.models import InfraConfig

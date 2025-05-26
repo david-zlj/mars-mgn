@@ -186,3 +186,10 @@ class JobLogStatusEnum(Enum):
     STARTED = 0  # 运行中
     SUCCESS = 1  # 成功
     FAILURE = 2  # 失败
+
+
+class ConfigTypeEnum(Enum):
+    """配置类型枚举"""
+
+    SYSTEM = 1  # 系统配置
+    CUSTOM = 2  # 自定义配置

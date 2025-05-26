@@ -48,7 +48,8 @@ system-notify_message    111800 - 111899
 system-permission        111900 - 111999
 system-dict_type         112000 - 112099
 
-system-infra_job         121100 - 121199
-system-file_config       121200 - 121299
-system-file              121300 - 121399
+infra-job               121100 - 121199
+infra-file_config       121200 - 121299
+infra-file              121300 - 121399
+infra-config            121400 - 121499
 """
