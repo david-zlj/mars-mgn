@@ -1,218 +1,55 @@
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework.decorators import action
-from django_celery_results.models import TaskResult
 from drf_spectacular.utils import extend_schema
+from django_celery_results.models import TaskResult
+from django_celery_beat.models import PeriodicTask
+from django.core.cache import cache
 
-from mars_framework.viewsets.base import CustomViewSet
-from .serializers import (
-    JobLogDetailSerializer,
-    JobLogListSerializer,
-    JobLogExportSerializer,
+from mars_framework.viewsets.base import CustomGenericViewSet
+from mars_framework.viewsets.mixins import (
+    CustomListModelMixin,
+    CustomRetrieveModelMixin,
+    ExportModelMixin,
 )
+from mars_framework.permissions.base import HasPermission
+from .serializers import JobLogSerializer
 from .filters import JobLogFilter
 
 
-@extend_schema(tags=["管理后台-infra-定时任务日志"])
-class JobLogViewSet(CustomViewSet):
+@extend_schema(tags=["管理后台-system-定时任务日志"])
+class JobLogViewSet(
+    CustomGenericViewSet,
+    CustomListModelMixin,
+    CustomRetrieveModelMixin,
+    ExportModelMixin,
+):
     queryset = TaskResult.objects.all()
+    serializer_class = JobLogSerializer
     filterset_class = JobLogFilter
-    export_labels = [
-        "日志编号",
-        "任务编号",
-        "处理器名字",
-        "处理器参数",
-        "第几次执行", # TODO 目前只显示最后一次执行
-        "创建时间",
-        # "开始执行时间", # TODO 时区不对
-        "结束执行时间",
-        "执行时长",
-        "任务状态",
-        "结果数据",
-    ]
+    action_permissions = {
+        "retrieve": [HasPermission("infra:job:query")],
+        "list": [HasPermission("infra:job:query")],
+        "export": [HasPermission("infra:job:export")],
+    }
 
-    export_fields = [
-        "id",
-        "jobId",
-        "handlerName",
-        "handlerParam",
-        "executeIndex",
-        "createTime",
-        # "beginTime",
-        "endTime",
-        "duration",
-        "job_log_status",
-        "result",
-    ]
+    export_name = "定时任务日志"
+    export_fields_labels = {
+        "id": "日志编号",
+        "job_id": "任务编号",
+        "task_name": "处理器名字",
+        "task_kwargs": "处理器参数",
+        "date_created": "创建时间",
+        "date_done": "结束执行时间",
+        "status": "状态",
+        "result": "执行结果",
+    }
+    export_data_map = {"status": {0: "运行中", 1: "成功", 2: "失败"}}
 
-    def get_serializer_class(self):
-        serializer_classes = {
-            "get_job_log": JobLogDetailSerializer,
-            "get_job_log_page": JobLogListSerializer,
-            "export_job_log_excel": JobLogExportSerializer,
-        }
-        return serializer_classes.get(self.action, JobLogDetailSerializer)
-
-    @extend_schema(summary="获取定时任务日志信息")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="get",
-        # permission_classes=[HasPermission("infra:job:query")],
-    )
-    def get_job_log(self, request, *args, **kwargs):
-        """获取定时任务日志信息"""
-        return self.custom_retrieve(request, *args, **kwargs)
-
-    @extend_schema(
-        summary="获取定时任务日志分页列表",
-        filters=JobLogFilter,
-    )
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="page",
-        # permission_classes=[HasPermission("infra:job:query")],
-    )
-    def get_job_log_page(self, request, *args, **kwargs):
-        """获取定时任务日志分页列表"""
-        # TODO 日期过滤未测试
-        return self.custom_list(request, *args, **kwargs)
-
-    @extend_schema(summary="导出定时任务日志 Excel")
-    @action(
-        methods=["get"],
-        detail=False,
-        url_path="export-excel",
-        # permission_classes=[HasPermission("infra:job:export")],
-        permission_classes=[AllowAny],
-    )
-    def export_job_log_excel(self, request, *args, **kwargs):
-        """导出定时任务日志 Excel"""
-        return self.custom_export(request, *args, **kwargs)
-
-
-### 原视图
-# from rest_framework.permissions import IsAuthenticated, AllowAny
-# from rest_framework.decorators import action
-# from drf_spectacular.utils import extend_schema
-# from mars_framework.viewsets.base import CustomViewSet
-# from .models import InfraJobLog
-# from .serializers import (
-#     InfraJobLogDetailSerializer,
-#     InfraJobLogListSerializer,
-#     InfraJobLogExportSerializer,
-# )
-# from .filters import InfraJobLogFilter
-
-
-# @extend_schema(tags=["管理后台-infra-定时任务日志"])
-# class JobLogViewSet(CustomViewSet):
-#     queryset = InfraJobLog.objects.all()
-#     filterset_class = InfraJobLogFilter
-#     export_labels = [
-#         "日志编号",
-#         "任务编号",
-#         "处理器名字",
-#         "处理器参数",
-#         "第几次执行",
-#         "开始执行时间",
-#         "结束执行时间",
-#         "执行时长",
-#         "任务状态",
-#         "结果数据",
-#         "创建时间",
-#     ]
-#     export_fields = [
-#         "id",
-#         "job_id",
-#         "handler_name",
-#         "handler_param",
-#         "execute_index",
-#         "beginTime",
-#         "endTime",
-#         "duration",
-#         "job_log_status",
-#         "result",
-#         "createTime",
-#     ]
-
-#     def get_serializer_class(self):
-#         serializer_classes = {
-#             # "create_job_log": InfraJobLogSaveSerializer,
-#             # "update_job_log": InfraJobLogSaveSerializer,
-#             "get_job_log": InfraJobLogDetailSerializer,
-#             "get_job_log_page": InfraJobLogListSerializer,
-#             "export_job_log_excel": InfraJobLogExportSerializer,
-#         }
-#         return serializer_classes.get(self.action, InfraJobLogListSerializer)
-
-# @extend_schema(summary="创建定时任务日志")
-# @action(
-#     methods=["post"],
-#     detail=False,
-#     url_path="create",
-#     # permission_classes=[HasPermission("infra:job:create")],
-# )
-# def create_job_log(self, request, *args, **kwargs):
-#     """创建定时任务日志"""
-#     return self.custom_create(request, *args, **kwargs)
-
-# @extend_schema(summary="更新定时任务日志")
-# @action(
-#     methods=["put"],
-#     detail=False,
-#     url_path="update",
-#     # permission_classes=[HasPermission("infra:job:update")],
-# )
-# def update_job_log(self, request, *args, **kwargs):
-#     """更新定时任务日志"""
-#     return self.custom_update(request, *args, **kwargs)
-
-# @extend_schema(summary="删除定时任务日志")
-# @action(
-#     methods=["delete"],
-#     detail=False,
-#     url_path="delete",
-#     # permission_classes=[HasPermission("infra:job:delete")],
-# )
-# def delete_job_log(self, request, *args, **kwargs):
-#     """删除定时任务日志"""
-#     return self.custom_destroy(request, *args, **kwargs)
-
-# @extend_schema(summary="获取定时任务日志信息")
-# @action(
-#     methods=["get"],
-#     detail=False,
-#     url_path="get",
-#     # permission_classes=[HasPermission("infra:job:query")],
-# )
-# def get_job_log(self, request, *args, **kwargs):
-#     """获取定时任务日志信息"""
-#     return self.custom_retrieve(request, *args, **kwargs)
-
-# @extend_schema(
-#     summary="获取定时任务日志分页列表",
-#     filters=InfraJobLogFilter,
-# )
-# @action(
-#     methods=["get"],
-#     detail=False,
-#     url_path="page",
-#     # permission_classes=[HasPermission("infra:job:query")],
-# )
-# def get_job_log_page(self, request, *args, **kwargs):
-#     """获取定时任务日志分页列表"""
-#     # TODO 日期过滤未测试
-#     return self.custom_list(request, *args, **kwargs)
-
-# @extend_schema(summary="导出定时任务日志 Excel")
-# @action(
-#     methods=["get"],
-#     detail=False,
-#     url_path="export-excel",
-#     # permission_classes=[HasPermission("infra:job:export")],
-#     permission_classes=[AllowAny],
-# )
-# def export_job_log_excel(self, request, *args, **kwargs):
-#     """导出定时任务日志 Excel"""
-#     return self.custom_export(request, *args, **kwargs)
+    def get_queryset(self):
+        # 避免N+1查询：将PeriodicTask的task和id字段，组成一个字典，写入缓存
+        periodic_task_dict = cache.get("periodic_task_dict")
+        if not periodic_task_dict:
+            periodic_task_dict = {
+                item.task: str(item.id)
+                for item in PeriodicTask.objects.only("task", "id")
+            }
+            cache.set("periodic_task_dict", periodic_task_dict, 300)  # 过期时间5分钟
+        return super().get_queryset()

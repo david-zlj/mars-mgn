@@ -273,7 +273,7 @@ CELERY_BROKER_URL = f"{REDIS_URL}/{REDIS_DB}"  # 使用Redis作为消息代理
 CELERY_RESULT_BACKEND = "django-db"  # 使用数据库作存储结果
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_TIMEZONE = "Asia/Shanghai"
-CELERY_ENABLE_UTC = False  # 禁用 UTC 时间转换 TODO 待确认
+CELERY_ENABLE_UTC = True  # TODO 待确认
 CELERY_RESULT_EXTENDED = True  # 启用后才会记录 task_name、date_started 等字段
 CELERY_TASK_TRACK_STARTED = True  # 记录任务开始时间
 

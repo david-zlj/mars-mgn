@@ -178,3 +178,11 @@ class JobStatusEnum(Enum):
     INIT = 0  # 初始化中
     NORMAL = 1  # 开启
     STOP = 2  # 暂停
+
+
+class JobLogStatusEnum(Enum):
+    """任务日志的状态枚举"""
+
+    STARTED = 0  # 运行中
+    SUCCESS = 1  # 成功
+    FAILURE = 2  # 失败
