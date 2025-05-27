@@ -1,8 +1,3 @@
-"""
-TODO
-- 日志记录
-"""
-
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
@@ -22,9 +17,9 @@ handler500 = "mars_framework.exceptions.base.custom_500_view"
 urlpatterns = [
     path("admin-api/system/", include("myapp_system.urls")),
     path("admin-api/infra/", include("myapp_infra.urls")),
-    ### Django REST framework 界面
+    ### DRF 界面配置
     # path("api-auth", include("rest_framework.urls")),
-    ### OpenAPI 文档界面 TODO 生产环境关闭
+    ### OpenAPI 接口文档配置 TODO 生产环境关闭
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "api/schema/swagger-ui/",
@@ -38,6 +33,6 @@ urlpatterns = [
     ),
 ]
 
-### 静态文件 TODO 注意：生产环境请关闭，并使用Nginx
+### 开发环境静态文件配置 TODO 注意：生产环境请关闭，并使用Nginx
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     "django_celery_results",  # # Celery 定时任务扩展
     "channels",  # Channels WebSocket功能
     "corsheaders",  # CORS 跨域支持
+    "captcha",  # 验证码
     "myapp_system",
     "myapp_infra",
     # 请将新的自定义应用添加到下面的MY_APPS列表
@@ -304,18 +305,16 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     "tenant-id",
 ]
 
+### 验证码配置
+CAPTCHA_ENABLE = True  #  是否启用验证码 TODO 二次验证
+CAPTCHA_CHALLENGE_FUNCT = "captcha.helpers.math_challenge"  # 验证码生成方式
+CAPTCHA_TIMEOUT = 1  # 验证码有效期，单位为分钟
 
 ### 个性化配置
 DEFAULT_USER_PASSWORD = "admin123"
-PASSWORD_MIN_LENGTH = 8  # 密码长度8-20
+PASSWORD_MIN_LENGTH = 8  # 密码长度
 PASSWORD_MAX_LENGTH = 20
 USERNAME_MIN_LENGTH = 4  # # 用户名长度
 USERNAME_MAX_LENGTH = 30
 NICKNAME_MIN_LENGTH = 1  # 用户昵称长度
 NICKNAME_MAX_LENGTH = 30
-
-
-### 全局策略 TODO
-# 是否实现软删除：不实现
-# 多租户：不实现
-# 静态文件云存储，文件服务器

@@ -47,6 +47,7 @@ system-user_profile      111700 - 111799
 system-notify_message    111800 - 111899
 system-permission        111900 - 111999
 system-dict_type         112000 - 112099
+system-captcha           112100 - 112199
 
 infra-job               121100 - 121199
 infra-file_config       121200 - 121299
