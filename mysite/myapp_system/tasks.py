@@ -59,16 +59,16 @@ def send_single_email_task(
 def operation_log_task(log_data):
     """记录操作日志"""
     from .operate_log.models import SystemOperateLog
-    from .user.models import SystemUsers
+    from .auth.services import auth_services
 
     user_id = log_data.get("user_id")
     if user_id:
-        user = SystemUsers.objects.filter(id=user_id).first()
-        if user:
+        names = auth_services.get_user_names_by_id(user_id)
+        if names:
             log_data.update(
                 {
-                    "username": user.username,
-                    "nickname": user.nickname,
+                    "username": names.get("username"),
+                    "nickname": names.get("nickname"),
                 }
             )
     SystemOperateLog.objects.create(**log_data)

@@ -17,8 +17,6 @@ handler500 = "mars_framework.exceptions.base.custom_500_view"
 urlpatterns = [
     path("admin-api/system/", include("myapp_system.urls")),
     path("admin-api/infra/", include("myapp_infra.urls")),
-    ### DRF 界面配置
-    # path("api-auth", include("rest_framework.urls")),
     ### OpenAPI 接口文档配置 TODO 生产环境关闭
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(

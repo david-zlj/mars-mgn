@@ -1,16 +1,9 @@
-"""
-TODO
-- 日志记录
-- Django 异常整合到 DRF异常中处理
-"""
-
 import logging
 from django.http import JsonResponse
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db.models import ProtectedError
 from rest_framework import status
 from rest_framework.views import exception_handler
-from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError as DRFValidationError
 
 from .codes import GLOBAL_ERROR_CODE
@@ -66,7 +59,6 @@ def custom_exception_handler(exc, context):
     DRF全局异常处理
     1. 记录详细错误日志
     2. 统一异常响应格式
-    3. 特殊处理验证类异常
     """
     # 获取请求上下文
     request = context.get("request")
@@ -82,26 +74,22 @@ def custom_exception_handler(exc, context):
         "exc_type": type(exc).__name__,
     }
 
-    # 记录原始异常 TODO 优化格式
+    # 记录原始异常
     logger.error(
-        f"用户[{log_meta['user']}]，"
-        f"访问[{log_meta['method']} {log_meta['path']}]，"
-        f"视图[{log_meta['view']}]，"
-        f"异常类型[{log_meta['exc_type']}]，"
-        f"错误详情[{str(exc)}]",
-        # exc_info=True,  # 包含堆栈跟踪（可用于调试）
+        f"用户[{log_meta['user']}]访问[{log_meta['method']} {log_meta['path']}]时，"
+        f"在视图[{log_meta['view']}]中发生异常。"
+        f"异常类型：[{log_meta['exc_type']}]， 错误详情：[{str(exc)}]",
     )
 
-    # DRF原生异常处理
     response = exception_handler(exc, context)
-    # 处理未被DRF捕获的异常
+    # 未被DRF捕获的异常
     if response is None:
-        status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        error_msg = str(exc)
-        logger.error(f"未处理异常：{error_msg}")
-        response = Response(data={"detail": error_msg}, status=status_code)
+        logger.error(f"未被DRF捕获的异常：{str(exc)}")
+        return CommonResponse.error(
+            code=status.HTTP_500_INTERNAL_SERVER_ERROR, msg="系统异常"
+        )
 
-    # 处理验证类异常（保持原有逻辑）
+    # 处理具体异常，返回友好提示信息 TODO 优化错误提示信息
     if isinstance(exc, DRFValidationError):
         return handle_drf_validation_error(exc)
     if isinstance(exc, DjangoValidationError):
@@ -109,15 +97,10 @@ def custom_exception_handler(exc, context):
     if isinstance(exc, ProtectedError):  # 删除关联数据时，ProtectedError异常
         return CommonResponse.error(code=101101, msg="该数据已被关联，请先删除关联数据")
 
-    # 统一响应格式
-    return Response(
-        data={
-            "code": response.status_code,
-            "data": None,
-            "msg": GLOBAL_ERROR_CODE.get(response.status_code, "系统异常"),
-            # "detail": response.data,  # 保留原始错误详情便于调试（可用于调试）
-        },
-        status=response.status_code,
+    # 其它DRF异常
+    return CommonResponse.error(
+        code=response.status_code,
+        msg=GLOBAL_ERROR_CODE.get(response.status_code, "系统异常"),
     )
 
 

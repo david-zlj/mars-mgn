@@ -1,8 +1,7 @@
 """
-全局错误码
-- 0-999 系统异常编码保留
-- 关于 HTTP 响应状态码 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status
-- 业务错误码，0表示成功，其它表示异常
+全局业务状态码
+- 注意区分HTTP状态码与业务状态码
+- 业务状态码：0表示成功，其它表示异常
 """
 
 GLOBAL_ERROR_CODE = {
@@ -26,7 +25,7 @@ GLOBAL_ERROR_CODE = {
 SERVICE_ERROR_CODE_RANGE = {}
 
 """
-业务错误码分配规则
+业务状态码分配规则
 - 范围：111000 - 999999
 - 第一段，2 位，表示系统类型。例如：framework, system
 - 第二段，2 位，表示模块。例如：user, auth
@@ -34,7 +33,7 @@ SERVICE_ERROR_CODE_RANGE = {}
 """
 
 """
-业务错误码具体分配
+业务状态码具体分配
 framework-exception      101100 - 101199
 
 system-user              111100 - 111199

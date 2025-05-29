@@ -9,6 +9,7 @@ from mars_framework.response.base import CommonResponse
 
 @extend_schema(tags=["管理后台-system-租户"])
 class TenantViewSet(viewsets.GenericViewSet):
+    """未实现"""
 
     @extend_schema(summary="使用域名，获得租户信息")
     @action(

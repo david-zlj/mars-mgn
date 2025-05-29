@@ -2,7 +2,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.decorators import action
 from drf_spectacular.utils import extend_schema
 
-from mars_framework.viewsets.base import CustomViewSet, CustomGenericViewSet
+from mars_framework.viewsets.base import CustomGenericViewSet
 from mars_framework.response.base import CommonResponse
 from mars_framework.db.enums import RoleTypeEnum
 from ..role.models import SystemRole

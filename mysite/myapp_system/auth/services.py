@@ -1,4 +1,3 @@
-# from ..role.models import SystemRole
 from ..user.models import SystemUsers
 
 
@@ -27,24 +26,38 @@ class AuthServices:
             # 获取用户所有角色
             pass
 
+    def extract_jwt_info(self, refresh_token):
+        """
+        从 RefreshToken 中提取用户信息和令牌信息。
+        :param refresh_token: RefreshToken 对象
+        :return: 包含用户信息和令牌信息的字典
+        """
+        user_id = refresh_token.payload.get("user_id")
+        access_token = str(refresh_token.access_token)
+        refresh_token_str = str(refresh_token)
+        expires_time = refresh_token.access_token.payload.get("exp")
+
+        return {
+            "userId": user_id,
+            "accessToken": access_token,
+            "refreshToken": refresh_token_str,
+            "expiresTime": expires_time,
+        }
+
+    def get_user_status_by_id(self, user_id: int):
+        """通过用户ID获取用户状态"""
+        user = SystemUsers.objects.filter(id=user_id).first()
+        if user:
+            return user.status
+
+    def get_user_names_by_id(self, user_id: int):
+        """通过用户ID获取用户名和昵称"""
+        user = SystemUsers.objects.filter(id=user_id).first()
+        if user:
+            return {
+                "username": user.username,
+                "nickname": user.nickname,
+            }
+
 
 auth_services = AuthServices()
-
-
-def extract_jwt_info(refresh_token):
-    """
-    从 RefreshToken 中提取用户信息和令牌信息。
-    :param refresh_token: RefreshToken 对象
-    :return: 包含用户信息和令牌信息的字典
-    """
-    user_id = refresh_token.payload.get("user_id")
-    access_token = str(refresh_token.access_token)
-    refresh_token_str = str(refresh_token)
-    expires_time = refresh_token.access_token.payload.get("exp")
-
-    return {
-        "userId": user_id,
-        "accessToken": access_token,
-        "refreshToken": refresh_token_str,
-        "expiresTime": expires_time,
-    }

@@ -203,8 +203,6 @@ REST_FRAMEWORK = {
     # 全局渲染器配置
     "DEFAULT_RENDERER_CLASSES": [
         "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
-        # "mars_framework.renderers.base.CustomJSONRenderer",  # 自定义渲染器，实现自定义JSON响应格式
-        # "rest_framework.renderers.BrowsableAPIRenderer",  # 提供开发调试界面
     ],
     # 全局解释器配置
     "DEFAULT_PARSER_CLASSES": [
@@ -233,15 +231,14 @@ REST_FRAMEWORK = {
 }
 
 
-### Simpel JWT 配置 TODO 优化
+### Simpel JWT 配置
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(hours=12),  # Access Token 有效期
     "REFRESH_TOKEN_LIFETIME": timedelta(days=12),  # Refresh Token 有效期
-    # "UPDATE_LAST_LOGIN": True,  # 是否更新用户最后登录时间
 }
 
 ### OpenAPI 文档配置
-# TODO 自动生成的接口未能正确显示请求参数和响应，待优化
+# TODO 部分接口请求或响应参数未能正确显示，待优化
 SPECTACULAR_SETTINGS = {
     "TITLE": "MarsMgn",
     "DESCRIPTION": "火星信息平台接口文档",
@@ -279,7 +276,6 @@ CELERY_RESULT_EXTENDED = True  # 启用后才会记录 task_name、date_started 
 CELERY_TASK_TRACK_STARTED = True  # 记录任务开始时间
 
 ### WebSocket功能：ASGI 和 Channels 配置
-# 参考资料：https://channels.readthedocs.io/en/latest/tutorial/part_2.html
 ASGI_APPLICATION = "mysite.asgi.application"
 # 配置channels_redis，用于通道层使用
 CHANNEL_LAYERS = {
@@ -292,8 +288,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
-# 默认组名
-DEFAULT_GROUP_NAME = "marsmgn_group"
+DEFAULT_GROUP_NAME = "marsmgn_group"  # 默认组名
 
 ### CORS 跨域配置
 CORS_ALLOW_CREDENTIALS = True
