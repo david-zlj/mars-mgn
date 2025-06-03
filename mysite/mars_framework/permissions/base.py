@@ -39,11 +39,11 @@ class HasPermission(permissions.BasePermission):
         # return False
 
 
-def has_perm(perm_code):
-    """使用工厂函数生成带参数的权限类"""
+# def has_perm(perm_code):
+#     """使用工厂函数生成带参数的权限类"""
 
-    class PermClass(HasPermission):
-        def __init__(self):
-            super().__init__(perm_code)
+#     class PermClass(HasPermission):
+#         def __init__(self):
+#             super().__init__(perm_code)
 
-    return PermClass
+#     return PermClass

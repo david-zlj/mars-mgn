@@ -1,5 +1,6 @@
-from rest_framework import serializers
 import re
+from collections import defaultdict
+from rest_framework import serializers
 from django.conf import settings
 
 from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
@@ -112,7 +113,6 @@ class AuthRegisterSerializer(serializers.ModelSerializer):
 
 
 class UserMixinSerializer(serializers.ModelSerializer):
-    deptId = serializers.PrimaryKeyRelatedField(read_only=True, source="dept_id")
 
     class Meta:
         model = SystemUsers
@@ -120,45 +120,38 @@ class UserMixinSerializer(serializers.ModelSerializer):
             "id",
             "nickname",
             "avatar",
-            "deptId",
+            "dept_id",
         ]
 
 
 class MenuMixinSerializer(serializers.ModelSerializer):
-    parentId = serializers.PrimaryKeyRelatedField(
-        source="parent_id", read_only=True, allow_null=True
-    )
-    componentName = serializers.CharField(
-        source="component_name", required=False, allow_blank=True
-    )
-    keepAlive = serializers.BooleanField(source="keep_alive")
-    alwaysShow = serializers.BooleanField(source="always_show")
     children = serializers.SerializerMethodField()
 
     def get_children(self, obj):
-        """
-        递归获取子菜单
-        """
-        children = obj.children.filter(
-            status=CommonStatusEnum.ENABLE.value,
-            type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
-        ).order_by("sort")
-        serializer = MenuMixinSerializer(children, many=True)
-        return serializer.data
+        """递归序列化子节点"""
+        # 检查是否存在动态添加的子节点
+        if hasattr(obj, "children_data") and obj.children_data:
+            # 递归使用同一个序列化器处理子节点
+            return MenuMixinSerializer(
+                obj.children_data, many=True, context=self.context
+            ).data
+
+        # 没有子节点时返回空列表
+        return []
 
     class Meta:
         model = SystemMenu
         fields = [
             "id",
-            "parentId",
+            "parent_id",
             "name",
             "path",
             "component",
-            "componentName",
+            "component_name",
             "icon",
             "visible",
-            "keepAlive",
-            "alwaysShow",
+            "keep_alive",
+            "always_show",
             "children",
         ]
 
@@ -166,50 +159,106 @@ class MenuMixinSerializer(serializers.ModelSerializer):
 class AuthPermissionInfoSerializer(serializers.ModelSerializer):
     """获取登录用户的权限信息"""
 
+    menus = serializers.SerializerMethodField()
     user = UserMixinSerializer(source="*")
     roles = serializers.SerializerMethodField()
     permissions = serializers.SerializerMethodField()
-    menus = serializers.SerializerMethodField()
 
     def get_roles(self, obj):
-        # 获取角色的code
+        # 获取用户的角色对应的权限字符串
         if not obj.roles.exists():
             return []
-        return [role.code for role in obj.roles.all()]  # TODO 是否会重复
+        return list(
+            obj.roles.order_by("code").values_list("code", flat=True).distinct()
+        )
 
     def get_permissions(self, obj):
-        # 获取角色的权限
+        # 获取用户的角色对应的菜单权限标识
         if not obj.roles.exists():
             return []
-        permissions = set()
-        for role in obj.roles.all():
-            for menu in role.menus.filter(status=CommonStatusEnum.ENABLE.value):
-                # 目前一个菜单一个权限字符串
-                if menu.permission:
-                    permissions.add(menu.permission)
+        permissions = (
+            SystemMenu.objects.filter(
+                roles__in=obj.roles.all(),  # 关联用户角色
+                status=CommonStatusEnum.ENABLE.value,
+                permission__isnull=False,  # 排除NULL值
+            )
+            .exclude(permission="")  #  排除空值
+            .order_by(
+                "permission"
+            )  # 排序。如果不指定，则​​自动包含模型默认排序字段​​（id），导致去重不生效
+            .values_list("permission", flat=True)
+            .distinct()  #  去重
+        )
         return list(permissions)
 
-    def get_menus(self, obj):
-        #  获取角色的菜单
+    def get_menus1(self, obj):
+        #  获取用户的角色对应的菜单
         if not obj.roles.exists():
             return []
-        # TODO 只显示有权限的菜单
-        # menus = set()
-        # for role in obj.roles.all():
-        #     menus_queryset = role.menus.filter(
-        #         status=CommonStatusEnum.ENABLE.value,
-        #         type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
-        #     )
-        #     menus.update(menus_queryset)
+            # TODO 只显示有权限的菜单
 
         queryset = SystemMenu.objects.filter(
             status=CommonStatusEnum.ENABLE.value,
             type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
             parent_id__isnull=True,
         ).order_by("sort")
-        print(queryset)
         serializer = MenuMixinSerializer(queryset, many=True)
 
+        return serializer.data
+
+    def get_menus(self, obj):
+        # 获取用户的角色对应的菜单
+        if not obj.roles.exists():
+            return []
+
+        # 一次性获取所有相关菜单的id
+        menu_ids = (
+            SystemMenu.objects.filter(
+                roles__in=obj.roles.all(),  # 关联用户角色
+                status=CommonStatusEnum.ENABLE.value,
+                type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
+            )
+            .values_list("id", flat=True)
+            .distinct()
+        )
+
+        # 单次查询获取所有菜单
+        all_menus = (
+            SystemMenu.objects.filter(id__in=menu_ids)
+            .select_related("parent_id")
+            .order_by("sort")
+            .only(
+                "id",
+                "parent_id",
+                "name",
+                "path",
+                "component",
+                "component_name",
+                "icon",
+                "visible",
+                "keep_alive",
+                "always_show",
+                "sort",
+            )
+        )
+
+        # 使用字典索引法构建树
+        menu_dict = {menu.id: menu for menu in all_menus}
+        for menu in all_menus:
+            menu.children_data = []  # 初始化子节点
+
+        # 构建父子关系
+        # menu.parent_id_id 是指 menu父节点的id
+        for menu in all_menus:
+            if menu.parent_id and menu.parent_id_id in menu_dict:
+                parent = menu_dict[menu.parent_id_id]
+                parent.children_data.append(menu)
+
+        # 获取根节点
+        root_menus = [menu for menu in all_menus if menu.parent_id is None]
+        # root_menus.sort(key=lambda x: x.sort)  # 按sort排序
+        #  使用序列化器序列化树形结构
+        serializer = MenuMixinSerializer(root_menus, many=True)
         return serializer.data
 
     class Meta:

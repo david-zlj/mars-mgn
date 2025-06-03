@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from django.conf import settings
 
-from mars_framework.serializers.base import CustomDateTimeField
 from ..user.models import SystemUsers
 from ..dept.serializers import DeptSimpleSerializer
 from ..role.serializers import RoleSimpleSerializer
@@ -11,9 +10,6 @@ from ..post.serializers import PostSimpleSerializer
 class UserProfileDetailSerializer(serializers.ModelSerializer):
     """获得登录用户信息序列化器"""
 
-    loginIp = serializers.CharField(source="login_ip", read_only=True)
-    loginDate = CustomDateTimeField(source="login_date", read_only=True)
-    createTime = CustomDateTimeField(source="create_time", read_only=True)
     roles = RoleSimpleSerializer(many=True, read_only=True)
     dept = DeptSimpleSerializer(source="dept_id", read_only=True)
     posts = PostSimpleSerializer(many=True, read_only=True)
@@ -28,13 +24,16 @@ class UserProfileDetailSerializer(serializers.ModelSerializer):
             "mobile",
             "sex",
             "avatar",
-            "loginIp",
-            "loginDate",
-            "createTime",
+            "login_ip",
+            "login_date",
+            "create_time",
             "roles",
             "dept",
             "posts",
-            # "socialUsers", # TODO
+        ]
+        read_only_fields = [
+            "id",
+            "create_time",
         ]
 
 
@@ -58,8 +57,8 @@ class UserProfileUpdatePasswordSerializer(serializers.Serializer):
         max_length=settings.PASSWORD_MAX_LENGTH,
         min_length=settings.PASSWORD_MIN_LENGTH,
         error_messages={
-            "min_length": "密码长度至少为8位",
-            "max_length": "密码长度不能超过20位",
+            "min_length": f"密码长度至少为{settings.PASSWORD_MIN_LENGTH}位",
+            "max_length": f"密码长度不能超过{settings.PASSWORD_MAX_LENGTH}位",
             "blank": "密码不能为空",
             "null": "密码不能为空",
         },
@@ -68,8 +67,8 @@ class UserProfileUpdatePasswordSerializer(serializers.Serializer):
         max_length=settings.PASSWORD_MAX_LENGTH,
         min_length=settings.PASSWORD_MIN_LENGTH,
         error_messages={
-            "min_length": "密码长度至少为8位",
-            "max_length": "密码长度不能超过20位",
+            "min_length": f"密码长度至少为{settings.PASSWORD_MIN_LENGTH}位",
+            "max_length": f"密码长度不能超过{settings.PASSWORD_MAX_LENGTH}位",
             "blank": "密码不能为空",
             "null": "密码不能为空",
         },

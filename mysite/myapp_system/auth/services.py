@@ -3,28 +3,28 @@ from ..user.models import SystemUsers
 
 class AuthServices:
 
-    def is_admin(self, user):
-        if user.id == 1:  # TODO 目前约定id为1的用户为管理员，是否需要支持多管理员
-            return True
-        else:
-            return False
+    # def is_admin(self, user):
+    #     if user.id == 1:  # TODO 目前约定id为1的用户为管理员，是否需要支持多管理员
+    #         return True
+    #     else:
+    #         return False
 
-    def get_menu_permission(self, user):
-        menu_permission = set()
-        # 判断用户是否为管理员，管理员拥有所有权限
-        if self.is_admin(user):
-            menu_permission.add("*:*:*")
-        else:
-            # 获取用户所有角色
-            pass
+    # def get_menu_permission(self, user):
+    #     menu_permission = set()
+    #     # 判断用户是否为管理员，管理员拥有所有权限
+    #     if self.is_admin(user):
+    #         menu_permission.add("*:*:*")
+    #     else:
+    #         # 获取用户所有角色
+    #         pass
 
-    def get_role_permission(self, user):
-        role_permission = set()
-        if self.is_admin(user):
-            role_permission.add("*:*:*")
-        else:
-            # 获取用户所有角色
-            pass
+    # def get_role_permission(self, user):
+    #     role_permission = set()
+    #     if self.is_admin(user):
+    #         role_permission.add("*:*:*")
+    #     else:
+    #         # 获取用户所有角色
+    #         pass
 
     def extract_jwt_info(self, refresh_token):
         """

@@ -21,7 +21,8 @@ class SystemMenu(BaseModel):
     sort = models.IntegerField(db_comment="显示顺序", help_text="显示顺序", default=0)
     parent_id = models.ForeignKey(
         "self",
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
+        # on_delete=models.PROTECT,
         null=True,
         blank=True,
         db_constraint=False,

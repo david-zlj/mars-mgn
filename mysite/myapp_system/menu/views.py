@@ -41,6 +41,6 @@ class MenuViewSet(CustomModelViewSetNoExport):
 
     def destroy(self, request, *args, **kwargs):
         """删除菜单，存在子菜单，不允许删除"""
-        if self.get_object().children.exists():
-            return CommonResponse.error(code=111601, msg="存在子菜单，无法删除")
+        # if self.get_object().children.exists():
+        #     return CommonResponse.error(code=111601, msg="存在子菜单，无法删除")
         return super().destroy(request, *args, **kwargs)

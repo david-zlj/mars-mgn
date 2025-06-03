@@ -23,6 +23,21 @@ from ..tasks import login_log_task
 @extend_schema(tags=["管理后台-system-认证"])
 class AuthViewSet(viewsets.GenericViewSet):
     serializer_class = AuthLoginSerializer
+    queryset = SystemUsers.objects.none()
+
+    @extend_schema(summary="获取登录用户的权限信息")
+    @action(methods=["get"], detail=False, url_path="get-permission-info")
+    def get_permission_info(self, request, *args, **kwargs):
+        """获取登录用户的权限信息"""
+        user_id = request.user.id
+        cache_key = f"system_users_{user_id}"
+        user = SystemUsers.objects.prefetch_related("roles", "roles__menus").get(
+            id=user_id
+        )
+        serializer = AuthPermissionInfoSerializer(user, context={"request": request})
+        # 写入Redis缓存 TODO 设置为不过期是否合适
+        cache.set(cache_key, serializer.data, timeout=None)
+        return CommonResponse.success(data=serializer.data)
 
     @extend_schema(summary="使用账号密码登录")
     @action(
@@ -141,7 +156,7 @@ class AuthViewSet(viewsets.GenericViewSet):
 
         # 用户是否被停用，并记录日志
         user_status = auth_services.get_user_status_by_id(user_id)
-        if not user_status or user_status == CommonStatusEnum.DISABLE.value:
+        if user_status is None or user_status == CommonStatusEnum.DISABLE.value:
             log_data.update(
                 {
                     "result": LoginResultEnum.USER_DISABLED.value,
@@ -153,18 +168,6 @@ class AuthViewSet(viewsets.GenericViewSet):
         #  刷新成功，记录日志
         login_log_task.delay(log_data)
         return CommonResponse.success(data=jwt_info)
-
-    @extend_schema(summary="获取登录用户的权限信息")
-    @action(methods=["get"], detail=False, url_path="get-permission-info")
-    def get_permission_info(self, request, *args, **kwargs):
-        """获取登录用户的权限信息"""
-        user = SystemUsers.objects.prefetch_related("roles", "roles__menus").get(
-            id=request.user.id
-        )
-        serializer = AuthPermissionInfoSerializer(user)
-        # 写入Redis缓存 TODO 设置为不过期是否合适
-        cache.set(f"system_users_{request.user.id}", serializer.data, timeout=None)
-        return CommonResponse.success(data=serializer.data)
 
     @extend_schema(summary="注册用户")
     @action(

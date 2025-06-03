@@ -1,5 +1,4 @@
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
 from rest_framework.parsers import MultiPartParser, FormParser
 from drf_spectacular.utils import extend_schema
 
@@ -65,6 +64,7 @@ class UserProfileViewSet(
         """
         上传用户个人头像
         """
+        # TODO 头像修改
         avatar_file = request.FILES.get("avatarFile")
         if not avatar_file:
             return CommonResponse.error(code=111701, msg="没有接收到上传文件")
