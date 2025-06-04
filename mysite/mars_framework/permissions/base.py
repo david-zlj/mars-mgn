@@ -17,7 +17,6 @@ class HasPermission(permissions.BasePermission):
         """
         视图的权限检查逻辑
         """
-        # return False
         # 检查用户是否已登录
         if not bool(request.user and request.user.is_authenticated):
             logger.error(f"用户 {request.user.id} 未登录。")
@@ -29,21 +28,3 @@ class HasPermission(permissions.BasePermission):
             return False  # TODO 是否强制退出
         # 检查用户是否具有指定权限
         return self.perm_code in user_info.get("permissions", [])
-
-    def has_object_permission(self, request, view, obj):
-        """
-        对象（数据）权限检查逻辑
-        """
-        # TODO
-        return True
-        # return False
-
-
-# def has_perm(perm_code):
-#     """使用工厂函数生成带参数的权限类"""
-
-#     class PermClass(HasPermission):
-#         def __init__(self):
-#             super().__init__(perm_code)
-
-#     return PermClass

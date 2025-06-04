@@ -17,7 +17,7 @@ class SystemRole(BaseModel):
     sort = models.IntegerField(db_comment="显示顺序", help_text="显示顺序")
     data_scope = models.SmallIntegerField(
         choices=[(item.value, item.name) for item in DataScopeEnum],
-        default=1,
+        default=DataScopeEnum.SELF.value,
         db_comment="数据范围",
         help_text="数据范围",
     )

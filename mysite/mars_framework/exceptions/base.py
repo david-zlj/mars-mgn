@@ -85,17 +85,19 @@ def custom_exception_handler(exc, context):
     # 未被DRF捕获的异常
     if response is None:
         logger.error(f"未被DRF捕获的异常：{str(exc)}")
+        if isinstance(exc, ProtectedError):  # 删除关联数据时，ProtectedError异常
+            return CommonResponse.error(
+                code=101101, msg="该数据已被关联，请先删除关联数据"
+            )
         return CommonResponse.error(
             code=status.HTTP_500_INTERNAL_SERVER_ERROR, msg="系统异常"
         )
 
-    # 处理具体异常，返回友好提示信息 TODO 优化错误提示信息
+    # 处理DRF捕获的具体异常，返回友好提示信息 TODO 优化错误提示信息
     if isinstance(exc, DRFValidationError):
         return handle_drf_validation_error(exc)
     if isinstance(exc, DjangoValidationError):
         return handle_django_validation_error(exc)
-    if isinstance(exc, ProtectedError):  # 删除关联数据时，ProtectedError异常
-        return CommonResponse.error(code=101101, msg="该数据已被关联，请先删除关联数据")
 
     # 其它DRF异常
     return CommonResponse.error(

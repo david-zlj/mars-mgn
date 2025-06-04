@@ -1,4 +1,4 @@
-import base64
+import base64, logging
 from rest_framework.permissions import AllowAny
 from rest_framework.decorators import action
 from drf_spectacular.utils import extend_schema
@@ -7,6 +7,8 @@ from captcha.views import captcha_image
 
 from mars_framework.viewsets.base import CustomGenericViewSet
 from mars_framework.response.base import CommonResponse
+
+logger = logging.getLogger(__name__)
 
 
 @extend_schema(tags=["管理后台-system-验证码"])
@@ -58,4 +60,5 @@ class CaptchaViewSet(CustomGenericViewSet):
         except CaptchaStore.DoesNotExist:
             return CommonResponse.error(code=112103, msg="验证码已过期")
         except Exception as e:
-            return CommonResponse.error(code=112104, msg=f"验证异常：{str(e)}")
+            logger.error(f"验证码异常：{str(e)}")
+            return CommonResponse.error(code=112104, msg="验证码异常")

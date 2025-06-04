@@ -58,6 +58,8 @@ class UserViewSet(CustomModelViewSet):
             status=CommonStatusEnum.ENABLE.value
         ),
     }
+    # 开启数据权限
+    data_permissions = {"dept_column": "dept_id", "user_column": "id"}
     export_name = "用户数据"
     export_fields_labels = {
         "id": "用户编号",

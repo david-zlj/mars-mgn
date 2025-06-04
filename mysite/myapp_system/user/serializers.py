@@ -26,7 +26,7 @@ class UserSaveSerializer(serializers.ModelSerializer):
             "email",
             "mobile",
             "sex",
-            "avatar",
+            # "avatar",
             "password",
         ]
         # 配置基础校验规则

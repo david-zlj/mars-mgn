@@ -1,11 +1,11 @@
 import re
-from collections import defaultdict
 from rest_framework import serializers
 from django.conf import settings
 
-from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum
+from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum, DataScopeEnum
 from ..user.models import SystemUsers
 from ..menu.models import SystemMenu
+from .services import auth_services
 
 
 class AuthLoginSerializer(serializers.Serializer):
@@ -163,17 +163,67 @@ class AuthPermissionInfoSerializer(serializers.ModelSerializer):
     user = UserMixinSerializer(source="*")
     roles = serializers.SerializerMethodField()
     permissions = serializers.SerializerMethodField()
+    # 数据权限相关
+    data_scope = serializers.SerializerMethodField()
+    data_scope_dept_ids = serializers.SerializerMethodField()
 
-    def get_roles(self, obj):
-        # 获取用户的角色对应的权限字符串
+    def get_data_scope(self, obj) -> list:
+        """获取用户的角色对应的数据权限范围"""
+        if not obj.roles.exists():
+            return [DataScopeEnum.SELF.value]  # 默认为仅本人数据权限
+        data_scope = list(
+            obj.roles.order_by("data_scope")
+            .values_list("data_scope", flat=True)
+            .distinct()
+        )
+        if DataScopeEnum.SELF.value not in data_scope:
+            data_scope.append(DataScopeEnum.SELF.value)  # 默认添加本人数据权限
+        return data_scope
+
+    def get_data_scope_dept_ids(self, obj) -> list:
+        """获取用户的角色对应数据权限部门ID"""
+        if not obj.roles.exists():
+            return []
+
+        # 如果是全部数据权限，则不用计算部门ID
+        data_scope = self.get_data_scope(obj)
+        if DataScopeEnum.ALL.value in data_scope:
+            return []
+
+        dept_ids = set()
+        # 计算指定部门ID
+        if DataScopeEnum.DEPT_CUSTOM.value in data_scope:
+            dept_custom = list(
+                obj.roles.order_by("data_scope_dept_ids")
+                .values_list("data_scope_dept_ids", flat=True)
+                .distinct()
+            )
+            dept_custom = auth_services.extract_and_deduplicate(dept_custom)
+            dept_ids.update(dept_custom)
+
+        # 计算部门ID
+        if DataScopeEnum.DEPT_ONLY.value in data_scope:
+            if obj.dept_id:
+                dept_ids.add(obj.dept_id_id)
+
+        # 计算部门及以下ID
+        if DataScopeEnum.DEPT_AND_CHILD.value in data_scope:
+            if obj.dept_id:
+                dept_and_child = auth_services.get_all_child_depts(obj.dept_id_id)
+                dept_ids.update(dept_and_child)
+
+        return list(dept_ids)
+
+    def get_roles(self, obj) -> list:
+        """获取用户的角色对应的权限字符串"""
         if not obj.roles.exists():
             return []
         return list(
             obj.roles.order_by("code").values_list("code", flat=True).distinct()
         )
 
-    def get_permissions(self, obj):
-        # 获取用户的角色对应的菜单权限标识
+    def get_permissions(self, obj) -> list:
+        """获取用户的角色对应的菜单权限标识"""
         if not obj.roles.exists():
             return []
         permissions = (
@@ -191,23 +241,8 @@ class AuthPermissionInfoSerializer(serializers.ModelSerializer):
         )
         return list(permissions)
 
-    def get_menus1(self, obj):
-        #  获取用户的角色对应的菜单
-        if not obj.roles.exists():
-            return []
-            # TODO 只显示有权限的菜单
-
-        queryset = SystemMenu.objects.filter(
-            status=CommonStatusEnum.ENABLE.value,
-            type__in=[MenuTypeEnum.MENU.value, MenuTypeEnum.DIR.value],
-            parent_id__isnull=True,
-        ).order_by("sort")
-        serializer = MenuMixinSerializer(queryset, many=True)
-
-        return serializer.data
-
-    def get_menus(self, obj):
-        # 获取用户的角色对应的菜单
+    def get_menus(self, obj) -> list:
+        """ "获取用户的角色对应的菜单"""
         if not obj.roles.exists():
             return []
 
@@ -268,4 +303,6 @@ class AuthPermissionInfoSerializer(serializers.ModelSerializer):
             "roles",
             "permissions",
             "menus",
+            "data_scope",
+            "data_scope_dept_ids",
         ]
