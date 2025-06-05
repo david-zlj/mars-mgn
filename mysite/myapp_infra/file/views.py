@@ -14,7 +14,7 @@ from .filters import InfraFileFilter
 from .services import infra_file_service
 
 
-@extend_schema(tags=["管理后台-system-文件存储"])
+@extend_schema(tags=["管理后台-system-文件列表"])
 class InfraFileViewSet(CustomModelViewSetNoExportNoSimple):
     queryset = InfraFile.objects.all()
     serializer_class = InfraFileSerializer
@@ -30,7 +30,7 @@ class InfraFileViewSet(CustomModelViewSetNoExportNoSimple):
         "download_file": [AllowAny()],
     }
 
-    @extend_schema(summary="上传文件", description="模式一：后端上传文件")
+    @extend_schema(summary="上传文件")
     @action(
         url_path="upload",
         methods=["post"],
@@ -38,6 +38,7 @@ class InfraFileViewSet(CustomModelViewSetNoExportNoSimple):
         parser_classes=[MultiPartParser],
     )
     def upload_file(self, request, *args, **kwargs):
+        """后端上传文件"""
         # 1. 获取上传的文件
         uploaded_file = request.FILES.get("file")
         if not uploaded_file:

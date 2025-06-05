@@ -42,7 +42,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    # "myapp_system.operate_log.services.OperateLogMiddleware",  # 操作日志记录，如果数据库、磁盘IO性能一般，建议关闭
+    # "myapp_system.operate_log.services.OperateLogMiddleware",  # 操作日志开关：如果数据库磁盘IO性能一般，建议关闭
 ]
 
 ROOT_URLCONF = "mysite.urls"
@@ -112,13 +112,8 @@ LANGUAGES = (
     ("en", "English"),
 )
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = "static/"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 ### 用户上传文件配置
@@ -229,7 +224,6 @@ REST_FRAMEWORK = {
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
 }
-
 
 ### Simpel JWT 配置
 SIMPLE_JWT = {

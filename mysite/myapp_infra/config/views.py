@@ -50,16 +50,15 @@ class InfraConfigViewSet(CustomModelViewSetNoSimple):
     }
 
     def destroy(self, request, *args, **kwargs):
-        # type为系统内置的参数，不允许删除
+        """type为系统内置的参数，不允许删除"""
         if self.get_object().type == ConfigTypeEnum.SYSTEM.value:
-            return CommonResponse.error(code=121400, msg="系统内置的参数不允许删除")
+            return CommonResponse.error(code=121400, msg="系统内置不允许删除")
         return super().destroy(request, *args, **kwargs)
 
-    @extend_schema(
-        summary="根据参数键名查询参数值", description="不可见的配置，不允许返回给前端"
-    )
+    @extend_schema(summary="根据参数键名查询参数值")
     @action(methods=["get"], detail=False, url_path="get-value-by-key")
     def get_value_by_key(self, request, *args, **kwargs):
+        """不可见的配置，不允许返回给前端"""
         key = request.query_params.get("key")
         if not key:
             return CommonResponse.error(code=121401, msg="参数键名不能为空")

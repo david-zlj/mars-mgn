@@ -43,6 +43,7 @@ class MailTemplateViewSet(CustomModelViewSetNoExport):
         url_path="send-mail",
     )
     def send_mail(self, request, *args, **kwargs):
+        """发送邮件"""
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = mail_send_service.get_params(serializer.validated_data)

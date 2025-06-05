@@ -33,6 +33,9 @@ class DeptSaveSerializer(serializers.ModelSerializer):
 
         if data.get("parent_id") == 0:
             data["parent_id"] = None
+        # 如果leader_user_id不存在，则设置为None
+        if not data.get("leader_user_id"):
+            data["leader_user_id"] = None
         return super().to_internal_value(data)
 
     class Meta:

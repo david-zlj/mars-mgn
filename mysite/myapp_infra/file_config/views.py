@@ -43,9 +43,9 @@ class InfraFileConfigViewSet(CustomModelViewSetNoExportNoSimple):
         if instance.storage != FileStorageEnum.LOCAL.value:
             return CommonResponse.error(code=121201, msg="暂时只支持本地存储")
         else:
-            return CommonResponse.error(code=121202, msg="请使用文件列表功能测试")
+            return CommonResponse.error(code=121202, msg="请使用文件列表测试")
 
     def destroy(self, request, *args, **kwargs):
         if self.get_object().id == 1:
-            return CommonResponse.error(code=121201, msg="不允许删除本地磁盘配置")
+            return CommonResponse.error(code=121201, msg="本地磁盘不允许删除")
         return super().destroy(request, *args, **kwargs)

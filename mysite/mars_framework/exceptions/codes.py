@@ -22,7 +22,7 @@ GLOBAL_ERROR_CODE = {
     901: "演示模式，禁止写操作",
     999: "未知错误",
 }
-SERVICE_ERROR_CODE_RANGE = {}
+# SERVICE_ERROR_CODE_RANGE = {}
 
 """
 业务状态码分配规则

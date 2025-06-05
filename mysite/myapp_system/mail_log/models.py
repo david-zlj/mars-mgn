@@ -19,7 +19,6 @@ class SystemMailLog(BaseModel):
         db_comment="用户类型",
         help_text="用户类型",
     )
-    # 也可以直接指定接收邮箱地址
     to_mail = models.CharField(
         max_length=255, db_comment="接收邮箱地址", help_text="接收邮箱地址"
     )

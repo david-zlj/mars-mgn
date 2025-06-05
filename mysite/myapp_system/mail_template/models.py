@@ -34,7 +34,11 @@ class SystemMailTemplate(BaseModel):
         help_text="发送人名称",
     )
     title = models.CharField(
-        max_length=255, db_comment="模板标题", help_text="模板标题"
+        max_length=255,
+        blank=True,
+        null=True,
+        db_comment="模板标题",
+        help_text="模板标题",
     )
     content = models.CharField(
         max_length=10240, db_comment="模板内容", help_text="模板内容"
