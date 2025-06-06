@@ -1,0 +1,99 @@
+[
+  {
+    "model": "myapp_infra.infrafileconfig",
+    "pk": 1,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-22T08:02:38Z",
+      "updater": "1",
+      "update_time": "2025-05-23T07:17:32Z",
+      "name": "本地磁盘",
+      "storage": 10,
+      "remark": "内置",
+      "master": true,
+      "config": "{}"
+    }
+  },
+  {
+    "model": "myapp_infra.infrafile",
+    "pk": 1581,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-23T07:03:52Z",
+      "updater": "",
+      "update_time": "2025-05-23T07:03:52Z",
+      "config_id": 1,
+      "name": "word_abc_20250523150351617957.docx",
+      "path": "202505/word_abc_20250523150351617957.docx",
+      "url": "/media/202505/word_abc_20250523150351617957.docx",
+      "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size": 10982
+    }
+  },
+  {
+    "model": "myapp_infra.infrafile",
+    "pk": 1582,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-23T07:16:05Z",
+      "updater": "",
+      "update_time": "2025-05-23T07:16:05Z",
+      "config_id": 1,
+      "name": "pdf-abc_20250523151605280587.pdf",
+      "path": "202505/pdf-abc_20250523151605280587.pdf",
+      "url": "/media/202505/pdf-abc_20250523151605280587.pdf",
+      "type": "application/pdf",
+      "size": 22612
+    }
+  },
+  {
+    "model": "myapp_infra.infrafile",
+    "pk": 1583,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T06:48:19Z",
+      "updater": "",
+      "update_time": "2025-06-05T06:48:19Z",
+      "config_id": 1,
+      "name": "MarsMgn_s_20250605144818728581.jpg",
+      "path": "202506/MarsMgn_s_20250605144818728581.jpg",
+      "url": "/media/202506/MarsMgn_s_20250605144818728581.jpg",
+      "type": "image/jpeg",
+      "size": 128921
+    }
+  },
+  {
+    "model": "myapp_infra.infraconfig",
+    "pk": 8,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-04-07T13:41:16Z",
+      "updater": "1",
+      "update_time": "2025-06-05T07:24:36Z",
+      "category": "url",
+      "name": "Celery 监控的地址",
+      "config_key": "url.celery",
+      "value": "celery",
+      "type": 2,
+      "visible": true,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_infra.infraconfig",
+    "pk": 10,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-04-07T13:41:16Z",
+      "updater": "1",
+      "update_time": "2025-06-05T07:23:22Z",
+      "category": "url",
+      "name": "Swagger 接口文档的地址",
+      "config_key": "url.swagger",
+      "value": "abc",
+      "type": 2,
+      "visible": true,
+      "remark": ""
+    }
+  }
+]

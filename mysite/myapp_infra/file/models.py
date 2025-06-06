@@ -24,7 +24,7 @@ class InfraFile(BaseModel):
     size = models.IntegerField(db_comment="文件大小", help_text="文件大小")
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "infra_file"
         db_table_comment = "文件表"
         ordering = ["-id"]

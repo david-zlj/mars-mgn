@@ -32,7 +32,7 @@ class InfraConfig(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "infra_config"
         db_table_comment = "参数配置表"
         ordering = ["-id"]

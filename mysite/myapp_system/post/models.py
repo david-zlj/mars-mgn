@@ -38,12 +38,9 @@ class SystemPost(BaseModel):
         db_comment="备注",
         help_text="备注",
     )
-    tenant_id = models.BigIntegerField(
-        default=0, db_comment="租户编号", help_text="租户编号"
-    )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_post"
         db_table_comment = "岗位信息表"
         ordering = ["-id"]

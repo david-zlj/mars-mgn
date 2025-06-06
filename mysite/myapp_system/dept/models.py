@@ -47,12 +47,9 @@ class SystemDept(BaseModel):
         db_comment="部门状态（0正常 1停用）",
         help_text="部门状态（0正常 1停用）",
     )
-    tenant_id = models.BigIntegerField(
-        default=0, db_comment="租户编号", help_text="租户编号"
-    )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_dept"
         db_table_comment = "部门表"
         ordering = ["sort"]

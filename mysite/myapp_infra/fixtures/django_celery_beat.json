@@ -1,0 +1,153 @@
+[
+  {
+    "model": "django_celery_beat.crontabschedule",
+    "pk": 1,
+    "fields": {
+      "minute": "*",
+      "hour": "*",
+      "day_of_month": "*",
+      "month_of_year": "*",
+      "day_of_week": "*",
+      "timezone": "Asia/Shanghai"
+    }
+  },
+  {
+    "model": "django_celery_beat.crontabschedule",
+    "pk": 2,
+    "fields": {
+      "minute": "0",
+      "hour": "0",
+      "day_of_month": "1",
+      "month_of_year": "1",
+      "day_of_week": "*",
+      "timezone": "Asia/Shanghai"
+    }
+  },
+  {
+    "model": "django_celery_beat.crontabschedule",
+    "pk": 3,
+    "fields": {
+      "minute": "0",
+      "hour": "4",
+      "day_of_month": "*",
+      "month_of_year": "*",
+      "day_of_week": "*",
+      "timezone": "Asia/Shanghai"
+    }
+  },
+  {
+    "model": "django_celery_beat.crontabschedule",
+    "pk": 4,
+    "fields": {
+      "minute": "*",
+      "hour": "4",
+      "day_of_month": "*",
+      "month_of_year": "*",
+      "day_of_week": "*",
+      "timezone": "Asia/Shanghai"
+    }
+  },
+  {
+    "model": "django_celery_beat.crontabschedule",
+    "pk": 5,
+    "fields": {
+      "minute": "*/3",
+      "hour": "*",
+      "day_of_month": "*",
+      "month_of_year": "*",
+      "day_of_week": "*",
+      "timezone": "Asia/Shanghai"
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictasks",
+    "pk": 1,
+    "fields": {
+      "last_update": "2025-05-26T00:39:28.272Z"
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 8,
+    "fields": {
+      "name": "发送日报",
+      "task": "myapp_infra.tasks.send_daily_report",
+      "interval": null,
+      "crontab": 1,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": null,
+      "one_off": false,
+      "start_time": null,
+      "enabled": false,
+      "last_run_at": null,
+      "total_run_count": 40,
+      "date_changed": "2025-05-25T13:27:39.269Z",
+      "description": ""
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 9,
+    "fields": {
+      "name": "清理过期数据",
+      "task": "myapp_infra.tasks.cleanup_expired_data",
+      "interval": null,
+      "crontab": 5,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": null,
+      "one_off": false,
+      "start_time": null,
+      "enabled": false,
+      "last_run_at": null,
+      "total_run_count": 59,
+      "date_changed": "2025-05-26T00:39:30.040Z",
+      "description": ""
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 10,
+    "fields": {
+      "name": "celery.backend_cleanup",
+      "task": "celery.backend_cleanup",
+      "interval": null,
+      "crontab": 3,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "{}",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": 43200,
+      "one_off": false,
+      "start_time": null,
+      "enabled": true,
+      "last_run_at": null,
+      "total_run_count": 0,
+      "date_changed": "2025-05-25T23:52:32.686Z",
+      "description": ""
+    }
+  }
+]

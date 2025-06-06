@@ -5,7 +5,6 @@ from mars_framework.db.enums import UserTypeEnum
 
 class SystemNotifyMessage(BaseModel):
     id = models.BigAutoField(primary_key=True, db_comment="消息ID", help_text="消息ID")
-    # user_id = models.BigIntegerField(db_comment="用户ID", help_text="用户ID")
     user_id = models.ForeignKey(
         "SystemUsers",
         on_delete=models.DO_NOTHING,  # TODO 是否级联删除，是否报错
@@ -20,7 +19,6 @@ class SystemNotifyMessage(BaseModel):
         db_comment="用户类型",
         help_text="用户类型",
     )
-    # template_id = models.BigIntegerField(db_comment="模板编号", help_text="模板编号")
     template_id = models.ForeignKey(
         "SystemNotifyTemplate",
         on_delete=models.SET_NULL,  # TODO 是否级联删除
@@ -55,12 +53,9 @@ class SystemNotifyMessage(BaseModel):
     read_time = models.DateTimeField(
         blank=True, null=True, db_comment="阅读时间", help_text="阅读时间"
     )
-    # tenant_id = models.BigIntegerField(
-    #     default=0, db_comment="租户编号", help_text="租户编号"
-    # )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_notify_message"
         db_table_comment = "站内信消息表"
         ordering = ["-id"]

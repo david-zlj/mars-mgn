@@ -42,9 +42,6 @@ class SystemRole(BaseModel):
     remark = models.CharField(
         max_length=500, blank=True, null=True, db_comment="备注", help_text="备注"
     )
-    tenant_id = models.BigIntegerField(
-        default=0, db_comment="租户编号", help_text="租户编号"
-    )
     # 与菜单多对多关系
     menus = models.ManyToManyField(
         "SystemMenu",
@@ -54,7 +51,7 @@ class SystemRole(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_role"
         db_table_comment = "角色信息表"
         ordering = ["-id"]
@@ -76,9 +73,8 @@ class SystemRoleMenu(BaseModel):
         db_column="menu_id",
         db_comment="菜单ID",
     )
-    tenant_id = models.BigIntegerField(default=0, db_comment="租户编号")
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_role_menu"
         db_table_comment = "角色和菜单关联表"

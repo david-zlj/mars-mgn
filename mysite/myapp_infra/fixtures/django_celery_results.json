@@ -1,0 +1,128 @@
+[
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 375,
+    "fields": {
+      "task_id": "a1263c7c-5ced-4e14-ac2c-788c5975ccf1",
+      "periodic_task_name": null,
+      "task_name": "myapp_infra.tasks.send_daily_report",
+      "task_args": "\"()\"",
+      "task_kwargs": "\"{}\"",
+      "status": "SUCCESS",
+      "worker": "celery@DESKTOP-MHHVBI3",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "\"\\u53d1\\u9001\\u6210\\u529f\"",
+      "date_created": "2025-05-25T13:27:00.008Z",
+      "date_started": "2025-05-25T21:27:00.009Z",
+      "date_done": "2025-05-25T13:27:30.017Z",
+      "traceback": null,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 433,
+    "fields": {
+      "task_id": "295ab47f-effa-4d74-bdd8-b17e9ec1d464",
+      "periodic_task_name": null,
+      "task_name": "myapp_infra.tasks.cleanup_expired_data",
+      "task_args": "\"()\"",
+      "task_kwargs": "\"{}\"",
+      "status": "SUCCESS",
+      "worker": "celery@DESKTOP-MHHVBI3",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "\"\\u6e05\\u7406\\u5b8c\\u6210\"",
+      "date_created": "2025-05-26T00:37:00.010Z",
+      "date_started": "2025-05-26T08:37:00.010Z",
+      "date_done": "2025-05-26T00:37:15.026Z",
+      "traceback": null,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 434,
+    "fields": {
+      "task_id": "d15936c4-75a6-411a-b308-d10267182517",
+      "periodic_task_name": null,
+      "task_name": "myapp_infra.tasks.cleanup_expired_data",
+      "task_args": "\"()\"",
+      "task_kwargs": "\"{}\"",
+      "status": "SUCCESS",
+      "worker": "celery@DESKTOP-MHHVBI3",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "\"\\u6e05\\u7406\\u5b8c\\u6210\"",
+      "date_created": "2025-05-26T00:38:00.011Z",
+      "date_started": "2025-05-26T08:38:00.012Z",
+      "date_done": "2025-05-26T00:38:15.023Z",
+      "traceback": null,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 435,
+    "fields": {
+      "task_id": "e45a4721-b997-47a1-81b8-79f9c6f4a00c",
+      "periodic_task_name": null,
+      "task_name": "myapp_infra.tasks.cleanup_expired_data",
+      "task_args": "\"()\"",
+      "task_kwargs": "\"{}\"",
+      "status": "SUCCESS",
+      "worker": "celery@DESKTOP-MHHVBI3",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "\"\\u6e05\\u7406\\u5b8c\\u6210\"",
+      "date_created": "2025-05-26T00:39:00.008Z",
+      "date_started": "2025-05-26T08:39:00.009Z",
+      "date_done": "2025-05-26T00:39:15.033Z",
+      "traceback": null,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 663,
+    "fields": {
+      "task_id": "cb3f5bb7-d731-46a3-9e1a-8f593500d87e",
+      "periodic_task_name": null,
+      "task_name": "myapp_system.tasks.login_log_task",
+      "task_args": "\"({'log_type': 200, 'user_ip': '127.0.0.1', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'username': 'admin', 'user_id': 1, 'result': 0},)\"",
+      "task_kwargs": "\"{}\"",
+      "status": "SUCCESS",
+      "worker": "celery@DESKTOP-MHHVBI3",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_created": "2025-06-05T07:26:00.340Z",
+      "date_started": "2025-06-05T15:26:00.341Z",
+      "date_done": "2025-06-05T07:26:00.355Z",
+      "traceback": null,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 664,
+    "fields": {
+      "task_id": "619bb86a-ce55-4bbd-85a2-f2a2210dcd06",
+      "periodic_task_name": null,
+      "task_name": "myapp_system.tasks.login_log_task",
+      "task_args": "\"({'log_type': 100, 'username': 'admin', 'user_ip': '127.0.0.1', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'user_id': 1, 'result': 0},)\"",
+      "task_kwargs": "\"{}\"",
+      "status": "SUCCESS",
+      "worker": "celery@DESKTOP-MHHVBI3",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_created": "2025-06-05T07:26:05.853Z",
+      "date_started": "2025-06-05T15:26:05.853Z",
+      "date_done": "2025-06-05T07:26:05.871Z",
+      "traceback": null,
+      "meta": "{\"children\": []}"
+    }
+  }
+]

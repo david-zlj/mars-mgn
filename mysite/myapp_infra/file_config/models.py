@@ -22,7 +22,7 @@ class InfraFileConfig(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "infra_file_config"
         db_table_comment = "文件配置表"
         ordering = ["-id"]

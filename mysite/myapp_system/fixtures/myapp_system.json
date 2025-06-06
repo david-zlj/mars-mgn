@@ -1,0 +1,7910 @@
+[
+  {
+    "model": "myapp_system.systemusers",
+    "pk": 1,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2025-06-05T07:26:06Z",
+      "username": "admin",
+      "password": "pbkdf2_sha256$600000$rwrpbqx8aIlPfebJzXrJNI$lPabKpj2rR8sEDwkHUCWN8Egu+WfuvGQsX7qQknTEno=",
+      "nickname": "火星",
+      "remark": "管理员",
+      "dept_id": 103,
+      "post_ids": "[1,2]",
+      "email": "marsmgn@qq.com",
+      "mobile": "13812345670",
+      "sex": 1,
+      "avatar": "avatars/2025/20250605152554081.jpg",
+      "status": 0,
+      "login_ip": "127.0.0.1",
+      "login_date": "2025-06-05T07:26:06Z",
+      "last_login": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "myapp_system.systemusers",
+    "pk": 163,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-06-03T07:29:34Z",
+      "updater": "1",
+      "update_time": "2025-06-05T01:12:53Z",
+      "username": "zhangsan",
+      "password": "pbkdf2_sha256$600000$VgVngFgzV8125c2pmUaTJM$lskKaz8faR5uHLBjnW6Xb64cpUYQ/NGKjES0rk4G8eg=",
+      "nickname": "张三",
+      "remark": "",
+      "dept_id": 102,
+      "post_ids": null,
+      "email": "zs@qq.com",
+      "mobile": "13812345671",
+      "sex": 2,
+      "avatar": "",
+      "status": 0,
+      "login_ip": "127.0.0.1",
+      "login_date": "2025-06-04T08:31:38Z",
+      "last_login": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "myapp_system.systemusers",
+    "pk": 164,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-06-03T07:34:58Z",
+      "updater": "1",
+      "update_time": "2025-06-04T08:28:47Z",
+      "username": "lisi",
+      "password": "pbkdf2_sha256$600000$o7M1SoeWh7F59lkam3IR4V$q4RSgnsUDkG9EG81loQJ+uAZSH2U+lb0oppPo4ee1ug=",
+      "nickname": "李四",
+      "remark": "",
+      "dept_id": 108,
+      "post_ids": null,
+      "email": "ls@qq.com",
+      "mobile": "13812345672",
+      "sex": 2,
+      "avatar": "",
+      "status": 0,
+      "login_ip": "",
+      "login_date": null,
+      "last_login": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "myapp_system.systemusers",
+    "pk": 165,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-06-03T07:35:47Z",
+      "updater": "163",
+      "update_time": "2025-06-04T08:32:37Z",
+      "username": "wangwu",
+      "password": "pbkdf2_sha256$600000$oWX004F9CUxIQQhBUNewcN$zYgvcFgaRfMszYtplzK8lauKw1xlXJ+LoGeOJIzXDwg=",
+      "nickname": "王五",
+      "remark": "",
+      "dept_id": 103,
+      "post_ids": null,
+      "email": "ww@qq.com",
+      "mobile": "13812345673",
+      "sex": 2,
+      "avatar": "",
+      "status": 0,
+      "login_ip": "",
+      "login_date": null,
+      "last_login": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "myapp_system.systemuserrole",
+    "pk": 1,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-01-11T13:19:45Z",
+      "updater": "",
+      "update_time": "2022-05-12T12:35:17Z",
+      "user_id": 1,
+      "role_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemuserrole",
+    "pk": 2,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-01-11T13:19:45Z",
+      "updater": "",
+      "update_time": "2022-05-12T12:35:13Z",
+      "user_id": 2,
+      "role_id": 2
+    }
+  },
+  {
+    "model": "myapp_system.systemuserrole",
+    "pk": 5,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-01-11T13:19:45Z",
+      "updater": "",
+      "update_time": "2022-05-12T12:35:12Z",
+      "user_id": 100,
+      "role_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemuserrole",
+    "pk": 6,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-01-11T13:19:45Z",
+      "updater": "",
+      "update_time": "2022-05-12T12:35:11Z",
+      "user_id": 100,
+      "role_id": 2
+    }
+  },
+  {
+    "model": "myapp_system.systemuserrole",
+    "pk": 62,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T01:12:53Z",
+      "updater": "",
+      "update_time": "2025-06-05T01:12:53Z",
+      "user_id": 163,
+      "role_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemuserpost",
+    "pk": 113,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2022-05-02T07:25:24Z",
+      "updater": "admin",
+      "update_time": "2022-05-02T07:25:24Z",
+      "user_id": 100,
+      "post_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemuserpost",
+    "pk": 142,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-03T07:23:05Z",
+      "updater": "",
+      "update_time": "2025-06-03T07:23:05Z",
+      "user_id": 1,
+      "post_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemuserpost",
+    "pk": 145,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-03T07:29:34Z",
+      "updater": "",
+      "update_time": "2025-06-03T07:29:34Z",
+      "user_id": 163,
+      "post_id": 2
+    }
+  },
+  {
+    "model": "myapp_system.systemuserpost",
+    "pk": 146,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-03T07:34:58Z",
+      "updater": "",
+      "update_time": "2025-06-03T07:34:58Z",
+      "user_id": 164,
+      "post_id": 4
+    }
+  },
+  {
+    "model": "myapp_system.systemuserpost",
+    "pk": 147,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-03T07:35:47Z",
+      "updater": "",
+      "update_time": "2025-06-03T07:35:47Z",
+      "user_id": 165,
+      "post_id": 5
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 100,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2025-06-05T02:02:43Z",
+      "name": "火星信息",
+      "parent_id": null,
+      "sort": 0,
+      "leader_user_id": null,
+      "phone": "13812345678",
+      "email": "marsmgn@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 101,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2025-06-03T07:32:13Z",
+      "name": "深圳总公司",
+      "parent_id": 100,
+      "sort": 10,
+      "leader_user_id": null,
+      "phone": "15888888888",
+      "email": "sz@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 102,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2025-06-03T07:32:34Z",
+      "name": "长沙分公司",
+      "parent_id": 100,
+      "sort": 20,
+      "leader_user_id": null,
+      "phone": "15888888888",
+      "email": "cs@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 103,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2025-06-05T02:02:35Z",
+      "name": "研发部门",
+      "parent_id": 101,
+      "sort": 1,
+      "leader_user_id": null,
+      "phone": "15888888888",
+      "email": "ry@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 105,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2025-06-03T07:33:20Z",
+      "name": "测试部门",
+      "parent_id": 101,
+      "sort": 2,
+      "leader_user_id": null,
+      "phone": "15888888888",
+      "email": "ry@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 107,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2025-06-05T02:02:18Z",
+      "name": "运维部门",
+      "parent_id": 101,
+      "sort": 3,
+      "leader_user_id": null,
+      "phone": "15888888888",
+      "email": "ry@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 108,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "1",
+      "update_time": "2022-02-16T08:35:45Z",
+      "name": "市场部门",
+      "parent_id": 102,
+      "sort": 1,
+      "leader_user_id": null,
+      "phone": "15888888888",
+      "email": "ry@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 109,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:47Z",
+      "updater": "",
+      "update_time": "2021-12-15T05:01:29Z",
+      "name": "财务部门",
+      "parent_id": 102,
+      "sort": 2,
+      "leader_user_id": null,
+      "phone": "15888888888",
+      "email": "ry@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 113,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-12-02T09:47:38Z",
+      "updater": "1",
+      "update_time": "2025-06-03T15:28:06Z",
+      "name": "支持部门",
+      "parent_id": 102,
+      "sort": 3,
+      "leader_user_id": null,
+      "phone": null,
+      "email": null,
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 115,
+    "fields": {
+      "creator": "100",
+      "create_time": "2025-04-01T08:23:19Z",
+      "updater": "1",
+      "update_time": "2025-06-03T07:33:05Z",
+      "name": "广州分公司",
+      "parent_id": 100,
+      "sort": 30,
+      "leader_user_id": null,
+      "phone": "13312345670",
+      "email": "gz@qq.com",
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemdept",
+    "pk": 117,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-12T13:36:27Z",
+      "updater": "1",
+      "update_time": "2025-06-03T07:33:31Z",
+      "name": "产品部门",
+      "parent_id": 115,
+      "sort": 1,
+      "leader_user_id": null,
+      "phone": null,
+      "email": null,
+      "status": 0
+    }
+  },
+  {
+    "model": "myapp_system.systempost",
+    "pk": 1,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-06T17:03:48Z",
+      "updater": "1",
+      "update_time": "2023-02-11T15:19:04Z",
+      "code": "ceo",
+      "name": "董事长",
+      "sort": 1,
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systempost",
+    "pk": 2,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2025-06-05T02:03:14Z",
+      "code": "pm",
+      "name": "项目经理",
+      "sort": 2,
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systempost",
+    "pk": 4,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2025-06-05T02:03:29Z",
+      "code": "user",
+      "name": "普通员工",
+      "sort": 4,
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systempost",
+    "pk": 5,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-03-24T20:45:40Z",
+      "updater": "1",
+      "update_time": "2025-06-05T02:03:39Z",
+      "code": "hr",
+      "name": "人力资源",
+      "sort": 5,
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systempost",
+    "pk": 12,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-14T08:45:40Z",
+      "updater": "1",
+      "update_time": "2025-06-05T02:03:55Z",
+      "code": "test",
+      "name": "测试岗位",
+      "sort": 10,
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2025-05-08T09:09:15Z",
+      "name": "系统管理",
+      "permission": "",
+      "type": 1,
+      "sort": 10,
+      "parent_id": null,
+      "path": "/system",
+      "icon": "ep:tools",
+      "component": null,
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2025-04-23T16:35:29Z",
+      "name": "基础设施",
+      "permission": "",
+      "type": 1,
+      "sort": 20,
+      "parent_id": null,
+      "path": "/infra",
+      "icon": "ep:monitor",
+      "component": null,
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 100,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:02:04Z",
+      "name": "用户管理",
+      "permission": "system:user:list",
+      "type": 2,
+      "sort": 1,
+      "parent_id": 1,
+      "path": "user",
+      "icon": "ep:avatar",
+      "component": "system/user/index",
+      "component_name": "SystemUser",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 101,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-05-01T18:35:29Z",
+      "name": "角色管理",
+      "permission": "",
+      "type": 2,
+      "sort": 2,
+      "parent_id": 1,
+      "path": "role",
+      "icon": "ep:user",
+      "component": "system/role/index",
+      "component_name": "SystemRole",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 102,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:03:50Z",
+      "name": "菜单管理",
+      "permission": "",
+      "type": 2,
+      "sort": 3,
+      "parent_id": 1,
+      "path": "menu",
+      "icon": "ep:menu",
+      "component": "system/menu/index",
+      "component_name": "SystemMenu",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 103,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:06:28Z",
+      "name": "部门管理",
+      "permission": "",
+      "type": 2,
+      "sort": 4,
+      "parent_id": 1,
+      "path": "dept",
+      "icon": "fa:address-card",
+      "component": "system/dept/index",
+      "component_name": "SystemDept",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 104,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:06:39Z",
+      "name": "岗位管理",
+      "permission": "",
+      "type": 2,
+      "sort": 5,
+      "parent_id": 1,
+      "path": "post",
+      "icon": "fa:address-book-o",
+      "component": "system/post/index",
+      "component_name": "SystemPost",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 105,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:07:12Z",
+      "name": "字典管理",
+      "permission": "",
+      "type": 2,
+      "sort": 6,
+      "parent_id": 1,
+      "path": "dict",
+      "icon": "ep:collection",
+      "component": "system/dict/index",
+      "component_name": "SystemDictType",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 106,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-04-23T00:02:45Z",
+      "name": "配置管理",
+      "permission": "",
+      "type": 2,
+      "sort": 8,
+      "parent_id": 2,
+      "path": "config",
+      "icon": "fa:connectdevelop",
+      "component": "infra/config/index",
+      "component_name": "InfraConfig",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 108,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:08:30Z",
+      "name": "审计日志",
+      "permission": "",
+      "type": 1,
+      "sort": 9,
+      "parent_id": 1,
+      "path": "log",
+      "icon": "ep:document-copy",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 110,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:57:36Z",
+      "name": "定时任务",
+      "permission": "",
+      "type": 2,
+      "sort": 7,
+      "parent_id": 2,
+      "path": "job",
+      "icon": "fa-solid:tasks",
+      "component": "infra/job/index",
+      "component_name": "InfraJob",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 114,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:51:35Z",
+      "name": "表单构建",
+      "permission": "infra:build:list",
+      "type": 2,
+      "sort": 2,
+      "parent_id": 2,
+      "path": "build",
+      "icon": "fa:wpforms",
+      "component": "infra/build/index",
+      "component_name": "InfraBuild",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 115,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:51:06Z",
+      "name": "代码生成",
+      "permission": "infra:codegen:query",
+      "type": 2,
+      "sort": 1,
+      "parent_id": 2,
+      "path": "codegen",
+      "icon": "ep:document-copy",
+      "component": "infra/codegen/index",
+      "component_name": "InfraCodegen",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 500,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:09:59Z",
+      "name": "操作日志",
+      "permission": "",
+      "type": 2,
+      "sort": 1,
+      "parent_id": 108,
+      "path": "operate-log",
+      "icon": "ep:position",
+      "component": "system/operatelog/index",
+      "component_name": "SystemOperateLog",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 501,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T01:10:29Z",
+      "name": "登录日志",
+      "permission": "",
+      "type": 2,
+      "sort": 2,
+      "parent_id": 108,
+      "path": "login-log",
+      "icon": "ep:promotion",
+      "component": "system/loginlog/index",
+      "component_name": "SystemLoginLog",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1001,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "用户查询",
+      "permission": "system:user:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 100,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1002,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "用户新增",
+      "permission": "system:user:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 100,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1003,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "用户修改",
+      "permission": "system:user:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 100,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1004,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "用户删除",
+      "permission": "system:user:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 100,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1005,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "用户导出",
+      "permission": "system:user:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 100,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1006,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "用户导入",
+      "permission": "system:user:import",
+      "type": 3,
+      "sort": 6,
+      "parent_id": 100,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1007,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "重置密码",
+      "permission": "system:user:update-password",
+      "type": 3,
+      "sort": 7,
+      "parent_id": 100,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1008,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "角色查询",
+      "permission": "system:role:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 101,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1009,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "角色新增",
+      "permission": "system:role:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 101,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1010,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "角色修改",
+      "permission": "system:role:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 101,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1011,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "角色删除",
+      "permission": "system:role:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 101,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1012,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "角色导出",
+      "permission": "system:role:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 101,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1013,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "菜单查询",
+      "permission": "system:menu:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 102,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1014,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "菜单新增",
+      "permission": "system:menu:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 102,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1015,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "菜单修改",
+      "permission": "system:menu:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 102,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1016,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "菜单删除",
+      "permission": "system:menu:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 102,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1017,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "部门查询",
+      "permission": "system:dept:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 103,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1018,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "部门新增",
+      "permission": "system:dept:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 103,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1019,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "部门修改",
+      "permission": "system:dept:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 103,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1020,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "部门删除",
+      "permission": "system:dept:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 103,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1021,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "岗位查询",
+      "permission": "system:post:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 104,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1022,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "岗位新增",
+      "permission": "system:post:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 104,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1023,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "岗位修改",
+      "permission": "system:post:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 104,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1024,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "岗位删除",
+      "permission": "system:post:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 104,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1025,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "岗位导出",
+      "permission": "system:post:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 104,
+      "path": "",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1026,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "字典查询",
+      "permission": "system:dict:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 105,
+      "path": "#",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1027,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "字典新增",
+      "permission": "system:dict:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 105,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1028,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "字典修改",
+      "permission": "system:dict:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 105,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1029,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "字典删除",
+      "permission": "system:dict:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 105,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1030,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "字典导出",
+      "permission": "system:dict:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 105,
+      "path": "#",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1031,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "配置查询",
+      "permission": "infra:config:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 106,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1032,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "配置新增",
+      "permission": "infra:config:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 106,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1033,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "配置修改",
+      "permission": "infra:config:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 106,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1034,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "配置删除",
+      "permission": "infra:config:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 106,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1035,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "配置导出",
+      "permission": "infra:config:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 106,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1040,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "操作查询",
+      "permission": "system:operate-log:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 500,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1042,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "日志导出",
+      "permission": "system:operate-log:export",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 500,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1043,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "登录查询",
+      "permission": "system:login-log:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 501,
+      "path": "#",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1045,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "日志导出",
+      "permission": "system:login-log:export",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 501,
+      "path": "#",
+      "icon": "#",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1050,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "任务新增",
+      "permission": "infra:job:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 110,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1051,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "任务修改",
+      "permission": "infra:job:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 110,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1052,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "任务删除",
+      "permission": "infra:job:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 110,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1053,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "状态修改",
+      "permission": "infra:job:update",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 110,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1054,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "任务导出",
+      "permission": "infra:job:export",
+      "type": 3,
+      "sort": 7,
+      "parent_id": 110,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1056,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "生成修改",
+      "permission": "infra:codegen:update",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 115,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1057,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "生成删除",
+      "permission": "infra:codegen:delete",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 115,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1058,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "导入代码",
+      "permission": "infra:codegen:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 115,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1059,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "预览代码",
+      "permission": "infra:codegen:preview",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 115,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1060,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "生成代码",
+      "permission": "infra:codegen:download",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 115,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1063,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-06T17:53:44Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "设置角色菜单权限",
+      "permission": "system:permission:assign-role-menu",
+      "type": 3,
+      "sort": 6,
+      "parent_id": 101,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1064,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-06T17:56:31Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "设置角色数据权限",
+      "permission": "system:permission:assign-role-data-scope",
+      "type": 3,
+      "sort": 7,
+      "parent_id": 101,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1065,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-07T10:23:28Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "设置用户角色",
+      "permission": "system:permission:assign-user-role",
+      "type": 3,
+      "sort": 8,
+      "parent_id": 101,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1070,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-06T12:42:49Z",
+      "updater": "1",
+      "update_time": "2023-11-15T23:45:53Z",
+      "name": "代码生成案例",
+      "permission": "",
+      "type": 1,
+      "sort": 1,
+      "parent_id": 2,
+      "path": "demo",
+      "icon": "ep:aim",
+      "component": "infra/testDemo/index",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1075,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-07T13:03:10Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "任务触发",
+      "permission": "infra:job:trigger",
+      "type": 3,
+      "sort": 8,
+      "parent_id": 110,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1087,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-03-10T01:26:19Z",
+      "updater": "1",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "任务查询",
+      "permission": "infra:job:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 110,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1090,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-03-12T20:16:20Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:53:02Z",
+      "name": "文件列表",
+      "permission": "",
+      "type": 2,
+      "sort": 5,
+      "parent_id": 1243,
+      "path": "file",
+      "icon": "ep:upload-filled",
+      "component": "infra/file/index",
+      "component_name": "InfraFile",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1091,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-03-12T20:16:20Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "文件查询",
+      "permission": "infra:file:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 1090,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1092,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-03-12T20:16:20Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "文件删除",
+      "permission": "infra:file:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 1090,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1237,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-03-15T14:35:28Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:52:54Z",
+      "name": "文件配置",
+      "permission": "",
+      "type": 2,
+      "sort": 0,
+      "parent_id": 1243,
+      "path": "file-config",
+      "icon": "fa-solid:file-signature",
+      "component": "infra/fileConfig/index",
+      "component_name": "InfraFileConfig",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1238,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-03-15T14:35:28Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "文件配置查询",
+      "permission": "infra:file-config:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 1237,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1239,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-03-15T14:35:28Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "文件配置创建",
+      "permission": "infra:file-config:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 1237,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1240,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-03-15T14:35:28Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "文件配置更新",
+      "permission": "infra:file-config:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 1237,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1241,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-03-15T14:35:28Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "文件配置删除",
+      "permission": "infra:file-config:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 1237,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1242,
+    "fields": {
+      "creator": "",
+      "create_time": "2022-03-15T14:35:28Z",
+      "updater": "",
+      "update_time": "2022-04-20T17:03:10Z",
+      "name": "文件配置导出",
+      "permission": "infra:file-config:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 1237,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 1243,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-03-16T23:47:40Z",
+      "updater": "1",
+      "update_time": "2024-04-23T00:02:11Z",
+      "name": "文件管理",
+      "permission": "",
+      "type": 2,
+      "sort": 6,
+      "parent_id": 2,
+      "path": "file",
+      "icon": "ep:files",
+      "component": null,
+      "component_name": "",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2130,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-25T17:27:44Z",
+      "updater": "1",
+      "update_time": "2024-04-22T23:56:08Z",
+      "name": "邮箱管理",
+      "permission": "",
+      "type": 2,
+      "sort": 2,
+      "parent_id": 2739,
+      "path": "mail",
+      "icon": "fa-solid:mail-bulk",
+      "component": null,
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2131,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T09:33:48Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:48:16Z",
+      "name": "邮箱账号",
+      "permission": "",
+      "type": 2,
+      "sort": 0,
+      "parent_id": 2130,
+      "path": "mail-account",
+      "icon": "fa:universal-access",
+      "component": "system/mail/account/index",
+      "component_name": "SystemMailAccount",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2132,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T09:33:48Z",
+      "updater": "",
+      "update_time": "2023-01-25T09:33:48Z",
+      "name": "账号查询",
+      "permission": "system:mail-account:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2131,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2133,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T09:33:48Z",
+      "updater": "",
+      "update_time": "2023-01-25T09:33:48Z",
+      "name": "账号创建",
+      "permission": "system:mail-account:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 2131,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2134,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T09:33:48Z",
+      "updater": "",
+      "update_time": "2023-01-25T09:33:48Z",
+      "name": "账号更新",
+      "permission": "system:mail-account:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 2131,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2135,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T09:33:48Z",
+      "updater": "",
+      "update_time": "2023-01-25T09:33:48Z",
+      "name": "账号删除",
+      "permission": "system:mail-account:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 2131,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2136,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T12:05:31Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:48:41Z",
+      "name": "邮件模版",
+      "permission": "",
+      "type": 2,
+      "sort": 0,
+      "parent_id": 2130,
+      "path": "mail-template",
+      "icon": "fa:tag",
+      "component": "system/mail/template/index",
+      "component_name": "SystemMailTemplate",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2137,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T12:05:31Z",
+      "updater": "",
+      "update_time": "2023-01-25T12:05:31Z",
+      "name": "模版查询",
+      "permission": "system:mail-template:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2136,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2138,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T12:05:31Z",
+      "updater": "",
+      "update_time": "2023-01-25T12:05:31Z",
+      "name": "模版创建",
+      "permission": "system:mail-template:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 2136,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2139,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T12:05:31Z",
+      "updater": "",
+      "update_time": "2023-01-25T12:05:31Z",
+      "name": "模版更新",
+      "permission": "system:mail-template:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 2136,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2140,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-25T12:05:31Z",
+      "updater": "",
+      "update_time": "2023-01-25T12:05:31Z",
+      "name": "模版删除",
+      "permission": "system:mail-template:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 2136,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2141,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-26T02:16:50Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:48:51Z",
+      "name": "邮件记录",
+      "permission": "",
+      "type": 2,
+      "sort": 0,
+      "parent_id": 2130,
+      "path": "mail-log",
+      "icon": "fa:edit",
+      "component": "system/mail/log/index",
+      "component_name": "SystemMailLog",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2142,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-26T02:16:50Z",
+      "updater": "",
+      "update_time": "2023-01-26T02:16:50Z",
+      "name": "日志查询",
+      "permission": "system:mail-log:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2141,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2143,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-26T23:29:15Z",
+      "updater": "1",
+      "update_time": "2023-01-26T23:29:15Z",
+      "name": "发送测试邮件",
+      "permission": "system:mail-template:send-mail",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 2136,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2144,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-28T10:25:18Z",
+      "updater": "1",
+      "update_time": "2024-04-22T23:56:12Z",
+      "name": "站内信管理",
+      "permission": "",
+      "type": 1,
+      "sort": 3,
+      "parent_id": 2739,
+      "path": "notify",
+      "icon": "ep:message-box",
+      "component": null,
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2145,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-28T02:26:42Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:49:14Z",
+      "name": "模板管理",
+      "permission": "",
+      "type": 2,
+      "sort": 0,
+      "parent_id": 2144,
+      "path": "notify-template",
+      "icon": "fa:archive",
+      "component": "system/notify/template/index",
+      "component_name": "SystemNotifyTemplate",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2146,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-28T02:26:42Z",
+      "updater": "",
+      "update_time": "2023-01-28T02:26:42Z",
+      "name": "站内信模板查询",
+      "permission": "system:notify-template:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2145,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2147,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-28T02:26:42Z",
+      "updater": "",
+      "update_time": "2023-01-28T02:26:42Z",
+      "name": "站内信模板创建",
+      "permission": "system:notify-template:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 2145,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2148,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-28T02:26:42Z",
+      "updater": "",
+      "update_time": "2023-01-28T02:26:42Z",
+      "name": "站内信模板更新",
+      "permission": "system:notify-template:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 2145,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2149,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-28T02:26:42Z",
+      "updater": "",
+      "update_time": "2023-01-28T02:26:42Z",
+      "name": "站内信模板删除",
+      "permission": "system:notify-template:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 2145,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2150,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-28T10:54:43Z",
+      "updater": "1",
+      "update_time": "2023-01-28T10:54:43Z",
+      "name": "发送测试站内信",
+      "permission": "system:notify-template:send-notify",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 2145,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2151,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-28T04:28:22Z",
+      "updater": "1",
+      "update_time": "2024-02-29T08:49:22Z",
+      "name": "消息记录",
+      "permission": "",
+      "type": 2,
+      "sort": 0,
+      "parent_id": 2144,
+      "path": "notify-message",
+      "icon": "fa:edit",
+      "component": "system/notify/message/index",
+      "component_name": "SystemNotifyMessage",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2152,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-01-28T04:28:22Z",
+      "updater": "",
+      "update_time": "2023-01-28T04:28:22Z",
+      "name": "站内信消息查询",
+      "permission": "system:notify-message:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2151,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2472,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-13T04:39:51Z",
+      "updater": "1",
+      "update_time": "2023-11-16T23:53:46Z",
+      "name": "主子表（内嵌）",
+      "permission": "",
+      "type": 2,
+      "sort": 12,
+      "parent_id": 1070,
+      "path": "demo03-inner",
+      "icon": "fa:power-off",
+      "component": "infra/demo/demo03/inner/index",
+      "component_name": "Demo03StudentInner",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2478,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-15T14:42:30Z",
+      "updater": "1",
+      "update_time": "2023-11-16T20:34:40Z",
+      "name": "单表（增删改查）",
+      "permission": "",
+      "type": 2,
+      "sort": 1,
+      "parent_id": 1070,
+      "path": "demo01-contact",
+      "icon": "ep:bicycle",
+      "component": "infra/demo/demo01/index",
+      "component_name": "Demo01Contact",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2479,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-15T14:42:30Z",
+      "updater": "",
+      "update_time": "2023-11-15T14:42:30Z",
+      "name": "示例联系人查询",
+      "permission": "infra:demo01-contact:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2478,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2480,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-15T14:42:30Z",
+      "updater": "",
+      "update_time": "2023-11-15T14:42:30Z",
+      "name": "示例联系人创建",
+      "permission": "infra:demo01-contact:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 2478,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2481,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-15T14:42:30Z",
+      "updater": "",
+      "update_time": "2023-11-15T14:42:30Z",
+      "name": "示例联系人更新",
+      "permission": "infra:demo01-contact:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 2478,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2482,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-15T14:42:30Z",
+      "updater": "",
+      "update_time": "2023-11-15T14:42:30Z",
+      "name": "示例联系人删除",
+      "permission": "infra:demo01-contact:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 2478,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2483,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-15T14:42:30Z",
+      "updater": "",
+      "update_time": "2023-11-15T14:42:30Z",
+      "name": "示例联系人导出",
+      "permission": "infra:demo01-contact:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 2478,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2484,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:18:27Z",
+      "updater": "1",
+      "update_time": "2023-11-16T20:35:01Z",
+      "name": "树表（增删改查）",
+      "permission": "",
+      "type": 2,
+      "sort": 2,
+      "parent_id": 1070,
+      "path": "demo02-category",
+      "icon": "fa:tree",
+      "component": "infra/demo/demo02/index",
+      "component_name": "Demo02Category",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2485,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:18:27Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:18:27Z",
+      "name": "示例分类查询",
+      "permission": "infra:demo02-category:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2484,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2486,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:18:27Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:18:27Z",
+      "name": "示例分类创建",
+      "permission": "infra:demo02-category:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 2484,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2487,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:18:27Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:18:27Z",
+      "name": "示例分类更新",
+      "permission": "infra:demo02-category:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 2484,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2488,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:18:27Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:18:27Z",
+      "name": "示例分类删除",
+      "permission": "infra:demo02-category:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 2484,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2489,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:18:27Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:18:27Z",
+      "name": "示例分类导出",
+      "permission": "infra:demo02-category:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 2484,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2490,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:53:37Z",
+      "updater": "1",
+      "update_time": "2023-11-16T23:10:03Z",
+      "name": "主子表（标准）",
+      "permission": "",
+      "type": 2,
+      "sort": 10,
+      "parent_id": 1070,
+      "path": "demo03-normal",
+      "icon": "fa:battery-3",
+      "component": "infra/demo/demo03/normal/index",
+      "component_name": "Demo03StudentNormal",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2491,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:53:37Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:53:37Z",
+      "name": "学生查询",
+      "permission": "infra:demo03-student:query",
+      "type": 3,
+      "sort": 1,
+      "parent_id": 2490,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2492,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:53:37Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:53:37Z",
+      "name": "学生创建",
+      "permission": "infra:demo03-student:create",
+      "type": 3,
+      "sort": 2,
+      "parent_id": 2490,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2493,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:53:37Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:53:37Z",
+      "name": "学生更新",
+      "permission": "infra:demo03-student:update",
+      "type": 3,
+      "sort": 3,
+      "parent_id": 2490,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2494,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:53:37Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:53:37Z",
+      "name": "学生删除",
+      "permission": "infra:demo03-student:delete",
+      "type": 3,
+      "sort": 4,
+      "parent_id": 2490,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2495,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T12:53:37Z",
+      "updater": "",
+      "update_time": "2023-11-16T12:53:37Z",
+      "name": "学生导出",
+      "permission": "infra:demo03-student:export",
+      "type": 3,
+      "sort": 5,
+      "parent_id": 2490,
+      "path": "",
+      "icon": "",
+      "component": "",
+      "component_name": null,
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2497,
+    "fields": {
+      "creator": "",
+      "create_time": "2023-11-16T15:50:59Z",
+      "updater": "1",
+      "update_time": "2023-11-17T13:19:56Z",
+      "name": "主子表（ERP）",
+      "permission": "",
+      "type": 2,
+      "sort": 11,
+      "parent_id": 1070,
+      "path": "demo03-erp",
+      "icon": "ep:calendar",
+      "component": "infra/demo/demo03/erp/index",
+      "component_name": "Demo03StudentERP",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2525,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-23T19:41:55Z",
+      "updater": "1",
+      "update_time": "2024-04-23T00:02:00Z",
+      "name": "WebSocket",
+      "permission": "",
+      "type": 2,
+      "sort": 5,
+      "parent_id": 2,
+      "path": "websocket",
+      "icon": "ep:connection",
+      "component": "infra/webSocket/index",
+      "component_name": "InfraWebSocket",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2739,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-04-22T23:54:30Z",
+      "updater": "1",
+      "update_time": "2024-04-23T09:36:35Z",
+      "name": "消息中心",
+      "permission": "",
+      "type": 1,
+      "sort": 7,
+      "parent_id": 1,
+      "path": "messages",
+      "icon": "ep:chat-dot-round",
+      "component": "",
+      "component_name": "",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemrole",
+    "pk": 1,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2025-06-05T09:53:24Z",
+      "name": "超级管理员",
+      "code": "super_admin",
+      "sort": 1,
+      "data_scope": 1,
+      "data_scope_dept_ids": "",
+      "status": 0,
+      "type": 1,
+      "remark": "超级管理员"
+    }
+  },
+  {
+    "model": "myapp_system.systemrole",
+    "pk": 2,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2025-06-05T09:53:24Z",
+      "name": "普通角色",
+      "code": "common",
+      "sort": 2,
+      "data_scope": 5,
+      "data_scope_dept_ids": "[]",
+      "status": 0,
+      "type": 1,
+      "remark": "普通角色"
+    }
+  },
+  {
+    "model": "myapp_system.systemrole",
+    "pk": 3,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-02-24T10:51:13Z",
+      "updater": "1",
+      "update_time": "2025-06-05T01:52:47Z",
+      "name": "部门管理员",
+      "code": "dept_admin",
+      "sort": 3,
+      "data_scope": 3,
+      "data_scope_dept_ids": "[]",
+      "status": 0,
+      "type": 1,
+      "remark": "部门管理员"
+    }
+  },
+  {
+    "model": "myapp_system.systemrole",
+    "pk": 4,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-06-04T03:18:48Z",
+      "updater": "1",
+      "update_time": "2025-06-05T09:53:34Z",
+      "name": "部门及以下管理员",
+      "code": "dept_and_child",
+      "sort": 4,
+      "data_scope": 4,
+      "data_scope_dept_ids": "[]",
+      "status": 0,
+      "type": 1,
+      "remark": "部门及以下管理员"
+    }
+  },
+  {
+    "model": "myapp_system.systemrole",
+    "pk": 156,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-14T01:25:17Z",
+      "updater": "1",
+      "update_time": "2025-06-04T03:38:51Z",
+      "name": "测试角色",
+      "code": "test_role",
+      "sort": 10,
+      "data_scope": 2,
+      "data_scope_dept_ids": "[101, 103, 105, 107]",
+      "status": 0,
+      "type": 2,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 1296,
+    "fields": {
+      "creator": "110",
+      "create_time": "2022-02-23T00:23:55Z",
+      "updater": "110",
+      "update_time": "2022-02-23T00:23:55Z",
+      "role_id": 110,
+      "menu_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5942,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1024
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5943,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5944,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1025
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5945,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1026
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5946,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1027
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5947,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1028
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5948,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1029
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5949,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1030
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5950,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5951,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1031
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5952,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1032
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5953,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1033
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5958,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1040
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5959,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1034
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5960,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1042
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5961,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1043
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5962,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1035
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5963,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1045
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5965,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 106
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5967,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1050
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5969,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1051
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5970,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1052
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5971,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1053
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5972,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1054
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5973,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 108
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5974,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1056
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5975,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1058
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5977,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2144
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5979,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1057
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5980,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1063
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5981,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1064
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5982,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1065
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5983,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1059
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5984,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1060
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5985,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 110
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5987,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1070
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 5990,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1075
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6000,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1087
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6003,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1090
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6004,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1091
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6005,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1092
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6020,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2132
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6023,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2131
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6024,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2130
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6025,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2133
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6026,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2134
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6027,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2135
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6028,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2136
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6029,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2137
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6030,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2138
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6031,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2139
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6032,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2140
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6033,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2143
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6034,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2141
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6035,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2142
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6036,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 100
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6037,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 101
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6038,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 102
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6039,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 103
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6040,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 104
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6041,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 105
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6042,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2145
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6043,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2146
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6044,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2147
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6045,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2148
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6046,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2149
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6047,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2150
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6048,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2151
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6049,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2152
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6056,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 115
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6057,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 114
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6059,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2739
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6067,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1237
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6068,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1238
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6069,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1239
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6070,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1240
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6071,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1241
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6072,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1242
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6073,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1243
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6093,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2472
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6094,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2478
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6095,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2479
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6096,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2480
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6097,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2481
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6098,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2482
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6099,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2483
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6100,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2484
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6101,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2485
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6102,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2486
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6103,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2487
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6104,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2488
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6105,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2489
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6106,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2490
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6107,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2491
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6108,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2492
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6109,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2493
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6110,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2494
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6111,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2495
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6112,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2497
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6113,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 500
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6114,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 501
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6115,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 2525
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6116,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1001
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6117,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1002
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6118,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1003
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6119,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1004
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6120,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1005
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6121,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1006
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6122,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1007
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6123,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1008
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6124,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1009
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6125,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1010
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6126,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1011
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6127,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1012
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6128,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1013
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6129,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1014
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6130,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1015
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6131,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1016
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6132,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1017
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6133,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1018
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6134,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1019
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6135,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1020
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6136,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1021
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6137,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1022
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6138,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-15T02:09:13Z",
+      "updater": "",
+      "update_time": "2025-05-15T02:09:13Z",
+      "role_id": 1,
+      "menu_id": 1023
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6205,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6206,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 100
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6207,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1001
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6208,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1002
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6209,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1003
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6210,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1004
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6211,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1005
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6212,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1006
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6213,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T03:38:51Z",
+      "updater": "",
+      "update_time": "2025-06-04T03:38:51Z",
+      "role_id": 156,
+      "menu_id": 1007
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6232,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6233,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 100
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6234,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1001
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6235,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1002
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6236,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1003
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6237,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1004
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6238,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1005
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6239,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1006
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6240,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-04T08:30:43Z",
+      "updater": "",
+      "update_time": "2025-06-04T08:30:43Z",
+      "role_id": 157,
+      "menu_id": 1007
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-03-29T00:14:39Z",
+      "sort": 1,
+      "label": "男",
+      "value": "1",
+      "dict_type": "system_user_sex",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "A",
+      "remark": "性别男"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 2,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2023-11-15T23:30:37Z",
+      "sort": 2,
+      "label": "女",
+      "value": "2",
+      "dict_type": "system_user_sex",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": "性别女"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 8,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2025-05-25T00:17:44Z",
+      "sort": 1,
+      "label": "开启",
+      "value": "1",
+      "dict_type": "infra_job_status",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": "正常状态"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 9,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T19:33:45Z",
+      "sort": 2,
+      "label": "暂停",
+      "value": "2",
+      "dict_type": "infra_job_status",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "停用状态"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 12,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T19:06:02Z",
+      "sort": 1,
+      "label": "系统内置",
+      "value": "1",
+      "dict_type": "infra_config_type",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "参数类型 - 系统内置"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 13,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T19:06:07Z",
+      "sort": 2,
+      "label": "自定义",
+      "value": "2",
+      "dict_type": "infra_config_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "参数类型 - 自定义"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 14,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:05:57Z",
+      "sort": 1,
+      "label": "通知",
+      "value": "1",
+      "dict_type": "system_notice_type",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": "通知"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 15,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:06:01Z",
+      "sort": 2,
+      "label": "公告",
+      "value": "2",
+      "dict_type": "system_notice_type",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "公告"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 16,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:19Z",
+      "sort": 0,
+      "label": "其它",
+      "value": "0",
+      "dict_type": "infra_operate_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "其它操作"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 17,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:20Z",
+      "sort": 1,
+      "label": "查询",
+      "value": "1",
+      "dict_type": "infra_operate_type",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "查询操作"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 18,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:21Z",
+      "sort": 2,
+      "label": "新增",
+      "value": "2",
+      "dict_type": "infra_operate_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "新增操作"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 19,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:22Z",
+      "sort": 3,
+      "label": "修改",
+      "value": "3",
+      "dict_type": "infra_operate_type",
+      "status": 0,
+      "color_type": "warning",
+      "css_class": "",
+      "remark": "修改操作"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 20,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:23Z",
+      "sort": 4,
+      "label": "删除",
+      "value": "4",
+      "dict_type": "infra_operate_type",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "删除操作"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 22,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:24Z",
+      "sort": 5,
+      "label": "导出",
+      "value": "5",
+      "dict_type": "infra_operate_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "导出操作"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 23,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:25Z",
+      "sort": 6,
+      "label": "导入",
+      "value": "6",
+      "dict_type": "infra_operate_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "导入操作"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 27,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T08:00:39Z",
+      "sort": 1,
+      "label": "开启",
+      "value": "0",
+      "dict_type": "common_status",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "开启状态"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 28,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T08:00:44Z",
+      "sort": 2,
+      "label": "关闭",
+      "value": "1",
+      "dict_type": "common_status",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "关闭状态"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 29,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:43:45Z",
+      "sort": 1,
+      "label": "目录",
+      "value": "1",
+      "dict_type": "system_menu_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "目录"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 30,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:43:41Z",
+      "sort": 2,
+      "label": "菜单",
+      "value": "2",
+      "dict_type": "system_menu_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "菜单"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 31,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:43:39Z",
+      "sort": 3,
+      "label": "按钮",
+      "value": "3",
+      "dict_type": "system_menu_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "按钮"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 32,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:02:08Z",
+      "sort": 1,
+      "label": "内置",
+      "value": "1",
+      "dict_type": "system_role_type",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "内置角色"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 33,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:02:12Z",
+      "sort": 2,
+      "label": "自定义",
+      "value": "2",
+      "dict_type": "system_role_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "自定义角色"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 34,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:47:17Z",
+      "sort": 1,
+      "label": "全部数据权限",
+      "value": "1",
+      "dict_type": "system_data_scope",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "全部数据权限"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 35,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:47:18Z",
+      "sort": 2,
+      "label": "指定部门数据权限",
+      "value": "2",
+      "dict_type": "system_data_scope",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "指定部门数据权限"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 36,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:47:16Z",
+      "sort": 3,
+      "label": "本部门数据权限",
+      "value": "3",
+      "dict_type": "system_data_scope",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "本部门数据权限"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 37,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:47:21Z",
+      "sort": 4,
+      "label": "本部门及以下数据权限",
+      "value": "4",
+      "dict_type": "system_data_scope",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "本部门及以下数据权限"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 38,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:47:23Z",
+      "sort": 5,
+      "label": "仅本人数据权限",
+      "value": "5",
+      "dict_type": "system_data_scope",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "仅本人数据权限"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 39,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-18T06:17:36Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:23:49Z",
+      "sort": 0,
+      "label": "成功",
+      "value": "0",
+      "dict_type": "system_login_result",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": "登陆结果 - 成功"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 40,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-18T06:17:54Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:24:27Z",
+      "sort": 10,
+      "label": "账号或密码不正确",
+      "value": "10",
+      "dict_type": "system_login_result",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "登陆结果 - 账号或密码不正确"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 41,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-18T06:17:54Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:23:57Z",
+      "sort": 20,
+      "label": "用户被禁用",
+      "value": "20",
+      "dict_type": "system_login_result",
+      "status": 0,
+      "color_type": "warning",
+      "css_class": "",
+      "remark": "登陆结果 - 用户被禁用"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 42,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-18T06:17:54Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:24:07Z",
+      "sort": 30,
+      "label": "验证码不存在",
+      "value": "30",
+      "dict_type": "system_login_result",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "登陆结果 - 验证码不存在"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 43,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-18T06:17:54Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:24:11Z",
+      "sort": 31,
+      "label": "验证码不正确",
+      "value": "31",
+      "dict_type": "system_login_result",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "登陆结果 - 验证码不正确"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 44,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-18T06:17:54Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:24:23Z",
+      "sort": 100,
+      "label": "未知异常",
+      "value": "100",
+      "dict_type": "system_login_result",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "登陆结果 - 未知异常"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 45,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-19T03:20:55Z",
+      "updater": "1",
+      "update_time": "2022-03-15T23:01:45Z",
+      "sort": 1,
+      "label": "是",
+      "value": "true",
+      "dict_type": "infra_boolean_string",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "Boolean 是否类型 - 是"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 46,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-19T03:20:55Z",
+      "updater": "1",
+      "update_time": "2022-03-15T23:09:45Z",
+      "sort": 1,
+      "label": "否",
+      "value": "false",
+      "dict_type": "infra_boolean_string",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "Boolean 是否类型 - 否"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 50,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-05T07:09:06Z",
+      "updater": "",
+      "update_time": "2022-03-10T16:33:15Z",
+      "sort": 1,
+      "label": "单表（增删改查）",
+      "value": "1",
+      "dict_type": "infra_codegen_template_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 51,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-05T07:14:46Z",
+      "updater": "",
+      "update_time": "2022-03-10T16:33:19Z",
+      "sort": 2,
+      "label": "树表（增删改查）",
+      "value": "2",
+      "dict_type": "infra_codegen_template_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 57,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-08T10:04:24Z",
+      "updater": "1",
+      "update_time": "2022-02-16T19:07:48Z",
+      "sort": 0,
+      "label": "运行中",
+      "value": "0",
+      "dict_type": "infra_job_log_status",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "RUNNING"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 58,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-08T10:06:57Z",
+      "updater": "1",
+      "update_time": "2022-02-16T19:07:52Z",
+      "sort": 1,
+      "label": "成功",
+      "value": "1",
+      "dict_type": "infra_job_log_status",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 59,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-08T10:07:38Z",
+      "updater": "1",
+      "update_time": "2022-02-16T19:07:56Z",
+      "sort": 2,
+      "label": "失败",
+      "value": "2",
+      "dict_type": "infra_job_log_status",
+      "status": 0,
+      "color_type": "warning",
+      "css_class": "",
+      "remark": "失败"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 60,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-26T00:16:27Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:22:19Z",
+      "sort": 1,
+      "label": "会员",
+      "value": "1",
+      "dict_type": "user_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 61,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-26T00:16:34Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:22:22Z",
+      "sort": 2,
+      "label": "管理员",
+      "value": "2",
+      "dict_type": "user_type",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 62,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-26T07:07:19Z",
+      "updater": "1",
+      "update_time": "2022-02-16T20:14:17Z",
+      "sort": 0,
+      "label": "未处理",
+      "value": "0",
+      "dict_type": "infra_api_error_log_process_status",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 63,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-26T07:07:26Z",
+      "updater": "1",
+      "update_time": "2022-02-16T20:14:08Z",
+      "sort": 1,
+      "label": "已处理",
+      "value": "1",
+      "dict_type": "infra_api_error_log_process_status",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 64,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-26T07:07:34Z",
+      "updater": "1",
+      "update_time": "2022-02-16T20:14:14Z",
+      "sort": 2,
+      "label": "已忽略",
+      "value": "2",
+      "dict_type": "infra_api_error_log_process_status",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 66,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-05T01:05:26Z",
+      "updater": "1",
+      "update_time": "2024-07-22T22:23:25Z",
+      "sort": 1,
+      "label": "阿里云",
+      "value": "ALIYUN",
+      "dict_type": "system_sms_channel_code",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 67,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-05T21:50:57Z",
+      "updater": "1",
+      "update_time": "2022-02-16T12:48:30Z",
+      "sort": 1,
+      "label": "验证码",
+      "value": "1",
+      "dict_type": "system_sms_template_type",
+      "status": 0,
+      "color_type": "warning",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 68,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-05T21:51:08Z",
+      "updater": "1",
+      "update_time": "2022-02-16T12:48:27Z",
+      "sort": 2,
+      "label": "通知",
+      "value": "2",
+      "dict_type": "system_sms_template_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 69,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-05T21:51:15Z",
+      "updater": "1",
+      "update_time": "2022-02-16T12:48:22Z",
+      "sort": 0,
+      "label": "营销",
+      "value": "3",
+      "dict_type": "system_sms_template_type",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 70,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:18:33Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:26:07Z",
+      "sort": 0,
+      "label": "初始化",
+      "value": "0",
+      "dict_type": "system_sms_send_status",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 71,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:18:43Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:25:56Z",
+      "sort": 1,
+      "label": "发送成功",
+      "value": "10",
+      "dict_type": "system_sms_send_status",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 72,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:18:49Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:26:03Z",
+      "sort": 2,
+      "label": "发送失败",
+      "value": "20",
+      "dict_type": "system_sms_send_status",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 73,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:19:44Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:26:10Z",
+      "sort": 3,
+      "label": "不发送",
+      "value": "30",
+      "dict_type": "system_sms_send_status",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 74,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:27:43Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:28:24Z",
+      "sort": 0,
+      "label": "等待结果",
+      "value": "0",
+      "dict_type": "system_sms_receive_status",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 75,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:29:25Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:28:28Z",
+      "sort": 1,
+      "label": "接收成功",
+      "value": "10",
+      "dict_type": "system_sms_receive_status",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 76,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:29:31Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:28:32Z",
+      "sort": 2,
+      "label": "接收失败",
+      "value": "20",
+      "dict_type": "system_sms_receive_status",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 77,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-13T00:20:37Z",
+      "updater": "1",
+      "update_time": "2022-02-16T10:10:00Z",
+      "sort": 0,
+      "label": "调试(钉钉)",
+      "value": "DEBUG_DING_TALK",
+      "dict_type": "system_sms_channel_code",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 80,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-10-06T00:52:02Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:11:34Z",
+      "sort": 100,
+      "label": "账号登录",
+      "value": "100",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "账号登录"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 81,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-10-06T00:52:17Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:11:40Z",
+      "sort": 101,
+      "label": "社交登录",
+      "value": "101",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "社交登录"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 83,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-10-06T00:52:58Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:11:49Z",
+      "sort": 200,
+      "label": "主动登出",
+      "value": "200",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "主动登出"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 85,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-10-06T00:53:41Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:11:57Z",
+      "sort": 202,
+      "label": "强制登出",
+      "value": "202",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "强制退出"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1145,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-02-02T13:15:06Z",
+      "updater": "1",
+      "update_time": "2022-03-10T16:32:59Z",
+      "sort": 1,
+      "label": "管理后台",
+      "value": "1",
+      "dict_type": "infra_codegen_scene",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "代码生成的场景枚举 - 管理后台"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1146,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-02-02T13:15:19Z",
+      "updater": "1",
+      "update_time": "2022-03-10T16:33:03Z",
+      "sort": 2,
+      "label": "用户 APP",
+      "value": "2",
+      "dict_type": "infra_codegen_scene",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": "代码生成的场景枚举 - 用户 APP"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1150,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-03-15T00:25:28Z",
+      "updater": "1",
+      "update_time": "2022-03-15T00:25:28Z",
+      "sort": 1,
+      "label": "数据库",
+      "value": "1",
+      "dict_type": "infra_file_storage",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1151,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-03-15T00:25:41Z",
+      "updater": "1",
+      "update_time": "2022-03-15T00:25:56Z",
+      "sort": 10,
+      "label": "本地磁盘",
+      "value": "10",
+      "dict_type": "infra_file_storage",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1152,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-03-15T00:26:06Z",
+      "updater": "1",
+      "update_time": "2022-03-15T00:26:10Z",
+      "sort": 11,
+      "label": "FTP 服务器",
+      "value": "11",
+      "dict_type": "infra_file_storage",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1153,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-03-15T00:26:22Z",
+      "updater": "1",
+      "update_time": "2022-03-15T00:26:22Z",
+      "sort": 12,
+      "label": "SFTP 服务器",
+      "value": "12",
+      "dict_type": "infra_file_storage",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1154,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-03-15T00:26:31Z",
+      "updater": "1",
+      "update_time": "2022-03-15T00:26:45Z",
+      "sort": 20,
+      "label": "S3 对象存储",
+      "value": "20",
+      "dict_type": "infra_file_storage",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1155,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-05-09T23:57:58Z",
+      "updater": "1",
+      "update_time": "2025-05-21T00:36:59Z",
+      "sort": 103,
+      "label": "使用手机登录",
+      "value": "103",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1156,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-05-12T00:22:05Z",
+      "updater": "1",
+      "update_time": "2022-05-11T16:26:01Z",
+      "sort": 1,
+      "label": "password",
+      "value": "password",
+      "dict_type": "system_oauth2_grant_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "密码模式"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1157,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-05-12T00:22:59Z",
+      "updater": "1",
+      "update_time": "2022-05-11T16:26:02Z",
+      "sort": 2,
+      "label": "authorization_code",
+      "value": "authorization_code",
+      "dict_type": "system_oauth2_grant_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "授权码模式"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1158,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-05-12T00:23:40Z",
+      "updater": "1",
+      "update_time": "2022-05-11T16:26:05Z",
+      "sort": 3,
+      "label": "implicit",
+      "value": "implicit",
+      "dict_type": "system_oauth2_grant_type",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": "简化模式"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1159,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-05-12T00:23:51Z",
+      "updater": "1",
+      "update_time": "2022-05-11T16:26:08Z",
+      "sort": 4,
+      "label": "client_credentials",
+      "value": "client_credentials",
+      "dict_type": "system_oauth2_grant_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "客户端模式"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1160,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-05-12T00:24:02Z",
+      "updater": "1",
+      "update_time": "2022-05-11T16:26:11Z",
+      "sort": 5,
+      "label": "refresh_token",
+      "value": "refresh_token",
+      "dict_type": "system_oauth2_grant_type",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "刷新模式"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1194,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-12-10T10:51:11Z",
+      "updater": "1",
+      "update_time": "2022-12-10T10:51:57Z",
+      "sort": 10,
+      "label": "微信小程序",
+      "value": "10",
+      "dict_type": "terminal",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "终端 - 微信小程序"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1195,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-12-10T10:51:30Z",
+      "updater": "1",
+      "update_time": "2022-12-10T10:51:59Z",
+      "sort": 20,
+      "label": "H5 网页",
+      "value": "20",
+      "dict_type": "terminal",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "终端 - H5 网页"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1196,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-12-10T10:54:16Z",
+      "updater": "1",
+      "update_time": "2022-12-10T10:52:01Z",
+      "sort": 11,
+      "label": "微信公众号",
+      "value": "11",
+      "dict_type": "terminal",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "终端 - 微信公众号"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1197,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-12-10T10:54:42Z",
+      "updater": "1",
+      "update_time": "2022-12-10T10:52:18Z",
+      "sort": 31,
+      "label": "苹果 App",
+      "value": "31",
+      "dict_type": "terminal",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "终端 - 苹果 App"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1198,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-12-10T10:55:02Z",
+      "updater": "1",
+      "update_time": "2022-12-10T10:59:17Z",
+      "sort": 32,
+      "label": "安卓 App",
+      "value": "32",
+      "dict_type": "terminal",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": "终端 - 安卓 App"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1223,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-26T09:53:49Z",
+      "updater": "1",
+      "update_time": "2023-01-26T16:36:14Z",
+      "sort": 0,
+      "label": "初始化",
+      "value": "0",
+      "dict_type": "system_mail_send_status",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "邮件发送状态 - 初始化\n"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1224,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-26T09:54:28Z",
+      "updater": "1",
+      "update_time": "2023-01-26T16:36:22Z",
+      "sort": 10,
+      "label": "发送成功",
+      "value": "10",
+      "dict_type": "system_mail_send_status",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": "邮件发送状态 - 发送成功"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1225,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-26T09:54:50Z",
+      "updater": "1",
+      "update_time": "2023-01-26T16:36:26Z",
+      "sort": 20,
+      "label": "发送失败",
+      "value": "20",
+      "dict_type": "system_mail_send_status",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": "邮件发送状态 - 发送失败"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1226,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-26T09:55:06Z",
+      "updater": "1",
+      "update_time": "2023-01-26T16:36:36Z",
+      "sort": 30,
+      "label": "不发送",
+      "value": "30",
+      "dict_type": "system_mail_send_status",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": "邮件发送状态 -  不发送"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1227,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-28T10:35:59Z",
+      "updater": "1",
+      "update_time": "2023-01-28T10:35:59Z",
+      "sort": 1,
+      "label": "通知公告",
+      "value": "1",
+      "dict_type": "system_notify_template_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": "站内信模版的类型 - 通知公告"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1228,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-28T10:36:20Z",
+      "updater": "1",
+      "update_time": "2023-01-28T10:36:25Z",
+      "sort": 2,
+      "label": "系统消息",
+      "value": "2",
+      "dict_type": "system_notify_template_type",
+      "status": 0,
+      "color_type": "success",
+      "css_class": "",
+      "remark": "站内信模版的类型 - 系统消息"
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1231,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-04-13T00:03:55Z",
+      "updater": "1",
+      "update_time": "2023-04-13T00:03:55Z",
+      "sort": 10,
+      "label": "Vue2 Element UI 标准模版",
+      "value": "10",
+      "dict_type": "infra_codegen_front_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1232,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-04-13T00:04:08Z",
+      "updater": "1",
+      "update_time": "2023-04-13T00:04:08Z",
+      "sort": 20,
+      "label": "Vue3 Element Plus 标准模版",
+      "value": "20",
+      "dict_type": "infra_codegen_front_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1234,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-04-13T00:04:26Z",
+      "updater": "1",
+      "update_time": "2023-04-13T00:04:26Z",
+      "sort": 30,
+      "label": "Vue3 vben 模版",
+      "value": "30",
+      "dict_type": "infra_codegen_front_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1435,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-04T13:04:42Z",
+      "updater": "1",
+      "update_time": "2023-11-04T13:04:42Z",
+      "sort": 10,
+      "label": "Gitee",
+      "value": "10",
+      "dict_type": "system_social_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1436,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-04T13:04:54Z",
+      "updater": "1",
+      "update_time": "2023-11-04T13:04:54Z",
+      "sort": 20,
+      "label": "钉钉",
+      "value": "20",
+      "dict_type": "system_social_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1437,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-04T13:05:09Z",
+      "updater": "1",
+      "update_time": "2023-11-04T13:05:09Z",
+      "sort": 30,
+      "label": "企业微信",
+      "value": "30",
+      "dict_type": "system_social_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1438,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-04T13:05:18Z",
+      "updater": "1",
+      "update_time": "2023-11-04T13:05:18Z",
+      "sort": 31,
+      "label": "微信公众平台",
+      "value": "31",
+      "dict_type": "system_social_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1439,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-04T13:05:30Z",
+      "updater": "1",
+      "update_time": "2023-11-04T13:05:30Z",
+      "sort": 32,
+      "label": "微信开放平台",
+      "value": "32",
+      "dict_type": "system_social_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1440,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-04T13:05:38Z",
+      "updater": "1",
+      "update_time": "2023-11-04T13:07:16Z",
+      "sort": 34,
+      "label": "微信小程序",
+      "value": "34",
+      "dict_type": "system_social_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1443,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-13T23:06:16Z",
+      "updater": "1",
+      "update_time": "2023-11-13T23:06:16Z",
+      "sort": 15,
+      "label": "子表",
+      "value": "15",
+      "dict_type": "infra_codegen_template_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1444,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-14T12:32:49Z",
+      "updater": "1",
+      "update_time": "2023-11-14T12:32:49Z",
+      "sort": 10,
+      "label": "主表（标准模式）",
+      "value": "10",
+      "dict_type": "infra_codegen_template_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1445,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-14T12:33:05Z",
+      "updater": "1",
+      "update_time": "2023-11-14T12:33:05Z",
+      "sort": 11,
+      "label": "主表（ERP 模式）",
+      "value": "11",
+      "dict_type": "infra_codegen_template_type",
+      "status": 0,
+      "color_type": "default",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1446,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-14T12:33:31Z",
+      "updater": "1",
+      "update_time": "2023-11-14T12:33:31Z",
+      "sort": 12,
+      "label": "主表（内嵌模式）",
+      "value": "12",
+      "dict_type": "infra_codegen_template_type",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1529,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-03-29T22:50:26Z",
+      "updater": "1",
+      "update_time": "2024-03-29T22:50:26Z",
+      "sort": 1,
+      "label": "天",
+      "value": "1",
+      "dict_type": "date_interval",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1530,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-03-29T22:50:36Z",
+      "updater": "1",
+      "update_time": "2024-03-29T22:50:36Z",
+      "sort": 2,
+      "label": "周",
+      "value": "2",
+      "dict_type": "date_interval",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1531,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-03-29T22:50:46Z",
+      "updater": "1",
+      "update_time": "2024-03-29T22:50:54Z",
+      "sort": 3,
+      "label": "月",
+      "value": "3",
+      "dict_type": "date_interval",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1532,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-03-29T22:51:01Z",
+      "updater": "1",
+      "update_time": "2024-03-29T22:51:01Z",
+      "sort": 4,
+      "label": "季度",
+      "value": "4",
+      "dict_type": "date_interval",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1533,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-03-29T22:51:07Z",
+      "updater": "1",
+      "update_time": "2024-03-29T22:51:07Z",
+      "sort": 5,
+      "label": "年",
+      "value": "5",
+      "dict_type": "date_interval",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1586,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-07-22T22:23:16Z",
+      "updater": "1",
+      "update_time": "2024-07-22T22:23:16Z",
+      "sort": 2,
+      "label": "腾讯云",
+      "value": "TENCENT",
+      "dict_type": "system_sms_channel_code",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1587,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-07-22T22:23:46Z",
+      "updater": "1",
+      "update_time": "2024-07-22T22:23:53Z",
+      "sort": 3,
+      "label": "华为云",
+      "value": "HUAWEI",
+      "dict_type": "system_sms_channel_code",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1591,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-08-31T08:45:03Z",
+      "updater": "1",
+      "update_time": "2024-08-31T08:45:24Z",
+      "sort": 4,
+      "label": "七牛云",
+      "value": "QINIU",
+      "dict_type": "system_sms_channel_code",
+      "status": 0,
+      "color_type": "",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1687,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-21T00:34:09Z",
+      "updater": "1",
+      "update_time": "2025-05-21T00:34:09Z",
+      "sort": 1,
+      "label": "失败",
+      "value": "1",
+      "dict_type": "system_login_result",
+      "status": 0,
+      "color_type": "danger",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1688,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-21T00:37:19Z",
+      "updater": "1",
+      "update_time": "2025-05-21T00:37:19Z",
+      "sort": 104,
+      "label": "使用短信登录",
+      "value": "104",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1689,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-21T00:37:49Z",
+      "updater": "1",
+      "update_time": "2025-05-21T00:37:49Z",
+      "sort": 300,
+      "label": "用户注册",
+      "value": "300",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "primary",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdictdata",
+    "pk": 1690,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-21T00:38:10Z",
+      "updater": "1",
+      "update_time": "2025-05-21T00:38:10Z",
+      "sort": 400,
+      "label": "刷新令牌",
+      "value": "400",
+      "dict_type": "system_login_type",
+      "status": 0,
+      "color_type": "info",
+      "css_class": "",
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 1,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2022-05-16T20:29:32Z",
+      "name": "用户性别",
+      "type": "system_user_sex",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 6,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:36:54Z",
+      "name": "参数类型",
+      "type": "infra_config_type",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 7,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:35:26Z",
+      "name": "通知类型",
+      "type": "system_notice_type",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 9,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "1",
+      "update_time": "2024-03-14T12:44:01Z",
+      "name": "操作类型",
+      "type": "infra_operate_type",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 10,
+    "fields": {
+      "creator": "admin",
+      "create_time": "2021-01-05T17:03:48Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:21:28Z",
+      "name": "系统状态",
+      "type": "common_status",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 11,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-19T03:20:08Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:37:10Z",
+      "name": "Boolean 是否类型",
+      "type": "infra_boolean_string",
+      "status": 0,
+      "remark": "boolean 转是否"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 104,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-01-18T06:17:11Z",
+      "updater": "1",
+      "update_time": "2025-05-21T00:32:25Z",
+      "name": "登录结果",
+      "type": "system_login_result",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 106,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-05T07:08:06Z",
+      "updater": "1",
+      "update_time": "2022-05-16T20:26:50Z",
+      "name": "代码生成模板类型",
+      "type": "infra_codegen_template_type",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 107,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-07T07:44:16Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:51:11Z",
+      "name": "定时任务状态",
+      "type": "infra_job_status",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 108,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-08T10:03:51Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:50:43Z",
+      "name": "定时任务日志状态",
+      "type": "infra_job_log_status",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 109,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-26T00:15:51Z",
+      "updater": "",
+      "update_time": "2021-02-26T00:15:51Z",
+      "name": "用户类型",
+      "type": "user_type",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 110,
+    "fields": {
+      "creator": "",
+      "create_time": "2021-02-26T07:07:01Z",
+      "updater": "",
+      "update_time": "2022-02-01T16:50:53Z",
+      "name": "API 异常数据的处理状态",
+      "type": "infra_api_error_log_process_status",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 111,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-05T01:04:50Z",
+      "updater": "1",
+      "update_time": "2022-02-16T02:09:08Z",
+      "name": "短信渠道编码",
+      "type": "system_sms_channel_code",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 112,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-05T21:50:43Z",
+      "updater": "1",
+      "update_time": "2022-02-01T16:35:06Z",
+      "name": "短信模板的类型",
+      "type": "system_sms_template_type",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 113,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:18:03Z",
+      "updater": "1",
+      "update_time": "2022-02-01T16:35:09Z",
+      "name": "短信发送状态",
+      "type": "system_sms_send_status",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 114,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-04-11T20:27:14Z",
+      "updater": "1",
+      "update_time": "2022-02-01T16:35:14Z",
+      "name": "短信接收状态",
+      "type": "system_sms_receive_status",
+      "status": 0,
+      "remark": null
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 116,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-10-06T00:50:46Z",
+      "updater": "1",
+      "update_time": "2022-02-01T16:35:56Z",
+      "name": "登陆日志的类型",
+      "type": "system_login_type",
+      "status": 0,
+      "remark": "登陆日志的类型"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 144,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-02-02T13:14:45Z",
+      "updater": "1",
+      "update_time": "2022-03-10T16:33:46Z",
+      "name": "代码生成的场景枚举",
+      "type": "infra_codegen_scene",
+      "status": 0,
+      "remark": "代码生成的场景枚举"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 145,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-02-16T13:01:46Z",
+      "updater": "1",
+      "update_time": "2022-02-16T13:01:46Z",
+      "name": "角色类型",
+      "type": "system_role_type",
+      "status": 0,
+      "remark": "角色类型"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 146,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-03-15T00:24:38Z",
+      "updater": "1",
+      "update_time": "2022-03-15T00:24:38Z",
+      "name": "文件存储器",
+      "type": "infra_file_storage",
+      "status": 0,
+      "remark": "文件存储器"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 147,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-05-12T00:20:52Z",
+      "updater": "1",
+      "update_time": "2022-05-11T16:25:49Z",
+      "name": "OAuth 2.0 授权类型",
+      "type": "system_oauth2_grant_type",
+      "status": 0,
+      "remark": "OAuth 2.0 授权类型（模式）"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 160,
+    "fields": {
+      "creator": "1",
+      "create_time": "2022-12-10T10:50:50Z",
+      "updater": "1",
+      "update_time": "2022-12-10T10:53:11Z",
+      "name": "终端",
+      "type": "terminal",
+      "status": 0,
+      "remark": "终端"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 166,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-26T09:53:13Z",
+      "updater": "1",
+      "update_time": "2023-01-26T09:53:13Z",
+      "name": "邮件发送状态",
+      "type": "system_mail_send_status",
+      "status": 0,
+      "remark": "邮件发送状态"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 167,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-28T10:35:10Z",
+      "updater": "1",
+      "update_time": "2023-01-28T10:35:10Z",
+      "name": "站内信模版的类型",
+      "type": "system_notify_template_type",
+      "status": 0,
+      "remark": "站内信模版的类型"
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 168,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-04-12T23:57:52Z",
+      "updater": "1",
+      "update_time": "2023-04-12T23:57:52Z",
+      "name": "代码生成的前端类型",
+      "type": "infra_codegen_front_type",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 601,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-11-04T13:03:54Z",
+      "updater": "1",
+      "update_time": "2023-11-04T13:03:54Z",
+      "name": "社交类型",
+      "type": "system_social_type",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemdicttype",
+    "pk": 616,
+    "fields": {
+      "creator": "1",
+      "create_time": "2024-03-29T22:50:09Z",
+      "updater": "1",
+      "update_time": "2024-03-29T22:50:09Z",
+      "name": "时间间隔",
+      "type": "date_interval",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemnotifymessage",
+    "pk": 12,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-16T03:01:39Z",
+      "updater": "1",
+      "update_time": "2025-05-16T11:01:57Z",
+      "user_id": 156,
+      "user_type": 2,
+      "template_id": 6,
+      "template_code": "register",
+      "template_nickname": "系统消息",
+      "template_content": "你好，欢迎 水手 加入大家庭！20250505 11:01",
+      "template_type": 1,
+      "template_params": "{\"name\": \"水手\", \"date\": \"20250505\", \"time\": \"11:01\"}",
+      "read_status": true,
+      "read_time": "2025-05-16T03:01:57Z"
+    }
+  },
+  {
+    "model": "myapp_system.systemnotifymessage",
+    "pk": 13,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-16T03:13:01Z",
+      "updater": "1",
+      "update_time": "2025-05-16T11:13:23Z",
+      "user_id": 156,
+      "user_type": 2,
+      "template_id": 8,
+      "template_code": "tt",
+      "template_nickname": "系统管理员",
+      "template_content": "测试123",
+      "template_type": 2,
+      "template_params": "{}",
+      "read_status": true,
+      "read_time": "2025-05-16T03:13:23Z"
+    }
+  },
+  {
+    "model": "myapp_system.systemnotifytemplate",
+    "pk": 6,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-15T03:24:02Z",
+      "updater": "1",
+      "update_time": "2025-06-05T06:15:05Z",
+      "name": "欢迎新用户",
+      "code": "register",
+      "nickname": "系统消息",
+      "content": "你好，欢迎 {name} 加入大家庭！{date} {time}",
+      "type": 1,
+      "params": "['time', 'name', 'date']",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemnotifytemplate",
+    "pk": 8,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-16T03:12:54Z",
+      "updater": "1",
+      "update_time": "2025-05-16T03:12:54Z",
+      "name": "测试",
+      "code": "tt",
+      "nickname": "系统管理员",
+      "content": "测试123",
+      "type": 2,
+      "params": "[]",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemmailaccount",
+    "pk": 2,
+    "fields": {
+      "creator": "1",
+      "create_time": "2023-01-26T01:26:03Z",
+      "updater": "1",
+      "update_time": "2025-06-05T06:14:09Z",
+      "mail": "test@163.com",
+      "username": "test",
+      "password": "12345678",
+      "host": "smtp.163.com",
+      "port": 465,
+      "ssl_enable": true,
+      "starttls_enable": false
+    }
+  },
+  {
+    "model": "myapp_system.systemmailaccount",
+    "pk": 6,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-17T10:08:07Z",
+      "updater": "1",
+      "update_time": "2025-06-05T03:54:45Z",
+      "mail": "test@qq.com",
+      "username": "test",
+      "password": "12345678",
+      "host": "smtp.qq.com",
+      "port": 465,
+      "ssl_enable": true,
+      "starttls_enable": false
+    }
+  },
+  {
+    "model": "myapp_system.systemmailtemplate",
+    "pk": 13,
+    "fields": {
+      "creator": "1",
+      "create_time": "2021-10-11T08:10:00Z",
+      "updater": "1",
+      "update_time": "2025-06-05T03:21:22Z",
+      "name": "后台用户短信登录",
+      "code": "admin-sms-login",
+      "account_id": 6,
+      "nickname": "火星信息",
+      "title": "验证码",
+      "content": "<p>您的验证码是{code}，名字是{name}</p>",
+      "params": "['code', 'name']",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemmailtemplate",
+    "pk": 16,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-16T08:55:00Z",
+      "updater": "1",
+      "update_time": "2025-06-05T03:22:08Z",
+      "name": "欢迎光临",
+      "code": "welcome",
+      "account_id": 6,
+      "nickname": "系统信息",
+      "title": "欢迎光临",
+      "content": "<p>你好：</p><p> &nbsp; &nbsp; 欢迎 {name} 到来！</p><p>日期 {date} {time}</p>",
+      "params": "['name', 'time', 'date']",
+      "status": 0,
+      "remark": ""
+    }
+  },
+  {
+    "model": "myapp_system.systemmaillog",
+    "pk": 359,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-16T18:04:00Z",
+      "updater": "",
+      "update_time": "2025-06-05T11:53:52Z",
+      "user_id": 1,
+      "user_type": 1,
+      "to_mail": "test@example.com",
+      "account_id": null,
+      "from_mail": "no-reply@example.com",
+      "template_id": 13,
+      "template_code": "admin-sms-login",
+      "template_nickname": "系统管理员",
+      "template_title": "欢迎加入我们的平台",
+      "template_content": "尊敬的用户，欢迎加入我们的平台！",
+      "template_params": "{\"username\":\"testuser\"}",
+      "send_status": 10,
+      "send_time": "2025-04-16T10:00:00Z",
+      "send_message_id": "msg-123456",
+      "send_exception": null
+    }
+  },
+  {
+    "model": "myapp_system.systemmaillog",
+    "pk": 360,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-16T18:04:55Z",
+      "updater": "",
+      "update_time": "2025-06-05T11:53:52Z",
+      "user_id": 1,
+      "user_type": 1,
+      "to_mail": "test@example.com",
+      "account_id": null,
+      "from_mail": "no-reply@example.com",
+      "template_id": 13,
+      "template_code": "admin-sms-login",
+      "template_nickname": "系统管理员",
+      "template_title": "欢迎加入我们的平台",
+      "template_content": "尊敬的用户，欢迎加入我们的平台！",
+      "template_params": "{\"username\":\"testuser\"}",
+      "send_status": 20,
+      "send_time": "2025-05-16T10:00:00Z",
+      "send_message_id": "msg-123456",
+      "send_exception": null
+    }
+  },
+  {
+    "model": "myapp_system.systemmaillog",
+    "pk": 361,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-05-16T18:04:57Z",
+      "updater": "",
+      "update_time": "2025-06-05T11:53:52Z",
+      "user_id": 1,
+      "user_type": 1,
+      "to_mail": "test@example.com",
+      "account_id": null,
+      "from_mail": "no-reply@example.com",
+      "template_id": 13,
+      "template_code": "admin-sms-login",
+      "template_nickname": "系统管理员",
+      "template_title": "欢迎加入我们的平台",
+      "template_content": "尊敬的用户，欢迎加入我们的平台！",
+      "template_params": "{\"username\":\"testuser\"}",
+      "send_status": 30,
+      "send_time": "2025-05-16T10:00:00Z",
+      "send_message_id": "msg-123456",
+      "send_exception": null
+    }
+  },
+  {
+    "model": "myapp_system.systemmaillog",
+    "pk": 379,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-18T00:20:11Z",
+      "updater": "1",
+      "update_time": "2025-05-18T00:20:11Z",
+      "user_id": null,
+      "user_type": 2,
+      "to_mail": "axjzlj@126.com",
+      "account_id": 6,
+      "from_mail": "xwz2048@qq.com",
+      "template_id": 16,
+      "template_code": "welcome",
+      "template_nickname": "系统信息",
+      "template_title": "欢迎光临",
+      "template_content": "<p>你好：</p><p> &nbsp; &nbsp; 欢迎 张三 到来，日期 0518 0819</p><p>谢谢</p>",
+      "template_params": "{\"time\": \"0819\", \"name\": \"张三\", \"date\": \"0518\"}",
+      "send_status": 0,
+      "send_time": null,
+      "send_message_id": null,
+      "send_exception": null
+    }
+  },
+  {
+    "model": "myapp_system.systemmaillog",
+    "pk": 380,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-05-18T00:22:16Z",
+      "updater": "1",
+      "update_time": "2025-05-18T00:22:17Z",
+      "user_id": null,
+      "user_type": 2,
+      "to_mail": "axjzlj@126.com",
+      "account_id": 6,
+      "from_mail": "xwz2048@qq.com",
+      "template_id": 16,
+      "template_code": "welcome",
+      "template_nickname": "系统信息",
+      "template_title": "欢迎光临",
+      "template_content": "<p>你好：</p><p> &nbsp; &nbsp; 欢迎 张三 到来，日期 0518 0822</p><p>谢谢</p>",
+      "template_params": "{\"time\": \"0822\", \"name\": \"张三\", \"date\": \"0518\"}",
+      "send_status": 10,
+      "send_time": "2025-05-18T00:22:17Z",
+      "send_message_id": null,
+      "send_exception": null
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3660,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T06:21:18Z",
+      "updater": "",
+      "update_time": "2025-06-05T06:21:18Z",
+      "log_type": 100,
+      "user_id": 163,
+      "user_type": 0,
+      "username": "zhangsan",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3668,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T06:21:19Z",
+      "updater": "",
+      "update_time": "2025-06-05T06:21:19Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 0,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3669,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T06:21:19Z",
+      "updater": "",
+      "update_time": "2025-06-05T06:21:19Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 0,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3670,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T06:21:19Z",
+      "updater": "",
+      "update_time": "2025-06-05T06:21:19Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 0,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3671,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T07:26:00Z",
+      "updater": "",
+      "update_time": "2025-06-05T07:26:00Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 0,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3672,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-05T07:26:06Z",
+      "updater": "",
+      "update_time": "2025-06-05T07:26:06Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 0,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  }
+]

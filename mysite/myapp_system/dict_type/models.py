@@ -17,12 +17,9 @@ class SystemDictType(BaseModel):
     remark = models.CharField(
         max_length=500, blank=True, null=True, db_comment="备注", help_text="备注"
     )
-    # deleted_time = models.DateTimeField(
-    #     blank=True, null=True, db_comment="删除时间", help_text="删除时间"
-    # )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_dict_type"
         db_table_comment = "字典类型表"
         ordering = ["-id"]

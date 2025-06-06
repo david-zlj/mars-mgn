@@ -82,10 +82,7 @@ class SystemMenu(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_menu"
         db_table_comment = "菜单权限表"
         ordering = ["sort"]
-
-    def __str__(self):
-        return self.name

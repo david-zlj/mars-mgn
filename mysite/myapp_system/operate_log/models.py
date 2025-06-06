@@ -108,7 +108,7 @@ class SystemOperateLog(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_operate_log"
         db_table_comment = "操作日志记录"
         ordering = ["-id"]

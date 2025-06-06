@@ -39,7 +39,7 @@ class SystemNotifyTemplate(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_notify_template"
         db_table_comment = "站内信模板表"
         ordering = ["-id"]

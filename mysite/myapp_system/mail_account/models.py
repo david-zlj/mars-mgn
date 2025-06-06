@@ -21,7 +21,7 @@ class SystemMailAccount(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_mail_account"
         db_table_comment = "邮箱账号表"
         ordering = ["-id"]

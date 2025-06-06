@@ -104,9 +104,6 @@ class SystemUsers(BaseModel, AbstractBaseUser):
     login_date = models.DateTimeField(
         blank=True, null=True, db_comment="最后登录时间", help_text="最后登录时间"
     )
-    tenant_id = models.BigIntegerField(
-        default=0, db_comment="租户编号", help_text="租户编号"
-    )
 
     # Django 自定义用户模型默认字段
     last_login = models.DateTimeField(blank=True, null=True)
@@ -155,10 +152,9 @@ class SystemUserRole(BaseModel):
         db_column="role_id",
         db_comment="角色ID",
     )
-    tenant_id = models.BigIntegerField(default=0, db_comment="租户编号")
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_user_role"
         db_table_comment = "用户和角色关联表"
         ordering = ["-id"]
@@ -182,12 +178,9 @@ class SystemUserPost(BaseModel):
         db_comment="岗位ID",
         help_text="岗位ID",
     )
-    tenant_id = models.BigIntegerField(
-        default=0, db_comment="租户编号", help_text="租户编号"
-    )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_user_post"
         db_table_comment = "用户岗位表"
         ordering = ["-id"]

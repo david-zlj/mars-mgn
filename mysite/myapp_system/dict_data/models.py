@@ -41,7 +41,7 @@ class SystemDictData(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_dict_data"
         db_table_comment = "字典数据表"
         ordering = ["-id"]

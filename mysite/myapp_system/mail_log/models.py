@@ -7,7 +7,6 @@ class SystemMailLog(BaseModel):
     """邮箱日志，记录每一次邮件的发送"""
 
     id = models.BigAutoField(primary_key=True, db_comment="编号", help_text="编号")
-    # 用户ID，可通过用户ID查询其邮箱，进行邮件发送
     user_id = models.BigIntegerField(
         blank=True, null=True, db_comment="用户编号", help_text="用户编号"
     )
@@ -36,7 +35,6 @@ class SystemMailLog(BaseModel):
     from_mail = models.CharField(
         max_length=255, db_comment="发送邮箱地址", help_text="发送邮箱地址，冗余"
     )
-    # template_id = models.BigIntegerField(db_comment="模板编号", help_text="模板编号")
     template_id = models.ForeignKey(
         "SystemMailTemplate",
         on_delete=models.SET_NULL,
@@ -91,7 +89,7 @@ class SystemMailLog(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_mail_log"
         db_table_comment = "邮件日志表"
         ordering = ["-id"]

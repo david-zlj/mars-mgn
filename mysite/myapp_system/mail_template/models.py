@@ -13,9 +13,6 @@ class SystemMailTemplate(BaseModel):
         help_text="模板编码",
         error_messages={"unique": "模板编码已存在"},
     )
-    # account_id = models.BigIntegerField(
-    #     db_comment="发送的邮箱账号编号", help_text="发送的邮箱账号编号"
-    # )
     account_id = models.ForeignKey(
         "SystemMailAccount",
         on_delete=models.PROTECT,
@@ -56,7 +53,7 @@ class SystemMailTemplate(BaseModel):
     )
 
     class Meta:
-        managed = False
+        managed = True
         db_table = "system_mail_template"
         db_table_comment = "邮件模版表"
         ordering = ["-id"]
