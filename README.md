@@ -1,10 +1,10 @@
-# MarsMgn 火星信息管理平台
+# MarsMgn 火星信息平台
 
-**愿景：向 [ruoyi](https://gitee.com/zhijiantianya/ruoyi-vue-pro) 学习，打造中国第一流的快速开发平台**
+**愿景：向 [ruoyi](https://gitee.com/zhijiantianya/ruoyi-vue-pro) 学习，打造国内一流的企业级快速开发平台**
 
 **使命：提升开发人员能力，助力企业信息化，以开源改变世界**
 
-**价值观：不重复造轮子，开放共享合作**
+**价值观：不重复造轮子，开放共享，合作创新**
 
 
 

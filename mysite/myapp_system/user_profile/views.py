@@ -66,10 +66,15 @@ class UserProfileViewSet(
         """
         # TODO 头像修改
         avatar_file = request.FILES.get("avatarFile")
-        if not avatar_file:
-            return CommonResponse.error(code=111701, msg="没有接收到上传文件")
         instance = self.get_object()
+        if not avatar_file:
+            return CommonResponse.success(
+                data=request.build_absolute_uri(instance.avatar.url)
+            )
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return CommonResponse.success(data=instance.avatar.url)
+        # 返回完整的头像地址
+        return CommonResponse.success(
+            data=request.build_absolute_uri(instance.avatar.url)
+        )
