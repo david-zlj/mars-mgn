@@ -1,6 +1,7 @@
 from django.core.cache import cache
 from django.utils import timezone
 from django.contrib.auth import authenticate
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
@@ -179,6 +180,8 @@ class AuthViewSet(viewsets.GenericViewSet):
     )
     def register(self, request, *args, **kwargs):
         """注册用户"""
+        if not settings.REGISTER_ENABLE:
+            return CommonResponse.error(code=111203, msg="注册功能已关闭")
         serializer = AuthRegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()

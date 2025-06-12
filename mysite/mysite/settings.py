@@ -300,6 +300,7 @@ CAPTCHA_CHALLENGE_FUNCT = "captcha.helpers.math_challenge"  # 验证码生成方
 CAPTCHA_TIMEOUT = 1  # 验证码有效期，单位为分钟
 
 ### 个性化配置
+REGISTER_ENABLE = True  # 注册功能的开关
 DEFAULT_USER_PASSWORD = "admin123"
 PASSWORD_MIN_LENGTH = 8  # 密码长度
 PASSWORD_MAX_LENGTH = 20
