@@ -1,21 +1,15 @@
 # MarsMgn 火星信息平台
 
-**愿景：向 [ruoyi](https://gitee.com/zhijiantianya/ruoyi-vue-pro) 学习，打造国内一流的企业级快速开发平台**
+**愿景：向 ruoyi 学习，构建国内优秀的开源快速开发平台**
 
-**使命：提升开发人员能力，助力企业信息化，以开源改变世界**
+**使命：赋能开发者高效创值，助力企业信息与标准化转型**
 
-**价值观：不重复造轮子，开放共享，合作创新**
-
-
-
-**严肃声明：现在、未来都不会有商业版本，所有代码全部开源!！**
-
-如果这个项目让你有所收获，记得 Star 关注哦，这对我是非常不错的鼓励与支持。
+**价值观：聚焦价值创新（不重复造轮子），开放共享，生态协作**
 
 
 
 ## 介绍
-基于 Django + DRF + Vue 实现的后台管理平台。以开发者为中心，打造中国第一流的快速开发平台，全部开源，个人与企业可 100% 免费使用。
+MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的后台管理系统。以开发者为中心，构建国内优秀的开源快速开发平台。项目全部开源，个人与企业可 100% 免费使用。如果这个项目让你有所收获，记得 Star 关注哦，这对我是非常不错的鼓励与支持。
 
 > 有任何问题，或者想要的功能，可以在 _Issues_ 中提交。
 >
@@ -23,9 +17,57 @@
 
 
 
-软件架构
+## 系统组件
 
-![image-20250227153801550](./assets/image-20250227153801550.png)
+![image-20250612155122040](./assets/image-20250612155122040.png)
+
+- **前端服务**：使用 Vue3 框架，结合 Element Plus 进行前端开发，提供现代化的用户界面和交互体验。
+
+- **接入服务**：
+  - 使用 Nginx 作为反向代理服务器，处理静态文件和负载均衡。
+  - 采用 WSGI 服务器 Gunicorn 和 ASGI 服务器 Uvicorn，支持异步请求处理和 WebSocket 通信。
+
+- **后端服务**：
+  - 基于 Django 框架，结合 DRF（Django REST framework）构建 RESTful API，实现高效的数据交互。
+  - 使用 Celery 进行异步任务处理，提高系统响应速度。
+  - 使用 Celery 进行定时任务调度，通过 Cron 表达式灵活设置执行周期。
+  - 集成 OpenAPI 规范，支持 API 文档自动生成。
+  - 使用 II8N（国际化）库，支持多语言环境。
+
+- **存储服务**：
+  - 数据库支持 MySQL、PostgreSQL、MariaDB 或 Oracle，提供灵活的数据存储解决方案。
+  - 使用 Redis 作为缓存，提升数据访问速度。
+  - 静态文件存储支持本地存储，确保文件的快速访问。
+
+- **运维服务**：部署支持 Docker 和非 Docker 环境，提供灵活的部署选项。
+
+- **权限认证**：
+  - 实现基于 JWT（JSON Web Token）的认证机制，确保用户身份验证的安全性和便捷性。
+  - 采用 RBAC（基于角色的访问控制）权限模型，灵活管理用户权限，支持细粒度的访问控制。
+  - 支持数据权限控制，确保用户只能访问其被授权的数据，增强数据安全性。
+
+- **动态权限管理**：支持动态权限菜单加载，实现按钮级别的权限控制，提升系统的安全性和灵活性。
+
+- **实时通信**：通过 WebSocket 实现实时通信，内置 Token 身份校验。
+
+- **代码生成器（规划中）**：提供代码生成器，支持一键生成 Python、Vue 前后端代码、SQL 脚本和接口文档，提高开发效率。
+
+- **报表与大屏设计（规划中）**：集成报表设计器和大屏设计器，通过拖拽即可生成酷炫的报表与大屏，提升数据可视化能力。
+
+- **工作流管理（规划中）**：集成工作流引擎，支持动态表单、在线设计流程、会签/或签以及多种任务分配方式。
+
+
+
+
+
+## 项目关系
+
+| 项目类型 | 项目名称     | Gitee地址                                        | Github地址                                          |
+| -------- | ------------ | ------------------------------------------------ | --------------------------------------------------- |
+| 后端     | mars-mgn     | [Gitee](https://gitee.com/zhulj993/mars-mgn)     | [Github](https://github.com/david-zlj/mars-mgn)     |
+| 前端     | mars-mgn-vue | [Gitee](https://gitee.com/zhulj993/mars-mgn-vue) | [Github](https://github.com/david-zlj/mars-mgn-vue) |
+
+详细项目文档：docs.marsmgn.cn
 
 
 
@@ -33,82 +75,43 @@
 
 **为什么推荐使用本项目？**
 
-① 本项目采用比 Apache 2.0 更宽松的 [MIT License](https://gitee.com/zhijiantianya/ruoyi-vue-pro/blob/master/LICENSE) 开源协议，个人与企业可 100% 免费使用，不用保留类作者、Copyright 信息。
-
-② 代码全部开源，不会像其他项目一样，只开源部分代码，让你无法了解整个项目的架构设计。
-
-TODO 开源项目对比
-
-③ 代码整洁、架构整洁，遵循《阿里巴巴 Java 开发手册》规范，代码注释详细。
-
-详细的文档，以及相关学习资料。
-
-
-
-## 内置功能
-
-![image-20250228101848779](./assets/image-20250228101848779.png)
-
-
-
-## 技术栈
-
-框架
-
-| 框架                                                         | 说明                  | 版本           | 学习指南                                                     |
-| ------------------------------------------------------------ | --------------------- | -------------- | ------------------------------------------------------------ |
-| [Spring Boot](https://spring.io/projects/spring-boot)        | 应用开发框架          | 2.7.18         | [文档](https://github.com/YunaiV/SpringBoot-Labs)            |
-| [MySQL](https://www.mysql.com/cn/)                           | 数据库服务器          | 5.7 / 8.0+     |                                                              |
-| [Druid](https://github.com/alibaba/druid)                    | JDBC 连接池、监控组件 | 1.2.23         | [文档](http://www.iocoder.cn/Spring-Boot/datasource-pool/?yudao) |
-| [MyBatis Plus](https://mp.baomidou.com/)                     | MyBatis 增强工具包    | 3.5.7          | [文档](http://www.iocoder.cn/Spring-Boot/MyBatis/?yudao)     |
-| [Dynamic Datasource](https://dynamic-datasource.com/)        | 动态数据源            | 3.6.1          | [文档](http://www.iocoder.cn/Spring-Boot/datasource-pool/?yudao) |
-| [Redis](https://redis.io/)                                   | key-value 数据库      | 5.0 / 6.0 /7.0 |                                                              |
-| [Redisson](https://github.com/redisson/redisson)             | Redis 客户端          | 3.32.0         | [文档](http://www.iocoder.cn/Spring-Boot/Redis/?yudao)       |
-| [Spring MVC](https://github.com/spring-projects/spring-framework/tree/master/spring-webmvc) | MVC 框架              | 5.3.24         | [文档](http://www.iocoder.cn/SpringMVC/MVC/?yudao)           |
-| [Spring Security](https://github.com/spring-projects/spring-security) | Spring 安全框架       | 5.7.11         | [文档](http://www.iocoder.cn/Spring-Boot/Spring-Security/?yudao) |
-| [Hibernate Validator](https://github.com/hibernate/hibernate-validator) | 参数校验组件          | 6.2.5          | [文档](http://www.iocoder.cn/Spring-Boot/Validation/?yudao)  |
-| [Flowable](https://github.com/flowable/flowable-engine)      | 工作流引擎            | 6.8.0          | [文档](https://doc.iocoder.cn/bpm/)                          |
-| [Quartz](https://github.com/quartz-scheduler)                | 任务调度组件          | 2.3.2          | [文档](http://www.iocoder.cn/Spring-Boot/Job/?yudao)         |
-| [Springdoc](https://springdoc.org/)                          | Swagger 文档          | 1.7.0          | [文档](http://www.iocoder.cn/Spring-Boot/Swagger/?yudao)     |
-| [SkyWalking](https://skywalking.apache.org/)                 | 分布式应用追踪系统    | 8.12.0         | [文档](http://www.iocoder.cn/Spring-Boot/SkyWalking/?yudao)  |
-| [Spring Boot Admin](https://github.com/codecentric/spring-boot-admin) | Spring Boot 监控平台  | 2.7.10         | [文档](http://www.iocoder.cn/Spring-Boot/Admin/?yudao)       |
-| [Jackson](https://github.com/FasterXML/jackson)              | JSON 工具库           | 2.13.5         |                                                              |
-| [MapStruct](https://mapstruct.org/)                          | Java Bean 转换        | 1.6.3          | [文档](http://www.iocoder.cn/Spring-Boot/MapStruct/?yudao)   |
-| [Lombok](https://projectlombok.org/)                         | 消除冗长的 Java 代码  | 1.18.34        | [文档](http://www.iocoder.cn/Spring-Boot/Lombok/?yudao)      |
-| [JUnit](https://junit.org/junit5/)                           | Java 单元测试框架     | 5.8.2          | -                                                            |
-| [Mockito](https://github.com/mockito/mockito)                | Java Mock 框架        | 4.8.0          | -                                                            |
+- 本项目采用比 Apache 2.0 更宽松的 MIT License 开源协议，个人与企业可 100% 免费使用，不用保留类作者、Copyright 信息。
+- 代码全部开源，不会像其他项目一样，只开源部分代码，让你无法了解整个项目的架构设计。
+- 代码整洁、架构整洁，代码注释详细。
+- 详细的文档，以及相关学习资料。
 
 
 
 ## 演示图
 
+### 系统管理模块
 
+![image-20250613091544837](./assets/image-20250613091544837.png)
 
-## 安装教程
+![image-20250613091758341](./assets/image-20250613091758341.png)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+![image-20250613091814102](./assets/image-20250613091814102.png)
 
-## 使用说明
+![image-20250613091853218](./assets/image-20250613091853218.png)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+![image-20250613091911779](./assets/image-20250613091911779.png)
 
-## 参与贡献
+![image-20250613091929732](./assets/image-20250613091929732.png)
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+![image-20250613091953411](./assets/image-20250613091953411.png)
 
+![image-20250613092007090](./assets/image-20250613092007090.png)
 
-## 特技
+![image-20250613092021184](./assets/image-20250613092021184.png)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+### 基础设施模块
+
+![image-20250613092110633](./assets/image-20250613092110633.png)
+
+![image-20250613092127508](./assets/image-20250613092127508.png)
+
+![image-20250613092141615](./assets/image-20250613092141615.png)
+
+![image-20250613092153655](./assets/image-20250613092153655.png)
+
+![image-20250613092201637](./assets/image-20250613092201637.png)
