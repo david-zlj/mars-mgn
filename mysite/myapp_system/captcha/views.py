@@ -7,13 +7,15 @@ from captcha.views import captcha_image
 
 from mars_framework.viewsets.base import CustomGenericViewSet
 from mars_framework.response.base import CommonResponse
+from .serializers import CaptchaSerializer
+
 
 logger = logging.getLogger(__name__)
 
 
 @extend_schema(tags=["管理后台-system-验证码"])
 class CaptchaViewSet(CustomGenericViewSet):
-
+    serializer_class = CaptchaSerializer
     authentication_classes = []  # 验证码不需要认证
     action_permissions = {"get_captcha": [AllowAny()], "check": [AllowAny()]}
 

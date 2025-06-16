@@ -8,7 +8,7 @@ from .serializers import LoginLogSerializer
 from .filters import LoginLogFilter
 
 
-@extend_schema(tags=["管理后台 - 登录日志"])
+@extend_schema(tags=["管理后台-system-登录日志"])
 class LoginLogViewSet(CustomGenericViewSet, CustomListModelMixin, ExportModelMixin):
     queryset = SystemLoginLog.objects.all()
     serializer_class = LoginLogSerializer

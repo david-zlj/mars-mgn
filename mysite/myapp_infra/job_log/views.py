@@ -14,7 +14,7 @@ from .serializers import JobLogSerializer
 from .filters import JobLogFilter
 
 
-@extend_schema(tags=["管理后台-system-定时任务日志"])
+@extend_schema(tags=["管理后台-infra-定时任务日志"])
 class JobLogViewSet(
     CustomGenericViewSet,
     CustomListModelMixin,

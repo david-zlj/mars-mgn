@@ -10,7 +10,7 @@ from .serializers import InfraFileConfigSerializer
 from .filters import InfraFileConfigFilter
 
 
-@extend_schema(tags=["管理后台-system-文件配置"])
+@extend_schema(tags=["管理后台-infra-文件配置"])
 class InfraFileConfigViewSet(CustomModelViewSetNoExportNoSimple):
     queryset = InfraFileConfig.objects.all()
     serializer_class = InfraFileConfigSerializer

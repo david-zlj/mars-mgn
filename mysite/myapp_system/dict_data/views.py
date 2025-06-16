@@ -42,6 +42,9 @@ class DictDataViewSet(CustomModelViewSet):
     export_data_map = {"status": {0: "开启", 1: "关闭"}}
 
     def get_authenticators(self):
+        # 确保在 request 对象不存在时（如 schema 生成）不会崩溃
+        if self.request is None:
+            return super().get_authenticators()
         # 仅对指定 action 关闭认证
         path_info = self.request.META.get("PATH_INFO", "")
         if "simple-list" in path_info or "list-all-simple" in path_info:

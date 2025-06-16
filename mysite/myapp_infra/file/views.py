@@ -14,7 +14,7 @@ from .filters import InfraFileFilter
 from .services import infra_file_service
 
 
-@extend_schema(tags=["管理后台-system-文件列表"])
+@extend_schema(tags=["管理后台-infra-文件列表"])
 class InfraFileViewSet(CustomModelViewSetNoExportNoSimple):
     queryset = InfraFile.objects.all()
     serializer_class = InfraFileSerializer

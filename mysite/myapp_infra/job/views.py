@@ -13,7 +13,7 @@ from .filters import JobFilter
 from .services import infra_job_service
 
 
-@extend_schema(tags=["管理后台-system-定时任务"])
+@extend_schema(tags=["管理后台-infra-定时任务"])
 class JobViewSet(CustomModelViewSetNoSimple):
     queryset = PeriodicTask.objects.all()
     serializer_class = JobSerializer

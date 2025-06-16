@@ -12,7 +12,7 @@ from .filters import InfraConfigFilter
 from .services import infra_config_service
 
 
-@extend_schema(tags=["管理后台-system-参数配置"])
+@extend_schema(tags=["管理后台-infra-参数配置"])
 class InfraConfigViewSet(CustomModelViewSetNoSimple):
     queryset = InfraConfig.objects.all()
     serializer_class = InfraConfigSerializer
