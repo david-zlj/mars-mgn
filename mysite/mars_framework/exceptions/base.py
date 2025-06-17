@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db.models import ProtectedError
 from rest_framework import status
 from rest_framework.views import exception_handler
-from rest_framework.exceptions import ValidationError as DRFValidationError
+from rest_framework import serializers
 
 from .codes import GLOBAL_ERROR_CODE
 from ..response.base import CommonResponse
@@ -71,7 +71,7 @@ def custom_exception_handler(exc, context):
         "path": request.get_full_path() if request else "unknown",
         "method": request.method if request else "unknown",
         "view": view.__class__.__name__ if view else "unknown",
-        "exc_type": type(exc).__name__,
+        "exc_type": f"{exc.__class__.__module__}.{exc.__class__.__name__}",
     }
 
     # 记录原始异常
@@ -94,7 +94,7 @@ def custom_exception_handler(exc, context):
         )
 
     # 处理DRF捕获的具体异常，返回友好提示信息 TODO 优化错误提示信息
-    if isinstance(exc, DRFValidationError):
+    if isinstance(exc, serializers.ValidationError):
         return handle_drf_validation_error(exc)
     if isinstance(exc, DjangoValidationError):
         return handle_django_validation_error(exc)

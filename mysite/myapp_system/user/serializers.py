@@ -37,10 +37,10 @@ class UserSaveSerializer(serializers.ModelSerializer):
                 "error_messages": {"min_length": "密码长度至少为8位"},
             },
             "username": {
-                # "min_length": 4,
-                "max_length": 30,
+                "min_length": settings.USERNAME_MIN_LENGTH,
+                "max_length": settings.USERNAME_MAX_LENGTH,
                 "error_messages": {
-                    # "min_length": "用户账号长度为4-30个字符",
+                    "min_length": "用户账号长度不能少于4个字符",
                     "max_length": "用户账号长度不能超过30个字符",
                     "unique": "用户账号已经存在",
                 },
@@ -185,23 +185,11 @@ class UserExportSerializer(serializers.ModelSerializer):
         ]
 
 
-class CustomUniqueValidator(UniqueValidator):
-    """自定义唯一校验器"""
-
-    def filter_queryset(self, value, queryset, field_name):
-        # 从父类继承的 field_name 参数对应字段名（此处为 username）
-        filtered = queryset.filter(**{field_name: value})
-        if filtered.exists():
-            raise serializers.ValidationError(
-                f"用户名 '{value}' 已存在（已占用ID：{filtered.first().id}）"
-            )
-        return queryset
-
-
 class UserImportSerializer(serializers.ModelSerializer):
     """导入用户"""
 
     deptId = serializers.PrimaryKeyRelatedField(
+        allow_null=True,
         queryset=SystemDept.objects.all(),
         source="dept_id",
         required=False,
@@ -210,6 +198,12 @@ class UserImportSerializer(serializers.ModelSerializer):
             "incorrect_type": "部门编号类型错误",
         },
     )
+
+    def validate_username(self, value):
+        # 手动检查用户名唯一性
+        if SystemUsers.objects.filter(username=value).exists():
+            raise serializers.ValidationError(f"用户账号 {value} 已经存在")
+        return value
 
     class Meta:
         model = SystemUsers
@@ -229,16 +223,13 @@ class UserImportSerializer(serializers.ModelSerializer):
                 "error_messages": {"min_length": "密码长度至少为8位"},
             },
             "username": {
-                # "min_length": 4,
-                "max_length": 30,
+                "min_length": settings.USERNAME_MIN_LENGTH,
+                "max_length": settings.USERNAME_MAX_LENGTH,
                 "error_messages": {
-                    # "min_length": "用户账号长度为4-30个字符",
+                    "min_length": "用户账号长度不能少于4个字符",
                     "max_length": "用户账号长度不能超过30个字符",
-                    "unique": "用户账号已经存在",
                 },
-                "validators": [
-                    CustomUniqueValidator(queryset=SystemUsers.objects.all())
-                ],
+                "validators": [],  # 取消自动生成的唯一验证器
             },
         }
 

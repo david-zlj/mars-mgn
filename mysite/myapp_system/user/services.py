@@ -12,21 +12,21 @@ def get_user_import_template_workbook():
     # 定义示例数据
     data = [
         {
-            "username": "yunai",
-            "nickname": "芋道",
+            "username": "xiaozhang",
+            "nickname": "小张",
             "deptId": "103",
-            "email": "yunai@iocoder.cn",
-            "mobile": "15601691300",
+            "email": "xz@qq.com",
+            "mobile": "13312345670",
             "sex": "男",
             "status": "开启",
         },
         {
-            "username": "yuanma",
-            "nickname": "源码",
-            "deptId": "104",
-            "email": "yuanma@iocoder.cn",
-            "mobile": "15601701300",
-            "sex": "女",
+            "username": "xiaoli",
+            "nickname": "小李",
+            "deptId": "",
+            "email": "",
+            "mobile": "",
+            "sex": "",
             "status": "关闭",
         },
     ]

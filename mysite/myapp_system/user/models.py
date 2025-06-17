@@ -37,6 +37,7 @@ class SystemUsers(BaseModel, AbstractBaseUser):
     remark = models.CharField(
         max_length=500, blank=True, null=True, db_comment="备注", help_text="备注"
     )
+    # 与部门一对多关系
     dept_id = models.ForeignKey(
         "SystemDept",
         on_delete=models.PROTECT,

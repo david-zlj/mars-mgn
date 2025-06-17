@@ -127,10 +127,11 @@ class UserViewSet(CustomModelViewSet):
         # 读取 Excel 文件数据
         try:
             data = get_user_import_data(file)
+            # print(data)
         except Exception as e:
             return CommonResponse.error(code=111101, msg="文件读取失败")
 
         serializer = self.get_serializer(data=data, many=True)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return CommonResponse.success(data=True)
+        result = serializer.save()
+        return CommonResponse.success(data=len(result))
