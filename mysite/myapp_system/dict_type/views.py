@@ -48,6 +48,7 @@ class DictTypeViewSet(CustomModelViewSet):
             return []
         return super().get_authenticators()
 
+    @extend_schema(summary="删除")
     def destroy(self, request, *args, **kwargs):
         """删除字典类型，该字典类型还有字典数据，无法删除"""
         if SystemDictData.objects.filter(dict_type=self.get_object().type).exists():

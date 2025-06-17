@@ -49,6 +49,7 @@ class InfraConfigViewSet(CustomModelViewSetNoSimple):
         "visible": {True: "是", False: "否"},
     }
 
+    @extend_schema(summary="删除")
     def destroy(self, request, *args, **kwargs):
         """type为系统内置的参数，不允许删除"""
         if self.get_object().type == ConfigTypeEnum.SYSTEM.value:

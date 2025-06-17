@@ -45,6 +45,7 @@ class InfraFileConfigViewSet(CustomModelViewSetNoExportNoSimple):
         else:
             return CommonResponse.error(code=121202, msg="请使用文件列表测试")
 
+    @extend_schema(summary="删除")
     def destroy(self, request, *args, **kwargs):
         if self.get_object().id == 1:
             return CommonResponse.error(code=121201, msg="本地磁盘不允许删除")

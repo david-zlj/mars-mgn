@@ -39,6 +39,7 @@ class MenuViewSet(CustomModelViewSetNoExport):
         ),
     }
 
+    @extend_schema(summary="删除")
     def destroy(self, request, *args, **kwargs):
         """删除菜单，存在子菜单，不允许删除"""
         # if self.get_object().children.exists():

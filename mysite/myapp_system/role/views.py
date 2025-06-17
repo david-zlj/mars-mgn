@@ -64,12 +64,14 @@ class RoleViewSet(CustomModelViewSet):
         },
     }
 
+    @extend_schema(summary="删除")
     def destroy(self, request, *args, **kwargs):
         """删除角色，内置角色不能删除"""
         if self.get_object().type == RoleTypeEnum.SYSTEM.value:
             return CommonResponse.error(code=111501, msg="内置角色不能删除")
         return super().destroy(request, *args, **kwargs)
 
+    @extend_schema(summary="修改")
     def update(self, request, *args, **kwargs):
         """修改角色，内置角色不能修改"""
         if self.get_object().type == RoleTypeEnum.SYSTEM.value:

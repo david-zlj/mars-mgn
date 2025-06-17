@@ -53,6 +53,7 @@ class JobViewSet(CustomModelViewSetNoSimple):
         "status": {1: "开启", 2: "暂停"},
     }
 
+    @extend_schema(summary="新增")
     def create(self, request, *args, **kwargs):
         """创建定时任务"""
         serializer = self.get_serializer(data=request.data)
@@ -71,6 +72,7 @@ class JobViewSet(CustomModelViewSetNoSimple):
         PeriodicTask.objects.create(**task_data)
         return CommonResponse.success()
 
+    @extend_schema(summary="更新")
     def update(self, request, *args, **kwargs):
         """更新定时任务"""
         instance = self.get_object()
