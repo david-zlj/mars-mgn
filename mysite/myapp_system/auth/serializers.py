@@ -291,7 +291,6 @@ class AuthPermissionInfoSerializer(serializers.ModelSerializer):
 
         # 获取根节点
         root_menus = [menu for menu in all_menus if menu.parent_id is None]
-        # root_menus.sort(key=lambda x: x.sort)  # 按sort排序
         #  使用序列化器序列化树形结构
         serializer = MenuMixinSerializer(root_menus, many=True)
         return serializer.data
