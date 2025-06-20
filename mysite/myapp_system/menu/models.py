@@ -22,7 +22,6 @@ class SystemMenu(BaseModel):
     parent_id = models.ForeignKey(
         "self",
         on_delete=models.CASCADE,
-        # on_delete=models.PROTECT,
         null=True,
         blank=True,
         db_constraint=False,
