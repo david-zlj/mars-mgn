@@ -1,65 +1,6 @@
+"""字典数据"""
+
 from enum import Enum
-
-###### CHOICES列表，舍弃
-
-# # 通用性别
-# SEX_CHOICES = [
-#     (0, "UNKNOWN"),  # 未知
-#     (1, "MALE"),  # 男
-#     (2, "FEMALE"),  # 女
-# ]
-
-# # 通用状态
-# COMMON_STATUS_CHOICES = [
-#     (0, "ENABLE"),  # 启用
-#     (1, "DISABLE"),  # 禁用
-# ]
-
-# # 菜单类型
-# MENU_TYPE_CHOICES = [
-#     (1, "DIR"),  # 目录
-#     (2, "MENU"),  # 菜单
-#     (3, "BUTTON"),  # 按钮
-# ]
-
-# # 角色类型
-# ROLE_TYPE_CHOICES = [
-#     (1, "SYSTEM"),  # 内置角色
-#     (2, "CUSTOM"),  # 自定义角色
-# ]
-
-# # 数据范围
-# DATA_SCOPE_CHOICES = [
-#     (1, "ALL"),  # 全部数据权限
-#     (2, "DEPT_CUSTOM"),  # 指定部门数据权限
-#     (3, "DEPT_ONLY"),  # 部门数据权限
-#     (4, "DEPT_AND_CHILD"),  # 部门及以下数据权限
-#     (5, "SELF"),  # 仅本人数据权限
-# ]
-
-# # 任务状态
-# JOB_STATUS_CHOICES = [
-#     (0, "INIT"),  # 初始化中
-#     (1, "NORMAL"),  # 开启
-#     (2, "STOP"),  # 暂停
-# ]
-
-# # 任务状态对应的 Quartz 触发器状态集合
-# JOB_STATUS_QUARTZ_STATES = {
-#     0: set(),  # 初始化中，没有对应的 Quartz 触发器状态
-#     1: {"WAITING", "ACQUIRED", "BLOCKED"},  # 开启
-#     2: {"PAUSED", "PAUSED_BLOCKED"},  # 暂停
-# }
-
-# # 任务日志状态
-# JOB_LOG_STATUS_CHOICES = [
-#     (0, "RUNNING"),  # 运行中
-#     (1, "SUCCESS"),  # 成功
-#     (2, "FAILURE"),  # 失败
-# ]
-
-
-###### 枚举值
 
 
 class SexEnum(Enum):
