@@ -82,7 +82,7 @@ class OperateLogMiddleware:
                     "execution_time": int((time.time() - self.start_time) * 1000),
                 }
             )
-            # 异步写入数据库
+            # Celery异步写入数据库
             operation_log_task.delay(self.log_data)
         except Exception as e:
             logger.error(f"操作日志记录失败: {str(e)}")

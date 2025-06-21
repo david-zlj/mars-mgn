@@ -105,10 +105,8 @@ class AuthViewSet(viewsets.GenericViewSet):
     )
     def logout(self, request, *args, **kwargs):
         """登出系统"""
-        # 清空用户Redis
-        cache.delete(f"system_users_{request.user.id}")
-        # 登出成功，记录登出日志
-        log_data = {
+        cache.delete(f"system_users_{request.user.id}")  # 清空用户Redis
+        log_data = {  # 登出成功，记录登出日志
             "log_type": LoginLogTypeEnum.LOGOUT_SELF.value,
             "user_ip": request.META.get("REMOTE_ADDR"),
             "user_agent": request.META.get("HTTP_USER_AGENT", "")[:512],
