@@ -5,21 +5,8 @@ from rest_framework.exceptions import ValidationError
 from mars_framework.db.enums import MailSendStatusEnum, UserTypeEnum
 from ..user.models import SystemUsers
 from ..mail_log.serializers import MailLogSaveSerializer
-from ..mail_log.models import SystemMailLog
 from .models import SystemMailTemplate
-from ..tasks import send_single_email_task
-
-
-def update_mail_log(mail_log_id, send_time, send_status, send_exception=None):
-    """更新邮件日志"""
-
-    # 获取邮件日志记录
-    mail_log = SystemMailLog.objects.get(id=mail_log_id)
-    mail_log.send_time = send_time
-    mail_log.send_status = send_status
-    if send_exception:
-        mail_log.send_exception = send_exception
-    mail_log.save()
+from ..tasks import send_single_mail_task
 
 
 class DynamicEmailBackend:
@@ -118,8 +105,8 @@ class MailSendService:
             serializer.validated_data["creator"] = creator_id
             serializer.validated_data["updater"] = creator_id
         mail_log = serializer.save()
-        # 发送邮件
-        send_single_email_task.delay(
+        # 使用Celery异步发送邮件
+        send_single_mail_task.delay(
             title=data.get("template_title", ""),
             content=data.get("template_content", ""),
             nickname=data.get("template_nickname", ""),

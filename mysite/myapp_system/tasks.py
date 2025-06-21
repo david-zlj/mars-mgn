@@ -4,7 +4,7 @@ from celery import shared_task
 
 
 @shared_task
-def send_single_email_task(
+def send_single_mail_task(
     title,  # 邮件主题
     content,  # 邮件内容
     nickname,  # 发件人昵称
@@ -20,7 +20,8 @@ def send_single_email_task(
     from django.core import mail
     from django.utils import timezone
     from mars_framework.db.enums import MailSendStatusEnum
-    from .mail_template.services import DynamicEmailBackend, update_mail_log
+    from mars_framework.utils.email import update_mail_log
+    from .mail_template.services import DynamicEmailBackend
     from .mail_account.models import SystemMailAccount
 
     # 构建EmailMessage对象
