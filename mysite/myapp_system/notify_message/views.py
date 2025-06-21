@@ -26,7 +26,7 @@ class NotifyMessageViewSet(
         "list": [HasPermission("system:notify-message:query")],
     }
 
-    # ========== 查看自己的站内信 ==========
+    # ========== 我的站内信 ==========
 
     @extend_schema(summary="获得我的站内信分页", filters=MyNotifyMessageFilter)
     @action(
@@ -111,5 +111,5 @@ class NotifyMessageViewSet(
         ).count()
         return CommonResponse.success(data=count)
 
-    # ========== 管理所有的站内信 ==========
-    # 已通过继承实现
+    # ========== 站内信消息记录 ==========
+    # 已通过继承视图实现

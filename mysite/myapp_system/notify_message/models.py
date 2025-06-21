@@ -7,12 +7,12 @@ class SystemNotifyMessage(BaseModel):
     id = models.BigAutoField(primary_key=True, db_comment="消息ID", help_text="消息ID")
     user_id = models.ForeignKey(
         "SystemUsers",
-        on_delete=models.DO_NOTHING,  # TODO 是否级联删除，是否报错
+        on_delete=models.DO_NOTHING,
         db_constraint=False,
         related_name="notify_messages",
         db_column="user_id",
-        db_comment="用户ID",
-        help_text="用户ID",
+        db_comment="接收用户ID",
+        help_text="接收用户ID",
     )
     user_type = models.SmallIntegerField(
         choices=[(item.value, item.name) for item in UserTypeEnum],
