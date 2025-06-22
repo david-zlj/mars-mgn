@@ -1,6 +1,6 @@
 # 静态文件
 mysite/static/
-mysite/media/
+# mysite/media/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

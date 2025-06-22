@@ -43,7 +43,7 @@ class InfraFileConfigViewSet(CustomModelViewSetNoExportNoSimple):
         if instance.storage != FileStorageEnum.LOCAL.value:
             return CommonResponse.error(code=121201, msg="暂时只支持本地存储")
         else:
-            return CommonResponse.error(code=121202, msg="请使用文件列表测试")
+            return CommonResponse.error(code=121202, msg="请在文件列表中测试")
 
     @extend_schema(summary="删除")
     def destroy(self, request, *args, **kwargs):
