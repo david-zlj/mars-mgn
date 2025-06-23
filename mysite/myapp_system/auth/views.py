@@ -54,7 +54,6 @@ class AuthViewSet(viewsets.GenericViewSet):
         serializer.is_valid(raise_exception=True)
         username = serializer.validated_data.get("username")
         password = serializer.validated_data.get("password")
-        # TODO 检查重试次数是否超过限制
         # 初始化日志记录参数
         log_data = {
             "log_type": LoginLogTypeEnum.LOGIN_USERNAME.value,

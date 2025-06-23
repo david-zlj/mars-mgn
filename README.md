@@ -2,7 +2,7 @@
 
 **愿景：向 ruoyi 学习，构建国内优秀的快速开发平台**
 
-**使命：赋能开发者高效开发，助力企业信息化与标准化**
+**使命：赋能开发者提升效率，助力企业信息标准化**
 
 **价值观：不重复造轮子，开放共享，合作创新**
 
@@ -14,17 +14,18 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 >
 > 😜 给项目点点 Star 吧，这对我们真的很重要！
 
+
+
 ## 架构组件
 
-![image-20250612155122040](./assets/image-20250612155122040.png)
+![image-20250623160632980](./assets/image-20250623160632980.png)
 
 - **前端服务**：使用 Vue3 框架，结合 Element Plus 进行前端开发，提供现代化的用户界面和交互体验。
 
 - **接入服务**：
-
   - 使用 Nginx 作为反向代理服务器，处理静态文件和负载均衡。
   - 采用 WSGI 服务器 Gunicorn 和 ASGI 服务器 Uvicorn，支持异步请求处理和 WebSocket 通信。
-
+  
 - **后端服务**：
 
   - 基于 Django 框架，结合 DRF（Django REST framework）构建 RESTful API，实现高效的数据交互。
@@ -57,6 +58,8 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 
 - **工作流管理（规划中）**：集成工作流引擎，支持动态表单、在线设计流程、会签/或签以及多种任务分配方式。
 
+
+
 ## 项目关系
 
 | 项目类型 | 项目名称     | Gitee 地址                                       | Github 地址                                         |
@@ -64,7 +67,9 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 | 后端     | mars-mgn     | [Gitee](https://gitee.com/zhulj993/mars-mgn)     | [Github](https://github.com/david-zlj/mars-mgn)     |
 | 前端     | mars-mgn-vue | [Gitee](https://gitee.com/zhulj993/mars-mgn-vue) | [Github](https://github.com/david-zlj/mars-mgn-vue) |
 
-详细项目文档：docs.marsmgn.cn
+详细项目文档：[docs.marsmgn.cn](https://docs.marsmgn.cn)
+
+
 
 ## 开源协议
 
@@ -74,6 +79,8 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 - 代码全部开源，不会像其他项目一样，只开源部分代码，让你无法了解整个项目的架构设计。
 - 代码整洁、架构整洁，代码注释详细。
 - 详细的文档，以及相关学习资料。
+
+
 
 ## 演示图
 
