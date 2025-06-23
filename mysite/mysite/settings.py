@@ -19,7 +19,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "django_filters",
-    "drf_spectacular",  # OpenAPI 文档 TODO 生产环境请关闭
+    "drf_spectacular",  # OpenAPI 接口文档 TODO 生产环境请关闭
+    "drf_spectacular_sidecar",  # OpenAPI 界面 TODO 生产环境请关闭
     "django_celery_beat",  # Celery 定时任务扩展
     "django_celery_results",  # # Celery 定时任务扩展
     "channels",  # Channels WebSocket功能
@@ -214,7 +215,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
-    # OpenAPI 文档 TODO 生产环境主关闭
+    # OpenAPI 接口文档 TODO 生产环境主关闭
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     # 全局分页配置
     "DEFAULT_PAGINATION_CLASS": "mars_framework.pagination.base.CustomPageNumberPagination",
@@ -231,9 +232,11 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=12),  # Refresh Token 有效期
 }
 
-### OpenAPI 文档配置
+### OpenAPI 接口文档配置
 # TODO 部分接口请求或响应参数未能正确显示，待优化
 SPECTACULAR_SETTINGS = {
+    "SWAGGER_UI_DIST": "SIDECAR",
+    "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
     "TITLE": "MarsMgn",
     "DESCRIPTION": "火星信息平台接口文档",
     "VERSION": "1.0.0",
