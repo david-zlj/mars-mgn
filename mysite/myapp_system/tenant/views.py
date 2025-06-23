@@ -3,7 +3,6 @@ from rest_framework.decorators import action
 from rest_framework import viewsets
 from drf_spectacular.utils import extend_schema
 
-from mars_framework.viewsets.base import CustomViewSet, CustomGenericViewSet
 from mars_framework.response.base import CommonResponse
 
 

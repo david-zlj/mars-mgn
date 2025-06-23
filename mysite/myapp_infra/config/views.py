@@ -26,11 +26,6 @@ class InfraConfigViewSet(CustomModelViewSetNoSimple):
         "export": [HasPermission("infra:config:export")],
         "get_value_by_key": [AllowAny()],
     }
-    action_querysets = {
-        # 只包含可见的参数配置，主要用于前端的下拉选项
-        "list_simple": InfraConfig.objects.filter(visible=True),
-        "list_simple_2": InfraConfig.objects.filter(visible=True),
-    }
 
     export_name = "参数配置列表"
     export_fields_labels = {
