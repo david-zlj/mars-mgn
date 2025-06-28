@@ -47,10 +47,10 @@ class OperateLogMiddleware:
                 {
                     "trace_id": request.META.get("HTTP_X_TRACE_ID", str(uuid.uuid4())),
                     "request_method": request.method,
-                    "request_url": request.get_full_path(),
+                    "request_url": request.get_full_path()[:255],
                     "user_ip": self._get_client_ip(request),
                     "user_agent": request.META.get("HTTP_USER_AGENT", "")[:512],
-                    "action": None,  # TODO
+                    "action": None,
                 }
             )
         except Exception as e:
