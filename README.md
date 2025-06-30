@@ -1,4 +1,4 @@
-# 🔥 MarsMgn 火星信息平台 | 基于 Django + Vue3 的企业级后台管理系统 🔥
+# MarsMgn 火星信息平台 | 基于 Django + Vue3 的企业级后台管理系统
 
 **愿景：向 ruoyi 学习，构建国内优秀的快速开发平台**
 
