@@ -93,7 +93,7 @@ def custom_exception_handler(exc, context):
             code=status.HTTP_500_INTERNAL_SERVER_ERROR, msg="系统异常"
         )
 
-    # 处理DRF捕获的具体异常，返回友好提示信息 TODO 优化错误提示信息
+    # 处理DRF捕获的具体异常，返回友好提示信息
     if isinstance(exc, serializers.ValidationError):
         return handle_drf_validation_error(exc)
     if isinstance(exc, DjangoValidationError):
