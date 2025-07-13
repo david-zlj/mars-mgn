@@ -36,6 +36,12 @@ class UserProfileDetailSerializer(serializers.ModelSerializer):
             "create_time",
         ]
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if not settings.DEBUG:
+            data["avatar"] = f"{settings.NGINX_BASE_URL}{instance.avatar.url}"
+        return data
+
 
 class UserProfileSaveSerializer(serializers.ModelSerializer):
     """用户个人中心修改序列化器"""

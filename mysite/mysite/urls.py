@@ -27,5 +27,6 @@ if settings.DEBUG:
             "api/schema/swagger-ui/", SpectacularSwaggerView.as_view(url_name="schema")
         ),
     ]
-    # 开发环境静态文件配置，生产环境请关闭，并使用Nginx
+    # 在开发环境提供静态和媒体文件。生产环境请关闭，并使用Nginx或OpenResty
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

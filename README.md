@@ -85,6 +85,13 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 
 
 
+**社区交流群**
+
+- QQ群：772604565
+- 给项目点个Star感谢，加群密码：marsmgn
+
+
+
 ## 演示图
 
 ### 系统管理模块

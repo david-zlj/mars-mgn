@@ -1,3 +1,4 @@
+from django.conf import settings
 from rest_framework import serializers
 from .models import InfraFile
 
@@ -23,6 +24,8 @@ class InfraFileSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         request = self.context.get("request")
         if request:
-            # 使用build_absolute_uri()方法自动拼接协议、域名、端口和相对路径
-            data["url"] = request.build_absolute_uri(data["url"])
+            if settings.DEBUG:  # 如果是开发环境
+                data["url"] = request.build_absolute_uri(data["url"])
+            else:  # 如果是生产环境
+                data["url"] = f"{settings.NGINX_BASE_URL}{data['url']}"
         return data
