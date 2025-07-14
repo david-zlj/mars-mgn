@@ -6,7 +6,7 @@
       "creator": "admin",
       "create_time": "2021-01-05T17:03:47Z",
       "updater": "1",
-      "update_time": "2025-06-05T07:26:06Z",
+      "update_time": "2025-07-14T10:03:39.202Z",
       "username": "admin",
       "password": "pbkdf2_sha256$600000$rwrpbqx8aIlPfebJzXrJNI$lPabKpj2rR8sEDwkHUCWN8Egu+WfuvGQsX7qQknTEno=",
       "nickname": "火星",
@@ -16,10 +16,10 @@
       "email": "marsmgn@qq.com",
       "mobile": "13812345670",
       "sex": 1,
-      "avatar": "avatars/2025/20250605152554081.jpg",
+      "avatar": "avatars/2025/20250611110101994.jpg",
       "status": 0,
       "login_ip": "127.0.0.1",
-      "login_date": "2025-06-05T07:26:06Z",
+      "login_date": "2025-07-14T10:03:39.202Z",
       "last_login": null,
       "is_active": true
     }
@@ -31,7 +31,7 @@
       "creator": "1",
       "create_time": "2025-06-03T07:29:34Z",
       "updater": "1",
-      "update_time": "2025-06-05T01:12:53Z",
+      "update_time": "2025-06-30T07:31:10.173Z",
       "username": "zhangsan",
       "password": "pbkdf2_sha256$600000$VgVngFgzV8125c2pmUaTJM$lskKaz8faR5uHLBjnW6Xb64cpUYQ/NGKjES0rk4G8eg=",
       "nickname": "张三",
@@ -42,9 +42,9 @@
       "mobile": "13812345671",
       "sex": 2,
       "avatar": "",
-      "status": 0,
+      "status": 1,
       "login_ip": "127.0.0.1",
-      "login_date": "2025-06-04T08:31:38Z",
+      "login_date": "2025-06-22T00:28:03.260Z",
       "last_login": null,
       "is_active": true
     }
@@ -80,8 +80,8 @@
     "fields": {
       "creator": "1",
       "create_time": "2025-06-03T07:35:47Z",
-      "updater": "163",
-      "update_time": "2025-06-04T08:32:37Z",
+      "updater": "1",
+      "update_time": "2025-06-17T08:02:23.476Z",
       "username": "wangwu",
       "password": "pbkdf2_sha256$600000$oWX004F9CUxIQQhBUNewcN$zYgvcFgaRfMszYtplzK8lauKw1xlXJ+LoGeOJIzXDwg=",
       "nickname": "王五",
@@ -91,6 +91,31 @@
       "email": "ww@qq.com",
       "mobile": "13812345673",
       "sex": 2,
+      "avatar": "",
+      "status": 0,
+      "login_ip": "",
+      "login_date": null,
+      "last_login": null,
+      "is_active": true
+    }
+  },
+  {
+    "model": "myapp_system.systemusers",
+    "pk": 179,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-07-04T08:27:02.608Z",
+      "updater": "",
+      "update_time": "2025-07-04T08:27:03.289Z",
+      "username": "zhangs",
+      "password": "pbkdf2_sha256$600000$CQGsOG7LEUnnfEcmtazrZA$breWKB4blbcEpyZ/8DGQ/4t3fGfSRIUxKQgQXxlx+sM=",
+      "nickname": "张三",
+      "remark": null,
+      "dept_id": null,
+      "post_ids": null,
+      "email": "",
+      "mobile": "",
+      "sex": 0,
       "avatar": "",
       "status": 0,
       "login_ip": "",
@@ -157,6 +182,18 @@
       "update_time": "2025-06-05T01:12:53Z",
       "user_id": 163,
       "role_id": 1
+    }
+  },
+  {
+    "model": "myapp_system.systemuserrole",
+    "pk": 63,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-17T08:02:23.483Z",
+      "updater": "",
+      "update_time": "2025-06-17T08:02:23.483Z",
+      "user_id": 165,
+      "role_id": 156
     }
   },
   {
@@ -741,11 +778,11 @@
       "creator": "admin",
       "create_time": "2021-01-05T17:03:48Z",
       "updater": "1",
-      "update_time": "2024-02-29T08:51:35Z",
+      "update_time": "2025-07-09T09:38:49.436Z",
       "name": "表单构建",
       "permission": "infra:build:list",
       "type": 2,
-      "sort": 2,
+      "sort": 3,
       "parent_id": 2,
       "path": "build",
       "icon": "fa:wpforms",
@@ -2029,11 +2066,11 @@
       "creator": "",
       "create_time": "2021-02-06T12:42:49Z",
       "updater": "1",
-      "update_time": "2023-11-15T23:45:53Z",
+      "update_time": "2025-07-09T09:38:35.005Z",
       "name": "代码生成案例",
       "permission": "",
       "type": 1,
-      "sort": 1,
+      "sort": 2,
       "parent_id": 2,
       "path": "demo",
       "icon": "ep:aim",
@@ -3357,13 +3394,59 @@
     }
   },
   {
+    "model": "myapp_system.systemmenu",
+    "pk": 2744,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-07-09T09:37:58.112Z",
+      "updater": "1",
+      "update_time": "2025-07-09T09:39:00.899Z",
+      "name": "监控中心",
+      "permission": "",
+      "type": 1,
+      "sort": 9,
+      "parent_id": 2,
+      "path": "monitors",
+      "icon": "ep:monitor",
+      "component": "",
+      "component_name": "",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
+    "model": "myapp_system.systemmenu",
+    "pk": 2745,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-07-09T09:53:14.281Z",
+      "updater": "1",
+      "update_time": "2025-07-09T09:53:14.281Z",
+      "name": "Celery 监控",
+      "permission": "",
+      "type": 2,
+      "sort": 1,
+      "parent_id": 2744,
+      "path": "flower",
+      "icon": "fa-solid:box",
+      "component": "infra/flower/index",
+      "component_name": "infraFlower",
+      "status": 0,
+      "visible": true,
+      "keep_alive": true,
+      "always_show": true
+    }
+  },
+  {
     "model": "myapp_system.systemrole",
     "pk": 1,
     "fields": {
       "creator": "1",
       "create_time": "2021-01-05T17:03:48Z",
       "updater": "1",
-      "update_time": "2025-06-05T09:53:24Z",
+      "update_time": "2025-07-14T10:02:35.690Z",
       "name": "超级管理员",
       "code": "super_admin",
       "sort": 1,
@@ -3417,7 +3500,7 @@
       "creator": "1",
       "create_time": "2025-06-04T03:18:48Z",
       "updater": "1",
-      "update_time": "2025-06-05T09:53:34Z",
+      "update_time": "2025-06-17T08:00:40.260Z",
       "name": "部门及以下管理员",
       "code": "dept_and_child",
       "sort": 4,
@@ -3435,7 +3518,7 @@
       "creator": "1",
       "create_time": "2025-05-14T01:25:17Z",
       "updater": "1",
-      "update_time": "2025-06-04T03:38:51Z",
+      "update_time": "2025-06-17T08:02:52.851Z",
       "name": "测试角色",
       "code": "test_role",
       "sort": 10,
@@ -3760,30 +3843,6 @@
   },
   {
     "model": "myapp_system.systemrolemenu",
-    "pk": 5974,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 1056
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 5975,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 1058
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
     "pk": 5977,
     "fields": {
       "creator": "",
@@ -3792,18 +3851,6 @@
       "update_time": "2025-05-15T02:09:13Z",
       "role_id": 1,
       "menu_id": 2144
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 5979,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 1057
     }
   },
   {
@@ -3844,30 +3891,6 @@
   },
   {
     "model": "myapp_system.systemrolemenu",
-    "pk": 5983,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 1059
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 5984,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 1060
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
     "pk": 5985,
     "fields": {
       "creator": "",
@@ -3876,18 +3899,6 @@
       "update_time": "2025-05-15T02:09:13Z",
       "role_id": 1,
       "menu_id": 110
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 5987,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 1070
     }
   },
   {
@@ -4288,18 +4299,6 @@
   },
   {
     "model": "myapp_system.systemrolemenu",
-    "pk": 6056,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 115
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
     "pk": 6057,
     "fields": {
       "creator": "",
@@ -4408,246 +4407,6 @@
   },
   {
     "model": "myapp_system.systemrolemenu",
-    "pk": 6093,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2472
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6094,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2478
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6095,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2479
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6096,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2480
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6097,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2481
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6098,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2482
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6099,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2483
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6100,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2484
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6101,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2485
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6102,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2486
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6103,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2487
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6104,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2488
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6105,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2489
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6106,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2490
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6107,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2491
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6108,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2492
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6109,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2493
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6110,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2494
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6111,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2495
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6112,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 2497
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
     "pk": 6113,
     "fields": {
       "creator": "",
@@ -4752,18 +4511,6 @@
       "update_time": "2025-05-15T02:09:13Z",
       "role_id": 1,
       "menu_id": 1006
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6122,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-05-15T02:09:13Z",
-      "updater": "",
-      "update_time": "2025-05-15T02:09:13Z",
-      "role_id": 1,
-      "menu_id": 1007
     }
   },
   {
@@ -5068,110 +4815,38 @@
   },
   {
     "model": "myapp_system.systemrolemenu",
-    "pk": 6232,
+    "pk": 6248,
     "fields": {
       "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
+      "create_time": "2025-06-17T08:15:45.738Z",
       "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 1
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6233,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 100
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6234,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 1001
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6235,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 1002
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6236,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 1003
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6237,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 1004
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6238,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 1005
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6239,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
-      "menu_id": 1006
-    }
-  },
-  {
-    "model": "myapp_system.systemrolemenu",
-    "pk": 6240,
-    "fields": {
-      "creator": "",
-      "create_time": "2025-06-04T08:30:43Z",
-      "updater": "",
-      "update_time": "2025-06-04T08:30:43Z",
-      "role_id": 157,
+      "update_time": "2025-06-17T08:15:45.738Z",
+      "role_id": 1,
       "menu_id": 1007
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6253,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-07-09T09:53:27.896Z",
+      "updater": "",
+      "update_time": "2025-07-09T09:53:27.896Z",
+      "role_id": 1,
+      "menu_id": 2744
+    }
+  },
+  {
+    "model": "myapp_system.systemrolemenu",
+    "pk": 6254,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-07-09T09:53:27.896Z",
+      "updater": "",
+      "update_time": "2025-07-09T09:53:27.896Z",
+      "role_id": 1,
+      "menu_id": 2745
     }
   },
   {
@@ -7540,7 +7215,7 @@
       "create_time": "2025-05-16T03:01:39Z",
       "updater": "1",
       "update_time": "2025-05-16T11:01:57Z",
-      "user_id": 156,
+      "user_id": 1,
       "user_type": 2,
       "template_id": 6,
       "template_code": "register",
@@ -7549,7 +7224,7 @@
       "template_type": 1,
       "template_params": "{\"name\": \"水手\", \"date\": \"20250505\", \"time\": \"11:01\"}",
       "read_status": true,
-      "read_time": "2025-05-16T03:01:57Z"
+      "read_time": "2025-06-21T07:29:26.992Z"
     }
   },
   {
@@ -7560,7 +7235,7 @@
       "create_time": "2025-05-16T03:13:01Z",
       "updater": "1",
       "update_time": "2025-05-16T11:13:23Z",
-      "user_id": 156,
+      "user_id": 1,
       "user_type": 2,
       "template_id": 8,
       "template_code": "tt",
@@ -7570,6 +7245,26 @@
       "template_params": "{}",
       "read_status": true,
       "read_time": "2025-05-16T03:13:23Z"
+    }
+  },
+  {
+    "model": "myapp_system.systemnotifymessage",
+    "pk": 14,
+    "fields": {
+      "creator": "1",
+      "create_time": "2025-06-21T07:38:41.899Z",
+      "updater": "1",
+      "update_time": "2025-06-21T07:38:41.899Z",
+      "user_id": 1,
+      "user_type": 2,
+      "template_id": 6,
+      "template_code": "register",
+      "template_nickname": "系统消息",
+      "template_content": "你好，欢迎 星星 加入大家庭！2025 15:37",
+      "template_type": 1,
+      "template_params": "{\"time\": \"15:37\", \"name\": \"星星\", \"date\": \"2025\"}",
+      "read_status": false,
+      "read_time": null
     }
   },
   {
@@ -7806,6 +7501,357 @@
     }
   },
   {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 1,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.276Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.276Z",
+      "trace_id": "36c37138-ab0c-4ca0-9723-01de062ce4f4",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/operate-log?pageNo=1&pageSize=10",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "OperateLogViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'list': [], 'total': 0}, 'msg': ''}",
+      "execution_time": 114
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 2,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.303Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.303Z",
+      "trace_id": "325d06ec-463d-4acd-be92-a445a1847bdd",
+      "user_id": null,
+      "username": null,
+      "nickname": null,
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/media/avatars/2025/20250611110101994.jpg",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "serve",
+      "sub_type": null,
+      "biz_id": null,
+      "action": null,
+      "success": null,
+      "status_code": 200,
+      "response": null,
+      "execution_time": 0
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 3,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:10.268Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:10.268Z",
+      "trace_id": "a1b0acf5-2e8e-42be-a153-664a20874961",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/user?pageNo=1&pageSize=10",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "UserViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'list': [{'id': 165, 'username': 'wangwu', 'nickname': '王五', 'remark': '', 'deptId': 103, 'deptName': '研发部门', 'postIds': [5], 'email': 'ww@qq.com', 'mobile': '13812345673', 'sex': 2, 'avatar': None, 'status': 0, 'login_ip': '', 'login_date': None, 'create_time': '2025-06-03T15:35:47+08:00'}, {'id': 164, 'username': 'lisi', 'nickname': '李四', 'remark': '', 'deptId': 108, 'deptName': '市场部门', 'postIds': [4], 'email': 'ls@qq.com', 'mobile': '13812345672', 'sex': 2, 'avatar': None, 'status': ",
+      "execution_time": 137
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 4,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:19.462Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:19.462Z",
+      "trace_id": "9550991a-5acc-4978-b372-3e7cf377b8ad",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/operate-log?pageNo=1&pageSize=10",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "OperateLogViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'list': [{'id': 3, 'trace_id': 'a1b0acf5-2e8e-42be-a153-664a20874961', 'user_id': 1, 'username': 'admin', 'nickname': '火星', 'user_type': 2, 'request_method': 'GET', 'request_url': '/admin-api/system/user?pageNo=1&pageSize=10', 'user_ip': '127.0.0.1', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'type': 'UserViewSet', 'sub_type': 'list', 'biz_id': None, 'action': None, 'success': True, 'status_code': 200,",
+      "execution_time": 16
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 5,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:29.135Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:29.135Z",
+      "trace_id": "46d443c0-d548-4a10-ab0f-a137e1666078",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/role?pageNo=1&pageSize=10&code=&name=",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "RoleViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'list': [{'id': 156, 'name': '测试角色', 'code': 'test_role', 'sort': 10, 'status': 0, 'type': 2, 'remark': '', 'data_scope': 2, 'data_scope_dept_ids': [101, 103, 105, 107], 'create_time': '2025-05-14T09:25:17+08:00'}, {'id': 4, 'name': '部门及以下管理员', 'code': 'dept_and_child', 'sort': 4, 'status': 0, 'type': 1, 'remark': '部门及以下管理员', 'data_scope': 4, 'data_scope_dept_ids': [], 'create_time': '2025-06-04T11:18:48+08:00'}, {'id': 3, 'name': '部门管理员', 'code': 'dept_admin', 'sort': 3, 'status': 0, '",
+      "execution_time": 13
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 6,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:36.287Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:36.287Z",
+      "trace_id": "aca4475b-e9be-4c8a-883b-f0a94b2643cb",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/role/156",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "RoleViewSet",
+      "sub_type": "retrieve",
+      "biz_id": 156,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'id': 156, 'name': '测试角色', 'code': 'test_role', 'sort': 10, 'status': 0, 'type': 2, 'remark': '', 'data_scope': 2, 'data_scope_dept_ids': [101, 103, 105, 107], 'create_time': '2025-05-14T09:25:17+08:00'}, 'msg': ''}",
+      "execution_time": 7
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 7,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:41.026Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:41.026Z",
+      "trace_id": "4031ad91-c81b-4558-9abd-fcd7cdf8f9e5",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/menu",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "MenuViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': [{'id': 1237, 'name': '文件配置', 'permission': '', 'type': 2, 'sort': 0, 'parent_id': 1243, 'path': 'file-config', 'icon': 'fa-solid:file-signature', 'component': 'infra/fileConfig/index', 'component_name': 'InfraFileConfig', 'status': 0, 'visible': True, 'keep_alive': True, 'always_show': True, 'create_time': '2022-03-15T22:35:28+08:00'}, {'id': 2131, 'name': '邮箱账号', 'permission': '', 'type': 2, 'sort': 0, 'parent_id': 2130, 'path': 'mail-account', 'icon': 'fa:universal-access', 'component",
+      "execution_time": 34
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 8,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:45.315Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:45.315Z",
+      "trace_id": "2d1cd7e9-efdd-45d3-bce2-d33efb5e8301",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/menu/1",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "MenuViewSet",
+      "sub_type": "retrieve",
+      "biz_id": 1,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'id': 1, 'name': '系统管理', 'permission': '', 'type': 1, 'sort': 10, 'parent_id': None, 'path': '/system', 'icon': 'ep:tools', 'component': None, 'component_name': None, 'status': 0, 'visible': True, 'keep_alive': True, 'always_show': True, 'create_time': '2021-01-06T01:03:48+08:00'}, 'msg': ''}",
+      "execution_time": 7
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 9,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:47.928Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:47.928Z",
+      "trace_id": "6f145d08-670d-4492-ac11-92a37c41c1c7",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/dept",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "DeptViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': [{'id': 100, 'name': '火星信息', 'parent_id': None, 'sort': 0, 'leader_user_id': None, 'phone': '13812345678', 'email': 'marsmgn@qq.com', 'status': 0, 'create_time': '2021-01-06T01:03:47+08:00'}, {'id': 103, 'name': '研发部门', 'parent_id': 101, 'sort': 1, 'leader_user_id': None, 'phone': '15888888888', 'email': 'ry@qq.com', 'status': 0, 'create_time': '2021-01-06T01:03:47+08:00'}, {'id': 108, 'name': '市场部门', 'parent_id': 102, 'sort': 1, 'leader_user_id': None, 'phone': '15888888888', 'email': '",
+      "execution_time": 10
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 10,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:50.036Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:50.036Z",
+      "trace_id": "8a9c91bd-c54d-46b1-a3c9-2ce7ff6181b8",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/dept/108",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "DeptViewSet",
+      "sub_type": "retrieve",
+      "biz_id": 108,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'id': 108, 'name': '市场部门', 'parent_id': 102, 'sort': 1, 'leader_user_id': None, 'phone': '15888888888', 'email': 'ry@qq.com', 'status': 0, 'create_time': '2021-01-06T01:03:47+08:00'}, 'msg': ''}",
+      "execution_time": 6
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 11,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:52.572Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:52.572Z",
+      "trace_id": "028d9fa8-ac0f-4b6c-97a9-b103f2f2ba9a",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/post?pageNo=1&pageSize=10&code=&name=",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "PostViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'list': [{'id': 12, 'code': 'test', 'name': '测试岗位', 'sort': 10, 'status': 0, 'remark': '', 'create_time': '2025-05-14T16:45:40+08:00'}, {'id': 5, 'code': 'hr', 'name': '人力资源', 'sort': 5, 'status': 0, 'remark': '', 'create_time': '2024-03-25T04:45:40+08:00'}, {'id': 4, 'code': 'user', 'name': '普通员工', 'sort': 4, 'status': 0, 'remark': '', 'create_time': '2021-01-06T01:03:48+08:00'}, {'id': 2, 'code': 'pm', 'name': '项目经理', 'sort': 2, 'status': 0, 'remark': '', 'create_time': '2021-01-06T01",
+      "execution_time": 8
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 12,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:02:54.492Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:02:54.492Z",
+      "trace_id": "d1f7a73a-ce1f-4354-b6ae-f4035c116726",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/post/2",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "PostViewSet",
+      "sub_type": "retrieve",
+      "biz_id": 2,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'id': 2, 'code': 'pm', 'name': '项目经理', 'sort': 2, 'status': 0, 'remark': '', 'create_time': '2021-01-06T01:03:48+08:00'}, 'msg': ''}",
+      "execution_time": 7
+    }
+  },
+  {
+    "model": "myapp_system.systemoperatelog",
+    "pk": 13,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-28T00:03:02.253Z",
+      "updater": "",
+      "update_time": "2025-06-28T00:03:02.253Z",
+      "trace_id": "e6e5e56f-9afb-42d5-ab95-95d69fdb0762",
+      "user_id": 1,
+      "username": "admin",
+      "nickname": "火星",
+      "user_type": 2,
+      "request_method": "GET",
+      "request_url": "/admin-api/system/operate-log?pageNo=1&pageSize=10",
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+      "type": "OperateLogViewSet",
+      "sub_type": "list",
+      "biz_id": null,
+      "action": null,
+      "success": true,
+      "status_code": 200,
+      "response": "{'code': 0, 'data': {'list': [{'id': 12, 'trace_id': 'd1f7a73a-ce1f-4354-b6ae-f4035c116726', 'user_id': 1, 'username': 'admin', 'nickname': '火星', 'user_type': 2, 'request_method': 'GET', 'request_url': '/admin-api/system/post/2', 'user_ip': '127.0.0.1', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'type': 'PostViewSet', 'sub_type': 'retrieve', 'biz_id': 2, 'action': None, 'success': True, 'status_code': 200, 'response': \"{'c",
+      "execution_time": 12
+    }
+  },
+  {
     "model": "myapp_system.systemloginlog",
     "pk": 3660,
     "fields": {
@@ -7901,6 +7947,1077 @@
       "log_type": 100,
       "user_id": 1,
       "user_type": 0,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3673,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:05.926Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:05.926Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "",
+      "result": 20,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3674,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:05.955Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:05.955Z",
+      "log_type": 100,
+      "user_id": null,
+      "user_type": 2,
+      "username": "admin",
+      "result": 10,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3675,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:05.985Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:05.985Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3676,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.019Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.019Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3677,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.046Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.046Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3678,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.071Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.071Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3679,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.106Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.107Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3680,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.141Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.141Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3681,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.168Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.168Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3682,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.193Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.193Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3683,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.228Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.228Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3684,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.261Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.261Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3685,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.286Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.286Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3686,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.368Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.368Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3687,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.452Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.452Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3688,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.496Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.496Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3689,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.520Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.520Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3690,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.545Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.545Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3691,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.569Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.569Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3692,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.594Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.594Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3693,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.619Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.619Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3694,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.650Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.650Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3695,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.682Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.682Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3696,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.708Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.708Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3697,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.734Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.734Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3698,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.767Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.767Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3699,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.806Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.806Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3700,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.829Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.829Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3701,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.853Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.853Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3702,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.879Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.879Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3703,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.909Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.909Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3704,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.948Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.948Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3705,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:06.990Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:06.990Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3706,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.013Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.013Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3707,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.036Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.036Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3708,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.060Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.060Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3709,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.094Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.094Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3710,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.120Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.120Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3711,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.144Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.144Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3712,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.177Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.177Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3713,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.209Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.209Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3714,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.233Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.234Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3715,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.257Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.257Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3716,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.282Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.282Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3717,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.308Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.308Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3718,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.331Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.331Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3719,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.356Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.356Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3720,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.412Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.412Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3721,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.438Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.438Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3722,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.469Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.469Z",
+      "log_type": 200,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3723,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.491Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.491Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3724,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.522Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.522Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3725,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.547Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.547Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3726,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.579Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.579Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3727,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.608Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.608Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3728,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-22T09:41:07.635Z",
+      "updater": "",
+      "update_time": "2025-06-22T09:41:07.635Z",
+      "log_type": 100,
+      "user_id": 163,
+      "user_type": 2,
+      "username": "zhangsan",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3729,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:56.997Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:56.997Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3730,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.041Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.041Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3731,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.069Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.069Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3732,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.111Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.111Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3733,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.169Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.169Z",
+      "log_type": 200,
+      "user_id": null,
+      "user_type": 2,
+      "username": "",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3734,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.194Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.194Z",
+      "log_type": 100,
+      "user_id": 1,
+      "user_type": 2,
+      "username": "admin",
+      "result": 0,
+      "user_ip": "127.0.0.1",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+    }
+  },
+  {
+    "model": "myapp_system.systemloginlog",
+    "pk": 3735,
+    "fields": {
+      "creator": "",
+      "create_time": "2025-06-27T23:58:57.331Z",
+      "updater": "",
+      "update_time": "2025-06-27T23:58:57.331Z",
+      "log_type": 400,
+      "user_id": 1,
+      "user_type": 2,
       "username": "admin",
       "result": 0,
       "user_ip": "127.0.0.1",

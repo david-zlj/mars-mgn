@@ -64,27 +64,24 @@ class UserProfileViewSet(
     def update_user_avatar(self, request):
         """
         上传用户个人头像
+        上传文件字段名: avatarFile
         """
         avatar_file = request.FILES.get("avatarFile")
         instance = self.get_object()
         if not avatar_file:  # 如果没有上传文件，则返回当前头像地址
-            if settings.DEBUG:  # 开发环境
-                return CommonResponse.success(
-                    data=request.build_absolute_uri(instance.avatar.url)
-                )
-            else:  # 生产环境
-                return CommonResponse.success(
-                    data=f"{settings.NGINX_BASE_URL}{instance.avatar.url}"
-                )
+            return self._build_avatar_response(request, instance)
+
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         # 返回完整的头像地址
-        if settings.DEBUG:  # 开发环境
-            return CommonResponse.success(
-                data=request.build_absolute_uri(instance.avatar.url)
-            )
-        else:  # 生产环境
-            return CommonResponse.success(
-                data=f"{settings.NGINX_BASE_URL}{instance.avatar.url}"
-            )
+        return self._build_avatar_response(request, instance)
+
+    def _build_avatar_response(self, request, instance):
+        """构建头像响应，包含完整URL"""
+        if settings.DEBUG:
+            avatar_url = request.build_absolute_uri(instance.avatar.url)
+        else:
+            avatar_url = f"{settings.NGINX_BASE_URL}{instance.avatar.url}"
+
+        return CommonResponse.success(data=avatar_url)

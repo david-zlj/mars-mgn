@@ -6,11 +6,11 @@
 # ==================================
 
 # ========== 用户配置区域 ==========
-PROJECT_DIR="mysite"                                     # 项目根目录路径
-VENV_PATH="/opt/venv/yourproject"                        # 虚拟环境路径
-GUNICORN_CONFIG="${PROJECT_DIR}/deploy/gunicorn_prod.py" # Gunicorn配置文件
-DJANGO_SETTINGS_MODULE="config.settings.production"      # 生产环境设置
-USER="django-user"                                       # 运行项目的非特权用户
+PROJECT_DIR="mysite" # 项目根目录路径
+# VENV_PATH="/opt/venv/yourproject"                        # 虚拟环境路径
+# GUNICORN_CONFIG="${PROJECT_DIR}/deploy/gunicorn_prod.py" # Gunicorn配置文件
+# DJANGO_SETTINGS_MODULE="config.settings.production"      # 生产环境设置
+# USER="django-user"                                       # 运行项目的非特权用户
 # =================================
 
 # === 计算最佳Gunicorn Worker数量 ===
@@ -44,6 +44,10 @@ init_environment() {
 
     # 进入项目目录
     cd "${PROJECT_DIR}"
+
+    #收集静态文件
+    echo "收集静态文件..."
+    python manage.py collectstatic
 
     # 检查数据库连接状态
     echo "检查数据库连接状态..."
