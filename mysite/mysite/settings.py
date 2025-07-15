@@ -270,8 +270,10 @@ CACHES = {
 
 ### Celery 配置
 CELERY_BROKER_URL = f"{REDIS_URL}/{REDIS_DB}"  # 使用Redis作为消息代理
-CELERY_RESULT_BACKEND = "django-db"  # 使用数据库作存储结果
-CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+CELERY_RESULT_BACKEND = "django-db"  # 使用数据库存储结果
+CELERY_BEAT_SCHEDULER = (
+    "django_celery_beat.schedulers:DatabaseScheduler"  # 使用数据库保存定时任务
+)
 CELERY_TIMEZONE = "Asia/Shanghai"
 CELERY_ENABLE_UTC = True
 CELERY_RESULT_EXTENDED = True  # 启用后才会记录 task_name、date_started 等字段

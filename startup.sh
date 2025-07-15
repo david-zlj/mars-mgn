@@ -47,7 +47,7 @@ init_environment() {
 
     #收集静态文件
     echo "收集静态文件..."
-    python manage.py collectstatic
+    python manage.py collectstatic --noinput
 
     # 检查数据库连接状态
     echo "检查数据库连接状态..."
@@ -87,6 +87,7 @@ run_server() {
     echo "启动Celery服务..."
     nohup celery -A mysite worker -l INFO >mysite/logs/celery_worker.log 2>&1 &
     nohup celery -A mysite beat -l INFO >mysite/logs/celery_beat.log 2>&1 &
+    # TODO celery -A mysite beat -l info -S django_celery_beat.schedulers:DatabaseScheduler
     nohup celery -A mysite flower --port=5555 >mysite/logs/celery_flower.log 2>&1 &
 }
 
