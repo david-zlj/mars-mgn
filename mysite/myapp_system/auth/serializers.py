@@ -123,6 +123,12 @@ class UserMixinSerializer(serializers.ModelSerializer):
             "dept_id",
         ]
 
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if not settings.DEBUG:
+            data["avatar"] = f"{settings.NGINX_BASE_URL}{instance.avatar.url}"
+        return data
+
 
 class MenuMixinSerializer(serializers.ModelSerializer):
     children = serializers.SerializerMethodField()

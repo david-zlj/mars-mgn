@@ -125,8 +125,8 @@ MEDIA_URL = "/media/"  # 访问媒体文件的URL前缀
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB内存缓冲
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600  # 100MB请求体限制
 
-### 生产环境中，静态文件与媒体文件的访问地址前缀
-NGINX_BASE_URL = "http://192.168.0.73"  # 按实际修改
+### 生产环境中，静态文件与媒体文件的访问地址
+NGINX_BASE_URL = "http://192.168.0.73"  # 填写Nginx或OpenResty 的IP或域名
 
 # 自定义用户模型
 AUTH_USER_MODEL = "myapp_system.SystemUsers"

@@ -86,8 +86,8 @@ run_server() {
     # 启动Celery服务
     echo "启动Celery服务..."
     nohup celery -A mysite worker -l INFO >mysite/logs/celery_worker.log 2>&1 &
-    nohup celery -A mysite beat -l INFO >mysite/logs/celery_beat.log 2>&1 &
-    # TODO celery -A mysite beat -l info -S django_celery_beat.schedulers:DatabaseScheduler
+    # nohup celery -A mysite beat -l INFO >mysite/logs/celery_beat.log 2>&1 &
+    nohup celery -A mysite beat -l INFO -S django_celery_beat.schedulers:DatabaseScheduler >mysite/logs/celery_beat.log 2>&1 &
     nohup celery -A mysite flower --port=5555 >mysite/logs/celery_flower.log 2>&1 &
 }
 
