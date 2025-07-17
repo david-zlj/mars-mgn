@@ -16,6 +16,24 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 
 
 
+## 开源协议
+
+**为什么推荐使用本项目？**
+
+- 本项目采用比 Apache 2.0 更宽松的 MIT License 开源协议，个人与企业可 100% 免费使用，不用保留类作者、Copyright 信息。
+- 代码全部开源，不会像其他项目一样，只开源部分代码，让你无法了解整个项目的架构设计。
+- 代码整洁、架构整洁，代码注释详细。
+- 详细的项目文档：[docs.marsmgn.cn](https://docs.marsmgn.cn) ，以及相关学习资料。
+
+
+
+**社区交流群**
+
+- QQ群：772604565
+- 给项目点个Star感谢，加群密码：marsmgn
+
+
+
 ## 架构组件
 
 ![image-20250623160632980](./assets/image-20250623160632980.png)
@@ -71,24 +89,6 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 | 前端     | mars-mgn-vue | [Gitee](https://gitee.com/zhulj993/mars-mgn-vue) | [Github](https://github.com/david-zlj/mars-mgn-vue) |
 
 详细项目文档：[docs.marsmgn.cn](https://docs.marsmgn.cn)
-
-
-
-## 开源协议
-
-**为什么推荐使用本项目？**
-
-- 本项目采用比 Apache 2.0 更宽松的 MIT License 开源协议，个人与企业可 100% 免费使用，不用保留类作者、Copyright 信息。
-- 代码全部开源，不会像其他项目一样，只开源部分代码，让你无法了解整个项目的架构设计。
-- 代码整洁、架构整洁，代码注释详细。
-- 详细的文档，以及相关学习资料。
-
-
-
-**社区交流群**
-
-- QQ群：772604565
-- 给项目点个Star感谢，加群密码：marsmgn
 
 
 

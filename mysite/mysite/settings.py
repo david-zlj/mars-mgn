@@ -119,7 +119,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "/static/"
 
-### 媒体文件（用户上传文件）配置
+### 媒体文件配置（用户上传文件）
 MEDIA_ROOT = BASE_DIR / "media"  # 文件存储的绝对物理路径
 MEDIA_URL = "/media/"  # 访问媒体文件的URL前缀
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10485760  # 10MB内存缓冲
