@@ -1,6 +1,7 @@
 import re
 from rest_framework import serializers
 from django.conf import settings
+from django.utils.translation import gettext_lazy as _
 
 from mars_framework.db.enums import CommonStatusEnum, MenuTypeEnum, DataScopeEnum
 from ..user.models import SystemUsers

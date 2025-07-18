@@ -2,7 +2,7 @@ from django.core.cache import cache
 from django.utils import timezone
 from django.contrib.auth import authenticate
 from django.conf import settings
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 from rest_framework import viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.decorators import action
