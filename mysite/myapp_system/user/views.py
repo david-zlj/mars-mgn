@@ -98,18 +98,18 @@ class UserViewSet(CustomModelViewSet):
         """修改用户状态"""
         return super().update(request, *args, **kwargs)
 
-    @extend_schema(summary="获得导入用户模板")
+    @extend_schema(summary="获得用户导入模板")
     @action(
         methods=["get"],
         detail=False,
         url_path="get-import-template",
     )
     def get_import_template(self, request, *args, **kwargs):
-        """获得导入用户模板"""
+        """获得用户导入模板"""
         workbook = get_user_import_template_workbook()
         return generate_excel_response(workbook, "用户导入模板.xlsx")
 
-    @extend_schema(summary="导入用户")
+    @extend_schema(summary="用户导入")
     @action(
         methods=["post"],
         detail=False,
@@ -117,7 +117,7 @@ class UserViewSet(CustomModelViewSet):
         parser_classes=[MultiPartParser],
     )
     def import_user(self, request, *args, **kwargs):
-        """导入用户"""
+        """用户导入"""
         # TODO update_support 支持用户更新
         update_support = request.query_params.get("updateSupport", False)
         # 获取上传的文件
@@ -127,7 +127,6 @@ class UserViewSet(CustomModelViewSet):
         # 读取 Excel 文件数据
         try:
             data = get_user_import_data(file)
-            # print(data)
         except Exception as e:
             return CommonResponse.error(code=111101, msg="文件读取失败")
 

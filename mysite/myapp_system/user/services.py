@@ -47,7 +47,7 @@ def get_user_import_template_workbook():
 
 def get_user_import_data(file) -> list:
     """
-    读取Excel文件中的用户信息，并将其转换为系统所需的数据格式
+    读取Excel文件中的用户信息，并将其转换为字典列表
     """
     # 加载Excel文件
     workbook = load_workbook(file)
