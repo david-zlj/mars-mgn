@@ -240,12 +240,12 @@ SIMPLE_JWT = {
 ### OpenAPI 接口文档配置
 # TODO 部分接口请求或响应参数未能正确显示，待优化
 SPECTACULAR_SETTINGS = {
-    "SWAGGER_UI_DIST": "SIDECAR",
+    "SWAGGER_UI_DIST": "SIDECAR",  # 使用内置 UI
     "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
-    "TITLE": "MarsMgn",
+    "TITLE": "MarsMgn API",
     "DESCRIPTION": "火星信息平台接口文档",
     "VERSION": "1.0.0",
-    "SERVE_INCLUDE_SCHEMA": False,
+    "SERVE_INCLUDE_SCHEMA": False,  # 不在文档中包含 schema 本身
 }
 
 ### Redis 配置
