@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class InfraConsumer(AsyncWebsocketConsumer):
-    """基础设施异步消费者"""
+    """基础设施-WebSocket 异步消费者"""
 
     async def connect(self):
         """当客户端发起 WebSocket 连接时调用"""
@@ -52,32 +52,37 @@ class InfraConsumer(AsyncWebsocketConsumer):
     async def disconnect(self, close_code):
         """当客户端断开 WebSocket 连接时调用"""
         # 获取当前用户
-        user = self.scope["user"]
+        user = self.scope.get("user")
         if user:
             user_id = user.get("id")
             # 移除用户通道
             cache.delete(f"user_{user_id}_channel")
+            # 将用户从组中移除
+            room_group_name = getattr(self, "room_group_name", None)
+            if room_group_name:
+                await self.channel_layer.group_discard(
+                    room_group_name, self.channel_name
+                )
 
     async def receive(self, text_data=None, bytes_data=None):
         """当接收到客户端发送的消息时调用"""
+        # 心跳检测
         if text_data == "ping":
             await self.send(text_data="pong")
             return
 
-        # 获取当前用户
-        user = self.scope["user"]
+        user = self.scope.get("user")
         if not user:
             logger.warning(f"匿名用户访问拒绝：{text_data}")
             return
         logger.info(f"收到用户 {user.get('id')} 发送消息：{text_data}")
 
-        # 进行两次JSON解析
+        # 因为消息采用了两次JSON封装，这里进行两次JSON解析
         try:
-            # 解析外层消息结构
-            outer_payload = json.loads(text_data)
+            outer_payload = json.loads(text_data)  # 外层JSON解释
             message_type = outer_payload.get("type")
             raw_content = outer_payload.get("content", "{}")
-            inner_content = json.loads(raw_content)
+            inner_content = json.loads(raw_content)  # 内层JSON解释
         except json.JSONDecodeError:
             logger.error("内容解析失败")
             return
@@ -89,50 +94,60 @@ class InfraConsumer(AsyncWebsocketConsumer):
                 logger.warning("消息内容不能为空")
                 return
 
-            # 预构建响应
+            # 构建响应字典
             content = {
                 "fromUserId": user.get("id"),
                 "text": message_text,
                 "single": False,  # 默认群发
             }
 
-            # 接收对象判断
+            # 判断接收对象
             target_user_id = inner_content.get("toUserId")
             if target_user_id not in [None, "", 0]:
                 # 单发
-                content["single"] = True
-                response = self._get_response(content)
-                await self._send_to_user(target_user_id, response)
+                await self._send_single_message(target_user_id, content)
             else:
                 # 群发广播
-                await self.channel_layer.group_send(
-                    self.room_group_name,
-                    {
-                        "type": "broadcast.message",
-                        "payload": self._get_response(content),
-                    },
-                )
+                await self._send_broadcast_message(content)
 
-    def _get_response(self, content):
-        """进行两次JSON封装"""
-        response = {
+    def _build_response(self, content):
+        """构建标准化的响应消息，进行两次JSON封装"""
+        # 第一次封装：添加消息类型
+        inner_message = {
             "type": "demo-message-receive",
             "content": json.dumps(content),
         }
-        return json.dumps(response)
+        # 第二次封装：整体序列化
+        return json.dumps(inner_message)
 
-    async def _send_to_user(self, target_user_id, message):
-        """从缓存获取用户通道，发送给指定用户"""
-        if target_channel := cache.get(f"user_{target_user_id}_channel"):
-            await self.channel_layer.send(
-                target_channel,
-                {
-                    "type": "single.message",
-                    "payload": message,
-                },
-            )
-            return True
-        return False
+    async def _send_single_message(self, target_user_id, content):
+        """向指定用户发送单条消息"""
+        # 获取用户通道
+        target_channel = cache.get(f"user_{target_user_id}_channel")
+        if not target_channel:
+            return False
+
+        # 构建并发送消息
+        message = self._build_response(content)
+        await self.channel_layer.send(
+            target_channel,
+            {
+                "type": "single.message",
+                "payload": message,
+            },
+        )
+        return True
+
+    async def _send_broadcast_message(self, content):
+        """向房间内所有用户广播消息"""
+        message = self._build_response(content)
+        await self.channel_layer.group_send(
+            self.room_group_name,
+            {
+                "type": "broadcast.message",
+                "payload": message,
+            },
+        )
 
     async def broadcast_message(self, event):
         """处理群发消息"""

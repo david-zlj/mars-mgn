@@ -292,7 +292,7 @@ CHANNEL_LAYERS = {
         },
     },
 }
-DEFAULT_GROUP_NAME = "marsmgn_group"  # 默认组名
+DEFAULT_GROUP_NAME = "marsmgn_group"  # 通道默认组名
 
 ### CORS 跨域配置
 CORS_ALLOW_CREDENTIALS = True
