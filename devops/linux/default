@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    server_name 192.168.0.75;  # 替换为服务器IP或域名
+
+    # 静态文件配置 (CSS, JS, images)
+    location /static/ {
+        alias /opt/mars-mgn/mysite/static/;  # Django 静态文件路径
+        expires 1d;
+        access_log off;
+    }
+    
+    # 媒体文件配置 (用户上传内容)
+    location /media/ {
+        alias /opt/mars-mgn/mysite/media/;  # Django 媒体文件路径
+        expires 1d;
+        access_log off;
+    }
+
+    # 前端配置
+    location / {
+        root /opt/mars-mgn-vue;  # 前端构建目录
+        index index.html;
+        try_files $uri $uri/ /index.html;   # 支持前端路由
+    }
+}
