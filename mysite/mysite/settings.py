@@ -72,7 +72,7 @@ DATABASE_PORT = "3306"  # 数据库端口
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "mars-mgn-2",
+        "NAME": "mars-mgn",
         "USER": "root",
         "PASSWORD": "123456",
         "HOST": DATABASE_HOST,
