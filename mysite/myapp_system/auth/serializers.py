@@ -249,7 +249,7 @@ class AuthPermissionInfoSerializer(serializers.ModelSerializer):
         return list(permissions)
 
     def get_menus(self, obj) -> list:
-        """ "获取用户的角色对应的菜单"""
+        """获取用户的角色对应的菜单"""
         if not obj.roles.exists():
             return []
 

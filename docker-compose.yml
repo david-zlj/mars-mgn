@@ -1,0 +1,83 @@
+services:
+  db:
+    image: mysql:8.0.42
+    container_name: mars-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: mars-mgn
+      MYSQL_USER: mars-mgn
+      MYSQL_PASSWORD: 123456
+      TZ : "Asia/Shanghai"
+    volumes:
+      - /opt/mars-deploy/mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - mars-network
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: 
+        - "CMD-SHELL"
+        - "mysqladmin ping -uroot -p123456 --silent"
+      interval: 5s
+      timeout: 30s
+      retries: 10
+      start_period: 5s  # 给予MySQL更长的初始化时间
+
+  redis:
+    image: redis:6.2.18
+    container_name: mars-redis
+    ports:
+      - "6379:6379"
+    environment:
+      TZ: "Asia/Shanghai"
+    volumes:
+      - /opt/mars-deploy/redis:/data
+    networks:
+      - mars-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+
+  app:
+    image: django-app:latest
+    container_name: mars-app
+    volumes:
+      - /opt/mars-mgn/mysite:/app/mysite
+      - /opt/mars-deploy/flags:/app/flags
+      - /opt/mars-mgn/entrypoint.sh:/app/entrypoint.sh
+    ports:
+      - "8000:8000"
+      - "5555:5555"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - mars-network
+    restart: always
+
+  nginx:
+    image: nginx:1.26.3
+    container_name: mars-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - /opt/mars-deploy/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - /opt/mars-mgn-vue:/usr/share/nginx/html/vue
+      - /opt/mars-mgn/mysite/static:/usr/share/nginx/html/static
+      - /opt/mars-mgn/mysite/media:/usr/share/nginx/html/media
+    depends_on:
+      - app
+    networks:
+      - mars-network
+    restart: always
+
+networks:
+  mars-network:
+    driver: bridge

@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     "django_celery_beat",  # Celery 定时任务扩展
     "django_celery_results",  # # Celery 定时任务扩展
     "channels",  # Channels WebSocket功能
-    "corsheaders",  # CORS 跨域支持
+    # "corsheaders",  # CORS 跨域支持
     "captcha",  # 验证码
     "myapp_system",
     "myapp_infra",
@@ -67,7 +67,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "mysite.wsgi.application"
 
 ### 数据库配置
-# DATABASE_HOST = "mars-mysql"  # Docker部署时填写mars-mysql
 DATABASE_HOST = "127.0.0.1"  # 数据库地址
 DATABASE_PORT = "3306"  # 数据库端口
 DATABASES = {
@@ -249,11 +248,10 @@ SPECTACULAR_SETTINGS = {
 }
 
 ### Redis 配置
-# REDIS_HOST = "mars-redis"  # Docker部署时填写mars-redis
 REDIS_HOST = "127.0.0.1"
 REDIS_PORT = 6379
 REDIS_DB = 3
-REDIS_PASSWORD = ""
+REDIS_PASSWORD = ""  # 如果Redis有密码，请填写在双引号之间
 REDIS_URL = f'redis://:{REDIS_PASSWORD or ""}@{REDIS_HOST}:{REDIS_PORT}'
 # 数据默认使用 Pickle 格式，性能优于Json 格式
 CACHES = {

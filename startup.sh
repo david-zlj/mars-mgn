@@ -76,7 +76,7 @@ run_server() {
     # 进入项目目录
     cd "${PROJECT_DIR}" || exit 1
 
-    # 创建必要的日志目录（确保目录存在）
+    # 创建必要的日志目录（确保目录存在） TODO 检查路径是否正确
     mkdir -p mysite/logs
 
     # 启动Django服务
@@ -86,7 +86,6 @@ run_server() {
     # 启动Celery服务
     echo "启动Celery服务..."
     nohup celery -A mysite worker -l INFO >mysite/logs/celery_worker.log 2>&1 &
-    # nohup celery -A mysite beat -l INFO >mysite/logs/celery_beat.log 2>&1 &
     nohup celery -A mysite beat -l INFO -S django_celery_beat.schedulers:DatabaseScheduler >mysite/logs/celery_beat.log 2>&1 &
     nohup celery -A mysite flower --port=5555 >mysite/logs/celery_flower.log 2>&1 &
 }
