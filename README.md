@@ -1,10 +1,21 @@
-# MarsMgn 火星信息平台 | 基于 Django + Vue3 的企业级后台管理系统
 
-**愿景：向 ruoyi 学习，构建国内优秀的快速开发平台**
 
-**使命：赋能开发者，助力企业信息化**
+<h1 align="center" style="margin: 30px 0 15px; font-weight: bold;">MarsMgn</h1>
+<h3 align="center" style="margin: 0 0 30px;">基于Django + Vue的企业级后台管理系统</h4>
+<p align="center" style="margin: 0 0 40px;">
+    <a href="#"><img src="https://img.shields.io/badge/Django-4.2-blue.svg"></a>
+    <a href="#"><img src="https://img.shields.io/badge/Vue.js-3-green.svg"></a>
+    <a href="#"><img src="https://img.shields.io/badge/Python-3.11-yellow.svg"></a>    
+    <a href="https://gitee.com/zhulj993/mars-mgn/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
+</p>
 
-**价值观：不重复造轮子，开放共享，合作创新**
+
+
+- **🚀愿景：向 ruoyi 学习，构建国内优秀的快速开发平台**
+- **🎯使命：赋能开发者，助力企业信息化**
+- **🤝价值观：不重复造轮子，开放共享，合作创新**
+
+
 
 ## 介绍
 
