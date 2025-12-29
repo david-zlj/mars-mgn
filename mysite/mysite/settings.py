@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     "django_celery_beat",  # Celery 定时任务扩展
     "django_celery_results",  # # Celery 定时任务扩展
     "channels",  # Channels WebSocket功能
-    # "corsheaders",  # CORS 跨域支持
+    "corsheaders",  # CORS 跨域支持
     "captcha",  # 验证码
     "myapp_system",
     "myapp_infra",
@@ -39,7 +39,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",  # I18N多语言支持，注意放置顺序
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
