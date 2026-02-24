@@ -112,6 +112,12 @@ MarsMgn 火星信息平台，基于 Django + DRF + Vue3 + Element Plus 实现的
 
 
 
+##  MarsMgn的其他明星项目
+
+- [RAG从入门到实战](https://gitee.com/zhulj993/rag-guide) - 专注RAG教程，提供企业级RAG项目实战
+
+
+
 
 ## 演示图
 
